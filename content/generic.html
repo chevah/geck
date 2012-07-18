@@ -1,0 +1,109 @@
+---
+page_title: Generic guides for all languages
+---
+
+..  contents::
+
+General
+=======
+
+* All comments should be valid sentences and should end with a full stop (.).
+
+* Don't use abbreviation. Use full, meaningful names.
+
+* Don't use tabs for indentation, and in general don't use tabs for anything else. The only exceptions are the Makefiles.
+
+* Indent using 4 spaces.
+
+* Maximum line length is 78 characters. This will allow quoting code without exceeding 80 characters length.
+
+* A logging messages should only be called from a single place.
+  This will avoid creating conflicts between logging messages.
+
+  * If a logging message should be issued from multiple places, move the
+    logging call into a dedicated method
+
+  * Components should not issue logging messages that are outside of
+    theirs scope, but rather use exceptions to pass the log informations.
+
+  * If there are no other options, rather than directly issuing a logging
+    message, the component should call a function located in the component
+    that 'owns' the log ID that will issue the log.
+
+* All branches will need to use the following convention: 
+  ``TICKETNO-SHORT_DESCRIPTION``. By having a reference to a ticket, it will
+  be much easier to track and keep a record of branch purpose and its
+  development. 
+
+Example::
+
+    447-add_sqlite_log
+
+
+Merge commit message
+====================
+
+We would like to have a clean commit log on the main development branch.
+
+We plan to use merge commit messages  to create the changelog/release notes
+which are published to the user community. By spending an extra minute
+crafting a good message, you can help the creator of the release notes
+in getting a better job, faster.
+
+This is why a merge should have a standard commit message, in the format::
+
+   [#1234][type] Summary of changes for this branch
+   
+    * Description of a subchange, and in case it is longer
+     should span across multiple lines
+    * Description of another subchange.
+
+Below is a description for each field:
+
+ * #1234 is the ticket number for this branch. It is used to get more details about branch work and review. 
+
+ * then comes the ticket type.
+
+   * It is imporant for the changelog as some customers will only care about security changes.
+   * If we don't want to have this message in the changelog files, set the type to **task**.
+   * Here are the available types: 
+
+     * feature - new features added to the products.
+     * defect - fixing existing features.
+     * security - security fixes of existing features.
+     * task - changes that should not appear in the changelog.
+
+ * The branch summary should be on a single line and should be under 50 characters.
+
+ * The branch description starts with an empty line and then it can contain any valid RST code. It is recommended to keep the content as a list.
+
+  * Writing Good PQM Messages
+
+    * Describe what impact the change will have on users. What will the users notice?
+
+      * "Users now can X"
+      * "It is no longer possible to do Y"
+      * "The text on the ABC form is now Z" (e.g. "reworded to be gender neutral")
+
+    * If the above isn't clear enough for "Joe User" to understand, explaining the background to the change can be helpful, by adding in "Previously, X used to do Y". For example:
+
+     * "Previously, users were unable to upload files to a folder if they had write permissions."
+
+
+Small Merge Requests
+====================
+
+We would like to have many small merge requests, because the bigger they get, the more costly they are - now and in the future.
+
+One merge request should do one thing only.
+
+Feel free to submit as many merge request as you can. We have a problem with the size of a merge request, not with their number :)
+
+Some reasons for keeping the merge requests small:
+
+ * Large patches are much more likely to do many things
+ * It's harder to understand them
+ * It's harder to review them
+ * It's harder to inspect the main branch to find the merge that introduced a bug
+ * It's more likely to break the build
+ * It's harder to cherry pick code for backporting / supporting old releases

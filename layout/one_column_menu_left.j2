@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+{% include "head.j2" %}
+
+<body>
+
+{% include "header.j2" %}
+
+    <div class="main">
+
+      {% include "sidemenu.j2" %}
+
+      <article role="main">
+        <header>
+          <h1>{{ resource.meta.page_title }}</h1>
+        </header>
+
+        {% filter restructuredtext -%}
+        {% block content %}{% endblock %}
+        {%- endfilter %}
+      </article>
+    </div>
+
+  {% include "footer.j2" %}    
+    
+  </body>
+</html>

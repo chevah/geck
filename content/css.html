@@ -1,0 +1,180 @@
+---
+page_title: CSS and Styling
+---
+
+.. contents::
+
+
+The CSS Coding conventions are inspired by [http://www.phpied.com/css-coding-conventions/ Stoyan Stefanov's CSS Coding Conventions] 
+
+Many of them are automatically checked using pocket-lint that now included
+the CSS Coding Convention Checker.
+Please report any problems that you have with running ``paver lint`` or
+if some errors are not identified by ``paver lint``
+
+
+CSS Syntax Elements
+===================
+
+When describing the CSS rules, we will use the following terminology.
+
+.. image:: http://www.w3schools.com/css/selector.gif
+
+
+General
+=======
+
+* Use C++ comments style (/* comment here \*/) and not C style (//) as they
+  are not supported by CSS2 and there are problems in some browsers.
+* Use percentage(%) or ``em`` for font size. Don't use ``px``.
+* Avoid using short CSS notation, except for ''border'' property.
+* Avoid using IDs when defining styles as they discourage style reuse...
+  and then you risk to repeat yourself.
+* Put general styles in ''styles.css'' and don't put page specific styles.
+* Page specific styles can be included using a different file.
+* Use upper letter for color HEX code. Good #F9A0C5 , BAD #f9a0c5
+* Don't use color names, just HEX code. 
+* Use 4 space indentation.
+* End a property-value with semi-colon.
+
+
+CSS Class naming
+================
+
+* The most important thing to have in mind is the content nature of the
+  HTML document, not its presentation. Selector names should describe the
+  content semantic and ``not how it looks``.
+* Don't use abbreviation. Use 'header' instead of 'hdr' or 'head'.
+* Avoid presentation-specific words in the name,
+  like ``blue``, ``text-gray``, or ``light-box``.
+* Add namespaces using a dash (-) as a separator. 
+* Distinct words in the class name are separated by a dash. 
+* Names are lowercase.
+
+
+Rules definition
+================
+
+The property will be followed by colons and then a space.
+
+Good::
+
+    .some_class {
+        color: red;
+    }
+
+
+Bad::
+
+    .some_class {
+        color:red;
+    }
+
+Put each selector on a single line and separate them using comma. In this was it is easier to see the selector when using multiple selectors.
+
+Good::
+
+    .some_class,
+    p a.class {
+        color: red;
+    }
+
+Bad::
+
+    .some-class, p a.class {
+        color: red;
+    }
+
+
+* Add one empty line between related styles.
+
+Good::
+
+    .some-class {
+        color: red;
+    }
+
+    .another-class {
+        color: red;
+    }
+
+Bad::
+
+    .some-class {
+        color: red;
+    }
+    .another-class {
+        color: red;
+    }
+
+* The closing bracket should be the only character from a line.
+  It should be indented.
+
+Good::
+
+  .some-class {
+      color:red;
+      }
+
+Bad::
+
+    .some-class
+    {
+        color: red;
+    }
+
+    .some-class {
+        color: red; }
+
+    .some-class, .another { color: red; }
+
+* The opening bracket should be on a the same line as the last selector.
+
+Good::
+
+    .some-class {
+        color:red;
+    }
+
+    .some-class,
+    .another-class {
+        color: red;
+    }
+
+Bad::
+
+    .some-class
+    {
+        color: red;
+    }
+
+
+Layout and Typography separation
+================================
+
+* Don't put typography properties in the same rule with layout properties 
+* The idea it that when you change or remove a typographic rule, the layout will not be affected.
+* Use this with moderation, sometimes it is ok to set a margin or padding for H1 or P tag... but don't abuse this.
+
+GOOD::
+
+    product-name {
+        font-style: underline:
+        color: red;
+        }
+
+    highlighted-box {
+        float: center;
+        width: 30px;
+        background-color: blue;
+        }
+
+BAD::
+
+    product-name {
+        font-style: underline:
+        color: red;
+        float: center;
+        width: 30px;
+        background-color: blue;
+        }

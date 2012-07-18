@@ -1,0 +1,91 @@
+---
+page_title: JavaScript
+---
+
+.. contents::
+
+General
+=======
+
+* Variable declarations must start with 'var'.
+
+* All JS expressions must end with a semi-colon.
+
+* Use 2 space identation.
+
+* Variable, function, method and constants name are after PEP8.
+  variable_name, function_name, methodName, ClassName, CONSTANT_NAME
+
+* Callback methods should always end with 'Callback' as the
+  method/function name. This is a remender of the fact that
+  the context is lost.
+
+* use ``===`` instead of ``==`` for comparison as ``===`` doesn't do type
+  coercion (except when you explicitly want it) as == is very, very, broken
+
+* never pass around dom objects if you can avoid it - use jquery wrapped
+  dom nodes instead.
+
+* Use single quote for strings
+
+Example::
+
+    In HTML, we use " as quotes around attribute values, like this:
+
+    <a href="foo">bar</a>
+    In JavaScript, we use ' as much as possible.
+
+    alert('qux');
+    This way, we can use consistent quotes when writing HTML inside of JS:
+
+    alert('<a href="foo">bar</a>');
+
+
+TODO
+http://javascript.crockford.com/code.html http://jibbering.com/faq/notes/code-guidelines/ http://neil.rashbrook.org/Js.htm
+
+
+CSS interaction
+===============
+
+
+JS related CSS class
+--------------------
+
+Try to append js- to all javascript-based selectors. This is taken from
+`slightly obtrusive javascript`_. The idea is that you should be able to tell
+a presentational class from a functional class.
+
+There are good things and bad things about "Unobtrustive JavaScript."
+One bad thing: it's hard to tell what JavaScript is touching an element.
+
+Only ever use classes and ids prefix with js- when touching the DOM with
+JavaScript.
+
+For example::
+
+    <a href="#prices class="button js-open-tab">Prices</a>
+
+Now we know to look for any JavaScript touching .js-open-tab, which should
+only be a simple search away.
+
+And hey, now JavaScript and CSS won't share selectors. Since we're separating
+our content and presentation, we might as well separate our behavior all the
+way too.
+
+.. _slightly obtrusive javascript: http://ozmm.org/posts/slightly_obtrusive_javascript.html
+
+
+Changing CSS/HTML from JS
+-------------------------
+
+Don't modify the associated CSS properties, but rather modify the CSS class::
+
+   GOOD: $('#element_id').addClass('highlight');
+   BAD : $('#element_id').css('font-weight': 'bold');
+
+Same story as with CSS, don't modify HTML tag attributes, but rather try to change the CSS class::
+
+    GOOD: $('#element_id').addClass('sprite red_dot');
+    BAD : $('#element_id').attr('src': 'some/red_dot.png');
+

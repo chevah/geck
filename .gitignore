@@ -1,0 +1,8 @@
+DEFAULT_VALUES
+build-*
+*.sublime-project
+*.sublime-workspace
+*.pyc
+pavement_lib.py
+.hyde_deps
+deploy/*

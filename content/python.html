@@ -1,0 +1,109 @@
+---
+page_title: Python
+---
+
+.. contents::
+
+
+General
+=======
+
+* For python we have pocket-lint that checks for PEP8 and some other things.
+
+* `Python PEP 8 <http://www.python.org/dev/peps/pep-0008/>`_ 
+  **Python base code style guide**.
+
+* Lines with 78 characters.
+
+* When adding pylint exception, always add a comment explaining the reason why the exception was added
+
+* Use named parameters for calling methods. This will reduce future refactoring effort.
+
+* If a method or class initialization/constructor method has more than 1 argument always use named parameters for calling that method.
+
+* Strings are in single quotes. This will make it easier to generated quoted
+  text for UI or HTML.
+
+YES::
+
+    other_var = 'string'
+    some_var = 'string "b" yes'
+
+NO::
+
+    other_bad = "string"
+    some_bad = "string 'b' yes" 
+
+
+Imports
+=======
+
+* Imports should be called at the start of each module, the only exception is
+  allowd for avoiding circular imports.
+
+* There is one empty line between the import block and module comment.
+
+* The imports blocks are separated by one empty line.
+
+* They will be arranged in 3 major blocks:
+
+ * The first one is for importing from Python standard modules.
+ * The second from modules outside of the project.
+ * The last for modules belonging to the project.
+
+* Chevah projects have a 'chevah.common' package which will be imported first
+  in the list of project modules.
+
+* The ``from __future__ import with_statement`` and
+  ``from chevah.commons import __future__`` will be placed on top of the
+  file, just after the module comment, with a space. It will be the first
+  import from the standard library.
+
+* In each block the modules are sorted in alphabetical order, case-insensitive.
+
+* When importing multiple members of a module, if the don't exceed the 78
+  characters limit, they will be listed on the same line
+
+* When importing multiple members of a module, and they exceed the 78
+  characters limit, they will be listed as a list, with each member on a
+  line ending with comma.
+
+A good example::
+
+    # Copyright (c) 2010 Adi Roiban.
+    # See LICENSE for details.
+    '''Sample module for demonstrating imports coding conventions.'''
+
+    from __future__ import with_statement
+    from optparse import OptionParser
+    import logging
+    import os
+    import sys
+    import time
+    import types
+
+    from OpenSSL import crypto
+    from twisted.web import server
+    import simplejson as json
+
+    from chevah.commons.utils.constants import (
+        DEFAULT_KEY_SIZE,
+        DEFAULT_KEY_TYPE,
+        DEFAULT_PUBLIC_KEY_EXTENSION,
+        )
+    from chevah.commons.utils.exceptions import OperationalException
+    from chevah.commons.utils.crypto import Key
+    from chevah.commons.utils.helpers import (
+        _,
+        log_add_default_handlers,
+        open_local_admin_webpage,
+        )
+    from chevah.server.commons.configuration import (
+        ApplicationConfiguration,
+        )
+    from chevah.server.commons.constants import (
+        CONFIGURATION_SERVER_FILE,
+        CONFIGURATION_PID_FILE,
+        PRODUCT_NAME,
+        )
+    from chevah.server.commons.process import ChevahTwistedProcess

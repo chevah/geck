@@ -1,0 +1,114 @@
+---
+page_title: Bash and shell scripting
+---
+
+..  contents::
+
+General
+-------
+
+* Use uppercase for all GLOBAL variables.
+
+
+Path constants
+--------------
+
+
+When defining the path to a folder as a constant, you should not include the
+trailing slash.
+Most commands will work if a path contain 2 slashes, but it is best to have
+a convention.
+
+We should use::
+
+    SOME_PATH=/some/path
+    # and a usage like:
+    command ${SOME_PATH}/some.file
+
+Instead of::
+
+    SOME_PATH=/some/path/
+    # and a usage like:
+    command ${SOME_PATH}some.file
+
+We should have
+REMOTE_URI=chevah@chevah.com:/home/chevah/styleguide.chevah.com/vm
+and
+scp ${REMOTE_URL}/file.sh
+
+
+Function Definition
+-------------------
+
+Leave 2 blank lines between function definitions and always use ``local`` for
+local variable declaration.::
+
+    #
+    # Description of function 1
+    #
+    function1 () {
+        local variable_which_is_local
+        local variable_1
+
+        echo $variable_which_is_local
+    }
+
+
+    #
+    # Description of function 2
+    #
+    function2 () {
+        code here
+    }
+
+
+Case Syntax
+-----------
+
+Example::
+
+    case "$VARIABLE_NAME" in
+        "option1")
+            do specific
+            ;;
+        option*)
+            do generic
+            ;;
+        *)
+            do default
+            ;;
+    esac
+
+
+IF/THEN/ELSE
+------------
+
+Example::
+
+    if TEST ; then
+        call something
+    elif OTHER_TEST ; then
+        call elseif
+    else
+        call else
+    fi
+
+
+FOR
+---
+
+Example::
+
+    for CONDITION ; do
+        call something
+    done
+
+
+WHILE/UNTIL
+-----------
+
+Example::
+
+    while TETS ; do
+        call something
+    done
