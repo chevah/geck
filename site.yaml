@@ -38,6 +38,8 @@ context:
               url: /css.html
             - name: Bash
               url: /bash.html
+            - name: References
+              url: /references.html
         site_info:
             name: Chevah StyleGuide
             favicon_png: img/favicon.png

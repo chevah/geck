@@ -1,9 +1,6 @@
-# Copyright (c) 2011 Adi Roiban.
 # See LICENSE for details.
 '''
-Build script for Chevah Commons component.
-
-It should work on all operating system, including Windows.
+Build script for Chevah StyleGuide website.
 '''
 from __future__ import with_statement
 import sys
@@ -16,7 +13,7 @@ from pavement_lib import (
     )
 from paver.easy import needs, pushd, task
 
-# Workaround lint
+# Workaround for lint
 default
 help
 
