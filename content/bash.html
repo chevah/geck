@@ -7,6 +7,9 @@ page_title: Bash and shell scripting
 General
 -------
 
+* Bash scripts should be kept at a minimum and **only** for internal scripts.
+* All public scripts should use ``sh``. Bash is not available on all Unix
+  systems and ksh or other shells are not compatible with Bash syntax.
 * Use uppercase for all GLOBAL variables.
 
 
@@ -65,7 +68,7 @@ local variable declaration.::
 Case Syntax
 -----------
 
-Example::
+::
 
     case "$VARIABLE_NAME" in
         "option1")
@@ -83,7 +86,7 @@ Example::
 IF/THEN/ELSE
 ------------
 
-Example::
+::
 
     if TEST ; then
         call something
@@ -97,7 +100,7 @@ Example::
 FOR
 ---
 
-Example::
+::
 
     for CONDITION ; do
         call something
@@ -107,7 +110,7 @@ Example::
 WHILE/UNTIL
 -----------
 
-Example::
+::
 
     while TETS ; do
         call something
