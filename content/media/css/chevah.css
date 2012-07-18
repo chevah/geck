@@ -340,10 +340,6 @@ pre {
   font-size: 1em;
   padding: 15px;
   margin-right: 5px;
-  white-space: pre;
-  white-space: pre-wrap;
-  white-space: pre-line;
-  word-wrap: break-word;
   -webkit-box-shadow: 2px 2px 2px 0px #d4d4d4;
   -moz-box-shadow: 2px 2px 2px 0px #d4d4d4;
   box-shadow: 2px 2px 2px 0px #d4d4d4; }
