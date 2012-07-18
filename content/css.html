@@ -1,5 +1,5 @@
 ---
-page_title: CSS and Styling
+page_title: CSS, LESS and Styling
 ---
 
 .. contents::
@@ -36,6 +36,8 @@ General
 * Don't use color names, just HEX code. 
 * Use 4 space indentation.
 * End a property-value with semi-colon.
+* Separate each rule by a blank line.
+* Put unrelated rule in different files.
 
 
 CSS Class naming
@@ -85,27 +87,6 @@ Bad::
         float: center;
     }
 
-
-* Add one empty line between related styles.
-
-Good::
-
-    .some-class {
-        float: center;
-    }
-
-    .another-class {
-        float: center;
-    }
-
-Bad::
-
-    .some-class {
-        float: center;
-    }
-    .another-class {
-        float: center;
-    }
 
 * The closing bracket should be the only character from a line.
   It should be indented.

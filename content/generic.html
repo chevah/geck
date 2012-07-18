@@ -7,15 +7,27 @@ page_title: Generic guides for all languages
 General
 =======
 
-* All comments should be valid sentences and should end with a full stop (.).
+* All code in any code-base should look like a single person typed it, no
+  matter how many people contributed.
+
+* Write all code as it will be written once and read thousand times.
+
+* Write code for maxium readability.
+
+* Optimization should come second and only if really needed. Don't Use clever
+  tricks and other optimization to early.
 
 * Don't use abbreviation. Use full, meaningful names.
 
-* Don't use tabs for indentation, and in general don't use tabs for anything else. The only exceptions are the Makefiles.
+* Don't use tabs for indentation, and in general don't use tabs for anything
+  else. The only exceptions are the Makefiles.
 
 * Indent using 4 spaces.
 
-* Maximum line length is 78 characters. This will allow quoting code without exceeding 80 characters length.
+* Maximum line length is 78 characters. This will allow quoting code without
+  exceeding 80 characters length.
+
+* Don't mix multiple languages in a single file.
 
 * A logging messages should only be called from a single place.
   This will avoid creating conflicts between logging messages.
@@ -38,6 +50,22 @@ General
 Example::
 
     447-add_sqlite_log
+
+
+Comments
+========
+
+* All comments should be valid sentences and should end with a full stop (.).
+
+* Well commented code is extremely important. Take time to describe
+  components, how they work, their limitations, and the way they are
+  constructed. Don't leave others in the team guessing as to the purpose
+  of uncommon or non-obvious code.
+
+* Place comments on a new line above their subject.
+
+* Avoid end of line comments. End of line comments can be used for lint
+  ignores and other hints for automated tools... but not for humans.
 
 
 Merge commit message
