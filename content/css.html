@@ -60,14 +60,14 @@ The property will be followed by colons and then a space.
 Good::
 
     .some_class {
-        color: red;
+        float: center;
     }
 
 
 Bad::
 
     .some_class {
-        color:red;
+        float:center;
     }
 
 Put each selector on a single line and separate them using comma. In this was it is easier to see the selector when using multiple selectors.
@@ -76,13 +76,13 @@ Good::
 
     .some_class,
     p a.class {
-        color: red;
+        float: center;
     }
 
 Bad::
 
     .some-class, p a.class {
-        color: red;
+        float: center;
     }
 
 
@@ -91,20 +91,20 @@ Bad::
 Good::
 
     .some-class {
-        color: red;
+        float: center;
     }
 
     .another-class {
-        color: red;
+        float: center;
     }
 
 Bad::
 
     .some-class {
-        color: red;
+        float: center;
     }
     .another-class {
-        color: red;
+        float: center;
     }
 
 * The closing bracket should be the only character from a line.
@@ -113,39 +113,39 @@ Bad::
 Good::
 
   .some-class {
-      color:red;
+      float: center;
       }
 
 Bad::
 
     .some-class
     {
-        color: red;
+        float: center;
     }
 
     .some-class {
-        color: red; }
+        float: center; }
 
-    .some-class, .another { color: red; }
+    .some-class, .another { float: center; }
 
 * The opening bracket should be on a the same line as the last selector.
 
 Good::
 
     .some-class {
-        color:red;
+        float: center;
     }
 
     .some-class,
     .another-class {
-        color: red;
+        float: center;
     }
 
 Bad::
 
     .some-class
     {
-        color: red;
+        float: center;
     }
 
 
