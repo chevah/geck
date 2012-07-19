@@ -40,6 +40,8 @@ context:
               url: /css.html
             - name: Bash
               url: /bash.html
+            - name: Review
+              url: /review.html
             - name: Library
               url: /library.html
             - name: References
@@ -49,7 +51,7 @@ context:
             favicon_png: img/favicon.png
             favicon_ico: img/favicon.ico
         author:
-            name: Chevah Web Team
+            name: Chevah Project
             url: http://www.chevah.com
             email: contact@chevah.com
             code_url: https://github.com/chevah/styleguide

@@ -1,0 +1,158 @@
+---
+page_title: Changes review
+---
+
+This page discuss the code/changes review process as both the person
+who reqests a reviewer and a person who checks a review.
+
+..  contents::
+
+
+For person requesting a review
+==============================
+
+
+* Once a task/ticket is done, it should be submitted for review.
+* **All** changes should be reviewed prior to be merged into main code or
+  released.
+
+* For Trac: To mark a ticket as requiring review, set the state to 'needs_review'.
+  (**don't use keywords**, we are using a strict ticket workflow so use
+  the ticket action form).
+* For GitHub: Create a **Pull request**.
+
+
+Review request message
+----------------------
+
+When submitting a ticket for review, the review request should contain the
+followings message (added to the ticket description)::
+
+    {{ '{{{' }}
+    #!rst
+    [type] Merge commit message.
+
+    Problem description
+    ===================
+
+    Describe the problem that these changes wants to solve.
+    This can be filled when a ticket is submitted and just link to the
+    ticket or copy paste the text... or start from a copy of the ticket.
+
+
+    Changes description
+    ===================
+
+    Describe how the problem was fixed.
+    What changes were done.
+    What actions were performed.
+
+
+    How to try and test the changes
+    ===============================
+
+    What code/repositories were affected. Where is the code.
+    A list of automated tests related to this changes.
+    How the changes can be tested and verified.
+    A list of steps to follow for checking that everything is OK.
+    {{ '}}}' }}
+
+* Merge commit message is only required for changes related to a code
+  that needs to be merged. All other changes can ignore it. 
+
+* **[type]** is the type of merge request. It can be: *bug* or *task*.
+  Bug is used for all defects and task for all other changes: new-features,
+  cleanup, refactor..etc
+
+
+Small Merge Requests
+--------------------
+
+* Ideally you will have many small merge requests, because the bigger they
+  get, the more costly they are - now and in the future.
+
+* One merge request should do one thing only.
+
+* Feel free to submit as many merge request as you can. There is a problem
+  with the size of a merge request, not with their number :)
+
+* Some reasons for keeping the merge requests small:
+
+  * Large changes are much more likely to do many things.
+  * It's harder to understand them.
+  * It's harder to review them.
+  * It's harder to inspect the main branch to find the merge that.
+    introduced a bug.
+  * It's more likely to break the build.
+  * It's harder to cherry pick code for backporting / supporting old releases.
+
+
+Merge commit message
+--------------------
+
+We would like to have a clean commit log on the main development branch.
+
+We plan to use merge commit messages  to create the changelog/release notes
+which are published to the user community. By spending an extra minute
+crafting a good message, you can help the creator of the release notes
+in getting a better job, faster.
+
+This is why a merge should have a standard commit message, in the format::
+
+   [#1234][type] Summary of changes for this branch
+   
+    * Description of a subchange, and in case it is longer
+     should span across multiple lines
+    * Description of another subchange.
+
+Below is a description for each field:
+
+ * #1234 is the ticket number for this branch. It is used to get more details
+   about branch work and review. 
+
+ * then comes the ticket type.
+
+   * It is imporant for the changelog as some customers will only care about
+     security changes.
+   * If we don't want to have this message in the changelog files, set the
+     type to **task**.
+   * Here are the available types: 
+
+     * feature - new features added to the products.
+     * defect - fixing existing features.
+     * security - security fixes of existing features.
+     * task - changes that should not appear in the changelog.
+
+ * The branch summary should be on a single line and should be under 50
+   characters.
+
+ * The branch description starts with an empty line and then it can contain
+   any valid RST code. It is recommended to keep the content as a list.
+
+  * Writing good merge request messages:
+
+    * Describe what impact the change will have on users. What will the
+      users notice?
+
+      * "Users now can X"
+      * "It is no longer possible to do Y"
+      * "The text on the ABC form is now Z"
+        (e.g. "reworded to be gender neutral")
+
+    * If the above isn't clear enough for "Joe User" to understand,
+      explaining the background to the change can be helpful, by adding in
+      "Previously, X used to do Y". For example:
+
+     * "Previously, users were unable to upload files to a folder if they
+       had write permissions."
+
+
+For person checking changes
+===========================
+
+* If the work is good, you can request the code to be merged by the author
+  by setting the state to needs_merge.
+* If no merge is required you can close the ticket as solved.
+* If changes are required, you remove the 'needs-review' state and assign the
+  ticket to the person who can make the required changes so that the work
+  can be ready for another review.
