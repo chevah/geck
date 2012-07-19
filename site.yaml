@@ -26,8 +26,10 @@ context:
         contact: contact.yaml
     data:
         pages:
-            - name: Generic
+            - name: Overview
               url: /index.html
+            - name: Generic
+              url: /generic.html
             - name: Python
               url: /python.html
             - name: HTML/XML
@@ -38,6 +40,8 @@ context:
               url: /css.html
             - name: Bash
               url: /bash.html
+            - name: Library
+              url: /library.html
             - name: References
               url: /references.html
         site_info:
