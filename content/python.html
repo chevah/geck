@@ -32,11 +32,15 @@ YES::
 NO::
 
     other_bad = "string"
-    some_bad = "string 'b' yes" 
+    some_bad = "string 'b' yes"
+
+
+Project specific
+================
 
 
 Imports
-=======
+-------
 
 * Imports should be called at the start of each module, the only exception is
   allowd for avoiding circular imports.
@@ -47,9 +51,9 @@ Imports
 
 * They will be arranged in 3 major blocks:
 
- * The first one is for importing from Python standard modules.
- * The second from modules outside of the project.
- * The last for modules belonging to the project.
+  * The first one is for importing from Python standard modules.
+  * The second from modules outside of the project.
+  * The last for modules belonging to the project.
 
 * Chevah projects have a 'chevah.common' package which will be imported first
   in the list of project modules.
