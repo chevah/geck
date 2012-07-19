@@ -572,11 +572,11 @@ header[role=banner] {
       background: url(../img/chevah-logo.png) no-repeat 0 15px; }
   header[role=banner] h2 {
     color: #fff;
-    font-size: 12px;
+    font-size: 32px;
     width: 80px;
     position: absolute;
-    right: 0;
-    top: 10px; }
+    left: 180px;
+    top: 20px; }
 
 /*
  * Navigation

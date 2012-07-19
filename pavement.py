@@ -11,7 +11,7 @@ from pavement_lib import (
     pave,
     help,
     )
-from paver.easy import needs, pushd, task
+from paver.easy import needs, pushd, task, consume_args
 
 # Workaround for lint
 default
@@ -50,7 +50,7 @@ def deps():
 def build():
     '''Build the static files.'''
     pave.execute([
-        python_27, hyde_path, 'gen', '-r',
+        python_27, hyde_path, '-v', 'gen', '-r',
         '-c' 'site.yaml',
         '-d', deploy_path,
         ],
@@ -67,6 +67,15 @@ def run():
         '-d', deploy_path,
         ],
         output=sys.stdout)
+
+
+@task
+@consume_args
+def hyde(args):
+    '''Executes the hyde command.'''
+    command = [python_27, hyde_path]
+    command.extend(args)
+    pave.execute(command, output=sys.stdout)
 
 
 @task
