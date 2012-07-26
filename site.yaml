@@ -67,3 +67,6 @@ meta:
     nodemeta: meta.yaml
     default_block: content
     extends: one_column_menu_left.j2
+
+restructuredtext:
+    highlight_source: true

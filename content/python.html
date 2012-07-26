@@ -13,23 +13,45 @@ General
 * `Python PEP 8 <http://www.python.org/dev/peps/pep-0008/>`_ 
   **Python base code style guide**.
 
-* Lines with 78 characters.
+* Docstring always using multiline strings with double quotes.
 
-* When adding pylint exception, always add a comment explaining the reason why the exception was added
+.. sourcecode:: python
 
-* Use named parameters for calling methods. This will reduce future refactoring effort.
+    def some_function(argument):
+      """Single line docstring."""
 
-* If a method or class initialization/constructor method has more than 1 argument always use named parameters for calling that method.
+    def other_function(argument):
+      """
+      Quick explanation of the function.
+
+      More details to follow in long paragraphs.
+      """
+
+
+* Lines at 78 characters.
+
+* When adding linter exception, always add a comment explaining the reason
+  why the exception was added.
+
+* Use named parameters for calling methods. This will reduce future
+  refactoring effort.
+
+* If a method or class initialization / constructor method has more than 1
+  argument always use named parameters for calling that method.
 
 * Strings are in single quotes. This will make it easier to generated quoted
   text for UI or HTML.
 
-YES::
+YES
+
+.. sourcecode:: python
 
     other_var = 'string'
     some_var = 'string "b" yes'
 
-NO::
+NO
+
+.. sourcecode:: python
 
     other_bad = "string"
     some_bad = "string 'b' yes"
@@ -43,7 +65,7 @@ Imports
 -------
 
 * Imports should be called at the start of each module, the only exception is
-  allowd for avoiding circular imports.
+  allowed for avoiding circular imports.
 
 * There is one empty line between the import block and module comment.
 
@@ -74,11 +96,11 @@ Imports
 
 A good example::
 
-    # Copyright (c) 2010 Adi Roiban.
+    # Copyright (c) YEAR Your Name.
     # See LICENSE for details.
-    '''Sample module for demonstrating imports coding conventions.'''
-
+    """Sample module for demonstrating imports coding conventions."""
     from __future__ import with_statement
+
     from optparse import OptionParser
     import logging
     import os
