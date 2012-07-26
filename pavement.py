@@ -50,7 +50,7 @@ def deps():
 def build():
     '''Build the static files.'''
     pave.execute([
-        python_27, hyde_path, '-v', 'gen', '-r',
+        python_27, hyde_path, 'gen', '-r',
         '-c' 'site.yaml',
         '-d', deploy_path,
         ],
