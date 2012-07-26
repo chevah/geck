@@ -23,13 +23,17 @@ trailing slash.
 Most commands will work if a path contain 2 slashes, but it is best to have
 a convention.
 
-We should use::
+We should use:
+
+.. sourcecode:: bash
 
     SOME_PATH=/some/path
     # and a usage like:
     command ${SOME_PATH}/some.file
 
-Instead of::
+Instead of:
+
+.. sourcecode:: bash
 
     SOME_PATH=/some/path/
     # and a usage like:
@@ -45,7 +49,9 @@ Function Definition
 -------------------
 
 Leave 2 blank lines between function definitions and always use ``local`` for
-local variable declaration.::
+local variable declaration.
+
+.. sourcecode:: bash
 
     #
     # Description of function 1
@@ -69,7 +75,7 @@ local variable declaration.::
 Case Syntax
 -----------
 
-::
+.. sourcecode:: bash
 
     case "$VARIABLE_NAME" in
         "option1")
@@ -87,7 +93,7 @@ Case Syntax
 IF/THEN/ELSE
 ------------
 
-::
+.. sourcecode:: bash
 
     if TEST ; then
         call something
@@ -101,7 +107,7 @@ IF/THEN/ELSE
 FOR
 ---
 
-::
+.. sourcecode:: bash
 
     for CONDITION ; do
         call something
@@ -111,7 +117,7 @@ FOR
 WHILE/UNTIL
 -----------
 
-::
+.. sourcecode:: bash
 
     while TETS ; do
         call something
