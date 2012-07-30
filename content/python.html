@@ -18,7 +18,9 @@ General
 .. sourcecode:: python
 
     def some_function(argument):
-      """Single line docstring."""
+      """
+      Single line docstring.
+      """
 
     def other_function(argument):
       """
@@ -27,8 +29,19 @@ General
       More details to follow in long paragraphs.
       """
 
+* All functions, methods and test methods will have docstrings.
 
-* Lines at 78 characters.
+* Tests methods will be prefixed with ``test_``.
+
+* Tests from docstring should state what is the expected behavior based on
+  test's input.
+
+.. sourcecode:: python
+
+    def test_methodName(self):
+      """
+      When doing this `methodName` will raise an AssertionError.
+      """
 
 * When adding linter exception, always add a comment explaining the reason
   why the exception was added.
