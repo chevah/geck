@@ -60,11 +60,6 @@ Comments
 Project specific
 ================
 
-* Each user configuration options should be documentented,
-  listing valid values, place where the configuration is located,
-  introduction version, version since it was obsolete,
-  together with a description of the purpose and effect.
-
 * Each log message should be documented, listing format, introduction version,
   version since it was obsolete, log type, conditions in which it is raised
   and other informations that can be useful for users.
@@ -96,3 +91,34 @@ Project specific
 Example::
 
     447-add_sqlite_log
+
+* Each user configuration options should be documentented,
+  listing valid values, place where the configuration is located,
+  introduction version, version since it was obsolete,
+  together with a description of the purpose and effect.
+
+* Configuration options will be documented using the following format. Please
+  note the order in which fields are defined, the name of the fiels and the
+  format for declaring possibile values. All fields should be present, and
+  if no value is defined, use 'None' or leave it blank.
+
+::
+
+  log_file
+  --------
+
+  :Optional: Yes
+  :Default value: log/server.log
+  :Values: * some value
+           * other value - short descriptionf or this value.
+           * yet another value
+  :Available from version: 1.6.0
+  :Available up to version: None
+  :Description:
+      This is the long description of the configuration option. It can
+      span multiple lines.
+
+      It can also span multiple paragraph.
+
+      This should be the place to describe in details available values
+      that can be set.
