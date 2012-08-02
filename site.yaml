@@ -36,7 +36,7 @@ context:
               url: /html.html
             - name: JavaScript
               url: /javascript.html
-            - name: CSS
+            - name: LESS and CSS
               url: /css.html
             - name: Bash
               url: /bash.html
