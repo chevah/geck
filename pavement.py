@@ -24,7 +24,8 @@ deploy_path = _p([pave.path.build, 'deploy'])
 
 @task
 def deps():
-    pave.copyDefaultBuildtimeDeps()
+    pave.installRunDependencies()
+    pave.installBuildDependencies()
     pave.execute([
         'virtualenv', '-p', '/usr/bin/python2.7', pave.path.build],
         output=sys.stdout,
