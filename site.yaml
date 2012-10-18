@@ -40,7 +40,9 @@ context:
               url: /css.html
             - name: Bash
               url: /bash.html
-            - name: Review
+            - name: Testing
+              url: /testing.html
+            - name: Reviews
               url: /review.html
             - name: Library
               url: /library.html

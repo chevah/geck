@@ -1,0 +1,134 @@
+---
+page_title: Testing
+---
+
+.. contents::
+
+Writing tests is an important part of development job.
+
+
+Types of tests
+==============
+
+Tests can be placed in many categories according to various criteria.
+
+Below is an attempt identify various types of tests based on their interaction
+with other code / systems.
+
+
+Unit testing
+------------
+
+This is the less controversial type of tests, and people usually know what
+unit tests are.
+
+Test for single method or functions. The tests should use only data from
+memory for both input and output.
+
+
+Integration testing
+-------------------
+
+These are the tests which takes what was tested using unit tests (functions,
+methods) and combine / integrate them in bigger tests for whole module or
+for module interactions.
+
+They should also use only data from memory.
+
+
+System testing
+--------------
+
+These are the tests for the final product. All modules are put together just
+like in real life system.
+
+There are black box testing.
+
+They will read actual input just like the real life application and will
+produce actual results.
+
+Sometimes reading and writing actual input can slow tests, so for performance
+reasons, some system tests also read and write data in memory, but the format
+used is more close to the one used in real life.
+
+
+Developing using test
+=====================
+
+The execution of a test should not have any side effect, and tests can be
+executed in random order.
+
+Tests should have no side effect. You can run the tests in any order.
+
+Put all code that initialize the environment either in setUp, or if the
+code is used only a few tests, put it in a dedicated function.
+
+Group multiple / related calls into dedicated functions. Give that function
+a easy to read name. Try to create a Domain Specific Language for your tests.
+
+
+.. sourcecode:: python
+
+    class MyTest(TestCase):
+        """
+        Some tests for my super rocket.
+        """
+
+        def test_user_rename(self):
+            """
+            Users can be renamed just by calling rename() on the user object.
+
+            Ugly initialization code.
+            """
+            username = factory.makeUsername()
+            new_username = factory.makeUsername()
+            configuration = factory.makeSuperConfiguration()
+            configuration.addUser(username)
+            user = configuration.getUser(username)
+            user.enabled = True
+
+            user.rename(new_username)
+
+            self.assertTrue(configuration.userExists(new_username))
+            self.assertFalse(configuration.userExists(username))
+
+        def makeUser(self, username, configuration=None):
+            """
+            Return a new username created for `configuration`.
+
+            If `configuration` is `None` it will use a new configuration.
+            """
+            if configuration is None:
+                configuration = factory.makeSuperConfiguration()
+            configuration.addUser(username)
+            user = configuration.getUser(username)
+            user.enabled = True
+            return user
+
+        def test_again_user_rename_clean(self):
+            """
+            Users can be renamed just by calling rename() on the user object.
+
+            Clean version.
+            """
+            username = factory.makeUsername()
+            new_username = factory.makeUsername()
+            user = self.makeUser(username)
+
+            user.rename(new_username)
+
+            self.assertTrue(configuration.userExists(new_username))
+            self.assertFalse(configuration.userExists(username))
+
+
+Strucutre of a test
+-------------------
+
+1. Set up all conditions and environment for testing. This can be done in
+   setUp() method, or/and at the beginning of the test.
+2. Call the method or trigger the state being tested.
+3. Verify that the results are correct.
+4. Clean up / revert to the state before the test execution. This can be done
+   just before the test exit, in the finally block or in the tearDown()
+
+Below is the example of a test

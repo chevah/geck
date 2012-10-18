@@ -5,7 +5,10 @@ Build script for Chevah StyleGuide website.
 from __future__ import with_statement
 import sys
 
-from pavement_lib import (
+# Brink version is defined here and used by paver.sh script.
+BRINK_VERSION = '0.0.6'
+
+from pavement_commons import (
     _p,
     default,
     pave,
