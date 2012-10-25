@@ -121,14 +121,12 @@ a easy to read name. Try to create a Domain Specific Language for your tests.
             self.assertFalse(configuration.userExists(username))
 
 
-Strucutre of a test
+Structure of a test
 -------------------
 
 1. Set up all conditions and environment for testing. This can be done in
-   setUp() method, or/and at the beginning of the test.
+   setUp() method, or / and at the beginning of the test.
 2. Call the method or trigger the state being tested.
 3. Verify that the results are correct.
 4. Clean up / revert to the state before the test execution. This can be done
    just before the test exit, in the finally block or in the tearDown()
-
-Below is the example of a test
