@@ -13,12 +13,10 @@ For person requesting a review
 
 
 * Once a task/ticket is done, it should be submitted for review.
-* **All** changes should be reviewed prior to be merged into main code or
-  released.
-
+* **All** changes should be reviewed prior to be merged or released.
 * For Trac: To mark a ticket as requiring review, set the state to 'needs_review'.
   (**don't use keywords**, we are using a strict ticket workflow so use
-  the ticket action form).
+  the ticket action form). Add a link to the pull request.
 * For GitHub: Create a **Pull request**.
 
 
@@ -39,6 +37,14 @@ followings message (added to the ticket description)::
     This content should be created when a ticket is submitted and just link
     the ticket or copy paste the ticket description... or find a way for
     linking this review to a ticket.
+
+
+    Why we got into this (5 whys)
+    =============================
+
+    Mainly used for bug.
+    Repeatedly ask the question “Why” (up to 5 times) to determine to
+    cause of this problem.
 
 
     Changes description
@@ -65,6 +71,9 @@ followings message (added to the ticket description)::
 * **[type]** is the type of merge request. It can be: *bug* or *task*.
   Bug is used for all defects and task for all other changes: new-features,
   cleanup, refactor..etc
+
+* When submitting a review for changes not planed in the current milestone,
+  update the milestone to the curent one. Don't leave the old milestone.
 
 
 Small Merge Requests
@@ -104,7 +113,7 @@ This is why a merge should have a standard commit message, in the format::
    [#1234][type] Summary of changes for this branch
    
     * Description of a subchange, and in case it is longer
-     should span across multiple lines
+      should span across multiple lines
     * Description of another subchange.
 
 Below is a description for each field:
