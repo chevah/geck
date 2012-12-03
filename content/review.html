@@ -14,6 +14,8 @@ For person requesting a review
 
 * Once a task/ticket is done, it should be submitted for review.
 * **All** changes should be reviewed prior to be merged or released.
+* Before requesting a review it is recommend to run a full test on all
+  supported platforms (using buildbot.)
 * For Trac: To mark a ticket as requiring review, set the state to 'needs_review'.
   (**don't use keywords**, we are using a strict ticket workflow so use
   the ticket action form). Add a link to the pull request.
@@ -42,7 +44,8 @@ followings message (added to the ticket description)::
     Why we got into this (5 whys)
     =============================
 
-    Mainly used for bug.
+    Mainly used for bugs.
+    Describe why we got this problem in the first place. What went wrong.
     Repeatedly ask the question “Why” (up to 5 times) to determine to
     cause of this problem.
 
