@@ -30,7 +30,7 @@ followings message (added to the ticket description)::
 
     {{ '{{{' }}
     #!rst
-    [type] Merge commit message.
+    Merge commit message.
 
     Problem description
     ===================
@@ -69,11 +69,7 @@ followings message (added to the ticket description)::
     {{ '}}}' }}
 
 * Merge commit message is only required for changes related to a code
-  that needs to be merged. All other changes can ignore it. 
-
-* **[type]** is the type of merge request. It can be: *bug* or *task*.
-  Bug is used for all defects and task for all other changes: new-features,
-  cleanup, refactor..etc
+  that needs to be merged. All other changes can ignore it.
 
 * When submitting a review for changes not planed in the current milestone,
   update the milestone to the curent one. Don't leave the old milestone.
@@ -104,61 +100,22 @@ Small Merge Requests
 Merge commit message
 --------------------
 
-We would like to have a clean commit log on the main development branch.
+We would like to have a clean merge commit log on the main development branch.
 
-We plan to use merge commit messages  to create the changelog/release notes
-which are published to the user community. By spending an extra minute
-crafting a good message, you can help the creator of the release notes
-in getting a better job, faster.
 
 This is why a merge should have a standard commit message, in the format::
 
-   [#1234][type] Summary of changes for this branch
-   
-    * Description of a subchange, and in case it is longer
-      should span across multiple lines
-    * Description of another subchange.
+    [#1234] What was done in this branch.
 
-Below is a description for each field:
 
- * #1234 is the ticket number for this branch. It is used to get more details
-   about branch work and review. 
+* ``#1234`` is the ticket number for this branch. It is used to get more
+  details about branch work and review. It can also be used to associate a
+  commit to a ticket / branch / review / task and check the history/story of
+  that commit.
 
- * then comes the ticket type.
-
-   * It is imporant for the changelog as some customers will only care about
-     security changes.
-   * If we don't want to have this message in the changelog files, set the
-     type to **task**.
-   * Here are the available types: 
-
-     * feature - new features added to the products.
-     * defect - fixing existing features.
-     * security - security fixes of existing features.
-     * task - changes that should not appear in the changelog.
-
- * The branch summary should be on a single line and should be under 50
-   characters.
-
- * The branch description starts with an empty line and then it can contain
-   any valid RST code. It is recommended to keep the content as a list.
-
-  * Writing good merge request messages:
-
-    * Describe what impact the change will have on users. What will the
-      users notice?
-
-      * "Users now can X"
-      * "It is no longer possible to do Y"
-      * "The text on the ABC form is now Z"
-        (e.g. "reworded to be gender neutral")
-
-    * If the above isn't clear enough for "Joe User" to understand,
-      explaining the background to the change can be helpful, by adding in
-      "Previously, X used to do Y". For example:
-
-     * "Previously, users were unable to upload files to a folder if they
-       had write permissions."
+* The commit message should be on a single line and should be under 50
+  characters. It is a summary of changes in that branch. Further details
+  can be found in the changelog.
 
 
 For person checking changes
@@ -167,12 +124,12 @@ For person checking changes
 * If the work is good, you can request the code to be merged by the author
   by setting the state to needs_merge.
 * If no merge is required you can close the ticket as solved.
-* If changes are required, you put the ticket in the `needs-changes` state and
+* If changes are required, you put the ticket in the `needs_changes` state and
   assign the ticket to the person who can make the required changes so that
   the work can be ready for another review.
-* Don't spend to much time if a review request is not clear enought and you
-  don't know exactly what to do and how to test. This is a problem with the
-  review request and it `needs changes`
+* Don't spend to much time on a review request if it is not clear enought and
+  you don't know exactly what to do and how to test.
+  This is a problem with the review request and it `needs changes`.
 
 
 Reviewer's check list
