@@ -6,6 +6,12 @@ page_title: Testing
 
 Writing tests is an important part of development job.
 
+Tests serve as examples of how to use a class, method, a module or the whole
+product.
+
+Once used to having tests that show how things work (and that they work), you
+will start using the key phrase: **Do you have a test for that?**
+
 
 Types of tests
 ==============
@@ -35,17 +41,27 @@ for module interactions.
 
 They should also use only data from memory.
 
+Try to test all corner case regarding component's integration.
+
+Don't write corner case for a specific component since they are handled at
+unit testing level.
+
+Since they should be fast, you can put them together with unit tests.
+
 
 System testing
 --------------
 
 These are the tests for the final product. All modules are put together just
-like in real life system.
+like in real system.
 
-There are black box testing.
+They are black box testing and make sure the while system works.
 
 They will read actual input just like the real life application and will
 produce actual results.
+
+Don't do to much work here and don't bother with corner cases.
+A simple success scenario and a failure scenario should be enough.
 
 Sometimes reading and writing actual input can slow tests, so for performance
 reasons, some system tests also read and write data in memory, but the format
@@ -60,8 +76,12 @@ executed in random order.
 
 Tests should have no side effect. You can run the tests in any order.
 
-Put all code that initialize the environment either in setUp, or if the
-code is used only a few tests, put it in a dedicated function.
+When writing application code, only write enough code to make a test work.
+If you know there should be more code to handle other logic cases,
+go write the tests for those cases.  This technique prevents writing code
+that is never executed and ensures that you always have a test for the
+code you write.
+
 
 Group multiple / related calls into dedicated functions. Give that function
 a easy to read name. Try to create a Domain Specific Language for your tests.
@@ -69,12 +89,12 @@ a easy to read name. Try to create a Domain Specific Language for your tests.
 
 .. sourcecode:: python
 
-    class MyTest(TestCase):
+    class TestSuperUser(TestCase):
         """
-        Some tests for my super rocket.
+        Tests for super user.
         """
 
-        def test_user_rename(self):
+        def test_rename_ulgy(self):
             """
             Users can be renamed just by calling rename() on the user object.
 
@@ -105,7 +125,7 @@ a easy to read name. Try to create a Domain Specific Language for your tests.
             user.enabled = True
             return user
 
-        def test_again_user_rename_clean(self):
+        def test_rename_clean(self):
             """
             Users can be renamed just by calling rename() on the user object.
 
@@ -124,9 +144,183 @@ a easy to read name. Try to create a Domain Specific Language for your tests.
 Structure of a test
 -------------------
 
-1. Set up all conditions and environment for testing. This can be done in
-   setUp() method, or / and at the beginning of the test.
-2. Call the method or trigger the state being tested.
-3. Verify that the results are correct.
-4. Clean up / revert to the state before the test execution. This can be done
-   just before the test exit, in the finally block or in the tearDown()
+Use **Assert, Act, Arrange,** pattern: separate code paragraphs for each part.
+
+ * **Arrange** is variable declaration and initialization code.
+   Set up all conditions and environment for testing.
+ * **Act** is invoking the code under test.
+   Call the method or trigger the state being tested.
+ * **Assert** is using the assert methods or any other code to verify that
+   expectations were met.  
+
+For integration tests, this can also be called **Assemble, Activate, Assert**.
+
+The tests needs to be short and quick to read.
+
+Some test might not required the *arrange* part.
+
+Test only a single think at once.
+
+When *asserting* that *acting* on a code raised an exception, these two steps
+might get intemixed and look like the following code. This is OS.
+
+.. sourcecode:: python
+
+    def test_getAllProperties_no_accounts(self):
+        """
+        An error is raised if no accounts are defined.
+        """
+
+        with self.assertRaises(ConfigurationError):
+            some.getAllProperties()
+
+The *arrange* part can get very long. Try to move as much code in setUp()
+method, or move related initialization code in a separate method.
+
+When the code is used only in a few tests, put it in a dedicated function.
+
+.. sourcecode:: python
+
+    def test_section_navigation_long_arrange(self):
+        """
+        This does not uses setUp or other
+        """
+        account = factory.makeTestAccount()
+        browser = factory.makeTestBrowser()
+        browser.open(self.BASE_URL + '/login')
+        browser.setField('username', account.name)
+        browser.setField('password', account.password)
+        browser.clickButton('Submit')
+
+        browser.open(self.BASE_URL + '/some_section')
+
+        self.assertEqual('section_title', browser.title)
+
+    def setUp(self):
+        """
+        Object used by almost all tests.
+        """
+        super(X, self).setUp()
+        self.account = factory.makeTestAccount()
+        self.browser = factory.makeTestBrowser()
+
+    def login(self):
+        """
+        Go to login page and submit username and password.
+        """
+        self.browser.open(self.BASE_URL + '/login')
+        self.browser.setField('username', self.account.name)
+        self.browser.setField('password', self.account.password)
+        self.browser.clickButton('Submit')
+
+    def test_section_navigation(self):
+        """
+        After login, users can navigate to specific sections.
+        """
+        self.login()
+
+        self.browser.open(self.BASE_URL + '/some_section')
+
+        self.assertEqual('section_title', self.browser.title)
+
+
+Especially on some integration test or system test, you also one last part
+for a test: cleanup. It is recommend to do it in tearDown() but when not
+practical, do it as a new paragraph, at the end of the test.
+
+
+Naming conventions
+------------------
+
+* All test cases should have names prefixed with `Test`.
+* Include the tested class name in the name of the test case.
+* When multiple test cases exist for the same class, suffix the test case with
+  some hints about the special cases in each test case.
+
+.. sourcecode:: python
+
+    class TestSuperButtonInSpace(TestCase):
+        """
+        Test for super button behavior in space.
+        """
+
+        def setUp():
+            super(TestSuperButtonInSpace, self).setUp()
+            DO YOUR SPACE INITIALIZATION HERE.
+
+    class TestSuperButtonOnEarth(TestCase):
+        """
+        Test for super button behavior on earth.
+        """
+
+        def setUp():
+            super(TestSuperButtonOnEarth, self).setUp()
+            DO YOUR EARTH INITIALIZATION HERE.
+
+* All testable methods should be prefixed with `test_`.
+* If testing a specific method, include the exact name of the method, in the
+  test name, at the beginning, just after the `test_` marker.
+* When there are multiple tests for the same method, suffix the test with
+  a short underline ("_") delimited summary.  No need to add all details here.
+  Just make sure it is unique in the test case. Avoid long descriptions, you
+  can add everything in the docstring.
+
+.. sourcecode:: python
+
+    def test_getAllProperties_no_accounts(self):
+        """
+        An empty dictionary is returned if no accounts are defined.
+        """
+
+
+Tests description - docstrings
+------------------------------
+
+Each test should have a description (docstring) with information about the
+purpose of the test or any other addition info that could help other person
+to understand the test.
+
+Writing docstring for tests is not easy, but doing so will reduce the
+WTF/minute.
+
+* Describe in simple plan english what are you testing.
+* For integratoin tests add notes about pre-conditions or other requirements.
+* Don't describe how the tests is done. Use inline comments for that.
+
+Here are some tips from Jonathan Lange as a handy five-step guide:
+
+1. Write the first docstring that comes to mind. It will almost certainly be::
+
+    """Test that input is parsed correctly."""
+
+2. Get rid of "Test that" or "Check that". We know it's a test.::
+
+    """Input should be parsed correctly."""
+
+3. Seriously?! Why'd you have to go and add "should"? It's a test,
+   it's all about "should". ::
+
+    """Input is parsed correctly."""
+
+4. "Correctly", "properly", and "as we expect" are all redundant.
+   Axe them too. ::
+
+    """Input is parsed."""
+
+5. Look at what's left. Is it saying anything at all?
+   If so, great. If not, consider adding something specific about the test
+   behaviour and perhaps even why it's desirable behaviour to have. ::
+
+    """
+    Input is parsed into an immutable dict according to the config
+    schema, so we get config info without worrying about input
+    validation all the time.
+    """
+
+6. Happy hacking!
+
+Rerefences:
+
+ * http://integralpath.blogs.com/thinkingoutloud/2005/09/principles_of_t.html
+ * https://plus.google.com/115348217455779620753/posts/YA3ThKWhSAj
+ * http://c2.com/cgi/wiki?ArrangeActAssert
