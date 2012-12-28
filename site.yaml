@@ -44,6 +44,8 @@ context:
               url: /testing.html
             - name: Reviews
               url: /review.html
+            - name: Work
+              url: /homework.html
             - name: Library
               url: /library.html
             - name: References
