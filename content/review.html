@@ -3,7 +3,7 @@ page_title: Changes review
 ---
 
 This page discuss the code/changes review process as both the person
-who reqests a reviewer and a person who checks a review.
+who requests a reviewer and a person who checks a review.
 
 ..  contents::
 
@@ -72,7 +72,7 @@ followings message (added to the ticket description)::
   that needs to be merged. All other changes can ignore it.
 
 * When submitting a review for changes not planed in the current milestone,
-  update the milestone to the curent one. Don't leave the old milestone.
+  update the milestone to the current one. Don't leave the old milestone.
 
 
 Small Merge Requests
@@ -97,13 +97,13 @@ Small Merge Requests
   * It's harder to cherry pick code for backporting / supporting old releases.
 
 
-Merge commit message
---------------------
+Merge your branch
+------------------
 
-We would like to have a clean merge commit log on the main development branch.
+After the merge request and review was approved you need to merge your branch
+into master.
 
-
-This is why a merge should have a standard commit message, in the format::
+A merge commit should have a commit message, in the format::
 
     [#1234] What was done in this branch.
 
@@ -113,9 +113,19 @@ This is why a merge should have a standard commit message, in the format::
   commit to a ticket / branch / review / task and check the history/story of
   that commit.
 
-* The commit message should be on a single line and should be under 50
+* The commit message should be on a single line and should be under 78
   characters. It is a summary of changes in that branch. Further details
   can be found in the changelog.
+
+When merging using git, don't use fast-forward and don't use the default
+commit message. Here is a sample command for merging branch
+"1234-what-was-done"::
+
+    git checkout master
+    git merge --no-commit --no-ff 1234-what-was-done
+    git commit -a -m "[#1234] What was done in this branch."
+
+It is recommended to define a git alias for `merge --no-commit --no-ff`.
 
 
 For person checking changes
@@ -127,7 +137,7 @@ For person checking changes
 * If changes are required, you put the ticket in the `needs_changes` state and
   assign the ticket to the person who can make the required changes so that
   the work can be ready for another review.
-* Don't spend to much time on a review request if it is not clear enought and
+* Don't spend to much time on a review request if it is not clear enough and
   you don't know exactly what to do and how to test.
   This is a problem with the review request and it `needs changes`.
 
