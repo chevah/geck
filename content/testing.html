@@ -9,8 +9,8 @@ Writing tests is an important part of development job.
 Tests serve as examples of how to use a class, method, a module or the whole
 product.
 
-Once used to having tests that show how things work (and that they work), you
-will start using the key phrase: **Do you have a test for that?**
+Once used to having tests that show how things work (and that they do work), you
+will start using the key phrase: **Do you have a test for that?**.
 
 
 Types of tests
@@ -18,33 +18,35 @@ Types of tests
 
 Tests can be placed in many categories according to various criteria.
 
-Below is an attempt identify various types of tests based on their interaction
+Below is an attempt to identify various types of tests based on their interaction
 with other code / systems.
 
 
 Unit testing
 ------------
 
-This is the less controversial type of tests, and people usually know what
+This is the least controversial type of tests, and people usually know what
 unit tests are.
 
-Test for single method or functions. The tests should use only data from
-memory for both input and output.
+Test for single method or functions. As the number of unit tests significantly grows
+throughout the lifecycle of te project one key requirement is that they run as
+fast as possible. Therefore the tests should use only data from memory for both input 
+and output.
 
 
 Integration testing
 -------------------
 
-These are the tests which takes what was tested using unit tests (functions,
-methods) and combine / integrate them in bigger tests for whole module or
-for module interactions.
+These are the tests which take what was tested using unit tests (functions,
+methods) and combine / integrate them in bigger tests for the whole module or even
+module interactions.
 
-They should also use only data from memory.
+The time / speed restrictions still apply. They should also use only data from memory.
 
-Try to test all corner case regarding component's integration.
+Try to test all corner cases regarding the component's integration.
 
-Don't write corner case for a specific component since they are handled at
-unit testing level.
+Don't write corner cases for a specific component since they *should* be handled at
+unit testing level. If that is not the case please revise the unit tests accordingly.
 
 Since they should be fast, you can put them together with unit tests.
 
@@ -53,38 +55,37 @@ System testing
 --------------
 
 These are the tests for the final product. All modules are put together just
-like in real system.
+like in the production (real) system.
 
-They are black box testing and make sure the while system works.
+You can consider them black box testing and their role is to test that the system, as
+a whole, works.
 
 They will read actual input just like the real life application and will
-produce actual results.
+produce actual, real life, results.
 
-Don't do to much work here and don't bother with corner cases.
+Don't do too much work here and don't bother with corner cases.
 A simple success scenario and a failure scenario should be enough.
 
 Sometimes reading and writing actual input can slow tests, so for performance
 reasons, some system tests also read and write data in memory, but the format
-used is more close to the one used in real life.
+used closely resembles the one used in real life, production environments.
 
 
-Developing using test
-=====================
+Developing using tests
+======================
 
-The execution of a test should not have any side effect, and tests can be
-executed in random order.
-
-Tests should have no side effect. You can run the tests in any order.
+As there is no guarantee for the order in which the tests will execute there is
+one major requirement, regardless of the test type. The *test should not have any
+side effect* as the order of execution is random.
 
 When writing application code, only write enough code to make a test work.
-If you know there should be more code to handle other logic cases,
-go write the tests for those cases.  This technique prevents writing code
-that is never executed and ensures that you always have a test for the
-code you write.
+If you know there should be more code to handle other cases, you should write the tests 
+for those particular cases. This technique prevents writing code that is never executed 
+and ensures that you always have a test for the code you write.
 
 
-Group multiple / related calls into dedicated functions. Give that function
-a easy to read name. Try to create a Domain Specific Language for your tests.
+Group multiple / related calls into dedicated, helper methods. Give the method
+an easy to read name. Try to create a Domain Specific Language for your tests.
 
 
 .. sourcecode:: python
@@ -144,25 +145,25 @@ a easy to read name. Try to create a Domain Specific Language for your tests.
 Structure of a test
 -------------------
 
-Use **Assert, Act, Arrange,** pattern: separate code paragraphs for each part.
+Use the **Assert, Act, Arrange,** pattern: each part must have it's own paragraph.
 
  * **Arrange** is variable declaration and initialization code.
    Set up all conditions and environment for testing.
- * **Act** is invoking the code under test.
-   Call the method or trigger the state being tested.
+ * **Act** is invoking the code being tested.
+   Call the method or trigger the necessary state.
  * **Assert** is using the assert methods or any other code to verify that
-   expectations were met.  
+   expectations were met.
 
 For integration tests, this can also be called **Assemble, Activate, Assert**.
 
-The tests needs to be short and quick to read.
+The tests needs to be short and easy to read.
 
-Some test might not required the *arrange* part.
+Some test might not require the *arrange* part.
 
-Test only a single think at once.
+Make sure to test only a single thing at once.
 
 When *asserting* that *acting* on a code raised an exception, these two steps
-might get intemixed and look like the following code. This is OS.
+might get intertwined and look like the following code. This is OK.
 
 .. sourcecode:: python
 
@@ -175,9 +176,9 @@ might get intemixed and look like the following code. This is OS.
             some.getAllProperties()
 
 The *arrange* part can get very long. Try to move as much code in setUp()
-method, or move related initialization code in a separate method.
+method, or move related initialization code in a helper method.
 
-When the code is used only in a few tests, put it in a dedicated function.
+When the code is used only in a few tests, put it in a dedicated, reusable, method.
 
 .. sourcecode:: python
 
@@ -224,8 +225,8 @@ When the code is used only in a few tests, put it in a dedicated function.
         self.assertEqual('section_title', self.browser.title)
 
 
-Especially on some integration test or system test, you also one last part
-for a test: cleanup. It is recommend to do it in tearDown() but when not
+Especially on some integration test or system tests, you also have one last part
+for a test: the cleanup. It is recommended to do it in tearDown() but when not
 practical, do it as a new paragraph, at the end of the test.
 
 
@@ -257,11 +258,11 @@ Naming conventions
             super(TestSuperButtonOnEarth, self).setUp()
             DO YOUR EARTH INITIALIZATION HERE.
 
-* All testable methods should be prefixed with `test_`.
+* All methods that perform tests should be prefixed with `test_`.
 * If testing a specific method, include the exact name of the method, in the
   test name, at the beginning, just after the `test_` marker.
 * When there are multiple tests for the same method, suffix the test with
-  a short underline ("_") delimited summary.  No need to add all details here.
+  a short underline ("_") delimited summary. No need to add all details in the name.
   Just make sure it is unique in the test case. Avoid long descriptions, you
   can add everything in the docstring.
 
@@ -277,15 +278,15 @@ Tests description - docstrings
 ------------------------------
 
 Each test should have a description (docstring) with information about the
-purpose of the test or any other addition info that could help other person
+purpose of the test or any other additional info that could help another person
 to understand the test.
 
 Writing docstring for tests is not easy, but doing so will reduce the
 WTF/minute.
 
-* Describe in simple plan english what are you testing.
-* For integratoin tests add notes about pre-conditions or other requirements.
-* Don't describe how the tests is done. Use inline comments for that.
+* Describe in simple plain english what you are testing.
+* For integration tests add notes about pre-conditions or other requirements.
+* Don't describe how the test is done. Use inline comments for that.
 
 Here are some tips from Jonathan Lange as a handy five-step guide:
 
