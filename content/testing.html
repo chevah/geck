@@ -54,11 +54,48 @@ Since they should be fast, you can put them together with unit tests.
 System testing
 --------------
 
+In contrast with unit or functional tests, these test have no restriction for
+interacting with external systems.
+
+They interact with local filesystem, network and other services provided by
+the operating system.
+
+While interacting with external system, system tests require additional
+steps in configuration and preparing the external system for running the
+tests, so their execution depend on these external systems.
+Example: configure an OS account, do special network configuration,
+configure a printer, create certain files or folder structures on the
+filesystem.
+
+The external services are "black boxes", as we don't have access to their
+internal structure.
+
+They test the integration with external services, and at some
+extend they are integration tests.
+
+Due to interaction with external system, system tests are slower than unit or
+functional tests.
+
+While configuring external system take special care to avoid side effects or
+leaving the system in an inconsistent tests that will not allow other tests
+to execute. At the end of the test, leave the system in the same state as the
+one from the start.
+
+We put them in separate test suites due to speed and dependency on
+external systems.
+
+
+Functional testing
+------------------
+
 These are the tests for the final product. All modules are put together just
 like in the production (real) system.
 
-You can consider them black box testing and their role is to test that the system, as
-a whole, works.
+You can consider them black box testing as their role is to check that the
+system, as a whole, works.
+
+While for functional tests only external systems are handled as black boxes,
+for functional testing the system under test is also handled as a black box.
 
 They will read actual input just like the real life application and will
 produce actual, real life, results.
