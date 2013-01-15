@@ -29,11 +29,13 @@ General
         More details to follow in long paragraphs.
         """
 
-* All functions, methods and test methods will have docstrings.
+* All test functions, test methods, test suites will have docstrings.
 
 * Tests methods will be prefixed with ``test_``.
 
-* Tests from docstring should state what is the expected behavior based on
+* Tests suites (test class) will be prefixed with ``Test``.
+
+* Test's docstring should state what is the expected behavior based on
   test's input.
 
 .. sourcecode:: python
@@ -69,9 +71,85 @@ NO
     other_bad = "string"
     some_bad = "string 'b' yes"
 
+* As PEP8 recommend, Don't use '\' to split long lines. Wrap long lines is by
+  using Python's implied line continuation inside parentheses, brackets and
+  braces. More details here:
+  http://www.python.org/dev/peps/pep-0008/#maximum-line-length
+
+* Multi line split using parentheses, brackets (etc) will follow the normal
+  indentation. The code might look ugly and then exceptions are allowed.
+
 
 Project specific
 ================
+
+Multi line indentation
+----------------------
+
+* For now, just some examples:
+
+.. sourcecode:: python
+
+    self.logger.log(
+        message_id=factory.getUniqueInteger(),
+        name=factory.getUniqueString(),
+        callback=do_something_else,
+        )
+
+Same indentation applies for brackets:
+
+.. sourcecode:: python
+
+    some_list = [
+        bla,
+        blabla,
+        alabala,
+        ]
+
+* 2 line code exception. If the parentheses expression fits on one line,
+  it can n:
+
+.. sourcecode:: python
+
+    self.logger.log(
+        factory.getUniqueInteger(), factory.getUniqueString())
+
+* Conditional exception. When indenting parentheses for conditional
+  expressions add one extra indent to separate the condition expression
+  from the conditional block.
+
+.. sourcecode:: python
+
+    if (somethin_else is None or
+            say_something_else is None):
+        do_else = nothing
+        do_something()
+
+    if (somethin_else is None or
+            say_something_else is None or
+            we_should_not_have_long_conditionals
+            ):
+        do_else = nothing
+        do_something()
+
+* Method and function indentation.
+
+.. sourcecode:: python
+
+    def myMethodWithLongArguments(self,
+            name=None, other_long_thing=None):
+        """
+        Docstring here,
+        """
+
+    def myMethodWithVeryLogArguments(self,
+            name=None,
+            other_long_thing=None,
+            other_very_long_argument=None,
+            ):
+        """
+        Docstring here,
+        """
 
 
 Imports
