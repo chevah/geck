@@ -92,7 +92,7 @@ Writing good changelog messages:
 
 * A changelog entry is a summary for those changes.
 
-* Don't explain all details of those changes. When more details are requiered
+* Don't explain all details of those changes. When more details are required
   use a link to documentation.
 
 * All entries should be full proposition or phrases, ending with a
@@ -113,6 +113,30 @@ Writing good changelog messages:
 
     * [bug] Previously, users were unable to upload files to a folder if they
     had write permissions.
+
+
+Exceptions handling
+===================
+
+Here are some simple generic rules for working with exceptions.
+
+In Chevah project we use 2 major "kinds" of exceptions:
+
+* `Errors` are top level exceptions that are not going to be handled
+   internally by the package/library.
+
+* `Exceptions` normal exceptions, passed inside the package/library to signal
+  various conditions. The public API for the package/library should not raise
+  this kind of exceptions.
+
+Exceptions can take any format, and most of the time they can contain only
+a text with some details about the error. These exceptions are low level
+and should be raised in simple conditions.
+
+Errors should have an unique ID and a data attribute.
+Each ID should be raised from a single place.
+The data attribute is a dictionary with key/values that make sense for the
+error.
 
 
 Project specific
