@@ -30,7 +30,8 @@ followings message (added to the ticket description)::
 
     {{ '{{{' }}
     #!rst
-    Merge commit message.
+
+    [#123] Merge commit message.
 
     Problem description
     ===================
@@ -73,8 +74,22 @@ followings message (added to the ticket description)::
 * Merge commit message is only required for changes related to a code
   that needs to be merged. All other changes can ignore it.
 
+* For GitHub review requests, add the merge commit message as the pull
+  request title.
+
 * When submitting a review for changes not planed in the current milestone,
   update the milestone to the current one. Don't leave the old milestone.
+
+* You can a review request as soon as you start coding on a branch. There is
+  no need to wait for feature to be fully implemented and tests to pass.
+  Writing a review request early, will help you to organize and explain
+  the work that you plan to do on the branch.
+
+* GitHub inline comments are great, and you can add them to help with the
+  initial review request. Before adding an initial inline comments for the
+  review ask yourself why that comments is needed and why that line is not
+  clear. Maybe adding a comment in the code would avoid the
+  need for that inline comment?
 
 
 Small Merge Requests
