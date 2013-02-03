@@ -13,25 +13,28 @@ For person requesting a review
 
 
 * Once a task/ticket is done, it should be submitted for review.
+
 * **All** changes should be reviewed prior to be merged or released.
+
 * Before requesting a review it is recommend to run a full test on all
   supported platforms (using buildbot.)
-* For Trac: To mark a ticket as requiring review, set the state to 'needs_review'.
-  (**don't use keywords**, we are using a strict ticket workflow so use
-  the ticket action form). Add a link to the pull request.
-* For GitHub: Create a **Pull request**.
+
+* For Trac: To mark a ticket as requiring review, set the state to
+  'needs_review'. (**don't use keywords**, we are using a strict ticket
+  workflow so use the ticket action form).
+
+* For GitHub: Create a **Pull request**. Add a link to the pull request in
+  the associated ticket from Trac.
 
 
 Review request message
 ----------------------
 
 When submitting a ticket for review, the review request should contain the
-followings message (added to the ticket description)::
+following message (added to the ticket description)::
 
     {{ '{{{' }}
     #!rst
-
-    [#123] Merge commit message.
 
     Problem description
     ===================
@@ -63,6 +66,8 @@ followings message (added to the ticket description)::
     How to try and test the changes
     ===============================
 
+    reviewers @some-dude @another-dude
+
     What code / repositories were affected. Where is the code.
     If the code in only on a single feature branch, no need to say something
     about the code.
@@ -71,17 +76,27 @@ followings message (added to the ticket description)::
     A list of steps to follow for checking that everything is OK.
     {{ '}}}' }}
 
-* Merge commit message is only required for changes related to a code
-  that needs to be merged. All other changes can ignore it.
 
-* For GitHub review requests, add the merge commit message as the pull
-  request title.
+* For GitHub review requests, **add the merge commit message as the pull
+  request title**. The ticket ID number from the title, is optional.
+  It can have one of the following formats:
+
+  * What was done in this branch.
+  * [#1234] What was done in this branch.
+
+* Merge commit message is only required for changes related to a code
+  that needs to be merged. All other changes can ignore the commit message.
+
+* Add the list of persons who should review the branch, using a
+  line starting with **reviewers** and followed by GitHub names or each
+  reviewer prefixed with **@**.
 
 * When submitting a review for changes not planed in the current milestone,
   update the milestone to the current one. Don't leave the old milestone.
 
-* You can a review request as soon as you start coding on a branch. There is
-  no need to wait for feature to be fully implemented and tests to pass.
+* You can start writing your review request as soon as you start coding on a
+  branch. There is no need to wait for feature to be fully implemented and
+  tests to pass.
   Writing a review request early, will help you to organize and explain
   the work that you plan to do on the branch.
 
@@ -99,6 +114,14 @@ Small Merge Requests
   get, the more costly they are - now and in the future.
 
 * One merge request should do one thing only.
+
+* The target for a small request is no more than 400 touched lines
+  (added + removed).
+
+* When you do a refactoring and you need to rename something in many files,
+  do it in a dedicated branch which only deals with the renaming.
+  This will help a lot with the review. Land your changed with the ugly
+  names and then do a follow-up branch for the renaming.
 
 * Feel free to submit as many merge request as you can. There is a problem
   with the size of a merge request, not with their number :)
@@ -120,22 +143,18 @@ Merge your branch
 After the merge request and review was approved you need to merge your branch
 into master.
 
-A merge commit should have a commit message, in the format::
+After your review request was approved, you can send you branch got PQM
+for automatic testing and merging. Use the following command::
 
-    [#1234] What was done in this branch.
+    paver pqm GITHUB_PULL_REQUEST_ID
 
+The PQM will check your branch and if it passed all tests, it will be merged
+and pushed to master.
 
-* ``#1234`` is the ticket number for this branch. It is used to get more
-  details about branch work and review. It can also be used to associate a
-  commit to a ticket / branch / review / task and check the history/story of
-  that commit.
+If PQM is not enabled for the repo, you will need to do a manual merge.
 
-* The commit message should be on a single line and should be under 78
-  characters. It is a summary of changes in that branch. Further details
-  can be found in the changelog.
-
-When merging using git, don't use fast-forward and don't use the default
-commit message. Here is a sample command for merging branch
+When doing manual merge using git, don't use fast-forward and don't use the
+default commit message. Here is a sample command for merging branch
 "1234-what-was-done"::
 
     git checkout master
@@ -144,16 +163,37 @@ commit message. Here is a sample command for merging branch
 
 It is recommended to define a git alias for `merge --no-commit --no-ff`.
 
+A merge commit should have a commit message, in the format::
 
-For person checking changes
-===========================
+    [#1234] What was done in this branch.
+
+
+* **#1234** is the ticket number for this branch. It is used to get more
+  details about branch work and review. It can also be used to associate a
+  commit to a ticket / branch / review / task and check the history/story of
+  that commit.
+
+* The commit message should be on a single line and should be under 78
+  characters. It is a summary of changes in that branch. Further details
+  can be found in the changelog.
+
+
+For person reviewing changes
+============================
 
 * If the work is good, you can request the code to be merged by the author
-  by setting the state to needs_merge.
+  by setting the state to needs_merge in Trac.
+
+* If the work is good and GitHub pull request was used, leave a comment on
+  the pull request page with a list starting with **approved sha@342d345**,
+  where **sha@342d345** is the revision at which the branch was approved.
+
 * If no merge is required you can close the ticket as solved.
+
 * If changes are required, you put the ticket in the `needs_changes` state and
   assign the ticket to the person who can make the required changes so that
   the work can be ready for another review.
+
 * Don't spend to much time on a review request if it is not clear enough and
   you don't know exactly what to do and how to test.
   This is a problem with the review request and it `needs changes`.
@@ -163,6 +203,8 @@ Reviewer's check list
 ---------------------
 
 * Does the code have tests?
+* Does the merge commit message describes what is done by this branch?
+* Does the branch name starts with the Trac ticket ID.
 * Does **all** tests / linters pass?
 * Is there a changelog entry for changes?
-* Is there documentation for changes?
+* Is there documentation for changes? Does the documentation make sense?
