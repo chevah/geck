@@ -87,6 +87,11 @@ following message (added to the ticket description)::
 * Merge commit message is only required for changes related to a code
   that needs to be merged. All other changes can ignore the commit message.
 
+* The commit message should be on a single line and preferable under 100
+  characters. The message should be a clearly articulated phrase, summarizing
+  changes done in the branch. Further details about the changes can go in
+  the Changelog or review request body.
+
 * Add the list of persons who should review the branch, using a
   line starting with **reviewers** and followed by GitHub names or each
   reviewer prefixed with **@**.
@@ -101,10 +106,14 @@ following message (added to the ticket description)::
   the work that you plan to do on the branch.
 
 * GitHub inline comments are great, and you can add them to help with the
-  initial review request. Before adding an initial inline comments for the
-  review ask yourself why that comments is needed and why that line is not
+  initial review request. Just **don't abuse them**!
+  Think twice before adding an initial inline comments for the review.
+  Ask yourself why that comments is needed and why that line is not
   clear. Maybe adding a comment in the code would avoid the
-  need for that inline comment?
+  need for the GitHub inline comment.
+
+* Make sure all tests pass. Just run ``test_remote all`` and Buildbot and
+  GitHub will work together to display the results.
 
 
 Small Merge Requests
@@ -172,10 +181,6 @@ A merge commit should have a commit message, in the format::
   details about branch work and review. It can also be used to associate a
   commit to a ticket / branch / review / task and check the history/story of
   that commit.
-
-* The commit message should be on a single line and should be under 78
-  characters. It is a summary of changes in that branch. Further details
-  can be found in the changelog.
 
 
 For person reviewing changes

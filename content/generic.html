@@ -9,7 +9,7 @@ General
 
 * Rule #1: Keep it DRY! Don't repeat yourself!
 
-* Rule #2: KISS - Keep it simple, Stupid!
+* Rule #2: KISS - Keep it simple, stupid simple!
 
 * All code in any code-base should look like a single person typed it, no
   matter how many people contributed.
@@ -22,6 +22,14 @@ General
 
 * Optimization should come second and only if really needed. Don't Use clever
   tricks and other optimization to early.
+
+* Do the simplest thing that could possibly work and do it well.
+  Always work on the story you have, not something you think we're going to
+  need sometime in the future.
+  Don't try implement all usecases you can think of and end with poorly
+  designed code and poorly tested code.
+
+* Flat is better than nested.
 
 * Don't use abbreviation. Use full, meaningful names.
 
@@ -58,6 +66,23 @@ General
     # Details about this tech-dept.
     # Don't use TODO or other marks, just FIXME
 
+* Words are an important part of how software works.
+  Even though there may be dozens of people creating a product,
+  it should still sound like we speak in one consistent voice
+
+* When writing text for the documentation or text that appears in the
+  program favor classy over cute or mechanical.
+  Act more like a human and less like a computer::
+
+    Instead of:
+
+    Successfully deleted the #{branch_name} branch.
+  
+    Try something like:
+
+    Okay, the #{branch_name} branch has been deleted.
+
+  A few of the traits of the GitHub Voice: enthusiastic, confident, helpful, patient, warm, classy. Respect the reader, act like a human and use fewer words.
 
 Comments
 ========

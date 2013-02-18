@@ -9,7 +9,9 @@ General
 
 * Variable declarations must start with 'var'.
 
-* All JS expressions must end with a semi-colon.
+* Do your best to never use a semicolon.
+  This means avoiding them at line breaks and avoiding multi-statement lines.
+  Semi-colon at the end of the line is added only when required.
 
 * Use 2 space identation.
 
@@ -20,11 +22,59 @@ General
   method/function name. This is a remender of the fact that
   the context is lost.
 
-* use ``===`` instead of ``==`` for comparison as ``===`` doesn't do type
-  coercion (except when you explicitly want it) as == is very, very, broken
+* use ``===`` instead of ``==`` for comparison. ``===`` doesn't do type
+  coercion.
 
-* never pass around dom objects if you can avoid it - use jquery wrapped
-  dom nodes instead.
+* Only use ``typeof`` for checking against undefined variables::
+
+    typeof foo !== 'undefined'
+
+* For all other type checking use the custom defined typeOf() function.
+
+* Try to avoid the usage of ``instanceof`` and don't use it for native types.
+
+* Create new arrays using the array literals ``[]`` notation. Don't use
+  ``new Array()``.
+
+* Iterate arrays using the classic ``for`` loop::
+
+    var list = [1, 2, 3, 4, 5, ...... 100000000];
+    for (var i = 0, l = list.length; i == l; i++) {
+        console.log(list[i]);
+    }
+
+* Always define the variable used to iterate in a ``for`` loop.
+
+* Don't use ``eval`` and don't pass strings to ``setTimeout`` and
+  ``setInterval``.
+
+* Use ``undefined`` instead of the the traditional ``null``.
+
+* Keep braces on the same line as their corresponding statements. Never omit
+  them for single-line if / else statements::
+
+    if (something) {
+        // code here
+    } else {
+        // code here
+    }
+
+    function duppy() {
+        var something
+        return {
+            foo: function() {} 
+        }
+    }
+
+* Avoid using leading paranthesis
+
+* Avoid using ``delete`` operaton and only use it to delete explicitly
+  set properties on normal objects::
+
+    var obj = {x: 1};
+    obj.y = 2;
+    delete obj.x;  // true
+    delete obj.y;  // true
 
 * Use single quote for strings
 
@@ -38,7 +88,7 @@ Example::
     alert('qux');
     This way, we can use consistent quotes when writing HTML inside of JS:
 
-    alert('<a href="foo">bar</a>');
+    alert('<a href="foo">bar</a>')
 
 
 TODO
@@ -64,7 +114,7 @@ JavaScript.
 
 For example::
 
-    <a href="#prices class="button js-open-tab">Prices</a>
+    <a href="#prices" class="button js-open-tab">Prices</a>
 
 Now we know to look for any JavaScript touching .js-open-tab, which should
 only be a simple search away.
@@ -84,8 +134,66 @@ Don't modify the associated CSS properties, but rather modify the CSS class::
    GOOD: $('#element_id').addClass('highlight');
    BAD : $('#element_id').css('font-weight': 'bold');
 
-Same story as with CSS, don't modify HTML tag attributes, but rather try to change the CSS class::
+Same story as with CSS, don't modify HTML tag attributes,
+but rather try to change the CSS class::
 
     GOOD: $('#element_id').addClass('sprite red_dot');
     BAD : $('#element_id').attr('src': 'some/red_dot.png');
 
+
+Test styleguide
+===============
+
+* We use ``assert`` style testing using the same syntax as in Python unit
+  tests.
+* Leave 2 emtpy lines before each ``suite`` and one empty line before each
+  ``test``
+
+.. sourcecode:: javascript
+
+    /*
+    Tests for login controller.
+    */
+
+
+    suite('LoginCtrl', function() {
+
+      // Shared variables.
+      var scope
+      var ctrl
+
+      setup(function() {
+        // Initialize first.
+      })
+
+      teardown(function() {
+        // Clean second.
+      })
+
+      test(
+        'Initializes with no errors and blank values' +
+        'long line are wrapped',
+        function() {
+        var something = Something()
+
+        something.doSomething()
+
+        assert.equal('', something.username)
+      })
+
+
+      suite('critical_error attribute', function(){
+
+        test(
+          'When set, hides the form and sets the error message.',
+          function(){
+          var message = manu.makeUniqueString()
+
+          scope.critical_error = message
+          scope.$digest()
+
+          assert.isFalse(scope.show_form)
+          assert.equal(message, scope.alert.error)
+        })
+
+      })
