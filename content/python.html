@@ -80,6 +80,15 @@ NO
   indentation. The code might look ugly and then exceptions are allowed.
 
 
+* Define all class members at the beginning of class definition.
+  Don't interleave methods and class members definition. This should make it
+  easy to identify all class members used by the class.
+
+* Define all instance members inside the __init__() method. This should make
+  it easy to identity all instance members used by the class and reduce the
+  risk of using the same member for more than one purpose.
+
+
 Project specific
 ================
 
