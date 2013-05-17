@@ -48,7 +48,7 @@ following message (added to the ticket description)::
     Why we got into this (5 whys)
     =============================
 
-    Mainly used for bugs.
+    Mainly used for bugs. Can be removed for task or new features.
     Describe why we got this problem in the first place. What went wrong.
     Repeatedly ask the question “Why” (up to 5 times) to determine to
     cause of this problem.
@@ -104,6 +104,10 @@ following message (added to the ticket description)::
   tests to pass.
   Writing a review request early, will help you to organize and explain
   the work that you plan to do on the branch.
+
+* When the review is ready to be sent to reviewers, leave a comment
+  containing the **needs-review** marker word. It will trigger the review
+  request process.
 
 * GitHub inline comments are great, and you can add them to help with the
   initial review request. Just **don't abuse them**!
@@ -186,6 +190,10 @@ A merge commit should have a commit message, in the format::
 For person reviewing changes
 ============================
 
+* The only quality metric of good work / code is **WTF/s**. While doing
+  the review you are encourage to keep track of all your first
+  contact / view / read impressions and report them in the review feedback.
+
 * Follow procedure recommended in the "How to try and test the changes"
   section, record environment, steps and results and share them through
   a comment.
@@ -198,16 +206,17 @@ For person reviewing changes
 
 * If the work is good and GitHub pull request was used, leave a comment on
   the pull request page with a line starting with **approved-at 342d345**,
-  where **@342d345** is the revision at which the branch was approved.
+  where **342d345** is the revision at which the branch was approved.
 
 * If no merge is required you can close the ticket as solved.
 
 * If minor changes are required, and they are easy to fix, you cat try to fix
   them. Commit the changes and approve the review at your revision.
 
-* If changes are required, you put the ticket in the `needs_changes` state and
-  assign the ticket to the person who can make the required changes so that
-  the work can be ready for another review.
+* If changes are required, you put the ticket in the **needs-changes** state
+  and assign the ticket to the person who can make the required changes.
+  When working with GitHub you can request changed by adding
+  the **needs-changes** marker word in a comment.
 
 * Don't spend to much time on a review request if it is not clear enough and
   you don't know exactly what to do and how to test.
@@ -221,7 +230,7 @@ Reviewer's check list
 * Does the merge commit message describes what is done by this branch?
 * Does the branch name starts with the Trac ticket ID.
 * Does **all** tests / linters pass?
-* Is there a changelog entry for changes?
+* Is there a release notes entry for changes?
 * Is there documentation for changes? Does the documentation make sense?
 * Are the new event documented?
 * Are the removed events documented?
