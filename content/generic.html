@@ -7,6 +7,12 @@ page_title: Generic guides for all languages
 General
 =======
 
+The content of this website is intended to help new team members understand
+the direction of our team.
+It also helps novice and advance beginners by providing a set of simple rules.
+Anyone should read this as best practice and provide feedback in case
+something is wrong.
+
 * Rule #1: Keep it DRY! Don't repeat yourself!
 
 * Rule #2: KISS - Keep it simple, stupid simple!
@@ -15,10 +21,13 @@ General
   matter how many people contributed.
 
 * Write all code as it will be written once and read thousand times.
-  Write code for maxium readability.
+  Write code for maximum readability.
+
+* When you need a trade-off between readability and code duplication, choose
+  to have a code less readable but without duplication.
 
 * Write code as it will be used by humans, not a machine. You are not a
-  a compiler/interpretor.
+  a compiler / interpretor.
 
 * Optimization should come second and only if really needed. Don't Use clever
   tricks and other optimization to early.
@@ -36,10 +45,10 @@ General
 * Don't use tabs for indentation, and in general don't use tabs for anything
   else. The only exceptions are the Makefiles.
 
-* Indent using 4 spaces.
+* Favor indentation using 4 spaces. For deep nested languages (HTML, JS) it
+  is ok to use 2 spaces.
 
-* Maximum line length is 78 characters. This will allow quoting code without
-  exceeding 80 characters length.
+* Maximum line length is 80 characters.
 
 * Don't mix multiple languages in a single file.
 
@@ -48,41 +57,46 @@ General
 
 * When extending external libraries use the coding convention used by that
   library. It might be harder to define the border of those changes but this
-  should help with sending patches upstream. 
+  should help with sending patches upstream.
 
 * When reporting a code related problem, use
   `Short, Self Contained, Correct (Compilable), Example`_
 
 .. _Short, Self Contained, Correct (Compilable), Example: http://sscce.org
 
-* Each repository will have a README file describing why it exists and what
-  it should do.
+* Each repository / project will have a README file describing why it exists
+  and what it should do.
+  The README should also include notes about contributing to the project.
+
+* Each repository will have a LICENSE and AUTHORS files.
 
 * Technical dept comments (ex FIXME, TODO) will always have an attached
   ticket ID and will use the following format. Only **FIXME** marker is used
-  followd by ticket ID. Comments will come on a new line::
+  followed by ticket ID. Comments will come on a new lines.
+  Adapt this to the style of comments use in the specific language, but
+  is important to keep the **FIXME:123:** marker.::
 
     # FIXME:1234:
-    # Details about this tech-dept.
-    # Don't use TODO or other marks, just FIXME
+    # Details about this tech-dept. Ex: Can only be fixed when full moon.
 
 * Words are an important part of how software works.
-  Even though there may be dozens of people creating a product,
-  it should still sound like we speak in one consistent voice
+  Even though there may be dozens of people creating a product, reading
+  comments, documentation, notes etc, it should still sound like we speak
+  in one consistent voice.
 
 * When writing text for the documentation or text that appears in the
-  program favor classy over cute or mechanical.
-  Act more like a human and less like a computer::
+  program favour classy over cute or mechanical.
+  Respect the reader, act more like a human and less like a computer,
+  and use fewer words::
 
-    Instead of:
+      Instead of:
 
-    Successfully deleted the #{branch_name} branch.
-  
-    Try something like:
+      Successfully deleted the #{branch_name} branch.
 
-    Okay, the #{branch_name} branch has been deleted.
+      Try something like:
 
-  A few of the traits of the GitHub Voice: enthusiastic, confident, helpful, patient, warm, classy. Respect the reader, act like a human and use fewer words.
+      The #{branch_name} branch has been deleted.
+
 
 Comments
 ========
@@ -100,11 +114,11 @@ Comments
   ignores and other hints for automated tools... but not for humans.
 
 
-Changelog
-=========
+Relesea Notes
+=============
 
 Each time a branch fixes a bug or adds a new feature, a new entry is
-added inside the changelog file.
+added inside the release notes file.
 
 A marker/tag may be added at the start of the message.
 The following markers/tags are in use:
@@ -113,9 +127,9 @@ The following markers/tags are in use:
  * ``[unix]`` - for changes affecting only Unix systems.
  * ``[windows]`` - for changes affection only Windows system.
 
-Writing good changelog messages:
+Writing good release note messages:
 
-* A changelog entry is a summary for those changes.
+* A release note entry is a summary for those changes.
 
 * Don't explain all details of those changes. When more details are required
   use a link to documentation.
@@ -148,7 +162,7 @@ Here are some simple generic rules for working with exceptions.
 In Chevah project we use 2 major "kinds" of exceptions:
 
 * `Errors` are top level exceptions that are not going to be handled
-  internally by the package/library.
+  internally by the package / library.
 
 * `Exceptions` normal exceptions, passed inside the package/library to signal
   various conditions. The public API for the package/library should not raise
@@ -160,7 +174,7 @@ and should be raised in simple conditions.
 
 Errors should have an unique ID and a data attribute.
 Each ID should be raised from a single place.
-The data attribute is a dictionary with key/values that make sense for the
+The data attribute is a dictionary with key / values that make sense for the
 error.
 
 
@@ -199,14 +213,14 @@ Example::
 
     447-add_sqlite_log
 
-* Each user configuration options should be documentented,
+* Each user configuration options should be documented,
   listing valid values, place where the configuration is located,
   introduction version, version since it was obsolete,
   together with a description of the purpose and effect.
 
 * Configuration options will be documented using the following format. Please
-  note the order in which fields are defined, the name of the fiels and the
-  format for declaring possibile values. All fields should be present, and
+  note the order in which fields are defined, the name of the files and the
+  format for declaring possible values. All fields should be present, and
   if no value is defined, use 'None' or leave it blank.
 
 ::
@@ -215,12 +229,12 @@ Example::
   --------
 
   :Optional: Yes
-  :Default value: log/server.log
-  :Values: * some value
-           * other value - short descriptionf or this value.
-           * yet another value
+  :Default value: `log/server.log`
+  :Values: * `some value`
+           * `other value` - short description or this value.
+           * `yet another value`
   :Available from version: 1.6.0
-  :Available up to version: None
+  :Available up to version: 2.0.3
   :Description:
       This is the long description of the configuration option. It can
       span multiple lines.
