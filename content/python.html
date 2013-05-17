@@ -10,7 +10,7 @@ General
 
 * For python we have pocket-lint that checks for PEP8 and some other things.
 
-* `Python PEP 8 <http://www.python.org/dev/peps/pep-0008/>`_ 
+* `Python PEP 8 <http://www.python.org/dev/peps/pep-0008/>`_
   **Python base code style guide**.
 
 * Docstring always using multiline strings with double quotes.
@@ -88,9 +88,28 @@ NO
   it easy to identity all instance members used by the class and reduce the
   risk of using the same member for more than one purpose.
 
+* Decode all input to Unicode and encode all output from Unicode. Do **all**
+  internal text handling in **Unicode**.
+
+.. sourcecode:: python
+
+    input_raw_string = read_from_wire()
+    input_string = input_raw_string.decode('utf-8')
+
+    # Only work with Unicode data.
+    output_string = process_something(input_string)
+
+    output_raw_string = output_string.encode('utf-8')
+    send_to_wire(output_raw_string)
+
+* UTF-8 is not Unicode.
+  Unicode is a character set and UTF-8 is a particular way of
+  encoding Unicode.
+
 
 Project specific
 ================
+
 
 Multi line indentation
 ----------------------
