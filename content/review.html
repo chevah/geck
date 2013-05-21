@@ -17,14 +17,14 @@ For person requesting a review
 * **All** changes should be reviewed prior to be merged or released.
 
 * Before requesting a review it is recommend to run a full test on all
-  supported platforms (using buildbot.)
+  supported platforms (using buildbot).
 
-* For Trac: To mark a ticket as requiring review, set the state to
-  'needs_review'. (**don't use keywords**, we are using a strict ticket
-  workflow so use the ticket action form).
+* For Trac: A review request is created by adding the comment and then
+  setting the state to 'needs_review'.
+  (**don't use keywords**, we are using a strict ticket
+  work-flow so use the ticket action form).
 
-* For GitHub: Create a **Pull request**. Add a link to the pull request in
-  the associated ticket from Trac.
+* For GitHub: A review request is create using **GitHub Pull requests**.
 
 
 Review request message
@@ -68,9 +68,6 @@ following message (added to the ticket description)::
 
     reviewers @some-dude @another-dude
 
-    What code / repositories were affected. Where is the code.
-    If the code in only on a single feature branch, no need to say something
-    about the code.
 
     How the changes can be tested and verified as an end user.
     A list of steps to follow for checking that everything is OK.
@@ -78,19 +75,15 @@ following message (added to the ticket description)::
 
 
 * For GitHub review requests, **add the merge commit message as the pull
-  request title**. The ticket ID number from the title, is optional.
-  It can have one of the following formats:
+  request title**. The message should include the ticket ID number.
+  Example of merge commit message::
 
-  * What was done in this branch.
-  * [#1234] What was done in this branch.
-
-* Merge commit message is only required for changes related to a code
-  that needs to be merged. All other changes can ignore the commit message.
+      [#1234] What was done in this branch.
 
 * The commit message should be on a single line and preferable under 100
   characters. The message should be a clearly articulated phrase, summarizing
   changes done in the branch. Further details about the changes can go in
-  the Changelog or review request body.
+  the release notes or review request body.
 
 * Add the list of persons who should review the branch, using a
   line starting with **reviewers** and followed by GitHub names or each
@@ -116,8 +109,16 @@ following message (added to the ticket description)::
   clear. Maybe adding a comment in the code would avoid the
   need for the GitHub inline comment.
 
-* Make sure all tests pass. Just run ``test_remote all`` and Buildbot and
-  GitHub will work together to display the results.
+* Before requesting a review, make sure **all tests pass**.
+  Just run ``paver test_remote all`` and Buildbot and GitHub will work
+  together to display the results.
+
+* During a review, the reviewer might request changes. You can solve
+  the request by either changing the code, or adding a comment with
+  the reason why you don't want to change the code. After all requested
+  are solved, leave an **new** separate comment containing the keyword
+  **needs-review** . This will let reviewers know that you are done and that
+  they can check the latest changes.
 
 
 Small Merge Requests
@@ -128,7 +129,7 @@ Small Merge Requests
 
 * One merge request should do one thing only.
 
-* The target for a small request is no more than 400 touched lines
+* The target for a small request is no more than 800 touched lines
   (added + removed).
 
 * When you do a refactoring and you need to rename something in many files,
@@ -227,10 +228,21 @@ Reviewer's check list
 ---------------------
 
 * Does the code have tests for new code?
+
 * Does the merge commit message describes what is done by this branch?
+
 * Does the branch name starts with the Trac ticket ID.
+
 * Does **all** tests / linters pass?
+
+* If there is no ``paver test_remote all`` for the latest code, you can
+  either just reject the review, or trigger a test and wait for results.
+  **Never** approve a code that is not passing the tests.
+
 * Is there a release notes entry for changes?
+
 * Is there documentation for changes? Does the documentation make sense?
+
 * Are the new event documented?
+
 * Are the removed events documented?
