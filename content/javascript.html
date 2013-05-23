@@ -62,11 +62,11 @@ General
     function duppy() {
         var something
         return {
-            foo: function() {} 
+            foo: function() {}
         }
     }
 
-* Avoid using leading paranthesis
+* Avoid using leading parenthesis.
 
 * Avoid using ``delete`` operator and only use it to delete explicitly
   set properties on normal objects::
@@ -95,12 +95,46 @@ Example::
   by the protocol.
 
 * Callbacks called from the GUI / DOM should be prefixed with `on`.
-  Ex: onAuthentication (when authenitcate button is pressed),
+  Ex: onAuthentication (when authenticate button is pressed),
   onLogout (when logout link is pressed),
   onLoginFormSubmit (when login form is submitted)
 
 * Callbacks/Errback for XHR are be prefixed with `cb` and `eb`, similar
   with Python/Twisted convention.
+
+* For one line comments, leave one empty space after the comment marker.
+
+.. sourcecode:: javascript
+
+    // Good comment line.
+    //Bad comment line.
+
+* For multi line comments use the following convention.
+
+.. sourcecode:: javascript
+
+    /*
+    Short single line comment title.
+    More details about what is here and
+    here and here.
+
+    Feel free to create paragraphs separation.
+    */
+
+* Global constants will follow the CONSTANT_NAME naming convention.
+
+* Global services (objects with methods) are named similar to class names.
+  Most of the time they will be singletons so there will be no associated
+  class.
+
+.. sourcecode:: javascript
+
+    var Shell = new ActiveXObject("WScript.Shell");
+
+    function do_something() {
+      var bla = Shell.method_usage()
+    }
+
 
 TODO
 http://javascript.crockford.com/code.html http://jibbering.com/faq/notes/code-guidelines/ http://neil.rashbrook.org/Js.htm
