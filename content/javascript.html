@@ -51,7 +51,9 @@ General
 * Use ``undefined`` instead of the the traditional ``null``.
 
 * Keep braces on the same line as their corresponding statements. Never omit
-  them for single-line if / else statements::
+  them for single-line if / else statements.
+
+.. sourcecode:: javascript
 
     if (something) {
         // code here
@@ -65,6 +67,59 @@ General
             foo: function() {}
         }
     }
+
+* Leave 2 empty lines between global function or class definitions.
+  Leave 1 empty line between functions from the same class.
+  Global variable can be grouped and the don't require empty lines in between.
+
+.. sourcecode:: javascript
+
+    var GLOBAL_DAY = 1
+    var GLOBAL_YEAR = 3
+
+
+    /*
+    Docstring for duppy.
+    */
+    function duppy() {
+      // Do something here.
+    }
+
+
+    /*
+    Docstring for duppy_doo.
+    */
+    function duppy_doo() {
+      // Do something here.
+    }
+
+
+    /*
+    A simple mock for Browser service.
+    */
+    function MockBrowser() {
+      this._cookies = {}
+
+      /*
+      Docstring for MockBrower.setCookies()
+      */
+      this.setCookie = function(name, value) {
+        // Implementation here.
+      }
+
+      /*
+      Docstring here.
+      */
+      this.doSomethingElse = function(name) {
+        // Implementation here.
+      }
+
+      this._methodWihoutDocstring = function(name) {
+        // Implementation here.
+      }
+
+    }
+
 
 * Avoid using leading parenthesis.
 
