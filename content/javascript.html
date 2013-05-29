@@ -13,13 +13,13 @@ General
   This means avoiding them at line breaks and avoiding multi-statement lines.
   Semi-colon at the end of the line is added only when required.
 
-* Use 2 space identation.
+* Use 4 space indentation.
 
 * Variable, function, method and constants name are after PEP8.
   variable_name, function_name, methodName, ClassName, CONSTANT_NAME
 
 * Callback methods should always end with 'Callback' as the
-  method/function name. This is a remender of the fact that
+  method / function name. This is a reminder of the fact that
   the context is lost.
 
 * use ``===`` instead of ``==`` for comparison. ``===`` doesn't do type
@@ -82,7 +82,7 @@ General
     Docstring for duppy.
     */
     function duppy() {
-      // Do something here.
+        // Do something here.
     }
 
 
@@ -90,7 +90,7 @@ General
     Docstring for duppy_doo.
     */
     function duppy_doo() {
-      // Do something here.
+        // Do something here.
     }
 
 
@@ -98,25 +98,25 @@ General
     A simple mock for Browser service.
     */
     function MockBrowser() {
-      this._cookies = {}
+        this._cookies = {}
 
-      /*
-      Docstring for MockBrower.setCookies()
-      */
-      this.setCookie = function(name, value) {
-        // Implementation here.
-      }
+        /*
+        Docstring for MockBrower.setCookies()
+        */
+        this.setCookie = function(name, value) {
+            // Implementation here.
+        }
 
-      /*
-      Docstring here.
-      */
-      this.doSomethingElse = function(name) {
-        // Implementation here.
-      }
+        /*
+        Docstring here.
+        */
+        this.doSomethingElse = function(name) {
+            // Implementation here.
+        }
 
-      this._methodWihoutDocstring = function(name) {
-        // Implementation here.
-      }
+        this._methodWihoutDocstring = function(name) {
+            // Implementation here.
+        }
 
     }
 
@@ -187,7 +187,7 @@ Example::
     var Shell = new ActiveXObject("WScript.Shell");
 
     function do_something() {
-      var bla = Shell.method_usage()
+        var bla = Shell.method_usage()
     }
 
 
@@ -220,7 +220,7 @@ Now we know to look for any JavaScript touching .js-open-tab, which should
 only be a simple search away.
 
 And hey, now JavaScript and CSS won't share selectors. Since we're separating
-our content and presentation, we might as well separate our behavior all the
+our content and presentation, we might as well separate our behaviour all the
 way too.
 
 .. _slightly obtrusive javascript: http://ozmm.org/posts/slightly_obtrusive_javascript.html
@@ -244,8 +244,7 @@ but rather try to change the CSS class::
 Test styleguide
 ===============
 
-* We use ``assert`` style testing using the same syntax as in Python unit
-  tests.
+* We use ``expect`` style testing.
 * Leave 2 emtpy lines before each ``suite`` and one empty line before each
   ``test``
 
@@ -258,42 +257,42 @@ Test styleguide
 
     suite('LoginCtrl', function() {
 
-      // Shared variables.
-      var scope
-      var ctrl
+        // Shared variables.
+        var scope
+        var ctrl
 
-      setup(function() {
-        // Initialize first.
-      })
-
-      teardown(function() {
-        // Clean second.
-      })
-
-      test(
-      'Initializes with no errors and blank values' +
-      'long line are wrapped',
-      function() {
-        var something = Something()
-
-        something.doSomething()
-
-        assert.equal('', something.username)
-      })
-
-
-      suite('critical_error attribute', function(){
-
-        test(
-        'When set, hides the form and sets the error message.',
-        function(){
-        var message = manu.makeUniqueString()
-
-          scope.critical_error = message
-          scope.$digest()
-
-          assert.isFalse(scope.show_form)
-          assert.equal(message, scope.alert.error)
+        setup(function() {
+            // Initialize first.
         })
 
-      })
+        teardown(function() {
+            // Clean second.
+        })
+
+        test(
+        'Initializes with no errors and blank values' +
+        'long line are wrapped',
+        function() {
+            var something = Something()
+
+            something.doSomething()
+
+            assert.equal('', something.username)
+        })
+
+
+        suite('critical_error attribute', function(){
+
+            test(
+            'When set, hides the form and sets the error message.',
+            function(){
+                var message = manu.makeUniqueString()
+
+                scope.critical_error = message
+                scope.$digest()
+
+                assert.isFalse(scope.show_form)
+                assert.equal(message, scope.alert.error)
+            })
+        })
+    })
