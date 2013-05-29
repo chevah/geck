@@ -13,13 +13,13 @@ General
   This means avoiding them at line breaks and avoiding multi-statement lines.
   Semi-colon at the end of the line is added only when required.
 
-* Use 2 space identation.
+* Use 4 space indentation.
 
 * Variable, function, method and constants name are after PEP8.
   variable_name, function_name, methodName, ClassName, CONSTANT_NAME
 
 * Callback methods should always end with 'Callback' as the
-  method/function name. This is a remender of the fact that
+  method / function name. This is a reminder of the fact that
   the context is lost.
 
 * use ``===`` instead of ``==`` for comparison. ``===`` doesn't do type
@@ -51,7 +51,9 @@ General
 * Use ``undefined`` instead of the the traditional ``null``.
 
 * Keep braces on the same line as their corresponding statements. Never omit
-  them for single-line if / else statements::
+  them for single-line if / else statements.
+
+.. sourcecode:: javascript
 
     if (something) {
         // code here
@@ -62,11 +64,64 @@ General
     function duppy() {
         var something
         return {
-            foo: function() {} 
+            foo: function() {}
         }
     }
 
-* Avoid using leading paranthesis
+* Leave 2 empty lines between global function or class definitions.
+  Leave 1 empty line between functions from the same class.
+  Global variable can be grouped and the don't require empty lines in between.
+
+.. sourcecode:: javascript
+
+    var GLOBAL_DAY = 1
+    var GLOBAL_YEAR = 3
+
+
+    /*
+    Docstring for duppy.
+    */
+    function duppy() {
+        // Do something here.
+    }
+
+
+    /*
+    Docstring for duppy_doo.
+    */
+    function duppy_doo() {
+        // Do something here.
+    }
+
+
+    /*
+    A simple mock for Browser service.
+    */
+    function MockBrowser() {
+        this._cookies = {}
+
+        /*
+        Docstring for MockBrower.setCookies()
+        */
+        this.setCookie = function(name, value) {
+            // Implementation here.
+        }
+
+        /*
+        Docstring here.
+        */
+        this.doSomethingElse = function(name) {
+            // Implementation here.
+        }
+
+        this._methodWihoutDocstring = function(name) {
+            // Implementation here.
+        }
+
+    }
+
+
+* Avoid using leading parenthesis.
 
 * Avoid using ``delete`` operator and only use it to delete explicitly
   set properties on normal objects::
@@ -95,12 +150,46 @@ Example::
   by the protocol.
 
 * Callbacks called from the GUI / DOM should be prefixed with `on`.
-  Ex: onAuthentication (when authenitcate button is pressed),
+  Ex: onAuthentication (when authenticate button is pressed),
   onLogout (when logout link is pressed),
   onLoginFormSubmit (when login form is submitted)
 
 * Callbacks/Errback for XHR are be prefixed with `cb` and `eb`, similar
   with Python/Twisted convention.
+
+* For one line comments, leave one empty space after the comment marker.
+
+.. sourcecode:: javascript
+
+    // Good comment line.
+    //Bad comment line.
+
+* For multi line comments use the following convention.
+
+.. sourcecode:: javascript
+
+    /*
+    Short single line comment title.
+    More details about what is here and
+    here and here.
+
+    Feel free to create paragraphs separation.
+    */
+
+* Global constants will follow the CONSTANT_NAME naming convention.
+
+* Global services (objects with methods) are named similar to class names.
+  Most of the time they will be singletons so there will be no associated
+  class.
+
+.. sourcecode:: javascript
+
+    var Shell = new ActiveXObject("WScript.Shell");
+
+    function do_something() {
+        var bla = Shell.method_usage()
+    }
+
 
 TODO
 http://javascript.crockford.com/code.html http://jibbering.com/faq/notes/code-guidelines/ http://neil.rashbrook.org/Js.htm
@@ -131,7 +220,7 @@ Now we know to look for any JavaScript touching .js-open-tab, which should
 only be a simple search away.
 
 And hey, now JavaScript and CSS won't share selectors. Since we're separating
-our content and presentation, we might as well separate our behavior all the
+our content and presentation, we might as well separate our behaviour all the
 way too.
 
 .. _slightly obtrusive javascript: http://ozmm.org/posts/slightly_obtrusive_javascript.html
@@ -155,8 +244,7 @@ but rather try to change the CSS class::
 Test styleguide
 ===============
 
-* We use ``assert`` style testing using the same syntax as in Python unit
-  tests.
+* We use ``expect`` style testing.
 * Leave 2 emtpy lines before each ``suite`` and one empty line before each
   ``test``
 
@@ -169,42 +257,42 @@ Test styleguide
 
     suite('LoginCtrl', function() {
 
-      // Shared variables.
-      var scope
-      var ctrl
+        // Shared variables.
+        var scope
+        var ctrl
 
-      setup(function() {
-        // Initialize first.
-      })
-
-      teardown(function() {
-        // Clean second.
-      })
-
-      test(
-      'Initializes with no errors and blank values' +
-      'long line are wrapped',
-      function() {
-        var something = Something()
-
-        something.doSomething()
-
-        assert.equal('', something.username)
-      })
-
-
-      suite('critical_error attribute', function(){
-
-        test(
-        'When set, hides the form and sets the error message.',
-        function(){
-        var message = manu.makeUniqueString()
-
-          scope.critical_error = message
-          scope.$digest()
-
-          assert.isFalse(scope.show_form)
-          assert.equal(message, scope.alert.error)
+        setup(function() {
+            // Initialize first.
         })
 
-      })
+        teardown(function() {
+            // Clean second.
+        })
+
+        test(
+        'Initializes with no errors and blank values' +
+        'long line are wrapped',
+        function() {
+            var something = Something()
+
+            something.doSomething()
+
+            assert.equal('', something.username)
+        })
+
+
+        suite('critical_error attribute', function(){
+
+            test(
+            'When set, hides the form and sets the error message.',
+            function(){
+                var message = manu.makeUniqueString()
+
+                scope.critical_error = message
+                scope.$digest()
+
+                assert.isFalse(scope.show_form)
+                assert.equal(message, scope.alert.error)
+            })
+        })
+    })
