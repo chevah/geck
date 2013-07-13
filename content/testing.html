@@ -61,6 +61,16 @@ System testing
 In contrast with unit or functional tests, these test have no restriction for
 interacting with external systems.
 
+A test is a system test if:
+
+* It touches the file system.
+* It talks to the database.
+* It communicates across the network.
+* It uses some type of shared resource and can't run at the same time as
+  any other unit tests.
+* You have to do special things to prepare your environment.
+* Requires a special OS account / OS credentials to exists.
+
 They interact with local filesystem, network and other services provided by
 the operating system.
 
@@ -78,9 +88,9 @@ They test the integration with external services, and at some
 extend they are integration tests.
 
 Due to interaction with external system, system tests are slower than unit or
-functional tests.
+integration tests.
 
-While configuring external system take special care to avoid side effects or
+While configuring external systems, take special care to avoid side effects or
 leaving the system in an inconsistent tests that will not allow other tests
 to execute. At the end of the test, leave the system in the same state as the
 one from the start.
@@ -319,15 +329,33 @@ Tests description - docstrings
 ------------------------------
 
 Each test should have a description (docstring) with information about the
-purpose of the test or any other additional info that could help another person
-to understand the test.
+purpose of the test or any other additional info that could help another
+person to understand the test.
 
 Writing docstring for tests is not easy, but doing so will reduce the
 WTF/minute.
 
-* Describe in simple plain english what you are testing.
+* Describe in simple plain English what you are testing and what is the
+  expected behaviour.
+
+* Think of the test's docstring as an extension of documentation for the
+  method under tests.
+
 * For integration tests add notes about pre-conditions or other requirements.
-* Don't describe how the test is done. Use inline comments for that.
+
+* Add a brief description and don't describe how the test is done.
+  Detailed information about the test should be available by reading
+  the code implementing the tests.
+  When code fails to speak for itself use inline comments.
+
+* Avoid including the name of the method under tests. The test method name
+  should already include it.
+
+* When testing for raised exceptions avoid adding the exception name in
+  the test description. Just inform that an exception is raised. By
+  reading the test code, it should be easy to get more details about the
+  exception.
+
 
 Here are some tips from Jonathan Lange as a handy five-step guide:
 
