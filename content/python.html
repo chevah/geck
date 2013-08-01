@@ -113,6 +113,9 @@ Project specific
 * When default arguments have mutable values they are defined as `None` and
   then assigned the default value.
 
+  Otherwise this can hit us very hard. `More details here
+  <http://stackoverflow.com/q/1132941/539264>`_.
+
 .. sourcecode:: python
 
     def methodName(self, a, b='imutable', c=None, d=None):
