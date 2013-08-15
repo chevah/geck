@@ -16,8 +16,13 @@ For person requesting a review
 
 * **All** changes should be reviewed prior to be merged or released.
 
-* Before requesting a review it is recommend to run a full test on all
-  supported platforms (using buildbot).
+* Before requesting a review you should run a full test on your local
+  computer and on all supported platforms.
+  Just run ``paver test_remote all`` and Buildbot and GitHub will work
+  together to display the results.
+
+* Check the **Reviewer's check list** since those are the things that a
+  reviewer will check for sure.
 
 * For Trac: A review request is created by adding the comment and then
   setting the state to 'needs_review'.
@@ -25,6 +30,33 @@ For person requesting a review
   work-flow so use the ticket action form).
 
 * For GitHub: A review request is create using **GitHub Pull requests**.
+
+* When submitting a review for changes not planed in the current milestone,
+  update the milestone to the current one. Don't leave the old milestone.
+
+* You can start writing your review request as soon as you start coding on a
+  branch. There is no need to wait for feature to be fully implemented and
+  tests to pass.
+  Writing a review request early, will help you to organize and explain
+  the work that you plan to do on the branch.
+
+* When the review is ready to be sent to reviewers, leave a comment
+  containing the **needs-review** marker word. It will trigger the review
+  request process.
+
+* GitHub inline comments great, and you can add them to help with the
+  initial review request. Just **don't abuse them**!
+  Think twice before adding an initial inline comments for the review.
+  Ask yourself why that comments is needed and why that line is not
+  clear. Maybe adding a comment in the code would avoid the
+  need for the GitHub inline comment.
+
+* During a review, the reviewer might request changes. You can solve
+  the request by either changing the code, or adding a comment with
+  the reason why you don't want to change the code. After all requested
+  are solved, leave an **new** separate comment containing the keyword
+  **needs-review** . This will let reviewers know that you are done and that
+  they can check the latest changes.
 
 
 Review request message
@@ -67,9 +99,14 @@ following message (added to the ticket description)::
     ===============================
 
     reviewers @some-dude @another-dude
+    depends-on #123
 
 
-    How the changes can be tested and verified as an end user.
+    How the changes can be tested and verified by team members.
+
+    For end-user changes, how the changes can be tested and verified by
+    our users.
+
     A list of steps to follow for checking that everything is OK.
     {{ '}}}' }}
 
@@ -89,36 +126,8 @@ following message (added to the ticket description)::
   line starting with **reviewers** and followed by GitHub names or each
   reviewer prefixed with **@**.
 
-* When submitting a review for changes not planed in the current milestone,
-  update the milestone to the current one. Don't leave the old milestone.
-
-* You can start writing your review request as soon as you start coding on a
-  branch. There is no need to wait for feature to be fully implemented and
-  tests to pass.
-  Writing a review request early, will help you to organize and explain
-  the work that you plan to do on the branch.
-
-* When the review is ready to be sent to reviewers, leave a comment
-  containing the **needs-review** marker word. It will trigger the review
-  request process.
-
-* GitHub inline comments are great, and you can add them to help with the
-  initial review request. Just **don't abuse them**!
-  Think twice before adding an initial inline comments for the review.
-  Ask yourself why that comments is needed and why that line is not
-  clear. Maybe adding a comment in the code would avoid the
-  need for the GitHub inline comment.
-
-* Before requesting a review, make sure **all tests pass**.
-  Just run ``paver test_remote all`` and Buildbot and GitHub will work
-  together to display the results.
-
-* During a review, the reviewer might request changes. You can solve
-  the request by either changing the code, or adding a comment with
-  the reason why you don't want to change the code. After all requested
-  are solved, leave an **new** separate comment containing the keyword
-  **needs-review** . This will let reviewers know that you are done and that
-  they can check the latest changes.
+* If required, using **depends-on** marer, add the list of reviews on which
+  this review depends and blocks the merge of this branch.
 
 
 Small Merge Requests
@@ -227,13 +236,16 @@ For person reviewing changes
 Reviewer's check list
 ---------------------
 
+* Does the **new** changes comply with latest styleguide ?
+
 * Does the code have tests for new code?
 
 * Does the merge commit message describes what is done by this branch?
 
 * Does the branch name starts with the Trac ticket ID.
 
-* Does **all** tests / linters pass?
+* Does **all** tests pass? Does GitHub say that the branch is
+  **Good to merge**?
 
 * If there is no ``paver test_remote all`` for the latest code, you can
   either just reject the review, or trigger a test and wait for results.
