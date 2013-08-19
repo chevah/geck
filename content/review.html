@@ -32,15 +32,15 @@ General
   tracking down.
 
 * The branch driver is responsible for getting his/her branch approved. In
-  case a branch review is delay, the branch driver should contact the
+  case a branch review is delayed, the branch driver should contact the
   reviewers and urge the review.
 
 * While the main purpose of a review is to assert the quality of the changes,
-  the review in in the same time a learning, growing, and communication
+  the review is at the same time a learning, growing, and communication
   experience.
 
 * Try to observe good things from other team members and feel free to comment
-  and let other know about how do you think that things can be improved.
+  and let others know about how you think that things can be improved.
 
 * Ideally you will have many small merge requests, because the bigger they
   get, the more costly they are - now and in the future.
@@ -56,14 +56,14 @@ General
   names and then do a follow-up branch for the renaming.
 
 * Feel free to submit as many merge request as you can. There is a problem
-  with the size of a merge request, not with their number :)
+  with the size of a merge request, not with their number :).
 
 * Some reasons for keeping the merge requests small:
 
   * Large changes are much more likely to do many things.
   * It's harder to understand them.
   * It's harder to review them.
-  * It's harder to inspect the main branch to find the merge that.
+  * It's harder to inspect the main branch to find the merge that
     introduced a bug.
   * It's more likely to break the build.
   * It's harder to cherry pick code for backporting / supporting old releases.
@@ -82,8 +82,8 @@ For person requesting a review
   Just run ``paver test_remote all`` and Buildbot and GitHub will work
   together to display the results.
 
-* Before passing the review to others, take another careful look at you work
-  and perform yourself a first review.
+* Before passing the review to others, take another careful look at your work
+  and perform a first review yourself.
   Check that all changes are described together with their attached test
   cases.
   It is very important to have a good review request message as it will
@@ -97,7 +97,7 @@ For person requesting a review
   (**don't use keywords**, we are using a strict ticket
   work-flow so use the ticket action form).
 
-* For GitHub: A review request is create using **GitHub Pull requests**.
+* For GitHub: A review request is created using **GitHub Pull requests**.
 
 * When submitting a review for changes not planed in the current milestone,
   update the milestone to the current one. Don't leave the old milestone.
@@ -114,25 +114,25 @@ For person requesting a review
 
 * GitHub inline comments are great, and you can add them to help with the
   initial review request. Just **don't abuse them**!
-  Think twice before adding an initial inline comments for the review.
+  Think twice before adding an initial inline comment for the review.
   Ask yourself why that comments is needed and why that line is not
   clear. Maybe adding a comment in the code would avoid the
   need for the GitHub inline comment.
 
 * During a review, the reviewer might request changes. You can solve
   the request by either changing the code, or adding a comment with
-  the reason why you don't want to change the code. After all requested
-  are solved, leave an **new** separate comment containing the keyword
+  the reason why you don't want to change the code. After all requests
+  are solved, leave a **new**, separate, comment containing the keyword
   **needs-review** . This will let reviewers know that you are done and that
   they can check the latest changes.
 
 * Make sure that review request message is always up to date with latest
   changes.
-  If during review new changes are made or new test cases are discovered,
+  If during the review new changes are made or new test cases are discovered,
   don't forget to update the initial review request message to include a
   summary of these changes.
 
-* The "How to test the changes" section should include **ALL** test cased
+* The "How to test the changes" section should include **ALL** test cases
   done during the review. If a reviewer is following a test case not described
   in the initial request message, it should update the review message with
   the new test case.
@@ -164,7 +164,7 @@ following message (added to the ticket description)::
     Mainly used for bugs. Can be removed for tasks or new features.
 
     Describe why we got this problem in the first place. What went wrong.
-    Repeatedly ask the question “Why” (up to 5 times) to determine to
+    Repeatedly ask the question “Why” (up to 5 times) to determine the
     cause of this problem.
 
 
@@ -259,7 +259,7 @@ A merge commit should have a commit message, in the format::
 For person reviewing changes
 ============================
 
-* Aim for an code inspection rate of fewer than 300 – 500 LOC per hour. This
+* Aim for a code inspection rate of fewer than 300 – 500 LOC per hour. This
   does not apply to QA team members for which, reviewing changes is the main
   activity.
 
@@ -268,11 +268,11 @@ For person reviewing changes
 
 * You should always spend at least five minutes reviewing code, even if it's
   just one line. Often, a single line or small changes can have major
-  impact throughout the while system, and it's worth the five minutes to
+  impact throughout the whole system, and it's worth the five minutes to
   think through the possible effects that a change could have.
 
 * The only quality metric of good work / code is **WTF/s**. While doing
-  the review you are encourage to keep track of all your first
+  the review you are encouraged to keep track of all your first
   contact / view / read impressions and report them in the review feedback.
 
 * Follow procedure recommended in the "How to try and test the changes"
