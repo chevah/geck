@@ -8,6 +8,67 @@ who requests a reviewer and a person who checks a review.
 ..  contents::
 
 
+General
+=======
+
+* The goal of a review is to eliminate as many defects as possible,
+  regardless of who "caused" the error. Branch driver and reviews work
+  together to achieve this goal.
+
+* The review process is a very efficient form of pair-programming ...
+  `and is not this kind of pair programming
+  <http://whenarewehavingcake.tumblr.com/post/23507389861>`_.
+
+* Branch driver is the person (or persons) requesting the review and
+  responsible for implementing changes during review.
+
+* Reviewer is the person responsible for checking the code or changes.
+
+* The review process is first class citizen of the Quality Assurance process.
+
+* Each defect found during a review is an opportunity to improve the code.
+  Every defect found and fixed in peer review is a defect that a customer
+  never sees and another problem that support doesn't have to spend time
+  tracking down.
+
+* The branch driver is responsible for getting his/her branch approved. In
+  case a branch review is delayed, the branch driver should contact the
+  reviewers and urge the review.
+
+* While the main purpose of a review is to assert the quality of the changes,
+  the review is at the same time a learning, growing, and communication
+  experience.
+
+* Try to observe good things from other team members and feel free to comment
+  and let others know about how you think that things can be improved.
+
+* Ideally you will have many small merge requests, because the bigger they
+  get, the more costly they are - now and in the future.
+
+* One merge request should do one thing only.
+
+* The target for a small request is no more than 400 touched lines
+  (added + removed).
+
+* When you do a refactoring and you need to rename something in many files,
+  do it in a dedicated branch which only deals with the renaming.
+  This will help a lot with the review. Land your changed with the ugly
+  names and then do a follow-up branch for the renaming.
+
+* Feel free to submit as many merge request as you can. There is a problem
+  with the size of a merge request, not with their number :).
+
+* Some reasons for keeping the merge requests small:
+
+  * Large changes are much more likely to do many things.
+  * It's harder to understand them.
+  * It's harder to review them.
+  * It's harder to inspect the main branch to find the merge that
+    introduced a bug.
+  * It's more likely to break the build.
+  * It's harder to cherry pick code for backporting / supporting old releases.
+
+
 For person requesting a review
 ==============================
 
@@ -21,6 +82,13 @@ For person requesting a review
   Just run ``paver test_remote all`` and Buildbot and GitHub will work
   together to display the results.
 
+* Before passing the review to others, take another careful look at your work
+  and perform a first review yourself.
+  Check that all changes are described together with their attached test
+  cases.
+  It is very important to have a good review request message as it will
+  help reviewers understand what you have done.
+
 * Check the **Reviewer's check list** since those are the things that a
   reviewer will check for sure.
 
@@ -29,7 +97,7 @@ For person requesting a review
   (**don't use keywords**, we are using a strict ticket
   work-flow so use the ticket action form).
 
-* For GitHub: A review request is create using **GitHub Pull requests**.
+* For GitHub: A review request is created using **GitHub Pull requests**.
 
 * When submitting a review for changes not planed in the current milestone,
   update the milestone to the current one. Don't leave the old milestone.
@@ -44,19 +112,30 @@ For person requesting a review
   containing the **needs-review** marker word. It will trigger the review
   request process.
 
-* GitHub inline comments great, and you can add them to help with the
+* GitHub inline comments are great, and you can add them to help with the
   initial review request. Just **don't abuse them**!
-  Think twice before adding an initial inline comments for the review.
+  Think twice before adding an initial inline comment for the review.
   Ask yourself why that comments is needed and why that line is not
   clear. Maybe adding a comment in the code would avoid the
   need for the GitHub inline comment.
 
 * During a review, the reviewer might request changes. You can solve
   the request by either changing the code, or adding a comment with
-  the reason why you don't want to change the code. After all requested
-  are solved, leave an **new** separate comment containing the keyword
+  the reason why you don't want to change the code. After all requests
+  are solved, leave a **new**, separate, comment containing the keyword
   **needs-review** . This will let reviewers know that you are done and that
   they can check the latest changes.
+
+* Make sure that review request message is always up to date with latest
+  changes.
+  If during the review new changes are made or new test cases are discovered,
+  don't forget to update the initial review request message to include a
+  summary of these changes.
+
+* The "How to test the changes" section should include **ALL** test cases
+  done during the review. If a reviewer is following a test case not described
+  in the initial request message, it should update the review message with
+  the new test case.
 
 
 Review request message
@@ -76,13 +155,16 @@ following message (added to the ticket description)::
     the ticket or copy paste the ticket description... or find a way for
     linking this review to a ticket.
 
+    depends-on #123 #124
+
 
     Why we got into this (5 whys)
     =============================
 
-    Mainly used for bugs. Can be removed for task or new features.
+    Mainly used for bugs. Can be removed for tasks or new features.
+
     Describe why we got this problem in the first place. What went wrong.
-    Repeatedly ask the question “Why” (up to 5 times) to determine to
+    Repeatedly ask the question “Why” (up to 5 times) to determine the
     cause of this problem.
 
 
@@ -90,8 +172,11 @@ following message (added to the ticket description)::
     ===================
 
     Describe how the problem was fixed.
-    What changes were done.
-    What actions were performed.
+    List **all** changes made.
+
+    List all changes for which an *ideal* solution was not found. Describe
+    the current solution.
+
     What was not done yet and link to the ticket for the still to do work.
 
 
@@ -99,15 +184,19 @@ following message (added to the ticket description)::
     ===============================
 
     reviewers @some-dude @another-dude
-    depends-on #123
-
 
     How the changes can be tested and verified by team members.
+
+
+    Title for first test case
+    -------------------------
 
     For end-user changes, how the changes can be tested and verified by
     our users.
 
-    A list of steps to follow for checking that everything is OK.
+    List the steps to follow for checking that everything is OK.
+
+    Explicitly state the expected results.
     {{ '}}}' }}
 
 
@@ -126,38 +215,8 @@ following message (added to the ticket description)::
   line starting with **reviewers** and followed by GitHub names or each
   reviewer prefixed with **@**.
 
-* If required, using **depends-on** marer, add the list of reviews on which
+* If required, using **depends-on** marker, add the list of reviews on which
   this review depends and blocks the merge of this branch.
-
-
-Small Merge Requests
---------------------
-
-* Ideally you will have many small merge requests, because the bigger they
-  get, the more costly they are - now and in the future.
-
-* One merge request should do one thing only.
-
-* The target for a small request is no more than 800 touched lines
-  (added + removed).
-
-* When you do a refactoring and you need to rename something in many files,
-  do it in a dedicated branch which only deals with the renaming.
-  This will help a lot with the review. Land your changed with the ugly
-  names and then do a follow-up branch for the renaming.
-
-* Feel free to submit as many merge request as you can. There is a problem
-  with the size of a merge request, not with their number :)
-
-* Some reasons for keeping the merge requests small:
-
-  * Large changes are much more likely to do many things.
-  * It's harder to understand them.
-  * It's harder to review them.
-  * It's harder to inspect the main branch to find the merge that.
-    introduced a bug.
-  * It's more likely to break the build.
-  * It's harder to cherry pick code for backporting / supporting old releases.
 
 
 Merge your branch
@@ -200,8 +259,20 @@ A merge commit should have a commit message, in the format::
 For person reviewing changes
 ============================
 
+* Aim for a code inspection rate of fewer than 300 – 500 LOC per hour. This
+  does not apply to QA team members for which, reviewing changes is the main
+  activity.
+
+* Take enough time for a proper, slow review, but not more than 60–90 minutes.
+  Take a big break between reviews.
+
+* You should always spend at least five minutes reviewing code, even if it's
+  just one line. Often, a single line or small changes can have major
+  impact throughout the whole system, and it's worth the five minutes to
+  think through the possible effects that a change could have.
+
 * The only quality metric of good work / code is **WTF/s**. While doing
-  the review you are encourage to keep track of all your first
+  the review you are encouraged to keep track of all your first
   contact / view / read impressions and report them in the review feedback.
 
 * Follow procedure recommended in the "How to try and test the changes"
