@@ -13,6 +13,10 @@ General
 * `Python PEP 8 <http://www.python.org/dev/peps/pep-0008/>`_
   **Python base code style guide**.
 
+* Favor single inheritence.
+
+* As the second best, use Mixins to reuse code and avoid multiple inheritance.
+
 * Docstring always using multiline strings with double quotes.
 
 .. sourcecode:: python
@@ -79,7 +83,6 @@ NO
 * Multi line split using parentheses, brackets (etc) will follow the normal
   indentation. The code might look ugly and then exceptions are allowed.
 
-
 * Define all class members at the beginning of class definition.
   Don't interleave methods and class members definition. This should make it
   easy to identify all class members used by the class.
@@ -105,6 +108,62 @@ NO
 * UTF-8 is not Unicode.
   Unicode is a character set and UTF-8 is a particular way of
   encoding Unicode.
+
+
+Mixin
+=====
+
+As stated by `Wikipedia <http://en.wikipedia.org/wiki/Mixin>`_:
+Mixins encourage code reuse and avoid well-known pathologies associated
+with multiple inheritance.
+
+Mixin is a limited usage of multiple inheritance.
+
+We use mixing to reuse code and they are provide great help writing tests.
+
+Methods from a mixin should not be overwritten by classes using the mixin.
+
+When defining a class using mixins, put first the parent class and then
+mixin classes in alphabetical order.
+
+.. sourcecode:: python
+
+    class SomeMixedClass(ParentClass, AnotherMixin, SomeMixin, ZoroMixin):
+        """
+        A class with `single` inheritance and multiple mixins.
+        """
+
+When defining a mixin, document the external class or instance members used
+by the mixin.
+
+.. sourcecode:: python
+
+    from some_package import complicated_code_using, complicated_other_using
+
+
+    class LoginMixin(object):
+        """
+        Does some kind of work.
+
+        username - account used for authentication.
+        password - password for the account
+        ssh_key - SSH key for authentication
+        """
+
+        def loginWithUsernameAndPassword(self):
+            """
+            Does something.
+            """
+            if self.username:
+                raise SomeException()
+
+            complicated_code_using(self.username, self.password)
+
+        def loginWithUsernameAndSSHKey(self):
+            """
+            Does something else.
+            """
+            complicated_other_using(self.username, self.ssh_key)
 
 
 Project specific
@@ -137,7 +196,7 @@ Multi line indentation
 .. sourcecode:: python
 
     self.logger.log(
-        message_id=factory.getUniqueInteger(),
+        message_id=factory.number(),
         name=factory.getUniqueString(),
         callback=do_something_else,
         )
@@ -152,13 +211,12 @@ Same indentation applies for brackets:
         alabala,
         ]
 
-* 2 line code exception. If the parentheses expression fits on one line,
-  it can n:
+* 2 line code exception. If the parentheses expression fits on one line:
 
 .. sourcecode:: python
 
     self.logger.log(
-        factory.getUniqueInteger(), factory.getUniqueString())
+        factory.number(), factory.getUniqueString())
 
 * Conditional exception. When indenting parentheses for conditional
   expressions add one extra indent to separate the condition expression
@@ -178,23 +236,29 @@ Same indentation applies for brackets:
         do_else = nothing
         do_something()
 
-* Method and function indentation.
+* Class, method and function indentation.
 
 .. sourcecode:: python
+
+    class MyClassName(
+            VeryLongParentClass, VeryLongOtherMixin):
+        """
+        Docstring here.
+        """
 
     def myMethodWithLongArguments(self,
             name=None, other_long_thing=None):
         """
-        Docstring here,
+        Docstring here.
         """
 
-    def myMethodWithVeryLogArguments(self,
+    def my_function_with_long_arguments(
             name=None,
             other_long_thing=None,
             other_very_long_argument=None,
             ):
         """
-        Docstring here,
+        Docstring here.
         """
 
 
@@ -211,20 +275,13 @@ Imports
 * They will be arranged in 3 major blocks:
 
   * The first one is for importing from Python standard modules.
-  * The second from modules outside of the project.
+  * The second from modules outside of the project (3rd party).
   * The last for modules belonging to the project.
 
-* Chevah projects have a 'chevah.common' package which will be imported first
-  in the list of project modules.
+* In each block the modules are sorted in alphabetical order,
+  case-insensitive.
 
-* The ``from __future__ import with_statement`` and
-  ``from chevah.commons import __future__`` will be placed on top of the
-  file, just after the module comment, with a space. It will be the first
-  import from the standard library.
-
-* In each block the modules are sorted in alphabetical order, case-insensitive.
-
-* When importing multiple members of a module, if the don't exceed the 78
+* When importing multiple members of a module, if they don't exceed the 78
   characters limit, they will be listed on the same line
 
 * When importing multiple members of a module, and they exceed the 78
