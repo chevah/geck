@@ -13,11 +13,11 @@ General
 * `Python PEP 8 <http://www.python.org/dev/peps/pep-0008/>`_
   **Python base code style guide**.
 
-* Favor single inheritence.
+* Favour single inheritance.
 
 * As the second best, use Mixins to reuse code and avoid multiple inheritance.
 
-* Docstring always using multiline strings with double quotes.
+* Docstring always use multiline strings with double quotes.
 
 .. sourcecode:: python
 
@@ -26,12 +26,27 @@ General
         Single line docstring.
         """
 
-    def other_function(argument):
+
+    class SomeClass(ParentClass):
         """
-        Quick explanation of the function.
+        Quick explanation of the role of this class.
 
         More details to follow in long paragraphs.
         """
+
+* Class members or instance members can be documented inline using the
+  following syntax.
+
+.. sourcecode:: python
+
+    class SomeClass(ParentClass):
+        """
+        Docstring for class.
+        """
+
+        #: Docstring for class member.
+        #: Can be on multiple lines.
+        class_member = True
 
 * All test functions, test methods, test suites will have docstrings.
 
