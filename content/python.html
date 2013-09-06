@@ -138,6 +138,8 @@ We use mixing to reuse code and they are provide great help writing tests.
 
 Methods from a mixin should not be overwritten by classes using the mixin.
 
+Mixins should not overwrite methods or call **super()**.
+
 When defining a class using mixins, put first the parent class and then
 mixin classes in alphabetical order.
 
