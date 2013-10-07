@@ -22,6 +22,9 @@ General
   method / function name. This is a reminder of the fact that
   the context is lost.
 
+* Constructor functions (those that are called with **new**) should use
+  class naming convention.
+
 * use ``===`` instead of ``==`` for comparison. ``===`` doesn't do type
   coercion.
 
@@ -195,6 +198,80 @@ TODO
 http://javascript.crockford.com/code.html http://jibbering.com/faq/notes/code-guidelines/ http://neil.rashbrook.org/Js.htm
 
 
+Defining classes
+================
+
+In JS there is no strict way of defining a class and instances are created
+using a function and new operator.
+
+When defining a class we use an anonymous function to allow class
+private instances and create a new class scope.
+
+.. sourcecode:: javascript
+
+    var BaseAccount = (function() {
+
+        var class_private_member = 2
+
+        /*
+        Constructor is here.
+        */
+        var class = function(name, age) {
+            this.name = name
+            this.age = age
+        }
+
+        class.prototype.class_public_member = 3
+
+        /*
+        Some method.
+        */
+        class.prototype.some_method = function(prefix) {
+            return prefix + this.name + this.age
+        }
+
+        /*
+        Another method.
+        */
+        class.prototype.tuned = function() {
+            return false
+        }
+
+        return class
+    }())
+
+
+    var SpecialAccount = (function() {
+
+        var class = function(name, age) {
+            this.variant = 'light'
+            /* Something similar to super()*/
+            BaseAccount.call(this, name, age)
+        }
+
+        /* Something similar to inheritance. */
+        class.prototype = Object.create(BaseAccount.prototype)
+        class.prototype.constructor = class
+
+        /*
+        Method extending parent.
+        */
+        class.prototype.some_method = function(prefix) {
+            var parent = BaseAccount.prototype.some_method.call(this, prefix)
+            return parent + variant
+        }
+
+        /*
+        Method overwriting parent.
+        */
+        class.prototype.tuned = function() {
+            return true
+        }
+
+        return class
+    }())
+
+
 CSS interaction
 ===============
 
@@ -296,3 +373,11 @@ Test styleguide
             })
         })
     })
+
+
+Rerefences
+----------
+
+Here are the pages I used to create this page.
+
+* http://toranbillups.com/blog/archive/2013/05/15/Basic-javascript-inheritance-and-polymorphism/
