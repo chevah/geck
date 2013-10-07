@@ -216,59 +216,66 @@ private instances and create a new class scope.
         /*
         Constructor is here.
         */
-        var class = function(name, age) {
+        var cls = function(name, age) {
             this.name = name
             this.age = age
         }
 
-        class.prototype.class_public_member = 3
+        cls.prototype.class_member = 3
+
+        /*
+        Base method.
+        */
+        cls.prototype.base_method = function() {
+            return this.name + '-' + this.age
+        }
 
         /*
         Some method.
         */
-        class.prototype.some_method = function(prefix) {
-            return prefix + this.name + this.age
+        cls.prototype.some_method = function(prefix) {
+            return prefix + this.base_method()
         }
 
         /*
         Another method.
         */
-        class.prototype.tuned = function() {
+        cls.prototype.tuned = function() {
             return false
         }
 
-        return class
+        return cls
     }())
 
 
     var SpecialAccount = (function() {
 
-        var class = function(name, age) {
+        var cls = function(name, age) {
             this.variant = 'light'
             /* Something similar to super()*/
             BaseAccount.call(this, name, age)
         }
 
         /* Something similar to inheritance. */
-        class.prototype = Object.create(BaseAccount.prototype)
-        class.prototype.constructor = class
+        cls.prototype = Object.create(BaseAccount.prototype)
+        cls.prototype.constructor = cls
 
         /*
         Method extending parent.
         */
-        class.prototype.some_method = function(prefix) {
+        cls.prototype.some_method = function(prefix) {
             var parent = BaseAccount.prototype.some_method.call(this, prefix)
-            return parent + variant
+            return prefix + '-child-' + parent
         }
 
         /*
         Method overwriting parent.
         */
-        class.prototype.tuned = function() {
+        cls.prototype.tuned = function() {
             return true
         }
 
-        return class
+        return cls
     }())
 
 
