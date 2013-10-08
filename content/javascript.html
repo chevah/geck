@@ -22,6 +22,9 @@ General
   method / function name. This is a reminder of the fact that
   the context is lost.
 
+* Constructor functions (those that are called with **new**) should use
+  class naming convention.
+
 * use ``===`` instead of ``==`` for comparison. ``===`` doesn't do type
   coercion.
 
@@ -195,6 +198,87 @@ TODO
 http://javascript.crockford.com/code.html http://jibbering.com/faq/notes/code-guidelines/ http://neil.rashbrook.org/Js.htm
 
 
+Defining classes
+================
+
+In JS there is no strict way of defining a class and instances are created
+using a function and new operator.
+
+When defining a class we use an anonymous function to allow class
+private instances and create a new class scope.
+
+.. sourcecode:: javascript
+
+    var BaseAccount = (function() {
+
+        var class_private_member = 2
+
+        /*
+        Constructor is here.
+        */
+        var cls = function(name, age) {
+            this.name = name
+            this.age = age
+        }
+
+        cls.prototype.class_member = 3
+
+        /*
+        Base method.
+        */
+        cls.prototype.base_method = function() {
+            return this.name + '-' + this.age
+        }
+
+        /*
+        Some method.
+        */
+        cls.prototype.some_method = function(prefix) {
+            return prefix + this.base_method()
+        }
+
+        /*
+        Another method.
+        */
+        cls.prototype.tuned = function() {
+            return false
+        }
+
+        return cls
+    }())
+
+
+    var SpecialAccount = (function() {
+
+        var cls = function(name, age) {
+            this.variant = 'light'
+            /* Something similar to super()*/
+            BaseAccount.call(this, name, age)
+        }
+
+        /* Something similar to inheritance. */
+        cls.prototype = Object.create(BaseAccount.prototype)
+        cls.prototype.constructor = cls
+
+        /*
+        Method extending parent.
+        */
+        cls.prototype.some_method = function(prefix) {
+            var parent = BaseAccount.prototype.some_method.call(this, prefix)
+            return prefix + '-child-' + parent
+        }
+
+        /*
+        Method overwriting parent.
+        */
+        cls.prototype.tuned = function() {
+            return true
+        }
+
+        return cls
+    }())
+
+
 CSS interaction
 ===============
 
@@ -296,3 +380,11 @@ Test styleguide
             })
         })
     })
+
+
+Rerefences
+----------
+
+Here are the pages I used to create this page.
+
+* http://toranbillups.com/blog/archive/2013/05/15/Basic-javascript-inheritance-and-polymorphism/
