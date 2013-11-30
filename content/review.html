@@ -235,15 +235,15 @@ and pushed to master.
 
 If PQM is not enabled for the repo, you will need to do a manual merge.
 
-When doing manual merge using git, don't use fast-forward and don't use the
+When doing manual merge using git, use squash merge and don't use the
 default commit message. Here is a sample command for merging branch
 "1234-what-was-done"::
 
     git checkout master
-    git merge --no-commit --no-ff 1234-what-was-done
+    git merge --no-commit --squash 1234-what-was-done
     git commit -a -m "[#1234] What was done in this branch."
 
-It is recommended to define a git alias for `merge --no-commit --no-ff`.
+It is recommended to define a git alias for `merge --no-commit --squash`.
 
 A merge commit should have a commit message, in the format::
 

@@ -4,24 +4,73 @@ page_title: Bash and shell scripting
 
 ..  contents::
 
+
 General
 -------
 
-* Bash scripts should be kept at a minimum and **only** for internal scripts.
+* Shell scripts should be kept at a minimum and **only** for internal scripts.
   For all other things there is Python.
+
 * All public scripts should use ``sh``. Bash is not available on all Unix
   systems and ksh or other shells are not compatible with Bash syntax.
+
+* For internal script, we should use Bash, as it is more advanced than SH.
+
 * Use uppercase for all GLOBAL variables.
+
+* In test, guard all string variables in double quotes to handle empty
+  strings or spaces in variables.
+
+* Always double quote the ``$@`` variable to keep arguments with spaces.
+
+* Always guard your script from unexpected errors, by using the following
+  options:
+
+.. sourcecode:: bash
+
+    set -o nounset
+    set -o errexit
+
+* Get non-zero exit code for a command using this format:
+
+.. sourcecode:: bash
+
+    if ! command ; then
+        handle_non_zero_exit
+    fi
+
+* If you need to get the exact exit code of a command use this format:
+
+.. sourcecode:: bash
+
+    set +e
+    command_with_exit_code
+    exit_code=$1
+    set -e
+
+* If you don't care if a command fails, guard it with a pipe.
+
+.. sourcecode:: bash
+
+    command_which_fails || true
+
+* By default Bash takes the error status of the last item in a pipeline,
+  which may not be what you want.
+  For example, ``failed_command | true`` will be considered to have succeeded.
+  If you would like this to fail, then you can use
+  ``set -o pipefail`` to make it fail.
 
 
 Path constants
 --------------
 
-
 When defining the path to a folder as a constant, you should not include the
 trailing slash.
+
 Most commands will work if a path contain 2 slashes, but it is best to have
 a convention.
+
+Always double quote path constants to handle files with spaces.
 
 We should use:
 
@@ -29,7 +78,11 @@ We should use:
 
     SOME_PATH=/some/path
     # and a usage like:
-    command ${SOME_PATH}/some.file
+    command "${SOME_PATH}/some.file"
+
+    # Another example
+    REMOTE_URI=chevah@chevah.com:/home/chevah/styleguide.chevah.com/vm
+    scp "$LOCAL_FILE" "${REMOTE_URL}/file"
 
 Instead of:
 
@@ -37,12 +90,7 @@ Instead of:
 
     SOME_PATH=/some/path/
     # and a usage like:
-    command ${SOME_PATH}some.file
-
-We should have
-REMOTE_URI=chevah@chevah.com:/home/chevah/styleguide.chevah.com/vm
-and
-scp ${REMOTE_URL}/file.sh
+    command "${SOME_PATH}some.file"
 
 
 Function Definition
@@ -51,24 +99,47 @@ Function Definition
 Leave 2 blank lines between function definitions and always use ``local`` for
 local variable declaration.
 
+Define local variables at the start of the function, in a distinct block.
+It is recommend to define a local variable named `result` to hold the value
+produced by calling the function.
+
+Put the final returned result in a separate block.
+
+Procedures are functions which have no result.
+
+Since Bash only support returning numeric values, which are interpreted
+as exit code, we will pass values between functions by using ``echo``.
+
+
 .. sourcecode:: bash
 
     #
-    # Description of function 1
+    # Description of function 1.
     #
+    # * $1 - description of first argument
+    # * $2 - description of second argument
+    # * return - description of return value.
+
     function1 () {
         local variable_which_is_local
-        local variable_1
+        local result
 
-        echo $variable_which_is_local
+        do_some_action_here
+        do_more_action
+
+        echo $result
     }
 
 
     #
-    # Description of function 2
+    # Description of procedure 1.
     #
-    function2 () {
-        code here
+    # It does this and this.
+    #
+    procudere1 () {
+        local something=$(function1 ARG1)
+
+        do_something_else something
     }
 
 
@@ -97,7 +168,7 @@ IF/THEN/ELSE
 
     if TEST ; then
         call something
-    elif OTHER_TEST ; then
+    elif [ "$string" == OTHER_TEST ] ; then
         call elseif
     else
         call else
@@ -122,3 +193,12 @@ WHILE/UNTIL
     while TETS ; do
         call something
     done
+
+
+Rerefences
+----------
+
+Here are the pages I used to create this page.
+
+ * http://www.davidpashley.com/articles/writing-robust-shell-scripts/
+ * http://www.linuxjournal.com/content/return-values-bash-functions
