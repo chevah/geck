@@ -11,27 +11,30 @@ General
 * Shell scripts should be kept at a minimum and **only** for internal scripts.
   For all other things there is Python.
 
-* All public scripts should use ``sh``. Bash is not available on all Unix
-  systems and ksh or other shells are not compatible with Bash syntax.
+* If any, public scripts should use ``/bin/sh``. Bash is not available on all 
+  Unix systems and ksh or other shells are not compatible with Bash syntax.
 
-* For internal script, we should use Bash, as it is more advanced than SH.
+* For internal scripts we should use ``/bin/bash``, as the default ``/bin/sh``
+  sometimes points to a lesser shell such as Dash.
 
 * Use uppercase for all GLOBAL variables.
 
-* In test, guard all string variables in double quotes to handle empty
-  strings or spaces in variables.
+* In tests, enclose all uncontrolled string variables in double quotes to 
+  handle empty strings or spaces in variables.
 
 * Always double quote the ``$@`` variable to keep arguments with spaces.
 
-* Always guard your script from unexpected errors, by using the following
-  options:
+* Always guard your Bash scripts from unexpected errors, by using the 
+  following options:
 
 .. sourcecode:: bash
 
     set -o nounset
     set -o errexit
 
-* Get non-zero exit code for a command using this format:
+* Mind you, the ``errexit`` option will break checks for error codes using
+  ``$?``. Handle a non-zero exit code for a command by using something along
+  the lines of:
 
 .. sourcecode:: bash
 
@@ -39,26 +42,27 @@ General
         handle_non_zero_exit
     fi
 
-* If you need to get the exact exit code of a command use this format:
+* Also, if you really need to get the exact exit code of a command, use
+  ``set ±e`` to disable and reenable the ``errexit`` option as below:
 
 .. sourcecode:: bash
 
     set +e
-    command_with_exit_code
+    command_with_special_exit_code
     exit_code=$1
     set -e
 
-* If you don't care if a command fails, guard it with a pipe.
+* Moreso, if you don't care if a command fails and want to keep executing 
+  the rest of the script, use the following trick:
 
 .. sourcecode:: bash
 
-    command_which_fails || true
+    command_which_may_fail || true
 
-* By default Bash takes the error status of the last item in a pipeline,
-  which may not be what you want.
-  For example, ``failed_command | true`` will be considered to have succeeded.
-  If you would like this to fail, then you can use
-  ``set -o pipefail`` to make it fail.
+* This works because by default Bash takes the error status of the last item
+  in a pipeline thus ``false || true`` will be considered to have succeeded.
+  If you would like this to fail, then you can use ``set -o pipefail`` to 
+  make it fail.
 
 
 Path constants
@@ -100,7 +104,7 @@ Leave 2 blank lines between function definitions and always use ``local`` for
 local variable declaration.
 
 Define local variables at the start of the function, in a distinct block.
-It is recommend to define a local variable named `result` to hold the value
+It is recommended to define a local variable named `result` to hold the value
 produced by calling the function.
 
 Put the final returned result in a separate block.
@@ -108,7 +112,7 @@ Put the final returned result in a separate block.
 Procedures are functions which have no result.
 
 Since Bash only support returning numeric values, which are interpreted
-as exit code, we will pass values between functions by using ``echo``.
+as exit codes, we will pass values between functions by using ``echo``.
 
 
 .. sourcecode:: bash
@@ -136,7 +140,7 @@ as exit code, we will pass values between functions by using ``echo``.
     #
     # It does this and this.
     #
-    procudere1 () {
+    procedure1 () {
         local something=$(function1 ARG1)
 
         do_something_else something
@@ -190,12 +194,12 @@ WHILE/UNTIL
 
 .. sourcecode:: bash
 
-    while TETS ; do
+    while TEST ; do
         call something
     done
 
 
-Rerefences
+References
 ----------
 
 Here are the pages I used to create this page.
