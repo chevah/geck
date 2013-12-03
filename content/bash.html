@@ -16,6 +16,12 @@ General
 
 * For internal scripts we should use ``/bin/bash``, as the default ``/bin/sh``
   sometimes points to a lesser shell such as Dash.
+  
+* A function called main is required for scripts long enough to contain at
+  least one other function.  
+  
+* Put all functions together in the file just below constants. Don't hide
+  executable code between functions.  
 
 * Use uppercase for all GLOBAL variables.
 
@@ -23,6 +29,20 @@ General
   handle empty strings or spaces in variables.
 
 * Always double quote the ``$@`` variable to keep arguments with spaces.
+
+* Pipelines should be split one per line if they don't all fit on one line.
+
+* Use $(command) instead of backticks. Nested backticks require escaping the
+  inner ones with \. The $(command) format doesn't change when nested and is
+  easier to read. See the example below 
+
+.. sourcecode:: bash
+
+    # This is preferred:
+    var="$(command "$(command1)")"
+    
+    # This is not:
+    var="`command \`command1\``"
 
 * Always guard your Bash scripts from unexpected errors, by using the 
   following options:
