@@ -4,32 +4,109 @@ page_title: Bash and shell scripting
 
 ..  contents::
 
+
 General
 -------
 
-* Bash scripts should be kept at a minimum and **only** for internal scripts.
+* Shell scripts should be kept at a minimum and **only** for internal scripts.
   For all other things there is Python.
-* All public scripts should use ``sh``. Bash is not available on all Unix
-  systems and ksh or other shells are not compatible with Bash syntax.
+
+* If any, public scripts should use ``/bin/sh``. Bash is not available on all 
+  Unix systems and ksh or other shells are not compatible with Bash syntax.
+
+* For internal scripts we should use ``/bin/bash``, as the default ``/bin/sh``
+  sometimes points to a lesser shell such as Dash.
+  
+* A function called main is required for scripts long enough to contain at
+  least one other function.  
+  
+* Put all functions together in the file just below constants. Don't hide
+  executable code between functions.  
+
 * Use uppercase for all GLOBAL variables.
+
+* In tests, enclose all uncontrolled string variables in double quotes to 
+  handle empty strings or spaces in variables.
+
+* Always double quote the ``$@`` variable to keep arguments with spaces.
+
+* Pipelines should be split one per line if they don't all fit on one line.
+
+* Use $(command) instead of backticks. Nested backticks require escaping the
+  inner ones with \. The $(command) format doesn't change when nested and is
+  easier to read. See the example below 
+
+.. sourcecode:: bash
+
+    # This is preferred:
+    var="$(command "$(command1)")"
+    
+    # This is not:
+    var="`command \`command1\``"
+
+* Always guard your Bash scripts from unexpected errors, by using the 
+  following options:
+
+.. sourcecode:: bash
+
+    set -o nounset
+    set -o errexit
+
+* Mind you, the ``errexit`` option will break checks for error codes using
+  ``$?``. Handle a non-zero exit code for a command by using something along
+  the lines of:
+
+.. sourcecode:: bash
+
+    if ! command ; then
+        handle_non_zero_exit
+    fi
+
+* Also, if you really need to get the exact exit code of a command, use
+  ``set ±e`` to disable and reenable the ``errexit`` option as below:
+
+.. sourcecode:: bash
+
+    set +e
+    command_with_special_exit_code
+    exit_code=$1
+    set -e
+
+* Moreso, if you don't care if a command fails and want to keep executing 
+  the rest of the script, use the following trick:
+
+.. sourcecode:: bash
+
+    command_which_may_fail || true
+
+* This works because by default Bash takes the error status of the last item
+  in a pipeline thus ``false || true`` will be considered to have succeeded.
+  If you would like this to fail, then you can use ``set -o pipefail`` to 
+  make it fail.
 
 
 Path constants
 --------------
 
+When defining a directory path as a constant, you should include the trailing
+slash to make sure it is a directory and not a file. Two consecutive /'s are
+harmless in POSIX shells as long as they are not at the beginning of the path
+in some exotic environment such as Cygwin that actually use this notation for
+SMB shares.
 
-When defining the path to a folder as a constant, you should not include the
-trailing slash.
-Most commands will work if a path contain 2 slashes, but it is best to have
-a convention.
+Always double quote path constants to handle files with spaces.
 
 We should use:
 
 .. sourcecode:: bash
 
-    SOME_PATH=/some/path
-    # and a usage like:
-    command ${SOME_PATH}/some.file
+    SOME_PATH=/some/path/
+    # and use it like this:
+    command "${SOME_PATH}/some.file"
+
+    # Another example
+    REMOTE_URI=chevah@chevah.com:/home/chevah/styleguide.chevah.com/vm/
+    scp "$LOCAL_FILE" "${REMOTE_URL}/file"
 
 Instead of:
 
@@ -37,12 +114,7 @@ Instead of:
 
     SOME_PATH=/some/path/
     # and a usage like:
-    command ${SOME_PATH}some.file
-
-We should have
-REMOTE_URI=chevah@chevah.com:/home/chevah/styleguide.chevah.com/vm
-and
-scp ${REMOTE_URL}/file.sh
+    command "${SOME_PATH}some.file"
 
 
 Function Definition
@@ -51,24 +123,47 @@ Function Definition
 Leave 2 blank lines between function definitions and always use ``local`` for
 local variable declaration.
 
+Define local variables at the start of the function, in a distinct block.
+It is recommended to define a local variable named `result` to hold the value
+produced by calling the function.
+
+Put the final returned result in a separate block.
+
+Procedures are functions which have no result.
+
+Since Bash only support returning numeric values, which are interpreted
+as exit codes, we will pass values between functions by using ``echo``.
+
+
 .. sourcecode:: bash
 
     #
-    # Description of function 1
+    # Description of function 1.
     #
-    function1 () {
-        local variable_which_is_local
-        local variable_1
+    # * $1 - description of first argument
+    # * $2 - description of second argument
+    # * return - description of return value.
 
-        echo $variable_which_is_local
+    function1() {
+        local variable_which_is_local
+        local result
+
+        do_some_action_here
+        do_more_action
+
+        echo $result
     }
 
 
     #
-    # Description of function 2
+    # Description of procedure 1.
     #
-    function2 () {
-        code here
+    # It does this and this.
+    #
+    procedure1() {
+        local something=$(function1 ARG1)
+
+        do_something_else something
     }
 
 
@@ -95,9 +190,9 @@ IF/THEN/ELSE
 
 .. sourcecode:: bash
 
-    if TEST ; then
+    if TEST; then
         call something
-    elif OTHER_TEST ; then
+    elif [ "$string" == OTHER_TEST ]; then
         call elseif
     else
         call else
@@ -109,7 +204,7 @@ FOR
 
 .. sourcecode:: bash
 
-    for CONDITION ; do
+    for CONDITION; do
         call something
     done
 
@@ -119,6 +214,15 @@ WHILE/UNTIL
 
 .. sourcecode:: bash
 
-    while TETS ; do
+    while TEST; do
         call something
     done
+
+
+References
+----------
+
+Here are the pages I used to create this page.
+
+ * http://www.davidpashley.com/articles/writing-robust-shell-scripts/
+ * http://www.linuxjournal.com/content/return-values-bash-functions
