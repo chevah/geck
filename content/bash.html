@@ -68,11 +68,11 @@ General
 Path constants
 --------------
 
-When defining the path to a folder as a constant, you should not include the
-trailing slash.
-
-Most commands will work if a path contain 2 slashes, but it is best to have
-a convention.
+When defining a directory path as a constant, you should include the trailing
+slash to make sure it is a directory and not a file. Two consecutive /'s are
+harmless in POSIX shells as long as they are not at the beginning of the path
+in some exotic environment such as Cygwin that actually use this notation for
+SMB shares.
 
 Always double quote path constants to handle files with spaces.
 
@@ -80,12 +80,12 @@ We should use:
 
 .. sourcecode:: bash
 
-    SOME_PATH=/some/path
-    # and a usage like:
+    SOME_PATH=/some/path/
+    # and use it like this:
     command "${SOME_PATH}/some.file"
 
     # Another example
-    REMOTE_URI=chevah@chevah.com:/home/chevah/styleguide.chevah.com/vm
+    REMOTE_URI=chevah@chevah.com:/home/chevah/styleguide.chevah.com/vm/
     scp "$LOCAL_FILE" "${REMOTE_URL}/file"
 
 Instead of:
@@ -124,7 +124,7 @@ as exit codes, we will pass values between functions by using ``echo``.
     # * $2 - description of second argument
     # * return - description of return value.
 
-    function1 () {
+    function1() {
         local variable_which_is_local
         local result
 
@@ -140,7 +140,7 @@ as exit codes, we will pass values between functions by using ``echo``.
     #
     # It does this and this.
     #
-    procedure1 () {
+    procedure1() {
         local something=$(function1 ARG1)
 
         do_something_else something
@@ -170,9 +170,9 @@ IF/THEN/ELSE
 
 .. sourcecode:: bash
 
-    if TEST ; then
+    if TEST; then
         call something
-    elif [ "$string" == OTHER_TEST ] ; then
+    elif [ "$string" == OTHER_TEST ]; then
         call elseif
     else
         call else
@@ -184,7 +184,7 @@ FOR
 
 .. sourcecode:: bash
 
-    for CONDITION ; do
+    for CONDITION; do
         call something
     done
 
@@ -194,7 +194,7 @@ WHILE/UNTIL
 
 .. sourcecode:: bash
 
-    while TEST ; do
+    while TEST; do
         call something
     done
 
