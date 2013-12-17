@@ -13,6 +13,11 @@ General
 
 * If any, public scripts should use ``/bin/sh``. Bash is not available on all 
   Unix systems and ksh or other shells are not compatible with Bash syntax.
+  
+* Use ``printf`` instead of ``echo``, especially when using  ``/bin/sh`` as a
+  shell, because ``echo`` behaviour is incompatible in Bash and Korn shells.
+  Eg. use ``printf`` instead of ``echo -n`` and ``printf "blabla\n"`` instead
+  of ``echo "blabla"``.
 
 * For internal scripts we should use ``/bin/bash``, as the default ``/bin/sh``
   sometimes points to a lesser shell such as Dash.
