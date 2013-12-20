@@ -6,7 +6,21 @@ page_title: Testing
 
 Writing tests is an important part of development.
 
-We write tests to make our work easier and fun.
+We write tests to:
+
+* help improve quality
+* help understand the product and its components
+* reduce risk and fears when doing bold changes into product structure
+* make work easier and fun
+
+All tests should have the following characteristic:
+
+* simple
+* easy to write and maintain as product evolves
+* easy to read and understand what they are doing
+* easy to run, easy to re-run, fully automated run and reporting
+* run very, very fast
+* each test should be an independent test which can run by itself
 
 Writing tests is not only done to check that code works as expected, it is
 also done to make sure that code has a simple designed, decoupled and easy
@@ -18,16 +32,15 @@ code should do and how it is used.
 Writing tests is not a silver bullet for improving code quality and is easy to
 write bad tests.
 
-Tests serve as examples of how to use a class, method, a module or the whole
-product.
-
 Once used to having tests that show how things work (and that they do work), you
 will start using the key phrase: **Do you have a test for that?**.
 
 You are going to test your code anyway, spend the time to do it right.
 
-We write tests as a tool for regression checking. Tests should be easy to
-run and should be fast.
+We write tests as a tool for regression checking, ie preventing bugs.
+Tests should be easy to run and should be fast. Tests will also help us find
+bugs and avoid long debugging session, but they primary goal is to keep the
+bugs out of our product.
 
 We should write code and do clean-up / refactoring without any fear and with
 a confident and free mind. Don't take decision out of fear.
@@ -60,8 +73,6 @@ It's just a stepping stone on your way to test-first development.
 
 Passing software to another developer without tests is like saying
 'Good luck dude!', but instead we should say 'I've got you covered!'.
-
-Don't forget that writing tests is not a silver bullet.
 
 
 Types of tests
@@ -109,7 +120,8 @@ Since they should be fast, you can put them together with unit tests.
 System testing
 --------------
 
-In contrast with unit or functional tests, these test have no restriction for
+In contrast with unit or functional tests, we have system test which have no
+restriction for
 interacting with external systems.
 
 A test is a system test if:
@@ -146,22 +158,38 @@ leaving the system in an inconsistent tests that will not allow other tests
 to execute. At the end of the test, leave the system in the same state as the
 one from the start.
 
-We put them in separate test suites due to speed and dependency on
-external systems.
+We put them in together with unit tests, since they should be fast,
+but we tag them since they require special handling due to dependency on
+external systems. Ex, when porting on a new platform, they are likely to
+fail.
 
 
-Functional testing
-------------------
+Story / Functional / Customer tests
+-----------------------------------
 
 These are the tests for the final product. All modules are put together just
 like in the production (real) system.
 
 In other places, they are also called *acceptance tests*.
 
+This kind of tests help us detect **what** features of our product are
+not working. In case we have good unit test, we look there to find **why**
+a functional tests is failing.
+
+Functional tests will not help with development and locating the source
+of an error. Use unit tests for this. In case unit test pass, and we have
+failing functional tests, then we have just discovered a hole in our unit
+testing and we should fix it first.
+
+The functional tests are just recording the same steps required in manual
+testing. If a functional tests pass, you can look around by starting
+the real server and manually perform the same steps as in the functional
+test.
+
 You can consider them black box testing as their role is to check that the
 system, as a whole, works.
 
-While for functional tests only external systems are handled as black boxes,
+While for system tests only external systems are handled as black boxes,
 for functional testing the system under test is also handled as a black box.
 
 They will read actual input just like the real life application and will
@@ -194,6 +222,38 @@ root cause of the bug and fix the problem there. The initial test written
 to reproduce the bug, might be a high level tests which is not at the same
 level to the code which was fixed. Removed the high level tests and write
 a specific unit test, directly associated with the fixed code.
+
+Running the test suite should be fast, but something some tests are just slow.
+Functional tests are always slow, and system tests tend to be slow. We mark
+these slow tests so that we can skip them using the test runner.
+
+Principle of developing using tests:
+
+* **Write test first** - the test will save a lot of debugging time and
+  setup time for each time you would have to run the manual test to check
+  your code.
+
+* **Desing for testability** - Now, if you don't write your test first, you
+  should at least let the test design your code and not design the test
+  after your code. If you **write test first** you don't need to worry
+  about this.
+
+* Use **Front Door First**, this means that you should first try to write
+  tests only using the public interface.
+
+* **Verify one condition per test**. Don't test more than one thing in a test,
+  as it will make the test hard to read. There is an exception for customer
+  tests, which are story based and those tests will check a complete
+  work-flow.
+
+* **Comunicate Intent** write short tests, which are clean and easy to read
+  and serve as documentation for the code.
+
+* **Keep testing login out of production code**. Don't add hooks or
+  conditional statements in the production code to help with testing.
+
+* **Keep tests independent** each test should run on it's own and should also
+  run together with the other tests.
 
 
 Domain Specific Language
@@ -357,6 +417,40 @@ to pass before they appear and this can slow down the whole tests.
         self.assertFalse(result)
 
 
+Mock object
+-----------
+
+Mock object can simplify a lot test writing and are a very powerful test
+tool.
+
+With great power, comes great responsibility! Don't abuse the mocks.
+
+As much as possible, try to use a Mock object together with the specification
+of the mocked class.
+
+.. sourcecode:: python
+
+    # Bad.
+    mocked_object = Mock()
+    # Good.
+    mocked_object = Mock(specs=SomeClass)
+
+
+You can use mock object in the following circumstances:
+
+* Want to trigger an error from a function that requires a precondition
+  that is hard to create in a test.
+
+.. sourcecode:: python
+
+    some_object = SomeClass()
+    some_object.openFile = Mock(side_effect=SomeHardException())
+
+
+* Want to check for delegation and you know that the delegated methods /
+  objects have good test coverage.
+
+
 Structure of a test
 ===================
 
@@ -444,6 +538,23 @@ When the code is used only in a few tests, put it in a dedicated, reusable, meth
 Especially on some integration test or system tests, you also have one last
 part for a test: the cleanup. It is recommended to do it in tearDown() but
 when not practical, do it as a new paragraph, at the end of the test.
+
+Smells
+======
+
+* Don't abuse the debugger. The tests should have a good coverage so that
+  any code can be debugged just by using the debugger on a failed tests.
+  In case you need more than 1 breakpoint in the code, this is a sign that
+  you are missing a test.
+
+* Hard work in finding / debugging an error is often an indication of failure
+  in writing good code or good tests.
+
+* In case using the automatic breakpoint provided test runner is enough to
+  detect the problem, that the code might be good :)
+
+* If a functional test fails, but no unit test fails, than we have at least
+  one missing unit test.
 
 
 Naming conventions
@@ -598,6 +709,7 @@ of an object.
 Try to put as much cleanup code in the tearDown method and not after the
 **assert** block. If a test fails, the rest of the assert block is not
 executed, and putting everything in a try/finally increase indentation.
+You can register object for cleanup by using dedicated creation method.
 
 .. sourcecode:: python
 
@@ -620,21 +732,39 @@ executed, and putting everything in a try/finally increase indentation.
 
     class GoodTestCase, self(.tearDown()TestCase):
 
+        def setUp(self):
+            super(GoodTestCase, self).setUp()
+            self.opened_files = []
+
+        def tearDown(self):
+            for file in self.opened_files:
+                try:
+                    file.close()
+                    os.rm(file.path)
+                except:
+                    # Pass or record the files which were not closed
+                    # and fail with more details.
+                    pass
+            super(GoodTestCase, self).tearDown()
+
+        def openFile(self, path):
+            """
+            Creation method which also registers the object for cleanup.
+            """
+            file = open('some_file')
+            self.opened_files.append(file)
+
         def test_someMethod_with_test_bad_cleanup(self):
             """
             When an assertion fails, cleanup is still called via tearDown.
             """
-            self.file = open('some_file')
+            file = self.openFile('some_file')
             operator = SomeFancy(file)
 
             operator.read()
 
             self.assertEqual('something', operator.getAllContent())
 
-        def tearDown(self):
-            self.file.close()
-            os.rm(self.file.path)
-            super(GoodTestCase, self).tearDown()
 
 To reduce the need of tearDown and cleanup code, try to run each test on
 new instances and avoid global or singleton objects.
