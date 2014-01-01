@@ -49,45 +49,8 @@ General
     # This is not:
     var="`command \`command1\``"
 
-* Always guard your Bash scripts from unexpected errors, by using the 
-  following options:
-
-.. sourcecode:: bash
-
-    set -o nounset
-    set -o errexit
-
-* Mind you, the ``errexit`` option will break checks for error codes using
-  ``$?``. Handle a non-zero exit code for a command by using something along
-  the lines of:
-
-.. sourcecode:: bash
-
-    if ! command ; then
-        handle_non_zero_exit
-    fi
-
-* Also, if you really need to get the exact exit code of a command, use
-  ``set ±e`` to disable and reenable the ``errexit`` option as below:
-
-.. sourcecode:: bash
-
-    set +e
-    command_with_special_exit_code
-    exit_code=$1
-    set -e
-
-* Moreso, if you don't care if a command fails and want to keep executing 
-  the rest of the script, use the following trick:
-
-.. sourcecode:: bash
-
-    command_which_may_fail || true
-
-* This works because by default Bash takes the error status of the last item
-  in a pipeline thus ``false || true`` will be considered to have succeeded.
-  If you would like this to fail, then you can use ``set -o pipefail`` to 
-  make it fail.
+* Always guard your Bash scripts from unexpected errors by using ``set -o 
+  nounset``.
 
 
 Path constants
