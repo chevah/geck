@@ -14,8 +14,8 @@ General
 * If any, public scripts should use ``/bin/sh``. Bash is not available on all 
   Unix systems and ksh or other shells are not compatible with Bash syntax.
   
-* Use ``printf`` instead of ``echo``, especially when using  ``/bin/sh`` as a
-  shell, because ``echo`` behaviour is incompatible in Bash and Korn shells.
+* Use ``printf`` instead of ``echo`` when using  ``/bin/sh`` as a shell,
+  because ``echo`` behaviour is incompatible in Bash and Korn shells.
   Eg. use ``printf`` instead of ``echo -n`` and ``printf "blabla\n"`` instead
   of ``echo "blabla"``.
 
@@ -23,7 +23,7 @@ General
   sometimes points to a lesser shell such as Dash.
   
 * A function called main is required for scripts long enough to contain at
-  least one other function.  
+  least one other function.
   
 * Put all functions together in the file just below constants. Don't hide
   executable code between functions.  
@@ -33,7 +33,7 @@ General
 * In tests, enclose all uncontrolled string variables in double quotes to 
   handle empty strings or spaces in variables.
 
-* Always double quote the ``$@`` variable to keep arguments with spaces.
+* Always double quote the ``$@`` variable to keep all arguments with spaces.
 
 * Pipelines should be split one per line if they don't all fit on one line.
 
@@ -49,8 +49,11 @@ General
     # This is not:
     var="`command \`command1\``"
 
-* Always guard your Bash scripts from unexpected errors by using ``set -o 
-  nounset``.
+* Always guard your Bash scripts from unexpected errors by using
+
+.. sourcecode:: bash
+
+    set -o nounset
 
 
 Path constants
@@ -59,12 +62,10 @@ Path constants
 When defining a directory path as a constant, you should include the trailing
 slash to make sure it is a directory and not a file. Two consecutive /'s are
 harmless in POSIX shells as long as they are not at the beginning of the path
-in some exotic environment such as Cygwin that actually use this notation for
+in some exotic environment such as Cygwin that actually uses this notation for
 SMB shares.
 
-Always double quote path constants to handle files with spaces.
-
-We should use:
+Always double quote path constants to handle files with spaces:
 
 .. sourcecode:: bash
 
@@ -81,7 +82,7 @@ Instead of:
 .. sourcecode:: bash
 
     SOME_PATH=/some/path/
-    # and a usage like:
+    # and then:
     command "${SOME_PATH}some.file"
 
 
@@ -144,7 +145,7 @@ Case Syntax
         "option1")
             do specific
             ;;
-        option*)
+        option2*)
             do generic
             ;;
         *)
@@ -161,9 +162,9 @@ IF/THEN/ELSE
     if TEST; then
         call something
     elif [ "$string" == OTHER_TEST ]; then
-        call elseif
+        call something_else
     else
-        call else
+        call something_else_completely
     fi
 
 
