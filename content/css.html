@@ -42,7 +42,7 @@ General
 
 * Use upper letter for color HEX code. Good #F9A0C5 , BAD #f9a0c5
 
-* Don't use color names or rba, just HEX code. 
+* Don't use color names or rba, just HEX code.
 
 * Use 4 space indentation.
 
@@ -52,8 +52,8 @@ General
 
 * Put unrelated rule in different files.
 
-* LESS constants (variables) should be camelCase starting with lower letter:
-  ``@goodConstant``
+* LESS constants (variables) should be dahs-separated and only low cases:
+  ``@good-constant``
 
 
 CSS Class naming
@@ -62,11 +62,16 @@ CSS Class naming
 * The most important thing to have in mind is the content nature of the
   HTML document, not its presentation. Selector names should describe the
   content semantic and ``not how it looks``.
+
 * Don't use abbreviation. Use 'header' instead of 'hdr' or 'head'.
+
 * Avoid presentation-specific words in the name,
   like ``blue``, ``text-gray``, or ``light-box``.
-* Add namespaces using a dash (-) as a separator. 
-* Distinct words in the class name are separated by a dash. 
+
+* Add namespaces using a dash (-) as a separator.
+
+* Distinct words in the class name are separated by a dash.
+
 * Names are lowercase.
 
 
@@ -77,14 +82,14 @@ Rules definition
 
 Good::
 
-    .some_class {
+    .some-class {
         float: center;
     }
 
 
 Bad::
 
-    .some_class {
+    .some-class {
         float:center;
     }
 
@@ -93,7 +98,7 @@ Bad::
 
 Good::
 
-    .some_class,
+    .some-class,
     p a.class {
         float: center;
     }

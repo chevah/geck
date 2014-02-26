@@ -113,6 +113,11 @@ something is wrong.
 
 * Don't abuse inheritance and favour composition and delegation.
 
+* Write code so that it can be read / used by developers having a work
+  style different than yours. Don't add IDE / text editor specific things
+  Don't assume that other developer will use the same IDE / text editor,
+  fancy keyboard (or foot pedals), array of huge monitors...
+
 * When you have a non-trivial conditional expression (logical condition from
   an if statement), break it in smaller sub-conditionals.
 
@@ -162,6 +167,18 @@ Comments
 ========
 
 * All comments should be valid sentences and should end with a full stop (.).
+
+* Try to write code so that it speak for itself and so that a comment is not
+  required.
+
+* Try to name variables, methods, function so that they communicate their
+  intend. A comment is only attached to the place where the name is defined,
+  and not present in all other multiple places where it is used. IDE can help,
+  but we should not rely on that.
+
+  When a comment is required is like saying: I have no idea for a better name
+  for this thing, so here is my poor comment. Good luck with figuring the
+  intend of this name when you see the it in the rest of this file.
 
 * Well commented code is extremely important. Take time to describe
   components, how they work, their limitations, and the way they are
