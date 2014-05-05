@@ -2,17 +2,13 @@
 '''
 Build script for Chevah StyleGuide website.
 '''
-from __future__ import with_statement
 import sys
 
-# Brink version is defined here and used by paver.sh script.
-BRINK_VERSION = '0.0.6'
-
-from pavement_commons import (
-    _p,
+from brink.pavement_commons import (
     default,
-    pave,
     help,
+    pave,
+    SETUP,
     )
 from paver.easy import needs, pushd, task, consume_args
 
@@ -20,34 +16,24 @@ from paver.easy import needs, pushd, task, consume_args
 default
 help
 
-hyde_path = _p([pave.path.build, 'bin', 'hyde'])
-python_27 = _p([pave.path.build, 'bin', 'python2.7'])
-deploy_path = _p([pave.path.build, 'deploy'])
+SETUP['pypi']['index_url'] = 'http://pypi.chevah.com:10042/simple'
+
+hyde_path = pave.fs.join([pave.path.build, 'bin', 'hyde'])
+python_27 = pave.fs.join([pave.path.build, 'bin', 'python'])
+deploy_path = pave.fs.join([pave.path.build, 'deploy'])
+
+DEPENDENCIES = [
+    'docutils',
+    'git+https://github.com/chevah/hyde.git#egg=hyde'
+    ]
 
 
 @task
 def deps():
-    pave.installRunDependencies()
-    pave.installBuildDependencies()
-    pave.execute([
-        'virtualenv', '-p', '/usr/bin/python2.7', pave.path.build],
-        output=sys.stdout,
+    pave.pip(
+        command='install',
+        arguments=DEPENDENCIES,
         )
-    with pushd(pave.path.build):
-        pip_path = _p(['bin', 'pip'])
-        pave.execute(
-            [python_27, pip_path,
-                'install',
-                '-i', 'http://b.pypi.python.org/simple/',
-                'docutils'],
-            output=sys.stdout,
-            )
-
-        pave.execute(
-            [python_27, pip_path,
-                'install', '-e', 'git://github.com/chevah/hyde.git#egg=hyde'],
-            output=sys.stdout,
-            )
 
 
 @task
