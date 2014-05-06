@@ -1,6 +1,5 @@
----
-page_title: Working in a distributed team
----
+Work
+####
 
 ..  contents::
 

@@ -1,6 +1,8 @@
 Generic
 #######
 
+:menu_order: 1
+
 ..  contents::
 
 General
@@ -102,7 +104,7 @@ something is wrong.
 
       The #{branch_name} branch has been deleted.
 
-* Use a graphical commit tool (``git gui`` or ``gitg`) for doing the commit.
+* Use a graphical commit tool (``git gui`` or ``gitg``) for doing the commit.
   In this way you can split the changes in multiple commits and you can also
   do a first review just before the commit.
 
