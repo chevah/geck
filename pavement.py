@@ -78,6 +78,7 @@ def publish():
     """
     Upload the generated files to gh-pages branch.
     """
+    print('Publishing changes to GitHub gh-pages branch...')
     ghp_import = pave.fs.join([pave.path.build, 'bin', 'ghp-import'])
     pave.execute(
         command=[ghp_import, '-p', '-r', 'origin', '-b', 'gh-pages', 'deploy'],
