@@ -1,7 +1,7 @@
 Chevah Project Coding Style Guide
 =================================
 
-This is the source for http://styleguide.chevah.com
+This is the source for http://styleguide.chevah.com hosted via GitHub Pages.
 
 Pelican is used for generating static pages. Blog article generation from
 

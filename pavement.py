@@ -44,15 +44,16 @@ def build():
     """
     Build the static files.
     """
-    sys.argv = ['pelican', 'content']
+    sys.argv = ['pelican']
     load_entry_point('pelican==3.3', 'console_scripts', 'pelican')()
+
 
 @task
 def dev():
     """
     Build the static files.
     """
-    sys.argv = ['pelican', 'content', '-r']
+    sys.argv = ['pelican', '-r']
     load_entry_point('pelican==3.3', 'console_scripts', 'pelican')()
 
 
@@ -74,15 +75,11 @@ def run():
 @task
 @needs('build')
 def publish():
-    '''Upload the generated files.
-
-    Before publishing the site, make sure the server key is cached.
-    '''
-    publish_user = 'chevah_site'
-    publish_host = 'styleguide.chevah.com'
-    publish_path = '/home/chevah_site/styleguide.chevah.com/'
-    destination = '%s@%s:"%s"' % (publish_user, publish_host, publish_path)
-    pave.execute([
-        'rsync', '-aqcz', '-e', "'ssh'", deploy_path + '/', destination],
-        output=sys.stdout)
-    print('Site published to %s' % (destination))
+    """
+    Upload the generated files to gh-pages branch.
+    """
+    ghp_import = pave.fs.join([pave.path.build, 'bin', 'ghp-import'])
+    pave.execute(
+        command=[ghp_import, '-p', '-r', 'origin', '-b', 'gh-pages', 'deploy'],
+        output=sys.stdout,
+        )
