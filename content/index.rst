@@ -1,7 +1,8 @@
 Overview
 ########
 
-:url: /
+:menu_order: 0
+:url: /index.html
 :save_as: index.html
 
 These pages describe the style and other guides used in Chevah project.

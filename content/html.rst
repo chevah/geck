@@ -1,6 +1,7 @@
----
-page_title: HTML, XML and other markups
----
+HTML, XML and other markups
+###########################
+
+:slug: html
 
 .. contents::
 

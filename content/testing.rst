@@ -1,10 +1,9 @@
----
-page_title: Testing
----
+Testing
+#######
 
 .. contents::
 
-Writing tests is an important part of development.
+Writing automated tests is an important part of development.
 
 We write tests to:
 

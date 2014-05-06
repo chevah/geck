@@ -1,6 +1,5 @@
----
-page_title: Changes review
----
+Review
+######
 
 This page discuss the code/changes review process as both the person
 who requests a reviewer and a person who checks a review.
