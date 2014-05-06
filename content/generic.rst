@@ -1,6 +1,5 @@
----
-page_title: Generic guides for all languages
----
+Generic
+#######
 
 ..  contents::
 

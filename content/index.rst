@@ -1,7 +1,8 @@
----
-extends: one_column_menu_left.j2
-page_title: Style Guide Overview
----
+Overview
+########
+
+:url: /
+:save_as: index.html
 
 These pages describe the style and other guides used in Chevah project.
 They also include some notes about the whole software development
