@@ -1,6 +1,7 @@
----
-page_title: Library
----
+Library
+#######
+
+:menu_order: 101
 
 These page contain a list of talking about life, programming craftsmanship,
 good/clean code and many more. The list is in random order:

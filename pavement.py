@@ -1,18 +1,16 @@
 # See LICENSE for details.
-'''
+"""
 Build script for Chevah StyleGuide website.
-'''
-from __future__ import with_statement
+"""
+from __future__ import print_function
+from pkg_resources import load_entry_point
 import sys
 
-# Brink version is defined here and used by paver.sh script.
-BRINK_VERSION = '0.0.6'
-
-from pavement_commons import (
-    _p,
+from brink.pavement_commons import (
     default,
-    pave,
     help,
+    pave,
+    SETUP,
     )
 from paver.easy import needs, pushd, task, consume_args
 
@@ -20,80 +18,69 @@ from paver.easy import needs, pushd, task, consume_args
 default
 help
 
-hyde_path = _p([pave.path.build, 'bin', 'hyde'])
-python_27 = _p([pave.path.build, 'bin', 'python2.7'])
-deploy_path = _p([pave.path.build, 'deploy'])
+SETUP['pypi']['index_url'] = 'http://pypi.chevah.com:10042/simple'
+
+hyde_path = pave.fs.join([pave.path.build, 'bin', 'hyde'])
+python_27 = pave.fs.join([pave.path.build, 'bin', 'python'])
+deploy_path = pave.fs.join([pave.path.build, 'deploy'])
+
+DEPENDENCIES = [
+    'docutils',
+    'pelican==3.3',
+    'ghp-import==0.4.1'
+    ]
 
 
 @task
 def deps():
-    pave.installRunDependencies()
-    pave.installBuildDependencies()
-    pave.execute([
-        'virtualenv', '-p', '/usr/bin/python2.7', pave.path.build],
-        output=sys.stdout,
+    pave.pip(
+        command='install',
+        arguments=DEPENDENCIES,
         )
-    with pushd(pave.path.build):
-        pip_path = _p(['bin', 'pip'])
-        pave.execute(
-            [python_27, pip_path,
-                'install',
-                '-i', 'http://b.pypi.python.org/simple/',
-                'docutils'],
-            output=sys.stdout,
-            )
-
-        pave.execute(
-            [python_27, pip_path,
-                'install', '-e', 'git://github.com/chevah/hyde.git#egg=hyde'],
-            output=sys.stdout,
-            )
 
 
 @task
 def build():
-    '''Build the static files.'''
-    pave.execute([
-        python_27, hyde_path, 'gen', '-r',
-        '-c' 'site.yaml',
-        '-d', deploy_path,
-        ],
-        output=sys.stdout)
+    """
+    Build the static files.
+    """
+    sys.argv = ['pelican']
+    load_entry_point('pelican==3.3', 'console_scripts', 'pelican')()
+
+
+@task
+def dev():
+    """
+    Build the static files.
+    """
+    sys.argv = ['pelican', '-r']
+    load_entry_point('pelican==3.3', 'console_scripts', 'pelican')()
 
 
 @task
 @needs('build')
 def run():
-    '''Generate content to be opened using local file URL.'''
-    pave.execute([
-        python_27, hyde_path, 'serve',
-        '-c' 'site.yaml',
-        '-d', deploy_path,
-        ],
-        output=sys.stdout)
-
-
-@task
-@consume_args
-def hyde(args):
-    '''Executes the hyde command.'''
-    command = [python_27, hyde_path]
-    command.extend(args)
-    pave.execute(command, output=sys.stdout)
+    """
+    Generate content to be opened using local file URL.
+    """
+    print('Listening on http://localhost:8080. Ctrl+C to stop.')
+    with pushd('deploy'):
+        import SocketServer
+        SocketServer.TCPServer.allow_reuse_address = True
+        # Side-effect import.
+        sys.argv = ['pelican-server', '8080']
+        from pelican import server
 
 
 @task
 @needs('build')
 def publish():
-    '''Upload the generated files.
-
-    Before publishing the site, make sure the server key is cached.
-    '''
-    publish_user = 'chevah_site'
-    publish_host = 'styleguide.chevah.com'
-    publish_path = '/home/chevah_site/styleguide.chevah.com/'
-    destination = '%s@%s:"%s"' % (publish_user, publish_host, publish_path)
-    pave.execute([
-        'rsync', '-aqcz', '-e', "'ssh'", deploy_path + '/', destination],
-        output=sys.stdout)
-    print 'Site published to %s' % (destination)
+    """
+    Upload the generated files to gh-pages branch.
+    """
+    print('Publishing changes to GitHub gh-pages branch...')
+    ghp_import = pave.fs.join([pave.path.build, 'bin', 'ghp-import'])
+    pave.execute(
+        command=[ghp_import, '-p', '-r', 'origin', '-b', 'gh-pages', 'deploy'],
+        output=sys.stdout,
+        )

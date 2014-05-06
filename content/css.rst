@@ -1,6 +1,7 @@
----
-page_title: CSS, LESS and Styling
----
+CSS, LESS and Styles
+####################
+
+:slug: css
 
 .. contents::
 
@@ -21,7 +22,7 @@ CSS Syntax Elements
 When describing the CSS rules, we will use the following terminology.
 
 .. image:: http://www.w3schools.com/css/selector.gif
-
+    :alt: CSS Selector Graphic
 
 General
 =======

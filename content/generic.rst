@@ -1,6 +1,7 @@
----
-page_title: Generic guides for all languages
----
+Generic
+#######
+
+:menu_order: 1
 
 ..  contents::
 
@@ -103,7 +104,7 @@ something is wrong.
 
       The #{branch_name} branch has been deleted.
 
-* Use a graphical commit tool (``git gui`` or ``gitg`) for doing the commit.
+* Use a graphical commit tool (``git gui`` or ``gitg``) for doing the commit.
   In this way you can split the changes in multiple commits and you can also
   do a first review just before the commit.
 
@@ -189,46 +190,6 @@ Comments
 
 * Avoid end of line comments. End of line comments can be used for lint
   ignores and other hints for automated tools... but not for humans.
-
-
-Release Notes
-=============
-
-Each time a branch fixes a bug or adds a new feature, a new entry is
-added inside the release notes file.
-
-A marker/tag may be added at the start of the message.
-The following markers/tags are in use:
-
- * ``[bug]`` -  for bug fixes.
- * ``[unix]`` - for changes affecting only Unix systems.
- * ``[windows]`` - for changes affection only Windows system.
-
-Writing good release note messages:
-
-* A release note entry is a summary for those changes.
-
-* Don't explain all details of those changes. When more details are required
-  use a link to documentation.
-
-* All entries should be full proposition or phrases, ending with a
-  punctuation mark.
-
-* Describe what impact the change will have on users. What will the
-  users notice?::
-
-    "Users now can do X."
-    "It is no longer possible to do Y."
-    "The text on the ABC form is now Z."
-    "Reworded text from X to be gender neutral."
-
-* If the above isn't clear enough for "John Doe" to understand,
-  explaining the background to the change can be helpful, by adding in
-  `Previously, X used to do Y.` or `Previously, X used to do Y. Now Z.`.
-  For example::
-
-    * [bug] Previously, users were unable to upload files to a folder if they
-    had write permissions.
 
 
 Exceptions handling

@@ -1,6 +1,5 @@
----
-page_title: Bash and shell scripting
----
+Bash
+####
 
 ..  contents::
 

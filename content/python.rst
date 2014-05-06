@@ -1,6 +1,5 @@
----
-page_title: Python
----
+Python
+######
 
 .. contents::
 

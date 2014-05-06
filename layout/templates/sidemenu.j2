@@ -1,0 +1,17 @@
+<nav class="subnav" title="subnav">
+  <ul>
+    {% for some_article in articles | sort(attribute="menu_order") %}
+      {% if (some_article.url == article.url) %}
+        {% set page_class = "active" %}
+      {% else %}
+        {% set page_class = "" %}
+      {% endif %}
+      <li>
+        <a class="{{ page_class }}" href="{{ some_article.url }}">
+          {{ some_article.title }}
+        </a>
+      </li>
+    {% endfor %}
+
+  </ul>
+</nav>
