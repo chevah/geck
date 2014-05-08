@@ -6,3 +6,4 @@ build-*
 pavement_lib.py
 .hyde_deps
 deploy/*
+cache/*
