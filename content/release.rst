@@ -7,14 +7,14 @@ Release process
 General
 =======
 
-This page describe the release process and things to be followed during
+This page describes the release process and steps to be followed during
 development to simplify the release or a final product or library.
 
 
 Releasing a product usually consists of publishing the following:
 
 * Binary or source archives.
-* Documentation, which includes Release notes, Known Issues and Upgrade steps.
+* Documentation, which includes Release Notes, Known Issues and Upgrade Steps.
 * Public announcement. Notification email or website news/blog article.
 
 
@@ -24,16 +24,16 @@ Release Notes
 Release notes explain what changed with this version. **Period**.
 Release notes are **not** installation, upgrade or configuration.
 
-Each time a branch fixes a bug, adds a new feature or makes any change
-which is visible to end users a new entry is added inside the release notes
+Each time a branch fixes a bug, adds a new feature or makes any changes
+which are visible to end users a new entry is added inside the release notes
 file. A release note entry is a summary for one change.
 
 We keep release notes for all versions in a single file so that users can
 easily read all changes starting from their version up to latest or a
 specific version.
 
-Release notes are grouped in one of the following categories. A category can
-be missing if no changes were added for it. Here are some categories::
+Release notes are grouped in one of the following categories. The category
+may be omitted if no changes were added for it. Here are some categories::
 
 * New features
 * Bug fixes
@@ -42,10 +42,10 @@ be missing if no changes were added for it. Here are some categories::
 * Other changes. Documentation changes.
 
 A marker/tag is added at the end of the sentence to point the ticket ID
-associated with this change.
+associated with this change. Ticket ID marker is not mandatory for new features.
 
-It can be followed by a list of tags to help users understand to scope
-if the change. Here are some examples::
+It can be followed by a list of tags to help users understand / filter the
+scope of the change. Here are some examples::
 
 * ``[https]`` - for changes affecting only a sub-system.
 * ``[aix]`` - for changes affecting only AIX systems.
@@ -56,22 +56,22 @@ Remember your audience/user/clients and write for that audience.
 Don't explain all details of the change. When more details are required
 use a link to documentation.
 
-All entries should be full proposition or phrases, ending with a
+All entries should be complete sentences or phrases, ending with a
 punctuation mark.
 
 Use present tense as opposed to past tense. The text should state what the
-changes **does** and not what it **did**.
+change **does** and not what it **did**.
 "Product no longer falls over X." as opposed to "Product fell over X.".
 
 Write text in **resolution** form, describe what impact the change will have
 on users. What will the users notice?
 
 If a single sentence isn't clear enough to understand, explaining the
-background to the change can be helpful, by adding in
+background of the change can be helpful, by adding in
 `Previously, X used to do Y.` or `Previously, X used to do Y. Now Z.`.
 
 Don't add low-level, internal details about product logic. Focus on how
-the change affects and is perceived by the user.
+the change affects / is perceived by the user.
 
 Here are some examples:
 
@@ -105,14 +105,16 @@ Sample release notes
     ^^^^^^^^^^^^
 
     * Support was added to transfer files using SCP over SSH.
-      Read more... [#1234][windows]
+      Read more... [scp]
+    * SFTP protocol now support reading and creating symbolic links on
+      Windows. [sftp][windows]
 
 
     Defect fixes
     ^^^^^^^^^^^^
 
     * Fix an internal server error when SSH client requests
-      to execute a command, a shell or a pseudo-terminal. [#1345][sftp][scp]
+      to execute a command, a shell or a pseudo-terminal. [sftp][scp]
 
 
     Deprecations
