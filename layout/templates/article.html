@@ -13,16 +13,13 @@
 
       <article role="main">
         <header>
-          <h1>{{ resource.meta.page_title }}</h1>
+          <h1>{{ article.title }}</h1>
         </header>
 
-        {% filter restructuredtext -%}
-        {% block content %}{% endblock %}
-        {%- endfilter %}
+        {{ article.content }}
       </article>
     </div>
 
-  {% include "footer.j2" %}    
-    
+  {% include "footer.j2" %}
   </body>
 </html>

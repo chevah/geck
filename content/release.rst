@@ -1,6 +1,5 @@
----
-page_title: Release process
----
+Release process
+###############
 
 ..  contents::
 
@@ -74,7 +73,7 @@ background of the change can be helpful, by adding in
 Don't add low-level, internal details about product logic. Focus on how
 the change affects / is perceived by the user.
 
-Here are some examples::
+Here are some examples:
 
 * Support was added for doing / integrating with X.
 * Users now can do X.

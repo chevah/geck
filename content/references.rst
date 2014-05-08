@@ -1,12 +1,11 @@
----
-page_title: References
----
+References
+##########
 
-These page contain a list of sources used for creating this content.
-
+:menu_order: 200
 
 .. contents::
 
+These page contain a list of sources used for creating this content.
 
 General
 =======

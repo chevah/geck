@@ -1,7 +1,9 @@
 # See LICENSE for details.
-'''
+"""
 Build script for Chevah StyleGuide website.
-'''
+"""
+from __future__ import print_function
+from pkg_resources import load_entry_point
 import sys
 
 from brink.pavement_commons import (
@@ -24,7 +26,8 @@ deploy_path = pave.fs.join([pave.path.build, 'deploy'])
 
 DEPENDENCIES = [
     'docutils',
-    'git+https://github.com/chevah/hyde.git#egg=hyde'
+    'pelican==3.3',
+    'ghp-import==0.4.1'
     ]
 
 
@@ -38,48 +41,46 @@ def deps():
 
 @task
 def build():
-    '''Build the static files.'''
-    pave.execute([
-        python_27, hyde_path, 'gen', '-r',
-        '-c' 'site.yaml',
-        '-d', deploy_path,
-        ],
-        output=sys.stdout)
+    """
+    Build the static files.
+    """
+    sys.argv = ['pelican']
+    load_entry_point('pelican==3.3', 'console_scripts', 'pelican')()
+
+
+@task
+def dev():
+    """
+    Build the static files.
+    """
+    sys.argv = ['pelican', '-r']
+    load_entry_point('pelican==3.3', 'console_scripts', 'pelican')()
 
 
 @task
 @needs('build')
 def run():
-    '''Generate content to be opened using local file URL.'''
-    pave.execute([
-        python_27, hyde_path, 'serve',
-        '-c' 'site.yaml',
-        '-d', deploy_path,
-        ],
-        output=sys.stdout)
-
-
-@task
-@consume_args
-def hyde(args):
-    '''Executes the hyde command.'''
-    command = [python_27, hyde_path]
-    command.extend(args)
-    pave.execute(command, output=sys.stdout)
+    """
+    Generate content to be opened using local file URL.
+    """
+    print('Listening on http://localhost:8080. Ctrl+C to stop.')
+    with pushd('deploy'):
+        import SocketServer
+        SocketServer.TCPServer.allow_reuse_address = True
+        # Side-effect import.
+        sys.argv = ['pelican-server', '8080']
+        from pelican import server
 
 
 @task
 @needs('build')
 def publish():
-    '''Upload the generated files.
-
-    Before publishing the site, make sure the server key is cached.
-    '''
-    publish_user = 'chevah_site'
-    publish_host = 'styleguide.chevah.com'
-    publish_path = '/home/chevah_site/styleguide.chevah.com/'
-    destination = '%s@%s:"%s"' % (publish_user, publish_host, publish_path)
-    pave.execute([
-        'rsync', '-aqcz', '-e', "'ssh'", deploy_path + '/', destination],
-        output=sys.stdout)
-    print 'Site published to %s' % (destination)
+    """
+    Upload the generated files to gh-pages branch.
+    """
+    print('Publishing changes to GitHub gh-pages branch...')
+    ghp_import = pave.fs.join([pave.path.build, 'bin', 'ghp-import'])
+    pave.execute(
+        command=[ghp_import, '-p', '-r', 'origin', '-b', 'gh-pages', 'deploy'],
+        output=sys.stdout,
+        )

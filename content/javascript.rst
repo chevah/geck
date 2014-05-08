@@ -1,6 +1,5 @@
----
-page_title: JavaScript
----
+JavaScript
+##########
 
 .. contents::
 
