@@ -134,7 +134,8 @@ As stated by `Wikipedia <http://en.wikipedia.org/wiki/Mixin>`_:
 Mixins encourage code reuse and avoid well-known pathologies associated
 with multiple inheritance.
 
-Mixin is a limited usage of multiple inheritance.
+Mixin is a limited usage of multiple inheritance, but they should **not be
+mixed with overriding**.
 
 We use mixing to reuse code and they are provide great help writing tests.
 

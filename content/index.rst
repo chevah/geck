@@ -5,16 +5,20 @@ Overview
 :url: /index.html
 :save_as: index.html
 
-These pages describe the style and other guides used in Chevah project.
-They also include some notes about the whole software development
-process.
+These pages describe the guides used in Chevah project.
+They include programming style guides but also notes about the working on the project as a whole.
 
 The content might be pedantic, but we hope that by following these guide
 you will find easier to collaborate and improve the quality of
 code and work.
 
-There is a page with common rules and a special page for each language
-or technology used by the project.
+Here are the overall rules of the project:
+
+* Simple things should be simple, complex things should be possible.
+  (Alan Key)
+
+Based on previous rule the project should fit simple needs but also be able
+to scale for more complex usage.
 
 Please note that these guides are continuously updated according to latest
 best practices.
@@ -26,7 +30,7 @@ If you have any comment or suggestions, please get in touch with us. You
 can do that over email, or adding an issue or pull request on
 `chevah/styleguide - Github`_.
 
-We try to automatically check these rules using `pocket-lint`_.
+We try to automatically check software development rules using `pocket-lint`_.
 
 This is a collection of programming craftsmanship recommendations and ideas.
 Please let us know if we fail to properly cite the source.
