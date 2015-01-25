@@ -160,7 +160,7 @@ IF/THEN/ELSE
 
     if TEST; then
         call something
-    elif [ "$string" == OTHER_TEST ]; then
+    elif [ "$string" = OTHER_TEST ]; then
         call something_else
     else
         call something_else_completely
