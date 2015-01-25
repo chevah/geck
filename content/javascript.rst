@@ -196,6 +196,24 @@ Example::
 TODO
 http://javascript.crockford.com/code.html http://jibbering.com/faq/notes/code-guidelines/ http://neil.rashbrook.org/Js.htm
 
+Prevent polluting the global scope
+==================================
+
+You can use immediately invoked function expression IIFE to avoid
+injecting more variables into global scope.
+When using IIFE don't forget to add the semicolon at the beginning.
+
+.. sourcecode:: javascript
+
+    // Path something from global scope.
+    ;(function () {
+      // tagsInput is kept only inside this scope.
+      var tagsInput = angular.module('ngTagsInput')
+      tagsInput.factory('tiTranscludeAppendDirective', function() {
+          return function() {}
+      })
+    })()
+
 
 Defining classes
 ================

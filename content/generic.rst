@@ -19,6 +19,8 @@ something is wrong.
 
 * Rule #2: KISS - Keep it simple, stupid simple!
 
+* Rule #3: If it ain't broke, don't fix it!
+
 * All code in any code-base should look like a single person typed it, no
   matter how many people contributed.
 
@@ -55,7 +57,8 @@ something is wrong.
 * Favor indentation using 4 spaces. For deep nested languages (HTML, JS) it
   is OK to use 2 spaces.
 
-* Maximum line length is 78 characters.
+* Maximum line length is 80 characters, but for Python we use 79 to be in
+  sync with PEP8.
 
 * Don't mix multiple languages in a single file.
 
@@ -214,6 +217,37 @@ Errors should have an unique ID and a data attribute.
 Each ID should be raised from a single place.
 The data attribute is a dictionary with key / values that make sense for the
 error.
+
+
+Experimental Features Without Feature Branches
+==============================================
+
+Feature branches are one way to develop slow/long changes without affecting
+the production / master branch.
+
+We don't use feature branches because:
+
+* They need to be permanently kept in sync with main branch. This will solve
+  conflicts with the main branch, but there might still be hidden conflicts
+  with **other feature** branches.
+* You will need to keep in sync with other feature branches to make sure
+  there are no integration problems. This just creates more work and in the
+  end you will have something close to multiple **masters** as each feature
+  branch will contain latest development from all other feature branches.
+* They create multiple versions of a product which requires more release work.
+  You will want to release an alpha/beta version of the feature as soon as
+  possible to get feedback from end users.
+* Along the focus feature, they might fix or refactor some code code which is
+  of great help for the main branch.
+* Once merged, a feature branch will introduce a big change in a short time.
+
+Instead of feature branches we develop experimental features directly in the
+main branch. Experimental features are triggered using dedicated
+(configuration) flags.
+
+In this way, a feature is gradually added to master, and during development
+by spending more time in master it should have a greater exposure to testing
+and checking that it integrates with other features.
 
 
 Project specific
