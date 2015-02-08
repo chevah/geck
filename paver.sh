@@ -12,6 +12,13 @@
 # * pip
 # * setuptools
 #
+# It will delegate the argument to the paver script, with the exception of
+# these commands:
+# * clean - remove everything, except cache
+# * detect_os - create DEFAULT_VALUES and exit
+# * get_python - download Python distribution in cache
+# * get_agent - download Rexx/Putty distribution in cache
+#
 
 # Script initialization.
 set -o nounset
@@ -21,6 +28,7 @@ set -o pipefail
 # Initialize default value.
 COMMAND=${1-''}
 DEBUG=${DEBUG-0}
+CLEAN_PYTHON_BINARY_DIST_CACHE='no'
 
 # Load repo specific configuration.
 source paver.conf
@@ -34,7 +42,7 @@ export LC_ALL='C'
 export LC_CTYPE='C'
 export LC_COLLATE='C'
 export LC_MESSAGES='C'
-export PATH=$PATH:'/sbin:/usr/sbin'
+export PATH=$PATH:'/sbin:/usr/sbin:/usr/local/bin'
 
 #
 # Global variables.
@@ -54,6 +62,8 @@ LOCAL_PYTHON_BINARY_DIST=""
 # Put default values and create them as global variables.
 OS='not-detected-yet'
 ARCH='x86'
+CC='gcc'
+CXX='g++'
 
 
 clean_build() {
@@ -67,9 +77,27 @@ clean_build() {
     echo "Cleaning project temporary files..."
     rm -f DEFAULT_VALUES
     echo "Cleaning pyc files ..."
-    # We use NULL delimiter for result to support files with spaces.
-    # Piping is faster than -exec since rm is called once.
-    find . -name '*.pyc' -print0 | xargs -0 -r rm || true
+    if [ $OS = "rhel4" ]; then
+        # RHEL 4 don't support + option in -exec
+        # We use -print0 and xargs to no fork for each file.
+        # find will fail if no file is found.
+        touch ./dummy_file_for_RHEL4.pyc
+        find ./ -name '*.pyc' -print0 | xargs -0 rm
+    else
+        # AIX's find complains if there are no matching files when using +.
+        [ $(uname) == AIX ] && touch ./dummy_file_for_AIX.pyc
+        # Faster than '-exec rm {} \;' and supported in most OS'es,
+        # details at http://www.in-ulm.de/~mascheck/various/find/#xargs
+        find ./ -name '*.pyc' -exec rm {} +
+    fi
+    # In some case pip hangs with a build folder in temp and
+    # will not continue until it is manually removed.
+    rm -rf /tmp/pip*
+
+    if [ "$CLEAN_PYTHON_BINARY_DIST_CACHE" = "yes" ]; then
+        echo "Cleaning python binary ..."
+        rm -rf cache/python*
+    fi
 }
 
 
@@ -132,7 +160,8 @@ update_path_variables() {
 
 
 write_default_values() {
-    echo ${BUILD_FOLDER} ${PYTHON_VERSION} ${OS} ${ARCH} > DEFAULT_VALUES
+    echo ${BUILD_FOLDER} ${PYTHON_VERSION} ${OS} ${ARCH} ${CC} ${CXX} \
+        > DEFAULT_VALUES
 }
 
 
@@ -179,13 +208,7 @@ pip() {
 #
 get_binary_dist() {
     local dist_name=$1
-    local remote_url
-
-    if [ $# -eq 1 ]; then
-        remote_url=$BINARY_DIST_URI
-    else
-        remote_url="$2/packages"
-    fi
+    local remote_url=$2
 
     echo "Getting $dist_name from $remote_url..."
 
@@ -229,7 +252,8 @@ copy_python() {
         # get one together with default build system.
         if [ ! -d ${python_distributable} ]; then
             echo "No ${PYTHON_VERSION} environment. Start downloading it..."
-            get_binary_dist ${PYTHON_VERSION}-${OS}-${ARCH}
+            get_binary_dist \
+                ${PYTHON_VERSION}-${OS}-${ARCH} "$BINARY_DIST_URI/python"
         fi
         echo "Copying bootstraping files... "
         cp -R ${python_distributable}/* ${BUILD_FOLDER}
@@ -249,18 +273,22 @@ copy_python() {
 
         if [ ! -d ${CACHE_FOLDER}/$pip_package ]; then
             echo "No ${pip_package}. Start downloading it..."
-            get_binary_dist "$pip_package" $PIP_INDEX
+            get_binary_dist "$pip_package" "$PIP_INDEX/packages"
         fi
         cp -RL "${CACHE_FOLDER}/$pip_package/pip" ${PYTHON_LIB}/site-packages/
 
         if [ ! -d ${CACHE_FOLDER}/$setuptools_package ]; then
             echo "No ${setuptools_package}. Start downloading it..."
-            get_binary_dist "$setuptools_package"  $PIP_INDEX
+            get_binary_dist "$setuptools_package" "$PIP_INDEX/packages"
         fi
-        cp -RL "${CACHE_FOLDER}/$setuptools_package/setuptools" ${PYTHON_LIB}/site-packages/
-        cp -RL "${CACHE_FOLDER}/$setuptools_package//setuptools.egg-info" ${PYTHON_LIB}/site-packages/
-        cp "${CACHE_FOLDER}/$setuptools_package/pkg_resources.py" ${PYTHON_LIB}/site-packages/
-        cp "${CACHE_FOLDER}/$setuptools_package/easy_install.py" ${PYTHON_LIB}/site-package
+        cp -RL "${CACHE_FOLDER}/$setuptools_package/setuptools" \
+            ${PYTHON_LIB}/site-packages/
+        cp -RL "${CACHE_FOLDER}/$setuptools_package//setuptools.egg-info" \
+            ${PYTHON_LIB}/site-packages/
+        cp "${CACHE_FOLDER}/$setuptools_package/pkg_resources.py" \
+            ${PYTHON_LIB}/site-packages/
+        cp "${CACHE_FOLDER}/$setuptools_package/easy_install.py" \
+            ${PYTHON_LIB}/site-package
 
         # Once we have pip, we can use it.
         pip install "paver==$PAVER_VERSION"
@@ -312,7 +340,7 @@ check_source_folder() {
 # Update OS and ARCH variables with the current values.
 #
 detect_os() {
-    OS=`uname -s | tr '[:upper:]' '[:lower:]'`
+    OS=`uname -s | tr "[A-Z]" "[a-z]"`
 
     if [ "${OS%mingw*}" = "" ] ; then
 
@@ -321,13 +349,13 @@ detect_os() {
 
     elif [ "${OS}" = "sunos" ] ; then
 
-        OS="solaris"
-        ARCH=`uname -p`
-        VERSION=`uname -r`
+        # By default, we use Sun's Studio compiler. Comment these two for GCC.
+        CC="cc"
+        CXX="CC"
 
-        if [ "$ARCH" = "i386" ] ; then
-            ARCH='x86'
-        fi
+        OS="solaris"
+        ARCH=`isainfo -n`
+        VERSION=`uname -r`
 
         if [ "$VERSION" = "5.10" ] ; then
             OS="solaris10"
@@ -335,16 +363,19 @@ detect_os() {
 
     elif [ "${OS}" = "aix" ] ; then
 
+        # By default, we use IBM's XL C compiler. Comment these two for GCC.
+        # Beware that GCC 4.2 from IBM's RPMs will fail with GMP and Python!
+        CC="xlc_r"
+        CXX="xlC_r"
+
+        ARCH="ppc`getconf HARDWARE_BITMODE`"
         release=`oslevel`
         case $release in
-            5.1.*)
-                OS='aix51'
-                ARCH='ppc'
-                ;;
-            *)
-                # By default we go for AIX 5.3 on PPC64
+            5.3.*)
                 OS='aix53'
-                ARCH='ppc64'
+            ;;
+            7.1.*)
+                OS='aix71'
             ;;
         esac
 
@@ -364,15 +395,17 @@ detect_os() {
             rhel_version=`\
                 cat /etc/redhat-release | sed s/.*release\ // | sed s/\ .*//`
             # RHEL4 glibc is not compatible with RHEL 5 and 6.
-            rhel_major_version=${rhel_version%.*}
+            rhel_major_version=${rhel_version%%.*}
             if [ "$rhel_major_version" = "4" ] ; then
                 OS='rhel4'
             elif [ "$rhel_major_version" = "5" ] ; then
                 OS='rhel5'
             elif [ "$rhel_major_version" = "6" ] ; then
                 OS='rhel6'
+            elif [ "$rhel_major_version" = "7" ] ; then
+                OS='rhel7'
             else
-                echo 'Unsuported RHEL version.'
+                echo 'Unsupported RHEL version.'
                 exit 1
             fi
         elif [ -f /etc/SuSE-release ] ; then
@@ -381,72 +414,62 @@ detect_os() {
             if [ "$sles_version" = "11" ] ; then
                 OS='sles11'
             else
-                echo 'Unsuported SLES version.'
+                echo 'Unsupported SLES version.'
                 exit 1
             fi
         elif [ -f /etc/lsb-release ] ; then
-            release=`lsb_release -sr`
-            case $release in
-                '10.04' | '10.10' | '11.04' | '11.10')
-                    OS='ubuntu1004'
-                ;;
-                '12.04' | '12.10' | '13.04' | '13.10')
-                    OS='ubuntu1204'
-                ;;
-                # Lie for dumol's Gentoo. Separate so that it's clear
-                '2.2')
-                    OS='ubuntu1204'
-                ;;
-                *)
-                    echo 'Unsuported Ubuntu version.'
-                    exit 1
-                ;;
-            esac
-
-        elif [ -f /etc/slackware-version ] ; then
-
-            # For Slackware, for now we use Ubuntu 10.04.
-            # Special dedication for all die hard hackers like Ion.
-    	    OS="ubuntu1004"
-
-        elif [ -f /etc/debian_version ] ; then
-            OS="debian"
-
+            lsb_release_id=$(lsb_release -is)
+            if [ $lsb_release_id = Ubuntu ]; then
+                ubuntu_release=`lsb_release -sr`
+                case $ubuntu_release in
+                    '10.04' | '10.10' | '11.04' | '11.10')
+                        OS='ubuntu1004'
+                    ;;
+                    '12.04' | '12.10' | '13.04' | '13.10')
+                        OS='ubuntu1204'
+                    ;;
+                    '14.04' | '14.10' | '15.04' | '15.10')
+                        OS='ubuntu1404'
+                    ;;
+                    *)
+                        echo 'Unsupported Ubuntu version.'
+                        exit 1
+                    ;;
+                esac
+            fi
+        else
+            OS='linux'
         fi
 
     elif [ "${OS}" = "darwin" ] ; then
         osx_version=`sw_vers -productVersion`
-        osx_major_version=${osx_version%.*}
-    	if [ "$osx_major_version" = "10.4" ] ; then
-    		OS='osx104'
-    	else
-    		echo 'Unsuported OS X version.'
-    		exit 1
-    	fi
+        case $osx_version in
+            10.8*)
+                OS='osx108'
+                ;;
+            *)
+                echo 'Unsupported OS X version:' $osx_version
+                exit 1
+                ;;
+        esac
 
-    	osx_arch=`uname -m`
-    	if [ "$osx_arch" = "Power Macintosh" ] ; then
-    		ARCH='ppc'
-    	else
-    		echo 'Unsuported OS X architecture.'
-    		exit 1
-    	fi
+        ARCH=`uname -m`
     else
-        echo 'Unsuported operating system.'
+        echo 'Unsupported operating system:' $OS
         exit 1
     fi
 
     # Fix arch names.
-    if [ "$ARCH" = "i686" ] ; then
+    if [ "$ARCH" = "i686" -o "$ARCH" = "i386" ]; then
         ARCH='x86'
-
-    fi
-    if [ "$ARCH" = "i386" ] ; then
-        ARCH='x86'
-    fi
-
-    if [ "$ARCH" = "x86_64" ] ; then
+    elif [ "$ARCH" = "x86_64" -o "$ARCH" = "amd64" ]; then
         ARCH='x64'
+    elif [ "$ARCH" = "sparcv9" ]; then
+        ARCH='sparc64'
+    elif [ "$ARCH" = "ppc64" ]; then
+        # Python has not been fully tested on AIX when compiled as a 64 bit
+        # application and has math rounding error problems (at least with XL C).
+        ARCH='ppc'
     fi
 }
 
@@ -458,13 +481,18 @@ if [ "$COMMAND" = "clean" ] ; then
     exit 0
 fi
 
-if [ "$COMMAND" = "get_default_values" ] ; then
+if [ "$COMMAND" = "detect_os" ] ; then
     write_default_values
     exit 0
 fi
 
 if [ "$COMMAND" = "get_python" ] ; then
-    get_binary_dist $2
+    get_binary_dist $2 "$BINARY_DIST_URI/python"
+    exit 0
+fi
+
+if [ "$COMMAND" = "get_agent" ] ; then
+    get_binary_dist $2 "$BINARY_DIST_URI/agent"
     exit 0
 fi
 
@@ -473,9 +501,8 @@ write_default_values
 copy_python
 install_dependencies
 
-# Always update brink when running buildbot tasks so that brink is installed
-# outside of Python.
-for paver_task in "deps"; do
+# Always update brink when running buildbot tasks.
+for paver_task in "deps" "test_os_dependent" "test_os_independent"; do
     if [ "$COMMAND" == "$paver_task" ] ; then
         install_brink
     fi
