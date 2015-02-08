@@ -57,8 +57,21 @@ something is wrong.
 * Favor indentation using 4 spaces. For deep nested languages (HTML, JS) it
   is OK to use 2 spaces.
 
-* Maximum line length is 80 characters, but for Python we use 79 to be in
+* Maximum line length for code 80 characters, but for Python we use 79 to be in
   sync with PEP8.
+
+* For narrative documentation use `semantic newlines
+  <http://rhodesmill.org/brandon/2012/one-sentence-per-line/>`_.
+  Make lines short, and break lines at natural places, such as after commas and semicolons, rather than after the Nth column.
+
+..  code-block:: text
+    :linenos:
+
+    Sometimes when editing a narrative documentation file, I wrap the lines semantically.
+    Instead of inserting a newline at 70 columns (or whatever),
+    or making paragraphs one long line,
+    I put in newlines at a point that seems logical to me.
+    Modern code-oriented text editor are very good at wrapping and arranging long lines.
 
 * Don't mix multiple languages in a single file.
 
