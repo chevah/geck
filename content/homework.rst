@@ -30,6 +30,10 @@ Due to this we try to adapt to this required and don't work on weekends.
 
 We don't impose a fixed amount of work hours per week and you should work to an amount with which you care comfortable and really willing to work.
 
+The amount of work differ greatly from one person to another,
+but we do get suspicious if someone want to work more than 40 hours per week for an extended period of time,
+as everyone needs time for itself + sleep.
+
 
 You are in control
 ==================
