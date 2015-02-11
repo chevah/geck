@@ -22,6 +22,9 @@ Python
 ======
 
 * `PEP8`_
+* `PEP257`_
+* `Idiomatic Python
+  <http://python.net/~goodger/projects/pycon/2007/idiomatic/presentation.html>`_
 
 
 JavaScript
@@ -42,6 +45,7 @@ CSS
 
 .. _Launchpad Style Guides: https://dev.launchpad.net/
 .. _PEP8: http://www.python.org/dev/peps/pep-0008
+.. _PEP8: http://www.python.org/dev/peps/pep-0257
 .. _Agilo small commits: https://agilo.agilofortrac.com/wiki/agilo/dev/SmallCommits
 .. _Stoyan's CSS: http://www.phpied.com/css-coding-conventions/
 .. _Idiomatic CSS: https://github.com/necolas/idiomatic-css

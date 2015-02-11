@@ -7,6 +7,13 @@ Python
 General
 =======
 
+* Start by reading
+  `The Zen of Python <https://www.python.org/dev/peps/pep-0020/>`_
+
+.. sourcecode:: python
+
+    import this
+
 * For python we have pocket-lint that checks for PEP8 and some other things.
 
 * `Python PEP 8 <http://www.python.org/dev/peps/pep-0008/>`_
@@ -16,7 +23,8 @@ General
 
 * As the second best, use Mixins to reuse code and avoid multiple inheritance.
 
-* Docstring always use multiline strings with double quotes.
+* Docstring always use multiline strings with double quotes and empty first
+  and last lines. There's no blank line either before or after the docstring.
 
 .. sourcecode:: python
 
@@ -24,14 +32,21 @@ General
         """
         Single line docstring.
         """
+        code_starts_here()
 
 
     class SomeClass(ParentClass):
         """
-        Quick explanation of the role of this class.
+        Quick explanation of the role of this class which is a bit long so we
+        wrap it.
 
         More details to follow in long paragraphs.
         """
+
+        def method_starts_here(self):
+          """
+          Something here.
+          """
 
 * Class members or instance members can be documented inline using the
   following syntax.
