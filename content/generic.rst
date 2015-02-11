@@ -93,15 +93,6 @@ something is wrong.
 
 * Each repository will have a LICENSE and AUTHORS files.
 
-* Technical dept comments (ex FIXME, TODO) will always have an attached
-  ticket ID and will use the following format. Only **FIXME** marker is used
-  followed by ticket ID. Comments will come on a new lines.
-  Adapt this to the style of comments use in the specific language, but
-  is important to keep the **FIXME:123:** marker.::
-
-    # FIXME:1234:
-    # Details about this tech-dept. Ex: Can only be fixed when full moon.
-
 * Words are an important part of how software works.
   Even though there may be dozens of people creating a product, reading
   comments, documentation, notes etc, it should still sound like we speak
@@ -197,15 +188,53 @@ Comments
   for this thing, so here is my poor comment. Good luck with figuring the
   intend of this name when you see the it in the rest of this file.
 
-* Well commented code is extremely important. Take time to describe
-  components, how they work, their limitations, and the way they are
-  constructed. Don't leave others in the team guessing as to the purpose
-  of uncommon or non-obvious code.
+* Place comments on a new line above their subject and in the same block as the referred code.
 
-* Place comments on a new line above their subject.
+.. sourcecode:: python
 
-* Avoid end of line comments. End of line comments can be used for lint
-  ignores and other hints for automated tools... but not for humans.
+    if some_condition:
+      # We got into into this branch to do x.
+      do_domething()
+
+    for line in lines:
+      if line.startswith('marker'):
+        # Marker lines are ignored.
+        continue
+      do_domething()
+
+* Avoid end of line comments.
+
+* Technical debt comments (ex FIXME, TODO) will always have an attached
+  ticket ID and will use the following format. Only **FIXME** marker is used
+  followed by ticket ID. Comments will come on a new lines.
+  Adapt this to the style of comments used in the specific language, but
+  is important to keep the **FIXME:123:** marker.::
+
+    # FIXME:1234:
+    # Details about this tech-dept. Ex: Can only be fixed when full moon.
+
+
+Documentation
+=============
+
+* Well documented code is extremely important.
+  Take time to describe components, how they work, their limitations, and the way they are constructed.
+  Don't leave others in the team guessing as to the purpose of uncommon or non-obvious code.
+
+* Document code as part of docstrings and not as comments.
+
+* Document packages, modules, classes, functions.
+
+* For narative documentation (non docstrins) use `semantic linefeeds <http://rhodesmill.org/brandon/2012/one-sentence-per-line/>`_.
+
+..  code-block:: text
+    :linenos:
+
+    Sometimes when editing a narrative documentation file, I wrap the lines semantically.
+    Instead of inserting a newline at 70 columns (or whatever),
+    or making paragraphs one long line,
+    I put in newlines at a point that seems logical to me.
+    Modern code-oriented text editor are very good at wrapping and arranging long lines.
 
 
 Exceptions handling
