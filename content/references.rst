@@ -45,7 +45,7 @@ CSS
 
 .. _Launchpad Style Guides: https://dev.launchpad.net/
 .. _PEP8: http://www.python.org/dev/peps/pep-0008
-.. _PEP8: http://www.python.org/dev/peps/pep-0257
+.. _PEP257: http://www.python.org/dev/peps/pep-0257
 .. _Agilo small commits: https://agilo.agilofortrac.com/wiki/agilo/dev/SmallCommits
 .. _Stoyan's CSS: http://www.phpied.com/css-coding-conventions/
 .. _Idiomatic CSS: https://github.com/necolas/idiomatic-css

@@ -204,10 +204,10 @@ Comments
 
 * Avoid end of line comments.
 
-* Technical dept comments (ex FIXME, TODO) will always have an attached
+* Technical debt comments (ex FIXME, TODO) will always have an attached
   ticket ID and will use the following format. Only **FIXME** marker is used
   followed by ticket ID. Comments will come on a new lines.
-  Adapt this to the style of comments use in the specific language, but
+  Adapt this to the style of comments used in the specific language, but
   is important to keep the **FIXME:123:** marker.::
 
     # FIXME:1234:
