@@ -25,8 +25,8 @@ through this and can share their experience.
 While we don't work from the same location, we are all located
 in a 2 hours difference time zone.
 
-We don't have fixed working our but our customers expect us to be available from **9 to 5 from Monday until Friday**.
-Due to this we try to adapt to this required and don't work on weekends.
+We don't have fixed working hour but our customers expect us to be available from **9 to 5 from Monday until Friday GMT**.
+We try to adapt to this requirement and don't work on weekends.
 
 We don't impose a fixed amount of work hours per week and you should work to an amount with which you care comfortable and really willing to work.
 
@@ -50,16 +50,15 @@ There is nobody to tell you when to work, how to work or to check that you
 are at work. It is your own style to work and you need to find ways to
 improve the way you work.
 
-The sustainable work hours number varies considerably by person so take the time to observer your limits.
+The sustainable work hours number varies considerably by person so take the time to observe your limits.
 
 Define and respect boundaries between work and your personal life.
 Realize your work throughput limit and stop working as soon as
-you hit the limit. It will be best for your and the project.
+you hit the limit. It will be best for you and the project.
 
-There is no correlation between work hours and experience level and
-working hours is a personal choice.
-You decide how much energy you want to spend for the project and
-for yourself/family/friends and more energy spent for the project will translate in less energy for yourself.
+There is no correlation between work hours and experience level.
+Working hours is a personal choice, you decide how much energy you want to spend for the project and for yourself/family/friends.
+More energy spent for the project will translate in less energy for yourself.
 
 
 Stay focus on what you do
@@ -101,7 +100,7 @@ having multiple opened tasks in the same time.
 
 In order to reduce the number of parallel tasks, we need to provide quick
 feedback to our team.
-The feedback should be no more than 48 working hours, preferable working 24 hours.
+The feedback should be no more than 2 working days, preferable 1 working day.
 
 If you need urgent feedback, mark the feedback request as such, ex put a big **URGENT** tag on the review or the subject of your email.
 
@@ -150,13 +149,12 @@ You shouldn't be dependent on work for social interactions.
 Communication
 =============
 
+Use a dedicated account (email, chat, skype) for work.
+This will help you filter the work related communication.
+
 Use "away" and "busy" functionality of you instant messaging tool to let other know about your status.
 
-Use a dedicated account for work and log in with that account
-only when you are at work.
-On the same line, join the team IRC chat only when you are *at work*.
-
-Since we don't work based on fixed working ours you will received email,  review request, feedback when you are outside of your *working ours*. Ignore them and don't feel the obligation to read or respond then.
+Since we don't work based on fixed working ours you will received email, review request, feedback when you are outside of your *working ours*. Ignore them and don't feel the obligation to read or respond then.
 
 When you talk to someone face-to-face or voice-to-voice,
 you get a lot of contextual information and unspoken messages,
@@ -191,12 +189,12 @@ But that usually also means that project won’t make rapid progress without you
 
 This is not a good thing. Both for you and the project.
 What happens if want to take a (spontaneous) vacation or get sick?
-Or some work get delayed and overlaps with your great vacation scheduled many months before.
+Or some work gets delayed and overlaps with your great vacation, scheduled many months before.
 
 If you are critical to the project, there’s no slack left for anything new or urgent.
 You can not prevent new or urgent things from showing up, they will, you may count on it.
 
-To handle this, break all your work into small task as described in a previous section and make sure each task is well documented so that it can be continued at any time by another team member.
+To handle this, break all your work into small tasks as described in a previous section and make sure each task is well documented so that it can be continued at any time by another team member.
 
 
 Tools
