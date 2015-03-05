@@ -285,8 +285,8 @@ For person reviewing changes
   by setting the state to needs_merge in Trac.
 
 * If the work is good and GitHub pull request was used, leave a comment on
-  the pull request page with a line starting with **approved-at 342d345**,
-  where **342d345** is the revision at which the branch was approved.
+  the pull request page with a line starting with / containing
+  **changes-approved**.
 
 * If no merge is required you can close the ticket as solved.
 
