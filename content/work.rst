@@ -3,6 +3,7 @@ Work
 
 :menu_order: 101
 
+.. contents::
 
 General
 =======
@@ -164,6 +165,8 @@ When communicating using text messages many or these unspoken messages are
 not received.
 Always acknowledge that you have received and understood a text message.
 Be as clear as possible and avoid subtle irony or local culture jokes.
+Use emotion to hint for mood. ALL CAPS is shouting, use `**empashize**` to
+stress something.
 
 Since most of the communication is done using text, get proficient at typing and get good tools to help with typing (ie a good keyboard).
 You will write many code, emails, documents, text chats.
