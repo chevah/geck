@@ -3,6 +3,7 @@ Work
 
 :menu_order: 101
 
+.. contents::
 
 General
 =======
@@ -154,7 +155,9 @@ This will help you filter the work related communication.
 
 Use "away" and "busy" functionality of you instant messaging tool to let other know about your status.
 
-Since we don't work based on fixed working ours you will received email, review request, feedback when you are outside of your *working ours*. Ignore them and don't feel the obligation to read or respond then.
+Since we don't work based on fixed working hours you will received email, 
+review request, feedback when you are outside of your *working hours*.
+Ignore them and don't feel the obligation to read or respond then.
 
 When you talk to someone face-to-face or voice-to-voice,
 you get a lot of contextual information and unspoken messages,
@@ -164,6 +167,10 @@ When communicating using text messages many or these unspoken messages are
 not received.
 Always acknowledge that you have received and understood a text message.
 Be as clear as possible and avoid subtle irony or local culture jokes.
+Use emoticons to hint for mood, e.g. *This is a silly joke :)*
+Avoid ALL CAPS as much as possible, otherwise people will feel
+that you are shouting at them.
+Use the appropriate text markup to `**emphasize**` something.
 
 Since most of the communication is done using text, get proficient at typing and get good tools to help with typing (ie a good keyboard).
 You will write many code, emails, documents, text chats.
