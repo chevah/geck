@@ -97,7 +97,7 @@ Sample release notes
     This is the list of all changes for PRODUCT NAME releases.
 
 
-    Version 1.2.3, released 24/02/2014
+    Version 1.2.0, released 24/02/2014
     ----------------------------------
 
 
@@ -114,18 +114,13 @@ Sample release notes
     ^^^^^^^^^^^^
 
     * Fix an internal server error when SSH client requests
-      to execute a command, a shell or a pseudo-terminal. [sftp][scp]
+      to execute a command, a shell or a pseudo-terminal. [#176][sftp][scp]
 
 
-    Deprecations
-    ^^^^^^^^^^^^
+    Deprecations and removals
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
 
     * It is no longer possible to do X. [#1359][unix]
-
-
-    Removals
-    ^^^^^^^^
-
     * Windows XP is no longer supported. [#2345]
     * Configuration option X, deprecated since Product version 12.1.2, is now
       removed. [#1366]
@@ -137,7 +132,13 @@ Sample release notes
     * The howto document page of X now has documentation about doing Y. [#2452]
 
 
-    Version 1.1.0, released 14/02/2013
+    Version 1.1.1, released 14/02/2013
     ----------------------------------
 
-    INFO FOR PREVIOUS RELEASE.
+
+    Defect fixes
+    ^^^^^^^^^^^^
+
+    * Fix an internal server error when FTP client requests
+      an unknown command. [#160][ftp][ftps]
+
