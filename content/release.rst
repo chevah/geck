@@ -35,10 +35,10 @@ specific version.
 Release notes are grouped in one of the following categories. The category
 may be omitted if no changes were added for it. Here are some categories::
 
+* Major changes (only for major releases)
 * New features
-* Bug fixes
-* Deprecation
-* Removals
+* Bug fixes (this will be the only section for bugfix releases)
+* Deprecation and Removals
 * Other changes. Documentation changes.
 
 A marker/tag is added at the end of the sentence to point the ticket ID
@@ -97,7 +97,7 @@ Sample release notes
     This is the list of all changes for PRODUCT NAME releases.
 
 
-    Version 1.2.0, released 24/02/2014
+    Version 2.1.0, released 24/02/2014
     ----------------------------------
 
 
@@ -130,6 +130,45 @@ Sample release notes
     ^^^^^^^^^^^^^
 
     * The howto document page of X now has documentation about doing Y. [#2452]
+
+
+
+    Version 2.0.0, released 20/02/2014
+    ----------------------------------
+
+
+    Major changes
+    ^^^^^^^^^^^^^
+
+    * All log handlers were converted to event handlers.
+      This allows an unified method for interacting the the audit events
+      produced by SFTPPlus.
+    * All authentication methods are now explicitly defined and ordered.
+      You can now choose the order in which different authentication methods
+      are used.
+
+
+    New features
+    ^^^^^^^^^^^^
+
+    * Support was added to transfer files using SCP over SSH.
+      Read more... [scp]
+
+
+    Defect fixes
+    ^^^^^^^^^^^^
+
+    * Fix an internal server error when SSH client requests
+      to execute a command, a shell or a pseudo-terminal. [#176][sftp][scp]
+
+
+    Deprecations and removals
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    * It is no longer possible to do X. [#1359][unix]
+    * Windows XP is no longer supported. [#2345]
+    * Configuration option X, deprecated since Product version 12.1.2, is now
+      removed. [#1366]
 
 
     Version 1.1.1, released 14/02/2013

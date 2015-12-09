@@ -146,10 +146,11 @@ following message (added to the ticket description)::
     {{ '{{{' }}
     #!rst
 
-    Problem description
-    ===================
+    Scope
+    =====
 
-    Describe the problem that these changes wants to solve.
+    Describe the scope of the changes or the problem that these changes wants
+    to solve.
     This content should be created when a ticket is submitted and just link
     the ticket or copy paste the ticket description... or find a way for
     linking this review to a ticket.
@@ -160,15 +161,15 @@ following message (added to the ticket description)::
     Why we got into this (5 whys)
     =============================
 
-    Mainly used for bugs. Can be removed for tasks or new features.
+    Mainly used for bugs. Can be ignored for tasks or new features.
 
     Describe why we got this problem in the first place. What went wrong.
     Repeatedly ask the question “Why” (up to 5 times) to determine the
     cause of this problem.
 
 
-    Changes description
-    ===================
+    Changes
+    =======
 
     Describe how the problem was fixed.
     List **all** changes made.
@@ -177,6 +178,8 @@ following message (added to the ticket description)::
     the current solution.
 
     What was not done yet and link to the ticket for the still to do work.
+
+    Any comments about out-of-scope minor drive-by changes.
 
 
     How to try and test the changes
