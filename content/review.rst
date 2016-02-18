@@ -141,66 +141,8 @@ Review request message
 ----------------------
 
 When submitting a ticket for review, the review request should contain the
-following message (added to the ticket description)::
-
-    {{ '{{{' }}
-    #!rst
-
-    Scope
-    =====
-
-    Describe the scope of the changes or the problem that these changes wants
-    to solve.
-    This content should be created when a ticket is submitted and just link
-    the ticket or copy paste the ticket description... or find a way for
-    linking this review to a ticket.
-
-    depends-on #123 #124
-
-
-    Why we got into this (5 whys)
-    =============================
-
-    Mainly used for bugs. Can be ignored for tasks or new features.
-
-    Describe why we got this problem in the first place. What went wrong.
-    Repeatedly ask the question “Why” (up to 5 times) to determine the
-    cause of this problem.
-
-
-    Changes
-    =======
-
-    Describe how the problem was fixed.
-    List **all** changes made.
-
-    List all changes for which an *ideal* solution was not found. Describe
-    the current solution.
-
-    What was not done yet and link to the ticket for the still to do work.
-
-    Any comments about out-of-scope minor drive-by changes.
-
-
-    How to try and test the changes
-    ===============================
-
-    reviewers @some-dude @another-dude
-
-    How the changes can be tested and verified by team members.
-
-
-    Title for first test case
-    -------------------------
-
-    For end-user changes, how the changes can be tested and verified by
-    our users.
-
-    List the steps to follow for checking that everything is OK.
-
-    Explicitly state the expected results.
-    {{ '}}}' }}
-
+following message as described in `PULL_REQUEST_TEMPLATE
+<https://github.com/chevah/styleguide/blob/master/.github/PULL_REQUEST_TEMPLATE>`_
 
 * For GitHub review requests, **add the merge commit message as the pull
   request title**. The message should include the ticket ID number.
