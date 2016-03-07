@@ -14,9 +14,7 @@ General
   regardless of who "caused" the error. Branch driver and reviews work
   together to achieve this goal.
 
-* The review process is a very efficient form of pair-programming ...
-  `and is not this kind of pair programming
-  <http://whenarewehavingcake.tumblr.com/post/23507389861>`_.
+* The review process is a very efficient form of pair-programming.
 
 * Branch driver is the person (or persons) requesting the review and
   responsible for implementing changes during review.
