@@ -14,9 +14,7 @@ General
   regardless of who "caused" the error. Branch driver and reviews work
   together to achieve this goal.
 
-* The review process is a very efficient form of pair-programming ...
-  `and is not this kind of pair programming
-  <http://whenarewehavingcake.tumblr.com/post/23507389861>`_.
+* The review process is a very efficient form of pair-programming.
 
 * Branch driver is the person (or persons) requesting the review and
   responsible for implementing changes during review.
@@ -169,7 +167,7 @@ Merge your branch
 After the merge request and review was approved you need to merge your branch
 into master.
 
-After your review request was approved, you can send you branch got PQM
+After your review request was approved, you can send your branch to PQM
 for automatic testing and merging. Use the following command::
 
     paver pqm GITHUB_PULL_REQUEST_ID
