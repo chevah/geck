@@ -167,7 +167,7 @@ Merge your branch
 After the merge request and review was approved you need to merge your branch
 into master.
 
-After your review request was approved, you can send you branch got PQM
+After your review request was approved, you can send your branch to PQM
 for automatic testing and merging. Use the following command::
 
     paver pqm GITHUB_PULL_REQUEST_ID

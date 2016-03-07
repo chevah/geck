@@ -178,7 +178,7 @@ You will write many code, emails, documents, text chats.
 The process of writing should encourage you to slow down,
 organize and clarify your thoughts before sharing them with someone else.
 
-When things get to complicated, don't hesitate to switch to voice chat.
+When things get too complicated, don't hesitate to switch to voice chat.
 After a voice chat don't forget to document what was discussed by updating
 a document, sending a follow up email, updating a ticket or
 creating new tickets with new up tasks.
