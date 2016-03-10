@@ -3,6 +3,7 @@ Review
 
 This page discuss the code/changes review process as both the person
 who requests a reviewer and a person who checks a review.
+It also details the integration between GitHub and Trac.
 
 ..  contents::
 
@@ -271,3 +272,55 @@ Reviewer's check list
 * Are the new event documented?
 
 * Are the removed events documented?
+
+
+Overview of the GitHub and Trac integration
+===========================================
+
+This section discuss the integration between GitHub and Trac tracking
+system.
+
+The repository
+`github-hooks-server <https://github.com/chevah/github-hooks-server>`_
+contains the code responsible for handling GitHub hooks and
+applying changes to Trac tickets.
+
+
+Usernames
+---------
+
+If your usernames for GitHub and Trac differ, the handler needs to map it.
+Please check `handler.py
+<https://github.com/chevah/github-hooks-server/blob/master/chevah/github_hooks_server/handler.py#L18>`_
+for details.
+
+
+Triggers and hooks
+------------------
+
+The integration is mainly between GitHub Pull Requests and Trac tickets,
+following the workflow described in `review <{filename}/review.rst>`_.
+
+The Pull Request title should start with **[#TRAC_TICKET_ID]** and
+each message on this Pull Request triggers a hook looking for special keywords.
+
+On Pull Request body
+````````````````````
+
+The special syntax **reviewers: @user1 @user2** sets which users should
+to review and approve this Pull Request.
+
+
+On comments
+```````````
+
+A mention to **needs-review** issues a review request modifying the state of
+the Trac Ticket to `needs_review`.
+
+The same way, mentioning **needs-changes** modifies the ticket state to
+`needs_changes`, notifying the assigned user that the Pull Request
+should be fixed and reviewed again.
+
+A reviewer writing **changes-approved** to the comments mark it as good to merge.
+If all reviewers listed in the Pull Request body mark this Pull Request as good
+then the hook will change the ticket state to `needs-merge`.
