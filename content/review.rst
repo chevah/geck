@@ -69,15 +69,14 @@ General
 For person requesting a review
 ==============================
 
-
 * Once a task/ticket is done, it should be submitted for review.
 
 * **All** changes should be reviewed prior to be merged or released.
 
-* Before requesting a review you should run a full test on your local
+* Before requesting a review you should run a full quick test on your local
   computer and on all supported platforms.
-  Just run ``paver test_remote all`` and Buildbot and GitHub will work
-  together to display the results.
+  Just run ``paver test_quick`` and ``paver test_review`` and
+  Buildbot and GitHub will work together to display the results.
 
 * Before passing the review to others, take another careful look at your work
   and perform a first review yourself.
@@ -85,6 +84,9 @@ For person requesting a review
   cases.
   It is very important to have a good review request message as it will
   help reviewers understand what you have done.
+
+* Check that all changes are covered by automated tests and if not make sure
+  the review description contains information about why.
 
 * Check the **Reviewer's check list** since those are the things that a
   reviewer will check for sure.
@@ -105,9 +107,9 @@ For person requesting a review
   Writing a review request early, will help you to organize and explain
   the work that you plan to do on the branch.
 
-* When the review is ready to be sent to reviewers, leave a comment
+* When the review is ready to be sent to reviewers, leave a comment in the PR
   containing the **needs-review** marker word. It will trigger the review
-  request process.
+  request process and the GitHub to Trac synchronization.
 
 * GitHub inline comments are great, and you can add them to help with the
   initial review request. Just **don't abuse them**!
@@ -246,23 +248,9 @@ For person reviewing changes
   This is a problem with the review request and it `needs changes`.
 
 
-Reviewer's check list
----------------------
+Reviewer's check list - Any Role
+---------------------------------
 
-* Does the **new** changes comply with latest styleguide ?
-
-* Does the code have tests for new code?
-
-* Does the merge commit message describes what is done by this branch?
-
-* Does the branch name starts with the Trac ticket ID.
-
-* Does **all** tests pass? Does GitHub say that the branch is
-  **Good to merge**?
-
-* If there is no ``paver test_remote all`` for the latest code, you can
-  either just reject the review, or trigger a test and wait for results.
-  **Never** approve a code that is not passing the tests.
 
 * Is there a release notes entry for changes?
 
@@ -271,3 +259,36 @@ Reviewer's check list
 * Are the new event documented?
 
 * Are the removed events documented?
+
+
+Reviewer's check list - Developer
+---------------------------------
+
+* Does the **new** changes comply with latest styleguide ?
+
+* Does the code have automated tests for all the new code?
+
+* Does the merge commit message describes what is done by this branch?
+
+* Does the branch name starts with the Trac ticket ID.
+
+* Does **all** tests pass? Does GitHub say that the branch is
+  **Good to merge**?
+
+* If there is no ``paver test_review`` for the latest code, you can
+  either just reject the review, or trigger a test and wait for results.
+  **Never** approve a code that is not passing the tests.
+
+
+Reviewer's check list - QA
+--------------------------
+
+* Does the new code perform as expected when running manual tests?
+
+* Does the test scenarios from the review description make sense?
+  Can they be executed? Successfully ?
+
+* Does the new end-user interaction GUI or CLI make sense and is easy to use?
+
+* Are there any corner cases not described in reviews or not covered by
+  functional tests?
