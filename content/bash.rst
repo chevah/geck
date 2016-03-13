@@ -1,6 +1,8 @@
 Bash
 ####
 
+:menu_order: 155
+
 ..  contents::
 
 
@@ -10,9 +12,9 @@ General
 * Shell scripts should be kept at a minimum and **only** for internal scripts.
   For all other things there is Python.
 
-* If any, public scripts should use ``/bin/sh``. Bash is not available on all 
+* If any, public scripts should use ``/bin/sh``. Bash is not available on all
   Unix systems and ksh or other shells are not compatible with Bash syntax.
-  
+
 * Use ``printf`` instead of ``echo`` when using  ``/bin/sh`` as a shell,
   because ``echo`` behaviour is incompatible in Bash and Korn shells.
   Eg. use ``printf`` instead of ``echo -n`` and ``printf "blabla\n"`` instead
@@ -20,16 +22,16 @@ General
 
 * For internal scripts we should use ``/bin/bash``, as the default ``/bin/sh``
   sometimes points to a lesser shell such as Dash.
-  
+
 * A function called main is required for scripts long enough to contain at
   least one other function.
-  
+
 * Put all functions together in the file just below constants. Don't hide
-  executable code between functions.  
+  executable code between functions.
 
 * Use uppercase for all GLOBAL variables.
 
-* In tests, enclose all uncontrolled string variables in double quotes to 
+* In tests, enclose all uncontrolled string variables in double quotes to
   handle empty strings or spaces in variables.
 
 * Always double quote the ``$@`` variable to keep all arguments with spaces.
@@ -38,13 +40,13 @@ General
 
 * Use $(command) instead of backticks. Nested backticks require escaping the
   inner ones with \. The $(command) format doesn't change when nested and is
-  easier to read. See the example below 
+  easier to read. See the example below
 
 .. sourcecode:: bash
 
     # This is preferred:
     var="$(command "$(command1)")"
-    
+
     # This is not:
     var="`command \`command1\``"
 

@@ -1,6 +1,7 @@
 HTML, XML and other markups
 ###########################
 
+:menu_order: 153
 :slug: html
 
 .. contents::
