@@ -25,9 +25,9 @@ specification or the way we want it to work.
 
 We split the defect into 2 categories:
 
-* `bugs` - are defects which affect (or we thing that it might affect)
-  the workflow of at least one customer
-* `tasks` (FIND A BETER NAME?) -
+* `bugs with priority high or critical` - are defects which affect
+  (or we thing that it might affect) the workflow of at least one customer
+* `bugs with priority low` -
   are defects for which we are not aware of any affected customer
   but which we would like the product to not behave in this way.
   They are acknowledged in the **Known Issues** section of our documentation.
