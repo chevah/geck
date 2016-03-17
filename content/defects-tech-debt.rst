@@ -23,7 +23,10 @@ Defects and Release Blockers
 Defects are defined as behavior of our product which does not follow our
 specification or the way we want it to work.
 
-We split the defect into 2 categories:
+Mis-behaviors in our build system, testing system or infrastructure are also
+defects.
+
+We split the defect into 3 categories:
 
 * `bugs with priority high or critical` - are defects which affect
   (or we thing that it might affect) the workflow of at least one customer
@@ -31,6 +34,9 @@ We split the defect into 2 categories:
   are defects for which we are not aware of any affected customer
   but which we would like the product to not behave in this way.
   They are acknowledged in the **Known Issues** section of our documentation.
+* `tasks with priority high or critical` - are defects affecting our build
+  system or testing infrastructure, but are not defects in the actual
+  product.
 
 For some defects, fixing them is a lot of work and its impact is minor
 as maybe our customers will never use the product in a way to trigger the bug.
