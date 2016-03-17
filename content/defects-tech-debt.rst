@@ -25,9 +25,9 @@ specification or the way we want it to work.
 
 We split the defect into 2 categories:
 
-* `bugs` - are defects which affect (or we thing that it might affect)
-  the workflow of at least one customer
-* `tasks` (FIND A BETER NAME?) -
+* `bugs with priority high or critical` - are defects which affect
+  (or we thing that it might affect) the workflow of at least one customer
+* `bugs with priority low` -
   are defects for which we are not aware of any affected customer
   but which we would like the product to not behave in this way.
   They are acknowledged in the **Known Issues** section of our documentation.
@@ -46,7 +46,7 @@ If we gather a considerable number of minor bugs / defect we will schedule
 a release dedicated / focused on reducing their numbers.
 
 We should focus on fixing all bugs as soon as possible. Even if a defect does
-not currently affect a customer, the changes are hight that a customer
+not currently affect a customer, the changes are high that a customer
 will be affected by it in the near future.
 
 In the same small/minor bugs might release big flaws in the structure of our
