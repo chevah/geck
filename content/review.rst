@@ -256,7 +256,7 @@ Reviewer's check list - Any Role
 
 * Is there documentation for changes? Does the documentation make sense?
 
-* Are the new event documented?
+* Are the new events documented?
 
 * Are the removed events documented?
 
@@ -296,9 +296,6 @@ Reviewer's check list - QA
 
 Overview of the GitHub and Trac integration
 ===========================================
-
-This section discuss the integration between GitHub and Trac tracking
-system.
 
 The repository
 `github-hooks-server <https://github.com/chevah/github-hooks-server>`_
