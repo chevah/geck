@@ -305,11 +305,7 @@ The repository
 contains the code responsible for handling GitHub hooks and
 applying changes to Trac tickets.
 
-
-Triggers and hooks
-------------------
-
-The integration is mainly between GitHub Pull Requests and Trac tickets,
+Integration is mainly between GitHub Pull Requests and Trac tickets,
 following the workflow described in `review <{filename}/review.rst>`_.
 
 The Pull Request title should start with **[#TRAC_TICKET_ID]** and
