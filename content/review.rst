@@ -312,7 +312,9 @@ The Pull Request title should start with **[#TRAC_TICKET_ID]** and
 each message on this Pull Request triggers a hook looking for special keywords.
 
 When creating the Pull Request the special syntax **reviewers: @user1 @user2**
-sets which users should review and approve it.
+sets which users should review and approve it. There is also
+**depends-on: review1 review2** which blocks this merge until the reviews it
+depends on are done.
 
 A comment mentioning **needs-review** issues a review request modifying the
 state of the Trac Ticket to `needs_review`.
