@@ -114,7 +114,7 @@ For person requesting a review
 * GitHub inline comments are great, and you can add them to help with the
   initial review request. Just **don't abuse them**!
   Think twice before adding an initial inline comment for the review.
-  Ask yourself why that comments is needed and why that line is not
+  Ask yourself why that comment is needed and why that line is not
   clear. Maybe adding a comment in the code would avoid the
   need for the GitHub inline comment.
 
