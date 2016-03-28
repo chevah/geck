@@ -240,7 +240,7 @@ For person reviewing changes
 
 * If changes are required, you put the ticket in the **needs-changes** state
   and assign the ticket to the person who can make the required changes.
-  When working with GitHub you can request changed by adding
+  When working with GitHub you can request changes by adding
   the **needs-changes** marker word in a comment.
 
 * Don't spend to much time on a review request if it is not clear enough and
