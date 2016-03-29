@@ -38,7 +38,7 @@ We split the defect into 3 categories:
   system or testing infrastructure, but are not defects in the actual
   product.
 
-For some defects, fixing them is a lot of work and its impact is minor
+For some defects, fixing them is a lot of work and their impact is minor
 as maybe our customers will never use the product in a way to trigger the bug.
 In this case, we create a ticket with type `bug` and add it in the backlog.
 
@@ -52,13 +52,13 @@ If we gather a considerable number of minor bugs / defect we will schedule
 a release dedicated / focused on reducing their numbers.
 
 We should focus on fixing all bugs as soon as possible. Even if a defect does
-not currently affect a customer, the changes are high that a customer
+not currently affect a customer, the chances are high that a customer
 will be affected by it in the near future.
 
-In the same small/minor bugs might release big flaws in the structure of our
+Also small/minor bugs might release big flaws in the structure of our
 code. We should focus on fixing them as soon as possible so that we can work
-on them in a normal pace and not wait to fix them in a hurry under the
-pressure of a release blocker or customer complaining about bad behavior.
+on them at a normal pace and not wait to fix them in a hurry under the
+pressure of a release blocker or customer complaining about bad behaviour.
 
 
 Technical Debt
