@@ -69,15 +69,14 @@ General
 For person requesting a review
 ==============================
 
-
 * Once a task/ticket is done, it should be submitted for review.
 
 * **All** changes should be reviewed prior to be merged or released.
 
-* Before requesting a review you should run a full test on your local
+* Before requesting a review you should run a full quick test on your local
   computer and on all supported platforms.
-  Just run ``paver test_remote all`` and Buildbot and GitHub will work
-  together to display the results.
+  Just run ``paver test_quick`` and ``paver test_review`` and
+  Buildbot and GitHub will work together to display the results.
 
 * Before passing the review to others, take another careful look at your work
   and perform a first review yourself.
@@ -85,6 +84,9 @@ For person requesting a review
   cases.
   It is very important to have a good review request message as it will
   help reviewers understand what you have done.
+
+* Check that all changes are covered by automated tests and if not make sure
+  the review description contains information about why.
 
 * Check the **Reviewer's check list** since those are the things that a
   reviewer will check for sure.
@@ -105,14 +107,14 @@ For person requesting a review
   Writing a review request early, will help you to organize and explain
   the work that you plan to do on the branch.
 
-* When the review is ready to be sent to reviewers, leave a comment
+* When the review is ready to be sent to reviewers, leave a comment in the PR
   containing the **needs-review** marker word. It will trigger the review
-  request process.
+  request process and the GitHub to Trac synchronization.
 
 * GitHub inline comments are great, and you can add them to help with the
   initial review request. Just **don't abuse them**!
   Think twice before adding an initial inline comment for the review.
-  Ask yourself why that comments is needed and why that line is not
+  Ask yourself why that comment is needed and why that line is not
   clear. Maybe adding a comment in the code would avoid the
   need for the GitHub inline comment.
 
@@ -238,7 +240,7 @@ For person reviewing changes
 
 * If changes are required, you put the ticket in the **needs-changes** state
   and assign the ticket to the person who can make the required changes.
-  When working with GitHub you can request changed by adding
+  When working with GitHub you can request changes by adding
   the **needs-changes** marker word in a comment.
 
 * Don't spend to much time on a review request if it is not clear enough and
@@ -246,12 +248,25 @@ For person reviewing changes
   This is a problem with the review request and it `needs changes`.
 
 
-Reviewer's check list
----------------------
+Reviewer's check list - Any Role
+---------------------------------
+
+
+* Is there a release notes entry for changes?
+
+* Is there documentation for changes? Does the documentation make sense?
+
+* Are the new events documented?
+
+* Are the removed events documented?
+
+
+Reviewer's check list - Developer
+---------------------------------
 
 * Does the **new** changes comply with latest styleguide ?
 
-* Does the code have tests for new code?
+* Does the code have automated tests for all the new code?
 
 * Does the merge commit message describes what is done by this branch?
 
@@ -260,14 +275,51 @@ Reviewer's check list
 * Does **all** tests pass? Does GitHub say that the branch is
   **Good to merge**?
 
-* If there is no ``paver test_remote all`` for the latest code, you can
+* If there is no ``paver test_review`` for the latest code, you can
   either just reject the review, or trigger a test and wait for results.
   **Never** approve a code that is not passing the tests.
 
-* Is there a release notes entry for changes?
 
-* Is there documentation for changes? Does the documentation make sense?
+Reviewer's check list - QA
+--------------------------
 
-* Are the new event documented?
+* Does the new code perform as expected when running manual tests?
 
-* Are the removed events documented?
+* Does the test scenarios from the review description make sense?
+  Can they be executed? Successfully ?
+
+* Does the new end-user interaction GUI or CLI make sense and is easy to use?
+
+* Are there any corner cases not described in reviews or not covered by
+  functional tests?
+
+
+Overview of the GitHub and Trac integration
+===========================================
+
+The repository
+`github-hooks-server <https://github.com/chevah/github-hooks-server>`_
+contains the code responsible for handling GitHub hooks and
+applying changes to Trac tickets.
+
+Integration is mainly between GitHub Pull Requests and Trac tickets,
+following the workflow described in `review <{filename}/review.rst>`_.
+
+The Pull Request title should start with **[#TRAC_TICKET_ID]** and
+each message on this Pull Request triggers a hook looking for special keywords.
+
+When creating the Pull Request the special syntax **reviewers: @user1 @user2**
+sets which users should review and approve it. There is also
+**depends-on: review1 review2** which blocks this merge until the reviews it
+depends on are done.
+
+A comment mentioning **needs-review** issues a review request modifying the
+state of the Trac Ticket to `needs_review`.
+
+In the same way, mentioning **needs-changes** modifies the ticket state to
+`needs_changes`, notifying the assigned user that the Pull Request
+should be fixed and reviewed again.
+
+When a reviewer comments **changes-approved**, it marks the Pull Request as
+good to merge. If all reviewers listed in the Pull Request body comment,
+the hook will change the ticket state to `needs-merge`.
