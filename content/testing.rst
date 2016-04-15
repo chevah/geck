@@ -1,6 +1,8 @@
 Testing
 #######
 
+:menu_order: 089
+
 .. contents::
 
 Writing automated tests is an important part of development.
@@ -91,8 +93,8 @@ unit tests are.
 
 Test for single method or functions. As the number of unit tests significantly grows
 throughout the lifecycle of the project one key requirement is that they run as
-fast as possible. Therefore the tests should use only data from memory for both input 
-and output.
+fast as possible.
+Therefore the tests should use only data from memory for both input and output.
 
 
 Integration testing

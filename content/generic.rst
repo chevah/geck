@@ -1,7 +1,7 @@
 Generic
 #######
 
-:menu_order: 1
+:menu_order: 001
 
 ..  contents::
 

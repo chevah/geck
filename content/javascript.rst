@@ -1,6 +1,8 @@
 JavaScript
 ##########
 
+:menu_order: 151
+
 .. contents::
 
 General
