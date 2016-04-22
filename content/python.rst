@@ -143,23 +143,6 @@ NO
 * When a method does not use the *self* attribute, this is a code smell
   that this method should be placed somewhere else.
 
-* Don't use the `assert` statement in code but rather raise an explicit error.
-  `assert` statement optimization is useless as it was scientifically proven
-  that some bugs only show up when a customer uses the machine and we want
-  those exceptions to be raised in production and not be accidentally
-  disabled.
-
-* Don't raise `AssertionError` outside of the test code.
-  Use `RuntimeError` or a more specific exception.
-  The `AssertionError` should never be handled nor in production nor in
-  testing code.
-  Using `self.assertRaises(AssertionError)` is a form of handling an
-  exception.
-
-* Don't raise `RuntimeError` outside for the production code.
-  Use `AssertionError` when implementing doubles, stub or mock implementation
-  to support the testing.
-
 
 Mixin
 =====
