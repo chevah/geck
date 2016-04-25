@@ -260,6 +260,29 @@ Each ID should be raised from a single place.
 The data attribute is a dictionary with key / values that make sense for the
 error.
 
+Don't use the `assert` statement in code but rather raise an explicit error.
+`assert` statement optimization is useless as it was scientifically proven
+that some bugs only show up when a customer uses the machine and we want
+those exceptions to be raised in production and not be accidentally
+disabled.
+
+Don't raise `AssertionError` outside of the test code.
+Use `RuntimeError` or a more specific exception.
+
+The `AssertionError` should never be handled; be in production nor in
+testing code.
+Using `self.assertRaises(AssertionError)` is a form of handling an
+exception.
+
+Don't raise `RuntimeError` outside of the production code.
+Use `AssertionError` when implementing doubles, stub or mock implementation
+to support the testing.
+
+All raised assertions should have a descriptive message.
+Raising an error without a message is a way of saying:
+"I cared enough to give you an error, but not enough to tell you what is
+going on".
+
 
 Experimental Features Without Feature Branches
 ==============================================
