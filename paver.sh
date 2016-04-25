@@ -3,7 +3,7 @@
 # See LICENSE for details.
 #
 # Helper script for bootstraping the build system on Unix/Msys.
-# It will write the default values into 'DEFAULT_VALUES' file.
+# It will write the default values in the 'DEFAULT_VALUES' file.
 #
 # To use this script you will need to publish binary archive files for the
 # following components:
@@ -15,7 +15,7 @@
 # It will delegate the argument to the paver script, with the exception of
 # these commands:
 # * clean - remove everything, except cache
-# * detect_os - create DEFAULT_VALUES and exit
+# * detect_os - detect operating system, create the DEFAULT_VALUES file and exit
 # * get_python - download Python distribution in cache
 # * get_agent - download Rexx/Putty distribution in cache
 #
@@ -28,10 +28,7 @@ set -o pipefail
 # Initialize default value.
 COMMAND=${1-''}
 DEBUG=${DEBUG-0}
-CLEAN_PYTHON_BINARY_DIST_CACHE='no'
 
-# Load repo specific configuration.
-source paver.conf
 
 # Set default locale.
 # We use C (alias for POSIX) for having a basic default value and
@@ -62,8 +59,17 @@ LOCAL_PYTHON_BINARY_DIST=""
 # Put default values and create them as global variables.
 OS='not-detected-yet'
 ARCH='x86'
-CC='gcc'
-CXX='g++'
+
+# Initialize default values from paver.conf
+PYTHON_VERSION='python2.7'
+BINARY_DIST_URI='https://binary.chevah.com/production'
+PIP_INDEX='http://pypi.chevah.com'
+PAVER_VERSION='1.2.1'
+PIP_VERSION="1.4.1.c4"
+SETUPTOOLS_VERSION="1.4.1"
+
+# Load repo specific configuration.
+source paver.conf
 
 
 clean_build() {
@@ -93,11 +99,18 @@ clean_build() {
     # In some case pip hangs with a build folder in temp and
     # will not continue until it is manually removed.
     rm -rf /tmp/pip*
+}
 
-    if [ "$CLEAN_PYTHON_BINARY_DIST_CACHE" = "yes" ]; then
-        echo "Cleaning python binary ..."
-        rm -rf cache/python*
-    fi
+
+#
+# Removes the download/pip cache entries. Must be called before
+# building/generating the distribution.
+#
+purge_cache() {
+    clean_build
+
+    echo "Cleaning download cache ..."
+    rm -rf cache/*
 }
 
 
@@ -125,7 +138,7 @@ execute() {
         echo "Executing:" $@
     fi
 
-    #Make sure $@ is called in quotes as otherwise it will not work.
+    # Make sure $@ is called in quotes as otherwise it will not work.
     set +e
     "$@"
     exit_code=$?
@@ -160,8 +173,7 @@ update_path_variables() {
 
 
 write_default_values() {
-    echo ${BUILD_FOLDER} ${PYTHON_VERSION} ${OS} ${ARCH} ${CC} ${CXX} \
-        > DEFAULT_VALUES
+    echo ${BUILD_FOLDER} ${PYTHON_VERSION} ${OS} ${ARCH} > DEFAULT_VALUES
 }
 
 
@@ -275,6 +287,7 @@ copy_python() {
             echo "No ${pip_package}. Start downloading it..."
             get_binary_dist "$pip_package" "$PIP_INDEX/packages"
         fi
+        rm -rf ${PYTHON_LIB}/site-packages/pip
         cp -RL "${CACHE_FOLDER}/$pip_package/pip" ${PYTHON_LIB}/site-packages/
 
         if [ ! -d ${CACHE_FOLDER}/$setuptools_package ]; then
@@ -283,9 +296,13 @@ copy_python() {
         fi
         cp -RL "${CACHE_FOLDER}/$setuptools_package/setuptools" \
             ${PYTHON_LIB}/site-packages/
-        cp -RL "${CACHE_FOLDER}/$setuptools_package//setuptools.egg-info" \
+        cp -RL "${CACHE_FOLDER}/$setuptools_package/_markerlib" \
+            ${PYTHON_LIB}/site-packages/
+        cp -RL "${CACHE_FOLDER}/$setuptools_package/setuptools.egg-info" \
             ${PYTHON_LIB}/site-packages/
         cp "${CACHE_FOLDER}/$setuptools_package/pkg_resources.py" \
+            ${PYTHON_LIB}/site-packages/
+        cp -RL "${CACHE_FOLDER}/$setuptools_package/_markerlib" \
             ${PYTHON_LIB}/site-packages/
         cp "${CACHE_FOLDER}/$setuptools_package/easy_install.py" \
             ${PYTHON_LIB}/site-package
@@ -315,14 +332,14 @@ install_dependencies(){
     exit_code=$?
     set -e
     if [ $exit_code -ne 0 ]; then
-        echo 'Failed to run the inital "paver deps" command.'
+        echo 'Failed to run the initial "paver deps" command.'
         exit 1
     fi
 }
 
 
 #
-# Chech that we have a pavement.py in the current dir.
+# Check that we have a pavement.py in the current dir.
 # otherwise it means we are out of the source folder and paver can not be
 # used there.
 #
@@ -337,126 +354,172 @@ check_source_folder() {
 
 
 #
+# Check version of current OS to see if it is supported.
+# If it's too old, exit with a nice informative message.
+# If it's supported, return through eval the version numbers to be used for
+# naming the package, for example '5' for RHEL 5.x, '1204' for Ubuntu 12.04',
+# '53' for AIX 5.3.x.x , '10' for Solaris 10 or '1010' for OS X 10.10.1.
+#
+check_os_version() {
+    # First parameter should be the human-readable name for the current OS.
+    # For example: "Red Hat Enterprise Linux" for RHEL, "OS X" for Darwin etc.
+    # Second and third parameters must be strings composed of integers
+    # delimited with dots, representing, in order, the oldest version
+    # supported for the current OS and the current detected version.
+    # The fourth parameter is used to return through eval the relevant numbers
+    # for naming the Python package for the current OS, as detailed above.
+    local name_fancy="$1"
+    local version_good="$2"
+    local version_raw="$3"
+    local version_chevah="$4"
+    local version_constructed=''
+    local flag_supported='good_enough'
+    local version_raw_array
+    local version_good_array
+
+    # Using '.' as a delimiter, populate the version_raw_* arrays.
+    IFS=. read -a version_raw_array <<< "$version_raw"
+    IFS=. read -a version_good_array <<< "$version_good"
+
+    # Iterate through all the integers from the good version to compare them
+    # one by one with the corresponding integers from the supported version.
+    for (( i=0 ; i < ${#version_good_array[@]}; i++ )); do
+        version_constructed="${version_constructed}${version_raw_array[$i]}"
+        if [ ${version_raw_array[$i]} -gt ${version_good_array[$i]} -a \
+            "$flag_supported" = 'good_enough' ]; then
+            flag_supported='true'
+        elif [  ${version_raw_array[$i]} -lt ${version_good_array[$i]} -a \
+            "$flag_supported" = 'good_enough' ]; then
+            flag_supported='false'
+        fi
+    done
+
+    if [ "$flag_supported" = 'false' ]; then
+        echo "The current version of ${name_fancy} is too old: ${version_raw}"
+        echo "Oldest supported version of ${name_fancy} is: ${version_good}"
+        exit 13
+    fi
+
+    # The sane way to return fancy values with a bash function is to use eval.
+    eval $version_chevah="'$version_constructed'"
+}
+
+
+#
 # Update OS and ARCH variables with the current values.
 #
 detect_os() {
-    OS=`uname -s | tr "[A-Z]" "[a-z]"`
 
-    if [ "${OS%mingw*}" = "" ] ; then
+    OS=$(uname -s | tr "[A-Z]" "[a-z]")
+
+    if [ "${OS%mingw*}" = "" ]; then
 
         OS='windows'
         ARCH='x86'
 
-    elif [ "${OS}" = "sunos" ] ; then
+    elif [ "${OS}" = "sunos" ]; then
 
-        # By default, we use Sun's Studio compiler. Comment these two for GCC.
-        CC="cc"
-        CXX="CC"
+        ARCH=$(isainfo -n)
+        os_version_raw=$(uname -r | cut -d'.' -f2)
+        check_os_version Solaris 10 "$os_version_raw" os_version_chevah
 
-        OS="solaris"
-        ARCH=`isainfo -n`
-        VERSION=`uname -r`
+        OS="solaris${os_version_chevah}"
 
-        if [ "$VERSION" = "5.10" ] ; then
-            OS="solaris10"
-        fi
+    elif [ "${OS}" = "aix" ]; then
 
-    elif [ "${OS}" = "aix" ] ; then
+        ARCH="ppc$(getconf HARDWARE_BITMODE)"
+        os_version_raw=$(oslevel)
+        check_os_version AIX 5.3 "$os_version_raw" os_version_chevah
 
-        # By default, we use IBM's XL C compiler. Comment these two for GCC.
-        # Beware that GCC 4.2 from IBM's RPMs will fail with GMP and Python!
-        CC="xlc_r"
-        CXX="xlC_r"
+        OS="aix${os_version_chevah}"
 
-        ARCH="ppc`getconf HARDWARE_BITMODE`"
-        release=`oslevel`
-        case $release in
-            5.3.*)
-                OS='aix53'
-            ;;
-            7.1.*)
-                OS='aix71'
-            ;;
-        esac
+    elif [ "${OS}" = "hp-ux" ]; then
 
-    elif [ "${OS}" = "hp-ux" ] ; then
+        ARCH=$(uname -m)
+        os_version_raw=$(uname -r | cut -d'.' -f2-)
+        check_os_version HP-UX 11.31 "$os_version_raw" os_version_chevah
 
-        OS="hpux"
-        ARCH=`uname -m`
+        OS="hpux${os_version_chevah}"
 
-    elif [ "${OS}" = "linux" ] ; then
+    elif [ "${OS}" = "linux" ]; then
 
-        ARCH=`uname -m`
+        ARCH=$(uname -m)
 
-        if [ -f /etc/redhat-release ] ; then
-            # Careful with the indentation here.
-            # Make sure rhel_version does not has spaces before and after the
-            # number.
-            rhel_version=`\
-                cat /etc/redhat-release | sed s/.*release\ // | sed s/\ .*//`
-            # RHEL4 glibc is not compatible with RHEL 5 and 6.
-            rhel_major_version=${rhel_version%%.*}
-            if [ "$rhel_major_version" = "4" ] ; then
-                OS='rhel4'
-            elif [ "$rhel_major_version" = "5" ] ; then
-                OS='rhel5'
-            elif [ "$rhel_major_version" = "6" ] ; then
-                OS='rhel6'
-            elif [ "$rhel_major_version" = "7" ] ; then
-                OS='rhel7'
-            else
-                echo 'Unsupported RHEL version.'
-                exit 1
+        if [ -f /etc/redhat-release ]; then
+            # Avoid getting confused by Red Hat derivatives such as Fedora.
+            if egrep -q 'Red\ Hat|CentOS|Scientific' /etc/redhat-release; then
+                os_version_raw=$(\
+                    cat /etc/redhat-release | sed s/.*release// | cut -d' ' -f2)
+                check_os_version "Red Hat Enterprise Linux" 4 \
+                    "$os_version_raw" os_version_chevah
+                OS="rhel${os_version_chevah}"
             fi
-        elif [ -f /etc/SuSE-release ] ; then
-            sles_version=`\
-                grep VERSION /etc/SuSE-release | sed s/VERSION\ =\ //`
-            if [ "$sles_version" = "11" ] ; then
-                OS='sles11'
-            else
-                echo 'Unsupported SLES version.'
-                exit 1
+        elif [ -f /etc/SuSE-release ]; then
+            # Avoid getting confused by SUSE derivatives such as OpenSUSE.
+            if [ $(head -n1 /etc/SuSE-release | cut -d' ' -f1) = 'SUSE' ]; then
+                os_version_raw=$(\
+                    grep VERSION /etc/SuSE-release | cut -d' ' -f3)
+                check_os_version "SUSE Linux Enterprise Server" 11 \
+                    "$os_version_raw" os_version_chevah
+                OS="sles${os_version_chevah}"
             fi
-        elif [ -f /etc/lsb-release ] ; then
+        elif [ -f /etc/rpi-issue ]; then
+            # Raspbian is a special case, a Debian unofficial derivative.
+            if egrep -q ^'NAME="Raspbian GNU/Linux' /etc/os-release; then
+                os_version_raw=$(\
+                    grep ^'VERSION_ID=' /etc/os-release | cut -d'"' -f2)
+                check_os_version "Raspbian GNU/Linux" 7 \
+                    "$os_version_raw" os_version_chevah
+                # For now, we only generate a Raspbian version 7.x package,
+                # and we should use that in newer Raspbian versions too.
+                OS="raspbian7"
+            fi
+        elif [ $(command -v lsb_release) ]; then
             lsb_release_id=$(lsb_release -is)
+            os_version_raw=$(lsb_release -rs)
             if [ $lsb_release_id = Ubuntu ]; then
-                ubuntu_release=`lsb_release -sr`
-                case $ubuntu_release in
-                    '10.04' | '10.10' | '11.04' | '11.10')
-                        OS='ubuntu1004'
-                    ;;
-                    '12.04' | '12.10' | '13.04' | '13.10')
-                        OS='ubuntu1204'
-                    ;;
-                    '14.04' | '14.10' | '15.04' | '15.10')
-                        OS='ubuntu1404'
-                    ;;
-                    *)
-                        echo 'Unsupported Ubuntu version.'
-                        exit 1
-                    ;;
-                esac
+                check_os_version "Ubuntu Long-term Support" 10.04 \
+                    "$os_version_raw" os_version_chevah
+                # Only Long-term Support versions are officially endorsed, thus
+                # $os_version_chevah should end in 04, and the first two digits
+                # should represent an even year.
+                if [ ${os_version_chevah%%04} != ${os_version_chevah} -a \
+                    $(( ${os_version_chevah%%04} % 2 )) -eq 0 ]; then
+                    OS="ubuntu${os_version_chevah}"
+                fi
             fi
-        else
-            OS='linux'
         fi
 
-    elif [ "${OS}" = "darwin" ] ; then
-        osx_version=`sw_vers -productVersion`
-        case $osx_version in
-            10.8*)
-                OS='osx108'
-                ;;
-            *)
-                echo 'Unsupported OS X version:' $osx_version
-                exit 1
-                ;;
-        esac
+    elif [ "${OS}" = "darwin" ]; then
+        ARCH=$(uname -m)
 
-        ARCH=`uname -m`
+        os_version_raw=$(sw_vers -productVersion)
+        check_os_version "Mac OS X" 10.8 "$os_version_raw" os_version_chevah
+
+        # For now, no matter the actual OS X version returned, we use '108'.
+        OS="osx108"
+
+    elif [ "${OS}" = "freebsd" ]; then
+        ARCH=$(uname -m)
+
+        os_version_raw=$(uname -r | cut -d'.' -f1)
+        check_os_version "FreeBSD" 10 "$os_version_raw" os_version_chevah
+
+        # For now, no matter the actual FreeBSD version returned, we use '10'.
+        OS="freebsd10"
+
+    elif [ "${OS}" = "openbsd" ]; then
+        ARCH=$(uname -m)
+
+        os_version_raw=$(uname -r)
+        check_os_version "OpenBSD" 5.8 "$os_version_raw" os_version_chevah
+
+        # For now, no matter the actual OpenBSD version returned, we use '58'.
+        OS="openbsd58"
+
     else
         echo 'Unsupported operating system:' $OS
-        exit 1
+        exit 14
     fi
 
     # Fix arch names.
@@ -468,8 +531,10 @@ detect_os() {
         ARCH='sparc64'
     elif [ "$ARCH" = "ppc64" ]; then
         # Python has not been fully tested on AIX when compiled as a 64 bit
-        # application and has math rounding error problems (at least with XL C).
+        # binary, and has math rounding error problems (at least with XL C).
         ARCH='ppc'
+    elif [ "$ARCH" = "aarch64" ]; then
+        ARCH='arm64'
     fi
 }
 
@@ -478,6 +543,11 @@ update_path_variables
 
 if [ "$COMMAND" = "clean" ] ; then
     clean_build
+    exit 0
+fi
+
+if [ "$COMMAND" = "purge" ] ; then
+    purge_cache
     exit 0
 fi
 
@@ -500,6 +570,13 @@ check_source_folder
 write_default_values
 copy_python
 install_dependencies
+
+# Update while we migrate to wheels.
+# Should be removed later after we roll all new
+# python packages.
+setuptools_package="setuptools-$SETUPTOOLS_VERSION"
+cp -RL "${CACHE_FOLDER}/$setuptools_package/_markerlib" \
+    ${PYTHON_LIB}/site-packages/
 
 # Always update brink when running buildbot tasks.
 for paver_task in "deps" "test_os_dependent" "test_os_independent"; do
