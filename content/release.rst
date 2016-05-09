@@ -23,13 +23,15 @@ Releasing a product usually consists of publishing the following:
 Release Review Process
 ======================
 
-As a means to allow (read determine) all team members that are involved in
-coding, testing and supporting the product to keep up with the changes -- they
-must be part of the reviewers of the release branch/PR.
+As a means to allow all team members that are involved in
+coding, testing and supporting the product to keep up with the changes,
+they must be part of the reviewers of the release branch/PR.
 
-Since you can easily get by without acting on a release/news email, being part
-of the reviewers will require at least a confirmation that you've okayed the
-changes.
+Being part of the release review will help to ackwnoledge the changes and to
+confirm that you've okayed the changes.
+
+The release review request should also include the text used to announce the
+new release on the website.
 
 
 Release Notes
