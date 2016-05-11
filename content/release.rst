@@ -20,6 +20,20 @@ Releasing a product usually consists of publishing the following:
 * Public announcement. Notification email or website news/blog article.
 
 
+Release Review Process
+======================
+
+As a means to allow all team members that are involved in
+coding, testing and supporting the product to keep up with the changes,
+they must be part of the reviewers of the release branch/PR.
+
+Being part of the release review will help to acknowledge the changes and to
+confirm that you've okayed the changes.
+
+The release review request should also include the text used to announce the
+new release on the website.
+
+
 Release Notes
 =============
 
