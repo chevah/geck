@@ -65,7 +65,7 @@ scope of the change. Here are some examples::
 
 * ``[https]`` - for changes affecting only a sub-system.
 * ``[aix]`` - for changes affecting only AIX systems.
-* ``[windows]`` - for changes affection only Windows system.
+* ``[windows]`` - for changes affecting only Windows system.
 
 Remember your audience/user/clients and write for that audience.
 

@@ -29,7 +29,7 @@ defects.
 We split the defect into 3 categories:
 
 * `bugs with priority high or critical` - are defects which affect
-  (or we thing that it might affect) the workflow of at least one customer
+  (or we think that it might affect) the workflow of at least one customer
 * `bugs with priority low` -
   are defects for which we are not aware of any affected customer
   but which we would like the product to not behave in this way.

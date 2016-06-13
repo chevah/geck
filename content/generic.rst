@@ -57,7 +57,7 @@ something is wrong.
 * Favor indentation using 4 spaces. For deep nested languages (HTML, JS) it
   is OK to use 2 spaces.
 
-* Maximum line length for code 80 characters, but for Python we use 79 to be in
+* Maximum line length for code is 80 characters, but for Python we use 79 to be in
   sync with PEP8.
 
 * For narrative documentation use `semantic newlines
@@ -135,7 +135,7 @@ something is wrong.
     if ((source.length < source.MAX_SIZE) and
         (destination.state != ACTIVE) and
         (destination.state != PAUSED)):
-      do_domething()
+      do_something()
 
     # But can be better.
     source_not_full = source.length < source.MAX_SIZE
@@ -186,7 +186,7 @@ Comments
 
   When a comment is required is like saying: I have no idea for a better name
   for this thing, so here is my poor comment. Good luck with figuring the
-  intend of this name when you see the it in the rest of this file.
+  intend of this name when you see it in the rest of this file.
 
 * Place comments on a new line above their subject and in the same block as the referred code.
 
@@ -194,13 +194,13 @@ Comments
 
     if some_condition:
       # We got into into this branch to do x.
-      do_domething()
+      do_something()
 
     for line in lines:
       if line.startswith('marker'):
         # Marker lines are ignored.
         continue
-      do_domething()
+      do_something()
 
 * Avoid end of line comments.
 
@@ -225,7 +225,7 @@ Documentation
 
 * Document packages, modules, classes, functions.
 
-* For narative documentation (non docstrins) use `semantic linefeeds <http://rhodesmill.org/brandon/2012/one-sentence-per-line/>`_.
+* For narative documentation (non docstrings) use `semantic linefeeds <http://rhodesmill.org/brandon/2012/one-sentence-per-line/>`_.
 
 ..  code-block:: text
     :linenos:
