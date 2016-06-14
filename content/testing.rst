@@ -40,7 +40,7 @@ You are going to test your code anyway, spend the time to do it right.
 
 We write tests as a tool for regression checking, ie preventing bugs.
 Tests should be easy to run and should be fast. Tests will also help us find
-bugs and avoid long debugging session, but they primary goal is to keep the
+bugs and avoid long debugging session, but the primary goal is to keep the
 bugs out of our product.
 
 We should write code and do clean-up / refactoring without any fear and with
@@ -51,7 +51,7 @@ never written at all.
 
 Writing tests does not mean writing twice as much code or coding slower.
 
-Most of the time the associated test code is tree times longer, or more
+Most of the time the associated test code is three times longer, or more
 in lines of code. Test code should be trivial, easy to write and easy to
 understand. Even if there are many lines of test, they should be easy
 to write and should not add a big overhead to what you're doing.
@@ -218,7 +218,7 @@ for those particular cases. This technique prevents writing code that is never e
 and ensures that you always have a test for the code you write.
 
 When you find a bug, start by writing a test reproducing the bug then
-continue you work in fixing the bug. Ask the *5 whys* in order to find the
+continue your work in fixing the bug. Ask the *5 whys* in order to find the
 root cause of the bug and fix the problem there. The initial test written
 to reproduce the bug, might be a high level tests which is not at the same
 level to the code which was fixed. Removed the high level tests and write
@@ -336,7 +336,7 @@ most of the time system resources are persistent.
 In some cases, especially when testing code for failures, it is very hard
 to setup the external system to raise a certain failure condition. For example
 we have the code which handles a socket which can raise a timeout error.
-Timeout errors are complicated since they requite a certain amount of time
+Timeout errors are complicated since they require a certain amount of time
 to pass before they appear and this can slow down the whole tests.
 
 

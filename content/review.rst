@@ -237,7 +237,7 @@ For person reviewing changes
 
 * If no merge is required you can close the ticket as solved.
 
-* If minor changes are required, and they are easy to fix, you cat try to fix
+* If minor changes are required, and they are easy to fix, you can try to fix
   them. Commit the changes and approve the review at your revision.
 
 * If changes are required, you put the ticket in the **needs-changes** state

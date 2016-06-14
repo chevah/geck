@@ -89,7 +89,7 @@ General
 * If a method or class initialization / constructor method has more than 1
   argument always use named parameters for calling that method.
 
-* Try to use single quotes for string. This will make it easier to generated
+* Try to use single quotes for string. This will make it easier to generate
   quoted text for UI or HTML.
 
 YES
@@ -154,7 +154,7 @@ with multiple inheritance.
 Mixin is a limited usage of multiple inheritance, but they should **not be
 mixed with overriding**.
 
-We use mixing to reuse code and they are provide great help writing tests.
+We use mixing to reuse code and they provide great help for writing tests.
 
 Methods from a mixin should not be overwritten by classes using the mixin.
 
