@@ -28,7 +28,7 @@ time, it is hard to agree upon a style guide for all projects, and we don't
 expect that everyone will agree with the lines from this page.
 If you have any comment or suggestions, please get in touch with us. You
 can do that over email, or adding an issue or pull request on
-`chevah/styleguide - Github`_.
+`Github`_.
 
 We try to automatically check software development rules using `pocket-lint`_.
 
@@ -36,4 +36,4 @@ This is a collection of programming craftsmanship recommendations and ideas.
 Please let us know if we fail to properly cite the source.
 
 .. _pocket-lint: https://launchpad.net/pocket-lint/
-.. _chevah/styleguide - Github: {{ author.code_url }}
+.. _Github: https://github.com/chevah/styleguide
