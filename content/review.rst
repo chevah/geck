@@ -143,8 +143,8 @@ Review request message
 ----------------------
 
 When submitting a ticket for review, the review request should contain the
-following message as described in `PULL_REQUEST_TEMPLATE
-<https://github.com/chevah/styleguide/blob/master/.github/PULL_REQUEST_TEMPLATE>`_
+following message as described in `pull request template
+<https://github.com/chevah/styleguide/blob/master/.github/PULL_REQUEST_TEMPLATE>`_:
 
 * For GitHub review requests, **add the merge commit message as the pull
   request title**. The message should include the ticket ID number.
