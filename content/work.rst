@@ -66,7 +66,7 @@ Stay focus on what you do
 =========================
 
 Try not to mix "at work" activities with "after work" activities.
-Make a clear distinction between when you are "at work" an when not.
+Make a clear distinction between when you are "at work" and when not.
 Otherwise you might be working or slacking non-stop.
 
 When you are "at work", it does not matter how much time you spend sitting at
@@ -90,7 +90,7 @@ Asynchronous tasks
 ==================
 
 Distributed or asynchronous work requires a completely different way to
-handler tasks, in comparison with the 9 to 5 methodology.
+handle tasks, in comparison with the 9 to 5 methodology.
 
 We are a team, so we still need to collaborate in order to get a task done.
 
@@ -155,7 +155,7 @@ This will help you filter the work related communication.
 
 Use "away" and "busy" functionality of you instant messaging tool to let other know about your status.
 
-Since we don't work based on fixed working hours you will received email, 
+Since we don't work based on fixed working hours you will receive email, 
 review request, feedback when you are outside of your *working hours*.
 Ignore them and don't feel the obligation to read or respond then.
 
@@ -212,7 +212,7 @@ Make sure all development tools are on your laptop.
 Buy a good headset and microphone.
 
 Verba volant, scripta manent. As main communication is done using text,
-you can keep track of all past conversions. Configure your instant
+you can keep track of all past conversations. Configure your instant
 messaging client to keep logs of all previous conversation and archive your
 emails instead of deleting them.
 
