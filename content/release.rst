@@ -197,3 +197,78 @@ Sample release notes
     * Fix an internal server error when FTP client requests
       an unknown command. [#160][ftp][ftps]
 
+
+Version Management
+==================
+
+Chevah release versions are based on MAJOR.MINOR.PATCH
+`Semantic Versioning specification <http://semver.org/>`_.
+
+A MAJOR version is released to introduce new features,
+remove functionalities which have become obsolete, or add features not
+compatible with previous versions.
+
+MINOR versions are released based on a rolling update development model at
+intervals varying between 30 to 60 days.
+The goal is to have functionalities and defect fixes available to customers as
+soon as possible.
+Each release has a certain overhead, and the overhead should be minimize by
+automating the release process.
+In an ideal works a release should be done by preparing a release branch
+and then by issuing a single command the documentation, download and news pages
+are updated, while users are automatically notified about the new releases.
+
+PATCH versions are released as soon as a defect is fixed,
+usually one week after it has been initially discovered and reported.
+Security issues have top priority and a fix is released as soon as possible.
+
+
+Compatibility Policy
+====================
+
+Any release inside a MAJOR version release series should be backward and
+forward compatible with any other release.
+
+That is, users should be able to upgrade or downgrade to any minor release
+without having to change any external system interaction, API interaction or
+configuration option.
+
+Some MINOR version might introduce various functionalities which are not
+available in previous versions. Downgrading to a previous MINOR version will
+not make the newest functionalities available but configuration options or
+other setup specific to newer functionalities should just be ignored in
+previous MINOR versions, without requiring any other changes.
+
+MAJOR releases are designed to allow major cleanups or redesigns which break
+backward compatibilities.
+
+MAJOR releases should be made at intervals greater than 2 years.
+
+MAJOR releases should support running in parallel on the same system.
+This is done to simplify testing, moving the new version in production or
+reverting the old version in production in case of problems.
+
+Two MAJOR versions can sometimes not use the same resource in the same time,
+ex same TCP port, but they should allow fast configuration changes to
+release a shared resource and to use a shared resource.
+
+The upgrading to a new MAJOR versions should be designed to required the
+minimum effort and the process should be automated as much as possible.
+For example the straight forward configuration can be automatically migrated.
+
+Some changes might not be automatically migrated and user interaction is
+required.
+To simplify the migration process, these change should be made in MINOR
+versions as preparation for removals which will be done in the next MAJOR
+release.
+These changes are done by keeping the functionality from the current MAJOR
+release, but a warning is emitted to inform users about the future changes.
+User should be pointed to a documentation page describing the changes and
+providing information about how to prepare the migration.
+
+If the latest MINOR release from a MAJOR release series is operating in
+production without any removal warnings, then users can upgrade to the next
+MAJOR release without any other manual migration process.
+
+All removal warnings should have a similar format to simplify filtering and
+reporting them.
