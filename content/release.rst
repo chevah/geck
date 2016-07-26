@@ -19,6 +19,19 @@ Releasing a product usually consists of publishing the following:
 * Documentation, which includes Release Notes, Known Issues and Upgrade Steps.
 * Public announcement. Notification email or website news/blog article.
 
+Each version sent to a customer should have an unique version number and
+should be part of the release notes history.
+
+When a functionality is released for a certain customer group, but is not
+wanted in the main release series, it should be released from a branch which
+is not removed, a tag is created for each release and all release notes
+are imported into the main branch.
+
+TODO: see what to do with customers using releases from staging... maibe
+make a production release without a full QA review.
+Such a release can have a normal version... and if changes are made
+during the QA/review a new patch version is released.
+
 
 Release Review Process
 ======================
