@@ -27,7 +27,7 @@ wanted in the main release series, it should be released from a branch which
 is not removed, a tag is created for each release and all release notes
 are imported into the main branch.
 
-TODO: see what to do with customers using releases from staging... maibe
+TODO: see what to do with customers using releases from staging... maybe
 make a production release without a full QA review.
 Such a release can have a normal version... and if changes are made
 during the QA/review a new patch version is released.
@@ -267,7 +267,7 @@ release a shared resource and to use a shared resource.
 
 The upgrading to a new MAJOR versions should be designed to required the
 minimum effort and the process should be automated as much as possible.
-For example the straight forward configuration can be automatically migrated.
+For example the straightforward configuration can be automatically migrated.
 
 Some changes might not be automatically migrated and user interaction is
 required.
