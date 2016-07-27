@@ -19,13 +19,16 @@ Releasing a product usually consists of publishing the following:
 * Documentation, which includes Release Notes, Known Issues and Upgrade Steps.
 * Public announcement. Notification email or website news/blog article.
 
-Each version sent to a customer should have an unique version number and
-should be part of the release notes history.
+Each version sent to a customer should have a unique version number
+and must be mentioned in the release notes.
 
-When a functionality is released for a certain customer group, but is not
-wanted in the main release series, it should be released from a branch which
-is not removed, a tag is created for each release and all release notes
-are imported into the main branch.
+Sometimes, special features are required by clients with custom needs
+and the functionalities are not to be included in the main release
+series. The versions with dedicated features should be released from
+their own branches, which are not to be removed. Each release from
+these branches should have an associated tag. All the related custom
+bits in the release notes are to be imported into the release notes
+from the main branch though.
 
 TODO: see what to do with customers using releases from staging... maybe
 make a production release without a full QA review.
@@ -214,22 +217,24 @@ Sample release notes
 Version Management
 ==================
 
-Chevah release versions are based on MAJOR.MINOR.PATCH
-`Semantic Versioning specification <http://semver.org/>`_.
+Chevah release versions are based on the MAJOR.MINOR.PATCH scheme
+documented at `Semantic Versioning <http://semver.org/>`_.
 
-A MAJOR version is released to introduce new features,
-remove functionalities which have become obsolete, or add features not
+A MAJOR version is released to introduce new major features, remove
+functionalities which have become obsolete, or add features not
 compatible with previous versions.
 
 MINOR versions are released based on a rolling update development model at
 intervals varying between 30 to 60 days.
 The goal is to have functionalities and defect fixes available to customers as
 soon as possible.
-Each release has a certain overhead, and the overhead should be minimize by
+Each release has a certain overhead, and the overhead should be minimized by
 automating the release process.
-In an ideal works a release should be done by preparing a release branch
-and then by issuing a single command the documentation, download and news pages
-are updated, while users are automatically notified about the new releases.
+
+In an ideal world a release should be done by preparing a release
+branch. Then, by issuing a single command, the documentation, download
+and news pages will be updated. Users will be automatically notified
+about the new releases.
 
 PATCH versions are released as soon as a defect is fixed,
 usually one week after it has been initially discovered and reported.
@@ -239,18 +244,19 @@ Security issues have top priority and a fix is released as soon as possible.
 Compatibility Policy
 ====================
 
-Any release inside a MAJOR version release series should be backward and
-forward compatible with any other release.
+Any release from a MAJOR version release series should be backward and
+forward compatible with any other release from the same MAJOR series.
 
 That is, users should be able to upgrade or downgrade to any minor release
 without having to change any external system interaction, API interaction or
 configuration option.
 
-Some MINOR version might introduce various functionalities which are not
-available in previous versions. Downgrading to a previous MINOR version will
-not make the newest functionalities available but configuration options or
-other setup specific to newer functionalities should just be ignored in
-previous MINOR versions, without requiring any other changes.
+Some MINOR version might introduce various functionalities which are
+not available in previous versions. Downgrading to a previous MINOR
+version will not make the newest functionalities available, but
+configuration options or other setup specific to newer functionalities
+should just be ignored in previous MINOR versions, without requiring
+any other changes.
 
 MAJOR releases are designed to allow major cleanups or redesigns which break
 backward compatibilities.
@@ -261,11 +267,11 @@ MAJOR releases should support running in parallel on the same system.
 This is done to simplify testing, moving the new version in production or
 reverting the old version in production in case of problems.
 
-Two MAJOR versions can sometimes not use the same resource in the same time,
-ex same TCP port, but they should allow fast configuration changes to
+Two MAJOR versions can sometimes not use the same resource at the same time,
+e.g. same TCP port, but they should allow fast configuration changes to
 release a shared resource and to use a shared resource.
 
-The upgrading to a new MAJOR versions should be designed to required the
+The upgrading to a new MAJOR version should be designed to require the
 minimum effort and the process should be automated as much as possible.
 For example the straightforward configuration can be automatically migrated.
 
@@ -277,7 +283,7 @@ release.
 These changes are done by keeping the functionality from the current MAJOR
 release, but a warning is emitted to inform users about the future changes.
 User should be pointed to a documentation page describing the changes and
-providing information about how to prepare the migration.
+providing information on how to prepare the migration.
 
 If the latest MINOR release from a MAJOR release series is operating in
 production without any removal warnings, then users can upgrade to the next
