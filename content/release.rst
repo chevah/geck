@@ -19,6 +19,22 @@ Releasing a product usually consists of publishing the following:
 * Documentation, which includes Release Notes, Known Issues and Upgrade Steps.
 * Public announcement. Notification email or website news/blog article.
 
+Each version sent to a customer should have a unique version number
+and must be mentioned in the release notes.
+
+Sometimes, special features are required by clients with custom needs
+and the functionalities are not to be included in the main release
+series. The versions with dedicated features should be released from
+their own branches, which are not to be removed. Each release from
+these branches should have an associated tag. All the related custom
+bits in the release notes are to be imported into the release notes
+from the main branch though.
+
+TODO: see what to do with customers using releases from staging... maybe
+make a production release without a full QA review.
+Such a release can have a normal version... and if changes are made
+during the QA/review a new patch version is released.
+
 
 Release Review Process
 ======================
@@ -197,3 +213,81 @@ Sample release notes
     * Fix an internal server error when FTP client requests
       an unknown command. [#160][ftp][ftps]
 
+
+Version Management
+==================
+
+Chevah release versions are based on the MAJOR.MINOR.PATCH scheme
+documented at `Semantic Versioning <http://semver.org/>`_.
+
+A MAJOR version is released to introduce new major features, remove
+functionalities which have become obsolete, or add features not
+compatible with previous versions.
+
+MINOR versions are released based on a rolling update development model at
+intervals varying between 30 to 60 days.
+The goal is to have functionalities and defect fixes available to customers as
+soon as possible.
+Each release has a certain overhead, and the overhead should be minimized by
+automating the release process.
+
+In an ideal world a release should be done by preparing a release
+branch. Then, by issuing a single command, the documentation, download
+and news pages will be updated. Users will be automatically notified
+about the new releases.
+
+PATCH versions are released as soon as a defect is fixed,
+usually one week after it has been initially discovered and reported.
+Security issues have top priority and a fix is released as soon as possible.
+
+
+Compatibility Policy
+====================
+
+Any release from a MAJOR version release series should be backward and
+forward compatible with any other release from the same MAJOR series.
+
+That is, users should be able to upgrade or downgrade to any minor release
+without having to change any external system interaction, API interaction or
+configuration option.
+
+Some MINOR version might introduce various functionalities which are
+not available in previous versions. Downgrading to a previous MINOR
+version will not make the newest functionalities available, but
+configuration options or other setup specific to newer functionalities
+should just be ignored in previous MINOR versions, without requiring
+any other changes.
+
+MAJOR releases are designed to allow major cleanups or redesigns which break
+backward compatibilities.
+
+MAJOR releases should be made at intervals greater than 2 years.
+
+MAJOR releases should support running in parallel on the same system.
+This is done to simplify testing, moving the new version in production or
+reverting the old version in production in case of problems.
+
+Two MAJOR versions can sometimes not use the same resource at the same time,
+e.g. same TCP port, but they should allow fast configuration changes to
+release a shared resource and to use a shared resource.
+
+The upgrading to a new MAJOR version should be designed to require the
+minimum effort and the process should be automated as much as possible.
+For example the straightforward configuration can be automatically migrated.
+
+Some changes might not be automatically migrated and user interaction is
+required.
+To simplify the migration process, these change should be made in MINOR
+versions as preparation for removals which will be done in the next MAJOR
+release.
+These changes are done by keeping the functionality from the current MAJOR
+release, but a warning is emitted to inform users about the future changes.
+User should be pointed to a documentation page describing the changes and
+providing information on how to prepare the migration.
+
+If the latest MINOR release from a MAJOR release series is operating in
+production without any removal warnings, then users can upgrade to the next
+MAJOR release without any other manual migration process.
+
+All removal warnings should have a similar format to simplify filtering and
+reporting them.
