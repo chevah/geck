@@ -173,9 +173,10 @@ like in the production (real) system.
 
 In other places, they are also called *acceptance tests*.
 
-This kind of tests help us detect **what** features of our product are
-not working. In case we have good unit test, we look there to find **why**
-a functional tests is failing.
+This kind of tests help us detect **what** feature of our product is not
+working.
+In case we have good unit, integration and system test,
+we look there to find **why** that feature is not working.
 
 Functional tests will not help with development and locating the source
 of an error. Use unit tests for this. In case unit test pass, and we have
