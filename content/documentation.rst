@@ -12,7 +12,15 @@ General
 General introduction about why we want documentation, how the documentation
 is presented
 
-talk aboud different documentation formats and different audiance
+talk about different documentation formats and different audiance
+
+
+From /generic.html talk about newliens and how we manage diffs .. move that
+part here.
+
+For narrative documentation use semantic newlines.
+Make lines short, and break lines at natural places,
+such as after commas and semicolons, rather than after the Nth column.
 
 
 Marketing / Promotional Materials
@@ -41,6 +49,9 @@ users, once they have followed a user guide
 used to describe each configuration option and its 
 used for example to describe in details our REST API
 comments in sample files
+
+Have a sample of how to document a configuration options.
+Describe the fields and their purpose.
 
 
 User Guides / Knowledge Base
