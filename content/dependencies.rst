@@ -75,6 +75,14 @@ If an upstream package needs to be re-packaged either for applying changes to
 the code or the the packaging system, then to the upstream version the
 `.chevahN` prefix is appended.
 
+If some upstream Python code is not present on PyPi, we get a copy of that
+code and package/repackage it. Even if we are not making any changes to the
+code, we will still publish it with a version suffixed by `.chevahN` to
+prevent future conflicts in the case in which the upstream package is
+published on the official PyPi site.
+
+MAYBE ADD A SECTION ABOUT .PYPIRC AND python setup.py sdist upload -r chevah
+
 
 Javascript
 ==========
