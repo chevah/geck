@@ -104,3 +104,19 @@ Most of the time the repackaging version will be `.chevah1`, but in some
 cases you might need to re-package the same upstream version again (
 for example if you forgot to include certain file) and then a new version
 is required.
+
+Each package contain the following code in the top level `__init__.py` file,
+in order to help detect the path where the JS files are located:
+
+.. sourcecode:: python
+
+    MODULE_PATH = os.path.dirname(__file__)
+
+Then, the code needing access to a JS package can use:
+
+.. sourcecode:: python
+
+    from chevah.weblibs.some_js_package import MODULE_PATH
+
+    # Make the JS files accessible inside the HTTP server.
+    root_location.putChild('some_js_name', MODULE_PATH)
