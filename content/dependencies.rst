@@ -41,7 +41,7 @@ No package should be removed from pypi.chevah.com.
 
 pypiserver has the capability of automatically downloading and caching
 packages from the upstream PyPI site, but in our case this functionality
-is disabled in order help us detect what dependencies are needed and to pin
+is disabled in order to help us detect what dependencies are needed and to pin
 those dependencies.
 
 
@@ -72,8 +72,8 @@ to the pypi.chevah.com site using the same version.
 This can be done using twine or manual copy.
 
 If an upstream package needs to be re-packaged either for applying changes to
-the code or the the packaging system, then to the upstream version the
-`.chevahN` prefix is appended.
+the code or to the packaging system, then the `.chevahN` prefix is appended to
+the upstream version.
 
 If some upstream Python code is not present on PyPi, we get a copy of that
 code and package/repackage it. Even if we are not making any changes to the
