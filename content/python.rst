@@ -161,6 +161,12 @@ partial implementations.
 
 Abstract methods can be public or private.
 
+When raising the NotImplementedError make sure you add some text to uniquely
+identify this abstract methods.
+During development we might report errors without a traceback and having a
+custom message associated with the error make it easier to identify what is
+wrong.
+
 When defining an abstract class, suffix it with `Abstract` name.
 This should let other know that this class should not be directly instantiated.
 
