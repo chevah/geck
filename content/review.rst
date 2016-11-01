@@ -3,8 +3,8 @@ Review
 
 :menu_order: 090
 
-This page discuss the code/changes review process as both the person
-who requests a reviewer and a person who checks a review.
+This page discusses the code/changes review process as both the person
+who requests a reviewer and as the person who checks a review.
 
 ..  contents::
 
@@ -13,17 +13,17 @@ General
 =======
 
 * The goal of a review is to eliminate as many defects as possible,
-  regardless of who "caused" the error. Branch driver and reviews work
+  regardless of who "caused" the error. Branch driver and reviewers work
   together to achieve this goal.
 
 * The review process is a very efficient form of pair-programming.
 
-* Branch driver is the person (or persons) requesting the review and
+* The Branch driver is the person (or persons) requesting the review and
   responsible for implementing changes during review.
 
-* Reviewer is the person responsible for checking the code or changes.
+* The Reviewer is the person responsible for checking the code or changes.
 
-* The review process is first class citizen of the Quality Assurance process.
+* The review process is a first class citizen of the Quality Assurance process.
 
 * Each defect found during a review is an opportunity to improve the code.
   Every defect found and fixed in peer review is a defect that a customer
@@ -51,7 +51,7 @@ General
 
 * When you do a refactoring and you need to rename something in many files,
   do it in a dedicated branch which only deals with the renaming.
-  This will help a lot with the review. Land your changed with the ugly
+  This will help a lot with the review. Land your changes with the ugly
   names and then do a follow-up branch for the renaming.
 
 * Feel free to submit as many merge request as you can. There is a problem
@@ -68,8 +68,8 @@ General
   * It's harder to cherry pick code for backporting / supporting old releases.
 
 
-For person requesting a review
-==============================
+For the person requesting a review
+==================================
 
 * Once a task/ticket is done, it should be submitted for review.
 
@@ -104,9 +104,9 @@ For person requesting a review
   update the milestone to the current one. Don't leave the old milestone.
 
 * You can start writing your review request as soon as you start coding on a
-  branch. There is no need to wait for feature to be fully implemented and
+  branch. There is no need to wait for a feature to be fully implemented and
   tests to pass.
-  Writing a review request early, will help you to organize and explain
+  Writing a review request early will help you to get organized and explain
   the work that you plan to do on the branch.
 
 * When the review is ready to be sent to reviewers, leave a comment in the PR
@@ -127,7 +127,7 @@ For person requesting a review
   **needs-review** . This will let reviewers know that you are done and that
   they can check the latest changes.
 
-* Make sure that review request message is always up to date with latest
+* Make sure that the review request message is always up to date with the latest
   changes.
   If during the review new changes are made or new test cases are discovered,
   don't forget to update the initial review request message to include a
@@ -152,23 +152,23 @@ following message as described in `pull request template
 
       [#1234] What was done in this branch.
 
-* The commit message should be on a single line and preferable under 100
+* The commit message should be on a single line and preferably under 100
   characters. The message should be a clearly articulated phrase, summarizing
   changes done in the branch. Further details about the changes can go in
-  the release notes or review request body.
+  the release notes or in the review request body.
 
 * Add the list of persons who should review the branch, using a
   line starting with **reviewers** and followed by GitHub names or each
   reviewer prefixed with **@**.
 
-* If required, using **depends-on** marker, add the list of reviews on which
+* If required, using the **depends-on** marker, add the list of reviews on which
   this review depends and blocks the merge of this branch.
 
 
 Merge your branch
 ------------------
 
-After the merge request and review was approved you need to merge your branch
+After the merge request and review are approved you need to merge your branch
 into master.
 
 After your review request was approved, you can send your branch to PQM
@@ -181,7 +181,7 @@ and pushed to master.
 
 If PQM is not enabled for the repo, you will need to do a manual merge.
 
-When doing manual merge using git, use squash merge and don't use the
+When doing a manual merge using git, use squash merge and don't use the
 default commit message. Here is a sample command for merging branch
 "1234-what-was-done"::
 
@@ -202,8 +202,8 @@ A merge commit should have a commit message, in the format::
   that commit.
 
 
-For person reviewing changes
-============================
+For the person reviewing changes
+================================
 
 * Aim for a code inspection rate of fewer than 300 – 500 LOC per hour. This
   does not apply to QA team members for which, reviewing changes is the main
@@ -213,7 +213,7 @@ For person reviewing changes
   Take a big break between reviews.
 
 * You should always spend at least five minutes reviewing code, even if it's
-  just one line. Often, a single line or small changes can have major
+  just one line. Often, a single line or some small changes can have major
   impact throughout the whole system, and it's worth the five minutes to
   think through the possible effects that a change could have.
 
@@ -221,8 +221,8 @@ For person reviewing changes
   the review you are encouraged to keep track of all your first
   contact / view / read impressions and report them in the review feedback.
 
-* Follow procedure recommended in the "How to try and test the changes"
-  section, record environment, steps and results and share them through
+* Follow the procedure recommended in the "How to try and test the changes"
+  section, record the environment, steps and results and share them through
   a comment.
 
 * In case of errors, leave a comment describing what tests were run, the
@@ -231,7 +231,7 @@ For person reviewing changes
 * If the work is good, you can request the code to be merged by the author
   by setting the state to needs_merge in Trac.
 
-* If the work is good and GitHub pull request was used, leave a comment on
+* If the work is good and a GitHub pull request was used, leave a comment on
   the pull request page with a line starting with / containing
   **changes-approved**.
 
@@ -254,9 +254,9 @@ Reviewer's check list - Any Role
 ---------------------------------
 
 
-* Is there a release notes entry for changes?
+* Is there a release notes entry for the changes?
 
-* Is there documentation for changes? Does the documentation make sense?
+* Is there documentation for the changes? Does the documentation make sense?
 
 * Are the new events documented?
 
@@ -266,20 +266,20 @@ Reviewer's check list - Any Role
 Reviewer's check list - Developer
 ---------------------------------
 
-* Does the **new** changes comply with latest styleguide ?
+* Do the **new** changes comply with latest styleguide ?
 
 * Does the code have automated tests for all the new code?
 
-* Does the merge commit message describes what is done by this branch?
+* Does the merge commit message describe what is done by this branch?
 
-* Does the branch name starts with the Trac ticket ID.
+* Does the branch name start with the Trac ticket ID?
 
-* Does **all** tests pass? Does GitHub say that the branch is
+* Do **all** tests pass? Does GitHub say that the branch is
   **Good to merge**?
 
 * If there is no ``paver test_review`` for the latest code, you can
-  either just reject the review, or trigger a test and wait for results.
-  **Never** approve a code that is not passing the tests.
+  either just reject the review, or trigger a test and wait for the results.
+  **Never** approve code that is not passing the tests.
 
 
 Reviewer's check list - QA
@@ -287,7 +287,7 @@ Reviewer's check list - QA
 
 * Does the new code perform as expected when running manual tests?
 
-* Does the test scenarios from the review description make sense?
+* Do the test scenarios from the review description make sense?
   Can they be executed? Successfully ?
 
 * Does the new end-user interaction GUI or CLI make sense and is easy to use?

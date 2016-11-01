@@ -5,13 +5,13 @@ Testing
 
 .. contents::
 
-Writing automated tests is an important part of development.
+Writing automated tests is an important part of the development process.
 
 We write tests to:
 
 * help improve quality
 * help understand the product and its components
-* reduce risk and fears when doing bold changes into product structure
+* reduce risk and fears when doing bold changes in the product structure
 * make work easier and fun
 
 All tests should have the following characteristic:
@@ -19,32 +19,32 @@ All tests should have the following characteristic:
 * simple
 * easy to write and maintain as product evolves
 * easy to read and understand what they are doing
-* easy to run, easy to re-run, fully automated run and reporting
+* easy to run, easy to re-run, run fully automated and offer reporting
 * run very, very fast
 * each test should be an independent test which can run by itself
 
 Writing tests is not only done to check that code works as expected, it is
-also done to make sure that code has a simple designed, decoupled and easy
-to be reused.
+also done to make sure that code has a simple design, is decoupled and 
+can be easily reused.
 
-Writing test is also about making sure that you fully understand what the
+Writing tests is also about making sure that you fully understand what the
 code should do and how it is used.
 
 Writing tests is not a silver bullet for improving code quality and is easy to
 write bad tests.
 
-Once used to having tests that show how things work (and that they do work), you
+Once you get used to having tests that show how things work (and that they do work), you
 will start using the key phrase: **Do you have a test for that?**.
 
-You are going to test your code anyway, spend the time to do it right.
+You are going to test your code anyway, so spend the time to do it right.
 
 We write tests as a tool for regression checking, ie preventing bugs.
 Tests should be easy to run and should be fast. Tests will also help us find
-bugs and avoid long debugging session, but the primary goal is to keep the
+bugs and avoid long debugging sessions, but the primary goal is to keep the
 bugs out of our product.
 
 We should write code and do clean-up / refactoring without any fear and with
-a confident and free mind. Don't take decision out of fear.
+a confident and free mind. Don't take decisions out of fear.
 
 Imperfect tests, run frequently, are much better than perfect tests that are
 never written at all.
@@ -58,14 +58,14 @@ to write and should not add a big overhead to what you're doing.
 
 On the long run, it's faster and more robust than coding without tests.
 
-Another important part of writing test is to help us have a clean code base.
-You can not refactor and do clean-up without an easy mechanism to check for
+Another important part of writing tests is to help us have a clean code base.
+You cannot refactor and do a clean-up without an easy mechanism to check for
 regression.
-Clean-up tasks are just normal business and an integrated part of
-coding process. We will do cleanup all the time, and there is no
+Clean-up tasks are just normal business and an integrated part of the
+coding process. We will do a cleanup all the time, and there is no
 dedicated development window for cleanup.
 
-The goal is to write test first and code later.
+The goal is to write tests first and code later.
 
 If you are starting and learning how to write tests, you will write tests
 after writing the code simply because you have so much to learn and find
@@ -91,7 +91,7 @@ Unit testing
 This is the least controversial type of tests, and people usually know what
 unit tests are.
 
-Test for single method or functions. As the number of unit tests significantly grows
+Test for single methods or functions. As the number of unit tests significantly grows
 throughout the lifecycle of the project one key requirement is that they run as
 fast as possible.
 Therefore the tests should use only data from memory for both input and output.
@@ -121,7 +121,7 @@ Since they should be fast, you can put them together with unit tests.
 System testing
 --------------
 
-In contrast with unit or functional tests, we have system test which have no
+In contrast with unit or functional tests, we have the system test which has no
 restriction for
 interacting with external systems.
 
@@ -135,12 +135,12 @@ A test is a system test if:
 * You have to do special things to prepare your environment.
 * Requires a special OS account / OS credentials to exists.
 
-They interact with local filesystem, network and other services provided by
+They interact with the local filesystem, network and other services provided by
 the operating system.
 
-While interacting with external system, system tests require additional
-steps in configuration and preparing the external system for running the
-tests, so their execution depend on these external systems.
+While interacting with external systems, system tests require additional
+steps for the configuration and preparation of the external system for running the
+tests, so their execution depends on these external systems.
 Example: configure an OS account, do special network configuration,
 configure a printer, create certain files or folder structures on the
 filesystem.
@@ -148,14 +148,14 @@ filesystem.
 The external services are "black boxes", as we don't have access to their
 internal structure.
 
-They test the integration with external services, and at some
-extend they are integration tests.
+They test the integration with external services, and to some
+extent they are integration tests.
 
 Due to interaction with external system, system tests are slower than unit or
 integration tests.
 
 While configuring external systems, take special care to avoid side effects or
-leaving the system in an inconsistent tests that will not allow other tests
+leaving the system in an inconsistent state that will not allow other tests
 to execute. At the end of the test, leave the system in the same state as the
 one from the start.
 
@@ -175,17 +175,17 @@ In other places, they are also called *acceptance tests*.
 
 This kind of tests help us detect **what** feature of our product is not
 working.
-In case we have good unit, integration and system test,
+In case we have good unit, integration and system tests,
 we look there to find **why** that feature is not working.
 
 Functional tests will not help with development and locating the source
-of an error. Use unit tests for this. In case unit test pass, and we have
+of an error. Use unit tests for this. In case unit tests pass, and we have
 failing functional tests, then we have just discovered a hole in our unit
 testing and we should fix it first.
 
 The functional tests are just recording the same steps required in manual
-testing. If a functional tests pass, you can look around by starting
-the real server and manually perform the same steps as in the functional
+testing. If a functional test passes, you can look around by starting
+the real server and manually performing the same steps as in the functional
 test.
 
 You can consider them black box testing as their role is to check that the
@@ -221,23 +221,23 @@ and ensures that you always have a test for the code you write.
 When you find a bug, start by writing a test reproducing the bug then
 continue your work in fixing the bug. Ask the *5 whys* in order to find the
 root cause of the bug and fix the problem there. The initial test written
-to reproduce the bug, might be a high level tests which is not at the same
-level to the code which was fixed. Removed the high level tests and write
+to reproduce the bug, might be a high level test which is not at the same
+level with the code which was fixed. Remove the high level tests and write
 a specific unit test, directly associated with the fixed code.
 
 Running the test suite should be fast, but sometimes some tests are just slow.
 Functional tests are always slow, and system tests tend to be slow. We mark
 these slow tests so that we can skip them using the test runner.
 
-Principle of developing using tests:
+Principles of development using tests:
 
-* **Write test first** - the test will save a lot of debugging time and
+* **Write tests first** - the tests will save a lot of debugging time and
   setup time for each time you would have to run the manual test to check
   your code.
 
 * **Design for testability** - Now, if you don't write your test first, you
   should at least let the test design your code and not design the test
-  after your code. If you **write test first** you don't need to worry
+  after your code. If you **write tests first** you don't need to worry
   about this.
 
 * Use **Front Door First**, this means that you should first try to write
@@ -251,10 +251,10 @@ Principle of developing using tests:
 * **Comunicate Intent** write short tests, which are clean and easy to read
   and serve as documentation for the code.
 
-* **Keep testing login out of production code**. Don't add hooks or
+* **Keep testing logging out of production code**. Don't add hooks or
   conditional statements in the production code to help with testing.
 
-* **Keep tests independent** each test should run on it's own and should also
+* **Keep tests independent** each test should run on its own and should also
   run together with the other tests.
 
 
@@ -272,7 +272,7 @@ an easy to read name. Try to create a Domain Specific Language for your tests.
         Tests for super user.
         """
 
-        def test_rename_ulgy(self):
+        def test_rename_ugly(self):
             """
             Users can be renamed just by calling rename() on the user object.
 
@@ -328,7 +328,7 @@ without touching the system (filesystem / network / os services).
 In order to be useful, methods need to interact with the system.
 
 As a first practice, methods interacting with the system should be grouped
-and isolated into component dedicated with input / output operations.
+and isolated into components with dedicated input / output operations.
 
 When writing tests for code which touches the system, the tests will also
 use the system. This can slow the tests or create unwanted side effects, since
@@ -422,7 +422,7 @@ to pass before they appear and this can slow down the whole tests.
 Mock object
 -----------
 
-Mock object can simplify a lot test writing and are a very powerful test
+A Mock object can simplify a lot of test writing and is a very powerful test
 tool.
 
 With great power, comes great responsibility! Don't abuse the mocks.
@@ -438,7 +438,7 @@ of the mocked class.
     mocked_object = Mock(specs=SomeClass)
 
 
-You can use mock object in the following circumstances:
+You can use the mock object in the following circumstances:
 
 * Want to trigger an error from a function that requires a precondition
   that is hard to create in a test.
@@ -487,7 +487,7 @@ might get intertwined and look like the following code. This is OK.
         with self.assertRaises(ConfigurationError):
             some.getAllProperties()
 
-The *arrange* part can get very long. Try to move as much code in setUp()
+The *arrange* part can get very long. Try to move as much code as possible in the setUp()
 method, or move related initialization code in a helper method.
 
 When the code is used only in a few tests, put it in a dedicated, reusable, method.
@@ -545,7 +545,7 @@ Smells
 ======
 
 * Don't abuse the debugger. The tests should have a good coverage so that
-  any code can be debugged just by using the debugger on a failed tests.
+  any code can be debugged just by using the debugger on a failed test.
   In case you need more than 1 breakpoint in the code, this is a sign that
   you are missing a test.
 
@@ -618,14 +618,14 @@ Don't forget that code and tests also need to be easy to read.
 
 We write test cases based on the class under test.
 For example, when we have an object called Account which can have two
-important states: Application and OS, we will write two test case
+important states: Application and OS, we will write two test cases
 *AccountOSTestCase* and *AccountApplicationTestCase*.
 This is why all tests from a specific test case will need to instantiate the
 same object, and this is why is OK to create **self.object_under_test**
 instance in the *setUp*.
 
-As a raw rule, in the setUp try to only create raw instances which are
-used in all tests, without calling any other code that change the state
+As a raw rule, in the setUp method try to only create raw instances which are
+used in all tests, without calling any other code that changes the state
 of an object.
 
 
@@ -732,7 +732,7 @@ You can register object for cleanup by using dedicated creation method.
             os.rm(file.path)
 
 
-    class GoodTestCase, self(.tearDown()TestCase):
+    class GoodTestCase(TestCase):
 
         def setUp(self):
             super(GoodTestCase, self).setUp()
@@ -768,15 +768,15 @@ You can register object for cleanup by using dedicated creation method.
             self.assertEqual('something', operator.getAllContent())
 
 
-To reduce the need of tearDown and cleanup code, try to run each test on
+To reduce the need for tearDown and cleanup code, try to run each test on
 new instances and avoid global or singleton objects.
 
-You can still reuse object, in case creating a new instance takes a long time,
+You can still reuse an object, in case creating a new instance takes a long time,
 as we want test to be fast.
 
 
-Tests description - docstrings
-==============================
+Test description - docstrings
+=============================
 
 Good tests can help document and define what something is supposed to do,
 so dedicate effort to write good docstrings.
@@ -792,7 +792,7 @@ WTF/minute.
   expected behaviour.
 
 * Think of the test's docstring as an extension of documentation for the
-  method under tests.
+  method under test.
 
 * For integration tests add notes about pre-conditions or other requirements.
 
@@ -801,7 +801,7 @@ WTF/minute.
   the code implementing the tests.
   When code fails to speak for itself use inline comments.
 
-* Avoid including the name of the method under tests. The test method name
+* Avoid including the name of the method under test. The test method name
   should already include it.
 
 * When testing for raised exceptions avoid adding the exception name in

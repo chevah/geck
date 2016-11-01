@@ -12,11 +12,11 @@ General
 
 * Do your best to never use a semicolon.
   This means avoiding them at line breaks and avoiding multi-statement lines.
-  Semi-colon at the end of the line is added only when required.
+  Semicolons at the end of the line should be added only when required.
 
 * Use 4 space indentation.
 
-* Variable, function, method and constants name are after PEP8.
+* Variable, function, method and constant names follow PEP8 guidelines.
   variable_name, function_name, methodName, ClassName, CONSTANT_NAME
 
 * Callback methods should always end with 'Callback' as the
@@ -24,9 +24,9 @@ General
   the context is lost.
 
 * Constructor functions (those that are called with **new**) should use
-  class naming convention.
+  class naming conventions.
 
-* use ``===`` instead of ``==`` for comparison. ``===`` doesn't do type
+* use ``===`` instead of ``==`` for comparisons. ``===`` doesn't do type
   coercion.
 
 * Only use ``typeof`` for checking against undefined variables::
@@ -72,9 +72,9 @@ General
         }
     }
 
-* Leave 2 empty lines between global function or class definitions.
+* Leave 2 empty lines between global functions or class definitions.
   Leave 1 empty line between functions from the same class.
-  Global variable can be grouped and the don't require empty lines in between.
+  Global variables can be grouped and don't require empty lines between them.
 
 .. sourcecode:: javascript
 
@@ -127,7 +127,7 @@ General
 
 * Avoid using leading parenthesis.
 
-* Avoid using ``delete`` operator and only use it to delete explicitly
+* Avoid using the ``delete`` operator and only use it to delete explicitly
   set properties on normal objects::
 
     var obj = {x: 1};
@@ -135,7 +135,7 @@ General
     delete obj.x;  // true
     delete obj.y;  // true
 
-* Use single quote for strings.
+* Use single quotes for strings.
 
 Example::
 
@@ -158,8 +158,8 @@ Example::
   onLogout (when logout link is pressed),
   onLoginFormSubmit (when login form is submitted)
 
-* Callbacks/Errback for XHR are be prefixed with `cb` and `eb`, similar
-  with Python/Twisted convention.
+* Callbacks/Errback for XHR should be prefixed with `cb` and `eb`, similarly
+  with the Python/Twisted convention.
 
 * For one line comments, leave one empty space after the comment marker.
 
@@ -182,7 +182,7 @@ Example::
 
 * Global constants will follow the CONSTANT_NAME naming convention.
 
-* Global services (objects with methods) are named similar to class names.
+* Global services (objects with methods) are named similarly to class names.
   Most of the time they will be singletons so there will be no associated
   class.
 
@@ -195,20 +195,21 @@ Example::
     }
 
 
-TODO
-http://javascript.crockford.com/code.html http://jibbering.com/faq/notes/code-guidelines/ http://neil.rashbrook.org/Js.htm
+* For more detailed style guidelines, check out this articles:
+1. http://javascript.crockford.com/code.html
+2. http://jibbering.com/faq/notes/code-guidelines/
 
 Prevent polluting the global scope
 ==================================
 
-You can use immediately invoked function expression IIFE to avoid
-injecting more variables into global scope.
+You can use immediately invoked function expressions (IIFE) to avoid
+injecting more variables into the global scope.
 When using IIFE don't forget to add the semicolon at the beginning.
 
 .. sourcecode:: javascript
 
     // Path something from global scope.
-    ;(function () {
+    (function () {
       // tagsInput is kept only inside this scope.
       var tagsInput = angular.module('ngTagsInput')
       tagsInput.factory('tiTranscludeAppendDirective', function() {
@@ -221,10 +222,10 @@ Defining classes
 ================
 
 In JS there is no strict way of defining a class and instances are created
-using a function and new operator.
+using a function and the `new` operator.
 
-When defining a class we use an anonymous function to allow class
-private instances and create a new class scope.
+When defining a class we use an anonymous function to allow private class
+instances and create a new class scope.
 
 .. sourcecode:: javascript
 
@@ -349,7 +350,7 @@ Test styleguide
 
 * We use ``expect`` style testing.
 * Leave 2 emtpy lines before each ``suite`` and one empty line before each
-  ``test``
+  ``test``.
 
 .. sourcecode:: javascript
 

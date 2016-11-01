@@ -10,7 +10,7 @@ General
 =======
 
 This page describes the release process and steps to be followed during
-development to simplify the release or a final product or library.
+development to simplify the release of a final product or library.
 
 
 Releasing a product usually consists of publishing the following:
@@ -20,14 +20,14 @@ Releasing a product usually consists of publishing the following:
 * Public announcement. Notification email or website news/blog article.
 
 Each version sent to a customer should have a unique version number
-and must be mentioned in the release notes.
+that must be mentioned in the release notes.
 
 Sometimes, special features are required by clients with custom needs
-and the functionalities are not to be included in the main release
+and these functionalities are not to be included in the main release
 series. The versions with dedicated features should be released from
-their own branches, which are not to be removed. Each release from
+their own branches, which will not be removed. Each release from
 these branches should have an associated tag. All the related custom
-bits in the release notes are to be imported into the release notes
+bits in the release notes will be imported into the release notes
 from the main branch though.
 
 TODO: see what to do with customers using releases from staging... maybe
@@ -54,14 +54,14 @@ Release Notes
 =============
 
 Release notes explain what changed with this version. **Period**.
-Release notes are **not** installation, upgrade or configuration.
+Release notes are **not** installation, upgrade or configuration instructions.
 
 Each time a branch fixes a bug, adds a new feature or makes any changes
 which are visible to end users a new entry is added inside the release notes
 file. A release note entry is a summary for one change.
 
 We keep release notes for all versions in a single file so that users can
-easily read all changes starting from their version up to latest or a
+easily read all changes starting from their version up to the latest or a
 specific version.
 
 Release notes are grouped in one of the following categories. The category
@@ -73,8 +73,8 @@ may be omitted if no changes were added for it. Here are some categories::
 * Deprecation and Removals
 * Other changes. Documentation changes.
 
-A marker/tag is added at the end of the sentence to point the ticket ID
-associated with this change. Ticket ID marker is not mandatory for new features.
+A marker/tag is added at the end of the sentence to point to the ticket ID
+associated with this change. A Ticket ID marker is not mandatory for new features.
 
 It can be followed by a list of tags to help users understand / filter the
 scope of the change. Here are some examples::
@@ -86,7 +86,7 @@ scope of the change. Here are some examples::
 Remember your audience/user/clients and write for that audience.
 
 Don't explain all details of the change. When more details are required
-use a link to documentation.
+use a link to the documentation.
 
 All entries should be complete sentences or phrases, ending with a
 punctuation mark.
@@ -267,11 +267,11 @@ MAJOR releases should support running in parallel on the same system.
 This is done to simplify testing, moving the new version in production or
 reverting the old version in production in case of problems.
 
-Two MAJOR versions can sometimes not use the same resource at the same time,
+Two MAJOR versions can sometimes use the same resource at the same time,
 e.g. same TCP port, but they should allow fast configuration changes to
 release a shared resource and to use a shared resource.
 
-The upgrading to a new MAJOR version should be designed to require the
+The upgrade to a new MAJOR version should be designed to require the
 minimum effort and the process should be automated as much as possible.
 For example the straightforward configuration can be automatically migrated.
 

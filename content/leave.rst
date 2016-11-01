@@ -6,7 +6,7 @@ Leave / Holiday
 General
 =======
 
-* We have 30 days of payed holidays per year. 21 + 9 bank holidays
+* We have 30 days of paid holidays per year. 21 + 9 bank holidays
 
 * All legal leave and bank holidays are put in a common pool of leave days.
   Use them as you like.
@@ -14,7 +14,7 @@ General
 * **All** leave days should be logged in the leave spreadsheets,
   including bank holidays.
 
-* Feel free to subscribe to notification for the leave document.
+* Feel free to subscribe to notifications for the leave document.
 
 * When updating the table 2 days before the leave, no need for other notices,
   other than editing the document. Notifications are sent each day.
@@ -37,10 +37,10 @@ Vacation
 * Leave should be taken in collaboration with colleagues to ensure project
   operations are not disrupted.
 
-* When you run out of payed leave days just continue to record your leave days.
-  It is **OK** if you need more holiday. Extra holiday is not payed.
-  Not payed leave days are subtracted from the salary
-  from last month of the year.
+* When you run out of paid leave days just continue to record your leave days.
+  It is **OK** if you need more holiday. Extra holiday is not paid.
+  Not paid leave days are subtracted from the salary
+  due on the last month of the year.
 
 
 Other legal leaves
@@ -52,7 +52,7 @@ Other legal leaves
 
 * 3 days for death in the family
 
-* If required, medical leaves are added to the total number of extra payed
+* If required, medical leaves are added to the total number of extra paid
   leave days.
 
 

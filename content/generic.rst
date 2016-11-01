@@ -21,6 +21,9 @@ something is wrong.
 
 * Rule #3: If it ain't broke, don't fix it!
 
+* Ammendment to Rule #3: If it's not totally broken but still wastes a lot of your time, fix it! 
+  This means all the FIXME tags should be a priority when 'refactoring <http://ronjeffries.com/xprog/articles/refactoring-not-on-the-backlog/>'.
+
 * All code in any code-base should look like a single person typed it, no
   matter how many people contributed.
 
@@ -49,7 +52,8 @@ something is wrong.
 
 * Try to keep methods as flat as possible and return as soon as possible.
 
-* Don't use abbreviation. Use full, meaningful names.
+* Don't use abbreviation. Use full, meaningful names, either in CamelCase 
+  (for class names) or in snake_case (for function and attribute names.
 
 * Don't use tabs for indentation, and in general don't use tabs for anything
   else. The only exceptions are the Makefiles.

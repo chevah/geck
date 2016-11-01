@@ -70,8 +70,8 @@ General
 
 * Tests suites (test class) will be prefixed with ``Test``.
 
-* Test's docstring should state what is the expected behavior based on
-  test's input.
+* A test's docstring should state what is the expected behavior based on
+  the test's input.
 
 .. sourcecode:: python
 
@@ -80,7 +80,7 @@ General
         When doing this `methodName` will raise an AssertionError.
         """
 
-* When adding linter exception, always add a comment explaining the reason
+* When adding a linter exception, always add a comment explaining the reason
   why the exception was added.
 
 * Use named parameters for calling methods. This will reduce future
@@ -89,7 +89,7 @@ General
 * If a method or class initialization / constructor method has more than 1
   argument always use named parameters for calling that method.
 
-* Try to use single quotes for string. This will make it easier to generate
+* Try to use single quotes for strings. This will make it easier to generate
   quoted text for UI or HTML.
 
 YES
@@ -106,20 +106,20 @@ NO
     other_bad = "string"
     some_bad = "string 'b' yes"
 
-* As PEP8 recommend, Don't use '\' to split long lines. Wrap long lines is by
+* As PEP8 recommends, don't use '\' to split long lines. Wrap long lines by
   using Python's implied line continuation inside parentheses, brackets and
   braces. More details here:
   http://www.python.org/dev/peps/pep-0008/#maximum-line-length
 
 * Multi line split using parentheses, brackets (etc) will follow the normal
-  indentation. The code might look ugly and then exceptions are allowed.
+  indentation. The code might look ugly but then exceptions are allowed.
 
-* Define all class members at the beginning of class definition.
-  Don't interleave methods and class members definition. This should make it
+* Define all class members at the beginning of the class definition.
+  Don't interleave methods and class members definitions. This should make it
   easy to identify all class members used by the class.
 
 * Define all instance members inside the __init__() method. This should make
-  it easy to identity all instance members used by the class and reduce the
+  it easy to identify all instance members used by the class and reduce the
   risk of using the same member for more than one purpose.
 
 * Decode all input to Unicode and encode all output from Unicode. Do **all**
@@ -140,18 +140,23 @@ NO
   Unicode is a character set and UTF-8 is a particular way of
   encoding Unicode.
 
-* When a method does not use the *self* attribute, this is a code smell
-  that this method should be placed somewhere else.
+* When a method does not use the *self* attribute, this is a sure sign
+  that this method should be placed somewhere else. Also, it's a code smell.
 
 
-Abstract
-========
+Abstract classes - Twisted style
+================================
+
+The descriptions used below for abstract classes follows the 'definition' 
+used by the Twisted framework. While not exactly in line with cannonical Python
+definitions (that mention metaclasses and the use of decorators) these points
+help you understand better the way Twisted follows some classic OOP patterns.
 
 Abstract classes are classes that contain one or more abstract methods.
 
 An abstract method is a method that is declared,
 but contains no implementation.
-Calling an abstract method it will raise `NotImplementedError`.
+Calling an abstract method will raise `NotImplementedError`.
 
 Abstract classes may not be instantiated.
 They require subclasses to provide implementations for the abstract methods.
@@ -162,13 +167,13 @@ partial implementations.
 Abstract methods can be public or private.
 
 When raising the NotImplementedError make sure you add some text to uniquely
-identify this abstract methods.
+identify this abstract method.
 During development we might report errors without a traceback and having a
-custom message associated with the error make it easier to identify what is
+custom message associated with the error makes it easier to identify what is
 wrong.
 
-When defining an abstract class, suffix it with `Abstract` name.
-This should let other know that this class should not be directly instantiated.
+When defining an abstract class, suffix it with the `Abstract` name.
+This should let others know that this class should not be directly instantiated.
 
 All abstract methods should be defined at the beginning of the class, even
 before the `__init__` method or class variables.
@@ -227,10 +232,10 @@ As stated by `Wikipedia <http://en.wikipedia.org/wiki/Mixin>`_:
 Mixins encourage code reuse and avoid well-known pathologies associated
 with multiple inheritance.
 
-Mixin is a limited usage of multiple inheritance, but they should **not be
+A Mixin is a limited use of multiple inheritance, but it should **not be
 mixed with overriding**.
 
-We use mixing to reuse code and they provide great help for writing tests.
+We use mixins to reuse code and they provide great help for writing tests.
 
 Methods from a mixin should not be overwritten by classes using the mixin.
 
@@ -324,7 +329,7 @@ Same indentation applies for brackets:
         alabala,
         ]
 
-* 2 line code exception. If the parentheses expression fits on one line:
+* 2 line code exception. If the expression between parentheses fits on one line:
 
 .. sourcecode:: python
 
@@ -378,10 +383,10 @@ Same indentation applies for brackets:
 Imports
 -------
 
-* Imports should be called at the start of each module, the only exception is
-  allowed for avoiding circular imports.
+* Imports should be called at the start of each module, the only exception 
+  allowed would be when there is a need to avoid circular imports.
 
-* There is one empty line between the import block and module comment.
+* There is one empty line between the import block and the module comment.
 
 * The imports blocks are separated by one empty line.
 
@@ -398,7 +403,7 @@ Imports
   characters limit, they will be listed on the same line
 
 * When importing multiple members of a module, and they exceed the 78
-  characters limit, they will be listed as a list, with each member on a
+  characters limit, they will be listed between parentheses, with each member on a
   line ending with comma.
 
 A good example:
