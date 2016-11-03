@@ -217,7 +217,7 @@ Sample release notes
 Version Management
 ==================
 
-Chevah release versions are based on the MAJOR.MINOR.PATCH scheme
+Chevah release versions are based on the MAJOR.MINOR.PATCH[.SpecialNN] scheme
 documented at `Semantic Versioning <http://semver.org/>`_.
 
 A MAJOR version is released to introduce new major features, remove
@@ -231,14 +231,20 @@ soon as possible.
 Each release has a certain overhead, and the overhead should be minimized by
 automating the release process.
 
+PATCH versions are released as soon as a defect is fixed,
+usually one week after it has been initially discovered and reported.
+Security issues have top priority and a fix is released as soon as possible.
+PATHC version don't include any new functionality and changes are focused only
+on fixing the targeted bugs.
+
+SpecialNNN is our non-standard version marker. These versions are not targeted
+for general availability / all customers. The special version should be a word,
+keyword followed by an integer counter.
+
 In an ideal world a release should be done by preparing a release
 branch. Then, by issuing a single command, the documentation, download
 and news pages will be updated. Users will be automatically notified
 about the new releases.
-
-PATCH versions are released as soon as a defect is fixed,
-usually one week after it has been initially discovered and reported.
-Security issues have top priority and a fix is released as soon as possible.
 
 
 Compatibility Policy
