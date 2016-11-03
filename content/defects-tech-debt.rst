@@ -10,7 +10,11 @@ General
 =======
 
 As with any other product, our ideal is to release a product without any
-known defects and with optimal implementation.
+known defects and with optimal implementation and documentation, all this
+backed by a perfect support process.
+
+In the same time, we aim to have the perfect development process, with the
+perfect QA process and the perfect release process.
 
 While this is a noble goal, achieving it might not be economically feasible.
 That is creating a zero bugs product will result a product which costs more
@@ -139,6 +143,37 @@ with the existing re-usable component, but to consider refactoring the
 re-usable component itself so that it provide a clean re-usable API.
 
 We are not blocking a release due to a tech-debt.
+
+
+Happy Hacking Day
+=================
+
+One day each month is reserved for working on whatever task you want.
+
+This is call the 'Happy Hacking Day' or 'I work on whatever I want day'.
+
+This is the first Wednesday of each month.
+
+The idea is that we always have top priority task on which we work on a regular basis.
+
+This is why minor/small task will never get top priority.
+
+If there is a minor/small task which has big impact on our day to day work,
+we can work on in in that day.
+
+Tickets that can be done in this day can be tagged with the **happy-hacking**
+keyword.
+
+Tickets started during happy hacking day,
+can be continued in the following days in order to be completed.
+
+Things that can be done in this day:
+
+* work at improving out tools
+* think of ways of changing the way we work to make it easier and fun
+* fixing small technical debts, code cleanup, renaming... etc
+* push or send upstream your local changes to open source projects
+* fix a bug in an upstream open source project
 
 
 References
