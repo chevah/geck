@@ -169,11 +169,11 @@ can be continued in the following days in order to be completed.
 
 Things that can be done in this day:
 
-* work at improving out tools
-* think of ways of changing the way we work to make it easier and fun
+* work at improving our tools
+* improve the way we work to make it easier and more fun
 * fixing small technical debts, code cleanup, renaming... etc
 * push or send upstream your local changes to open source projects
-* fix a bug in an upstream open source project
+* fix a bug in an upstream open source project.
 
 
 References
