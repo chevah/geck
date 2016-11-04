@@ -10,8 +10,7 @@ General
 =======
 
 This page describes the release process and steps to be followed during
-development to simplify the release or a final product or library.
-
+development to simplify the release of a final product or a library.
 
 Releasing a product usually consists of publishing the following:
 
@@ -297,3 +296,45 @@ MAJOR release without any other manual migration process.
 
 All removal warnings should have a similar format to simplify filtering and
 reporting them.
+
+
+Releasing a forked library
+========================
+
+Sometimes we might need do small or major changes to an upstream
+package/library.
+For example changes were were rejected upstream, or not yet released upstream
+or just minor re-packaging changes.
+
+The forked versions should be published only on our private PyPI server and
+all versions should use the `.chevahN` suffix.
+
+When forking an upstream project, keep the master/trunk branch as upstream.
+You can created separate branches dedicated to the Chevah project like
+`master-chevah` or `release-1.2.3-chevah`.
+
+
+Releasing a library
+===================
+
+A library is a software which provides code shared by multiple products.
+Libraries should always be released using the standard package management
+system.
+
+Releasing a library consists of the following:
+
+* creating a distributable in a format used by the package manager.
+* publishing the distributable to the package manager website.
+  In our case most of the time it will be a Python package pushed to on our
+  internal PyPi server.
+
+For libraries we target at releasing a new version with each merge to master.
+Once you get your branch approved, make sure it has an unique version in
+setup.py then land the branch on master using PQM and release it using::
+
+    python setup.py publish
+
+Sometimes you might want/need to release it before the branch is approved
+and merged, as you might want to experience how it can be used. This is fine,
+just make sure that each release has an unique version and it follows the
+general versioning semantics.
