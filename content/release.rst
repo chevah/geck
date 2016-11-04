@@ -49,6 +49,96 @@ The release review request should also include the text used to announce the
 new release on the website.
 
 
+Release Manager
+===============
+
+During the time of an in-work release a single person is in charge of
+driving the release as is called the release manager.
+
+Some tasks done by the release manager:
+
+* Define milestone description / due date
+* About 1 week before the release, create a release milestone and move all
+  closed ticket from the 'next-release' milestone to the new release milestone.
+* Create a dedicated ticket for the release itself, and associated it
+  to the new release milestone.
+* Make sure the ticket dedicated to the release as an owner and that the
+  owner will do the required steps.
+* Some tickets from the `next-release` milestone which are not yet closed,
+  but are soon to be closed (like needs_merge) can also be moved to the new
+  release milestone.
+* Check post-commit buildbot results for master (at once per week) to make
+  sure no regression were introduced on the tests executed post-merge.
+* Create high priority tickets in case the tests are failing on master.
+* Coordinates story tickets for the milestone
+
+
+The Release Branch
+==================
+
+A release branch starts like any other branch by creating a ticket in Trac.
+
+The release branch should be created from master (for latest release) or
+from a tag (for a maintenance release).
+
+To integrate with out automated process the release branch should be named:
+`TICKET_ID-release-MAJOR.MINOR.BUGFIX`.
+
+For the latest release the release branch should only update the release notes
+and increment the version.
+
+For a maintenance release, beside incrementing the release and creating the
+release notes, the branch should also cherry pick the fixes or apply dedicated
+fixes.
+
+The review request for a release branch should include the text used by news
+article for our website.
+
+Before requesting the review for this branch, the release should be done on
+the staging server using the normal RQM command.
+
+These are the extra review steps for a release branch:
+
+* Release the product on the staging/testing server.
+* Check story tickets are solved/closed.
+* Check release notes are valid with a good date.
+* Check that version constants were updated
+* Check that known issues are up to date and issues fixed in this release are
+  removed.
+* Check the list of supported operating system (DISTRIBUTABLES in pavement.py)
+  is valid.
+* Check the download page to see that we have files for all the supported OS.
+* [Linux] From the distributable archives check that service can be initialized
+  and started using Unix init script.
+* [Windows] From the distributable archives check that service can be installed
+  and started.
+
+The release itself is done using the automated RQM (Release Queue Manager)
+process which for now is implemented on top of Buildbot.
+
+Check the repo's README file for info about how to do the actual release
+in staging and in production.
+
+These are the extra steps for checking a release in production:
+
+* Check that the tag was automatically created for latest released.
+* For maintenance releases manually create a tag based on the release branch
+  and push the tag.
+* Close milestone for the current release and re-target all tickets which are
+  not closed yet to `next-release`.
+* When releasing a **<maintenance>** release, a new ticket should be created on
+  "next-release" to update release notes.
+
+Future improvements for the automated release process:
+
+* Create a release notification list and send an email to all people who care
+  about a new release. The email should include changelog for last version.
+  Trac ticket #525.
+* Add news article to website
+* Trigger website crawler to check broken links for download pages and
+  documentation.
+
+
 Release Notes
 =============
 
@@ -297,6 +387,19 @@ MAJOR release without any other manual migration process.
 All removal warnings should have a similar format to simplify filtering and
 reporting them.
 
+Here are some steps you can use for testing that the compatibility between
+MAJOR releases. While some functionalities might not be available, the
+product should still start.
+
+* Install new release and use the configuration from the previous major release
+  to start the product.
+  Check that no errors were reported and all services are properly configured
+  and started.
+* Install the previous major release and use the configuration from the new
+  release to start the product.
+  Make sure that all services are properly configured and no errors are
+  reported.
+
 
 Releasing a forked library
 ========================
@@ -338,3 +441,37 @@ Sometimes you might want/need to release it before the branch is approved
 and merged, as you might want to experience how it can be used. This is fine,
 just make sure that each release has an unique version and it follows the
 general versioning semantics.
+
+
+Releasing a product
+===================
+
+A product is a stand-alone fully functional software that provides direct
+functionality to end users.
+
+For now we will target doing a minor release every 60 days.
+
+Bug fix releases are made on request.
+
+A major release is supported for minimum of 2 years, but our customers are
+expecting a support for up to 10 years.
+
+We are now targeting to extend the support / product life cycle to 5 years.
+
+While working on a product we have the following types of branches:
+
+* master - only one master branch - this is the latest stable development
+  version
+* release-branch - ephemeral branches on which the version number is updated
+  and release notes are finalized.
+* task-branch - multiple ephemeral branches.
+  Each new feature or fix has a task-branch.
+
+Each released version has a dedicated tag. When you need to create a
+bugfix release or a maintenance release for a previous version, you will
+create the release branch based on the desired tag.
+
+The **master** branch should be kept in good shape so that we can release it at
+any time.
+Especially if a security bugfix is found, we will make a new release as soon
+as the bug is fixed.
