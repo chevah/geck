@@ -402,7 +402,7 @@ product should still start.
 
 
 Releasing a forked library
-========================
+==========================
 
 Sometimes we might need do small or major changes to an upstream
 package/library.
