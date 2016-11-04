@@ -150,15 +150,15 @@ Happy Hacking Day
 
 One day each month is reserved for working on whatever task you want.
 
-This is call the 'Happy Hacking Day' or 'I work on whatever I want day'.
+This is called the 'Happy Hacking Day' or 'I work on whatever I want day'.
 
 This is the first Wednesday of each month.
 
-The idea is that we always have top priority task on which we work on a regular basis.
+The idea is that we always have top priority tasks on which we work on a regular basis.
 
-This is why minor/small task will never get top priority.
+This is why minor/small tasks will never get top priority.
 
-If there is a minor/small task which has big impact on our day to day work,
+If there is a minor/small task which has a big impact on our day to day work,
 we can work on in in that day.
 
 Tickets that can be done in this day can be tagged with the **happy-hacking**
