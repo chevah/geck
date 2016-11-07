@@ -144,6 +144,82 @@ NO
   that this method should be placed somewhere else.
 
 
+Abstract
+========
+
+Abstract classes are classes that contain one or more abstract methods.
+
+An abstract method is a method that is declared,
+but contains no implementation.
+Calling an abstract method it will raise `NotImplementedError`.
+
+Abstract classes may not be instantiated.
+They require subclasses to provide implementations for the abstract methods.
+
+Abstract classes are somehow similar to interfaces, but they also come with
+partial implementations.
+
+Abstract methods can be public or private.
+
+When raising the NotImplementedError make sure you add some text to uniquely
+identify this abstract methods.
+During development we might report errors without a traceback and having a
+custom message associated with the error make it easier to identify what is
+wrong.
+
+When defining an abstract class, suffix it with `Abstract` name.
+This should let other know that this class should not be directly instantiated.
+
+All abstract methods should be defined at the beginning of the class, even
+before the `__init__` method or class variables.
+They should be documented with docstring describing their usage and how they
+should be implemented.
+
+
+.. sourcecode:: python
+
+    class LocationAbstract(LocationBase):
+        """
+        Shared code by some type of locations.
+
+        More information about the functionality provided by this class.
+        """
+
+        def getProtocol(self):
+            """
+            Return the client protocol used to connect to the FTP server.
+            """
+            raise NotImplementedError('_getProtocol not implemented.')
+
+        def _beforeConnection(self, client):
+            """
+            Called before the FTP command channel connection is initiated.
+
+            Should return a deferred.
+            """
+            raise NotImplementedError('_beforeConnection not implemented.')
+
+        # Class members defined by the abstract.
+        # They can be public or private.
+        _reactor = reactor
+        REQUIRE_RESTART = ('address', 'port')
+
+        def __init__(self, parent, configuration):
+            """
+            Abstract classed can implement the init method.
+            """
+            super(LocationAbstract, self).__init__(parent, configuration)
+            # Low level FTP transport protocol.
+            self._protocol = None
+            self._features = ()
+
+        def onConnect(self):
+            """
+            They can also fully implement some public methods.
+            """
+            return self._doMoreWorkHereInPrivateCode()
+
+
 Mixin
 =====
 
