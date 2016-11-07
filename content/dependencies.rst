@@ -23,7 +23,7 @@ We are doing this for the following reasons:
 
 * reduce the load to the official PyPi index
 * have our development system working even when the official PyPI site is down
-* keep a copy of a package, even if the upstream developer have removed it from
+* keep a copy of a package, even if the upstream developer has removed it from
   the official PyPI site
 * be able to publish our own private / experimental / junk packages without
   creating unnecessarily load on the official PyPI site
@@ -95,7 +95,7 @@ All JS packages used for the projects should be *browser ready*. We don't run
 anything in node-js and we run everything in a browser... multiple browsers
 in fact.
 
-The JS packages are re-packages as Python packages and hosted into our
+The JS packages are re-packaged as Python packages and hosted into our
 `pip-expectations <https://github.com/chevah/pip-expectations>`_ repository.
 
 The JS packages are then pushed to pypi.chevah.com
@@ -113,7 +113,7 @@ cases you might need to re-package the same upstream version again (
 for example if you forgot to include certain file) and then a new version
 is required.
 
-Each package contain the following code in the top level `__init__.py` file,
+Each package contains the following code in the top level `__init__.py` file,
 in order to help detect the path where the JS files are located:
 
 .. sourcecode:: python
