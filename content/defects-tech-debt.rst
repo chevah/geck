@@ -120,11 +120,6 @@ Please read the `Refactoring - Not on the backlog!
 <http://ronjeffries.com/xprog/articles/refactoring-not-on-the-backlog/>`_
 article by Ron Jeffries.
 
-We use the `FIXME:1234:` marker to signal and acknowledge a section of code
-which was created as a tech-debt.
-We will leave the tech-debt unpaid and will try to pay it next time we hit
-an issue with that section of code.
-
 Sometimes your experience tells you that a section of code is not right and
 that it can be implemented as re-usable section.
 When you only had one use case for that code is very hard to create a
@@ -143,6 +138,54 @@ with the existing re-usable component, but to consider refactoring the
 re-usable component itself so that it provide a clean re-usable API.
 
 We are not blocking a release due to a tech-debt.
+
+
+Shared code and refactoring for code reusal
+===========================================
+
+While working on a task you might identify a piece of code which you think that
+it might be reused at a later time with a future feature.
+
+Based on the principle of not coding for things that you don't need yet,
+don't try to implement interfaces, decorators just yet.
+
+Implement your current task using the most simple thing that you can get.
+
+If you have an idea about how the code might be refactored for reusal, just
+create a ticket (an maybe a FIXME marker) and describe the design.
+
+You will need at least 2 other places from which a code is reused to assert
+the quality of an interface / shared code.
+Is better to wait for more real use cases before designing a shared code.
+
+
+FIXME Markers
+=============
+
+We use the `FIXME:1234:` marker to signal and acknowledge a section of code
+which was created as a tech-debt.
+We will leave the tech-debt unpaid and will try to pay it next time we hit
+an issue with that section of code.
+
+Only **FIXME** marker is used followed by ticket ID. No TODO, XXX or other
+markers.
+
+Technical debt comments will always have an attached ticket ID and will use
+the following format. Comments will come on a new lines.
+Adapt this to the style of comments used in the specific language::
+
+    # FIXME:1234:
+    # Details about this tech-dept. Ex: Can only be fixed when full moon.
+
+    /* FIXME:1234:
+    Some other type of syntax.
+    */
+
+
+The comment should be descriptive enough so that so that when you are
+reading the code while working on your task it will help you decide whether
+to go look for the details of the ticket or just ignore it, as is not related
+to what you are doing now.
 
 
 Happy Hacking Day
