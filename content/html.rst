@@ -12,7 +12,7 @@ General
 
 * Unlike other files, indentation for XML/HTML is 2 spaces. 
 
-* Don't use inline HTML style attribute. Only CSS class.
+* Don't use the inline HTML style attribute. Only CSS classes.
 
 * Use HTML5 doctype::
 
@@ -22,7 +22,7 @@ General
 CSS interaction
 ===============
 
-* Make sure all elements that are used in JS have an ID.
+* Make sure all elements that are used in JS files have an ID.
   This helps with testing.
 
 * Make sure all related elements have the same class.
@@ -40,15 +40,15 @@ HTML tags usage
 * Paragraphs of text should always be placed in a <p> tag.
   Never use multiple <br/> tags.
 
-* Items in list form should always be in <ul>, <ol>, or <dl>,
-  Never a set of <div> or <p>
+* Items in list form should always be in <ul>, <ol>, or <dl>.
+  Never a set of <div> or <p>.
 
 * Every form input that has text attached should utilize a <label> tag.
   Especially radio or checkbox elements.
 
 * Use double quotes for tag/element attributes.
 
-* Even though quotes around attributes is optional, always put quotes around
+* Even though putting quotes around attributes is optional, always put quotes around
   attributes for readability::
 
     GOOD: <p class="line note" data-attribute="106">
@@ -56,7 +56,7 @@ HTML tags usage
     BAD : <p class="line note" data-attribute=106>
             This is my paragraph of special text.</p>
 
-* Make use of <thead>, <tfoot>, <tbody>, and <th> tags (and Scope attribute)
+* Make use of <thead>, <tfoot>, <tbody>, and <th> tags (and the Scope attribute)
   when appropriate. (note: <tfoot> goes above <tbody> for speed reasons.
   You want the browser to load the footer before a table full of data.)::
 

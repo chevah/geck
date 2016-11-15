@@ -101,7 +101,7 @@ Put the final returned result in a separate block.
 
 Procedures are functions which have no result.
 
-Since Bash only support returning numeric values, which are interpreted
+Since Bash only supports returning numeric values, which are interpreted
 as exit codes, we will pass values between functions by using ``echo``.
 
 
