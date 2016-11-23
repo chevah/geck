@@ -53,24 +53,24 @@ Release Manager
 ===============
 
 During the time of an in-work release a single person is in charge of
-driving the release as is called the release manager.
+driving the release and is called the release manager.
 
 Some tasks done by the release manager:
 
 * Define milestone description / due date
 * About 1 week before the release, create a release milestone and move all
-  closed ticket from the 'next-release' milestone to the new release milestone.
-* Create a dedicated ticket for the release itself, and associated it
+  closed tickets from the 'next-release' milestone to the new release milestone.
+* Create a dedicated ticket for the release itself, and associate it
   to the new release milestone.
-* Make sure the ticket dedicated to the release as an owner and that the
+* Make sure the ticket dedicated to the release has an owner and that the
   owner will do the required steps.
 * Some tickets from the `next-release` milestone which are not yet closed,
   but are soon to be closed (like needs_merge) can also be moved to the new
   release milestone.
 * Check post-commit buildbot results for master (at once per week) to make
-  sure no regression were introduced on the tests executed post-merge.
+  sure no regressions were introduced on the tests executed post-merge.
 * Create high priority tickets in case the tests are failing on master.
-* Coordinates story tickets for the milestone
+* Coordinates story tickets for the milestone.
 
 
 The Release Branch
@@ -81,7 +81,7 @@ A release branch starts like any other branch by creating a ticket in Trac.
 The release branch should be created from master (for latest release) or
 from a tag (for a maintenance release).
 
-To integrate with out automated process the release branch should be named:
+To integrate with our automated process the release branch should be named:
 `TICKET_ID-release-MAJOR.MINOR.BUGFIX`.
 
 For the latest release the release branch should only update the release notes
@@ -323,8 +323,8 @@ automating the release process.
 PATCH versions are released as soon as a defect is fixed,
 usually one week after it has been initially discovered and reported.
 Security issues have top priority and a fix is released as soon as possible.
-PATHC version don't include any new functionality and changes are focused only
-on fixing the targeted bugs.
+PATCH version doesn't include any new functionality and changes are focused
+only on fixing the targeted bugs.
 
 SpecialNNN is our non-standard version marker. These versions are not targeted
 for general availability / all customers. The special version should be a word,
@@ -387,7 +387,7 @@ MAJOR release without any other manual migration process.
 All removal warnings should have a similar format to simplify filtering and
 reporting them.
 
-Here are some steps you can use for testing that the compatibility between
+Here are some steps you can use for testing the compatibility between
 MAJOR releases. While some functionalities might not be available, the
 product should still start.
 
@@ -404,16 +404,16 @@ product should still start.
 Releasing a forked library
 ==========================
 
-Sometimes we might need do small or major changes to an upstream
+Sometimes we might need to do small or major changes to an upstream
 package/library.
-For example changes were were rejected upstream, or not yet released upstream
+For example changes were rejected upstream, or not yet released upstream
 or just minor re-packaging changes.
 
 The forked versions should be published only on our private PyPI server and
 all versions should use the `.chevahN` suffix.
 
 When forking an upstream project, keep the master/trunk branch as upstream.
-You can created separate branches dedicated to the Chevah project like
+You can create separate branches dedicated to the Chevah project like
 `master-chevah` or `release-1.2.3-chevah`.
 
 
@@ -428,7 +428,7 @@ Releasing a library consists of the following:
 
 * creating a distributable in a format used by the package manager.
 * publishing the distributable to the package manager website.
-  In our case most of the time it will be a Python package pushed to on our
+  In our case most of the time it will be a Python package pushed to our
   internal PyPi server.
 
 For libraries we target at releasing a new version with each merge to master.
