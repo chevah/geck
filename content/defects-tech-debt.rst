@@ -182,7 +182,7 @@ Adapt this to the style of comments used in the specific language::
     */
 
 
-The comment should be descriptive enough so that so that when you are
+The comment should be descriptive enough so that when you are
 reading the code while working on your task it will help you decide whether
 to go look for the details of the ticket or just ignore it, as is not related
 to what you are doing now.
