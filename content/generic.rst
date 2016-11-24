@@ -35,15 +35,15 @@ something is wrong.
 * When you need a trade-off between readability and code duplication, choose
   to have a code less readable but without duplication.
 
-* Write code as it will be used by humans, not a machine. You are not a
+* Write code as it will be used by humans, not a machine. You are not
   a compiler / interpretor.
 
-* Optimization should come second and only if really needed. Don't Use clever
+* Optimization should come second and only if really needed. Don't use clever
   tricks and other optimization to early.
 
 * Do the simplest thing that could possibly work and do it well.
   Always work on the story you have, not something you think we're going to
-  need sometime in the future.
+  need some time in the future.
   Don't try implement all usecases you can think of and end with poorly
   designed code and poorly tested code.
 
@@ -176,7 +176,7 @@ Comments
 
 * All comments should be valid sentences and should end with a full stop (.).
 
-* Try to write code so that it speak for itself and so that a comment is not
+* Try to write code so that it speaks for itself and so that a comment is not
   required.
 
 * Try to name variables, methods, function so that they communicate their
@@ -184,9 +184,9 @@ Comments
   and not present in all other multiple places where it is used. IDE can help,
   but we should not rely on that.
 
-  When a comment is required is like saying: I have no idea for a better name
+  When a comment is required, it is like saying: "I have no idea for a better name
   for this thing, so here is my poor comment. Good luck with figuring the
-  intend of this name when you see it in the rest of this file.
+  intent of this name when you see it in the rest of this file."
 
 * Place comments on a new line above their subject and in the same block as the referred code.
 
@@ -225,7 +225,7 @@ Documentation
 
 * Document packages, modules, classes, functions.
 
-* For narative documentation (non docstrings) use `semantic linefeeds <http://rhodesmill.org/brandon/2012/one-sentence-per-line/>`_.
+* For narrative documentation (non docstrings) use `semantic linefeeds <http://rhodesmill.org/brandon/2012/one-sentence-per-line/>`_.
 
 ..  code-block:: text
     :linenos:

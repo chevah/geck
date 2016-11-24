@@ -9,25 +9,25 @@ Writing automated tests is an important part of development.
 
 We write tests to:
 
-* help improve quality
-* help understand the product and its components
-* reduce risk and fears when doing bold changes into product structure
-* make work easier and fun
+* Help improve quality
+* Help understand the product and its components
+* Reduce risk and fears when doing bold changes into product structure
+* Make work easier and fun
 
-All tests should have the following characteristic:
+All tests should have the following characteristics:
 
-* simple
-* easy to write and maintain as product evolves
-* easy to read and understand what they are doing
-* easy to run, easy to re-run, fully automated run and reporting
-* run very, very fast
-* each test should be an independent test which can run by itself
+* Simple
+* Easy to write and maintain as product evolves
+* Easy to read and understand what they are doing
+* Easy to run, easy to re-run, fully automated run and reporting
+* Run very, very fast
+* Each test should be an independent test which can run by itself
 
 Writing tests is not only done to check that code works as expected, it is
-also done to make sure that code has a simple designed, decoupled and easy
+also done to make sure that code has a simple designe, decoupled and easy
 to be reused.
 
-Writing test is also about making sure that you fully understand what the
+Writing tests is also about making sure that you fully understand what the
 code should do and how it is used.
 
 Writing tests is not a silver bullet for improving code quality and is easy to
@@ -852,5 +852,5 @@ Here are the pages I used to create this page.
  * https://plus.google.com/115348217455779620753/posts/YA3ThKWhSAj
  * http://c2.com/cgi/wiki?ArrangeActAssert
  * http://stackoverflow.com/q/67299/539264
- * http://agileprogrammer.com/2005/08/14/i-really-did-mean-it-avoid-setup-and-teardown/
- * http://agilesoftwaredevelopment.com/blog/vaibhav/acceptance-testing-what-why-how
+ * http://blog.brianbutton.io/index.php/2005/08/14/i-really-did-mean-it-avoid-setup-and-teardown/
+ * http://webcache.googleusercontent.com/search?q=cache:OsTWl-j736kJ:agilesoftwaredevelopment.com/blog/vaibhav/acceptance-testing-what-why-how+&cd=1&hl=en&ct=clnk&gl=ie (cached)

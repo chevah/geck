@@ -100,7 +100,7 @@ For person requesting a review
 
 * For GitHub: A review request is created using **GitHub Pull requests**.
 
-* When submitting a review for changes not planed in the current milestone,
+* When submitting a review for changes not planned in the current milestone,
   update the milestone to the current one. Don't leave the old milestone.
 
 * You can start writing your review request as soon as you start coding on a
@@ -256,7 +256,9 @@ Reviewer's check list - Any Role
 
 * Is there a release notes entry for changes?
 
-* Is there documentation for changes? Does the documentation make sense?
+* Is there documentation for changes? 
+
+* Does the documentation make sense?
 
 * Are the new events documented?
 
