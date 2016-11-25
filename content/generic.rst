@@ -17,7 +17,7 @@ something is wrong.
 
 * Rule #1: Keep it DRY! Don't repeat yourself!
 
-* Rule #2: KISS - Keep it simple, stupid simple!
+* Rule #2: KISS - Keep it simple, stupid!
 
 * Rule #3: If it ain't broke, don't fix it!
 
@@ -29,14 +29,14 @@ something is wrong.
   Once a code was approved for review, reviewers are also responsible for
   that code.
 
-* Write all code as it will be written once and read thousand times.
+* Write all code as if it will be written once and read a thousand times.
   Write code for maximum readability.
 
 * When you need a trade-off between readability and code duplication, choose
   to have a code less readable but without duplication.
 
-* Write code as it will be used by humans, not a machine. You are not
-  a compiler / interpretor.
+* Write code as it will be used by humans, not by a machine. You are not
+  a compiler / interpreter.
 
 * Optimization should come second and only if really needed. Don't use clever
   tricks and other optimization to early.
@@ -44,21 +44,21 @@ something is wrong.
 * Do the simplest thing that could possibly work and do it well.
   Always work on the story you have, not something you think we're going to
   need some time in the future.
-  Don't try implement all usecases you can think of and end with poorly
+  Don't try implement all use cases you can think of and end with poorly
   designed code and poorly tested code.
 
-* Try to keep methods as flat as possible and return as soon as possible.
+* Try to keep methods as flat as possible and return as early as possible.
 
 * Don't use abbreviation. Use full, meaningful names.
 
 * Don't use tabs for indentation, and in general don't use tabs for anything
-  else. The only exceptions are the Makefiles.
+  else. The only exceptions are Makefiles.
 
-* Favor indentation using 4 spaces. For deep nested languages (HTML, JS) it
+* Favour indentation using 4 spaces. For deep nested languages (HTML, JS) it
   is OK to use 2 spaces.
 
 * Maximum line length for code is 80 characters, but for Python we use 79 to be in
-  sync with PEP8.
+  sync with PEP8 Style Guide for Python Code.
 
 * For narrative documentation use `semantic newlines
   <http://rhodesmill.org/brandon/2012/one-sentence-per-line/>`_.
@@ -71,14 +71,14 @@ something is wrong.
     Instead of inserting a newline at 70 columns (or whatever),
     or making paragraphs one long line,
     I put in newlines at a point that seems logical to me.
-    Modern code-oriented text editor are very good at wrapping and arranging long lines.
+    Modern code-oriented text editors are very good at wrapping and arranging long lines.
 
 * Don't mix multiple languages in a single file.
 
 * No need for the ultimate purism, when using / calling code from external
   libraries it is OK if those calls don't comply with coding convention.
 
-* When extending external libraries use the coding convention used by that
+* When extending external libraries, use the coding convention used by that
   library. It might be harder to define the border of those changes but this
   should help with sending patches upstream.
 
@@ -127,7 +127,7 @@ something is wrong.
   fancy keyboard (or foot pedals), array of huge monitors...
 
 * When you have a non-trivial conditional expression (logical condition from
-  an if statement), break it in smaller sub-conditionals.
+  an if statement), break it into smaller sub-conditionals.
 
 .. sourcecode:: python
 
@@ -144,14 +144,14 @@ something is wrong.
         (destination.state != PAUSED)
         )
 
-    if source_available && destination_available:
+    if source_not_full && destination_available:
       do_something()
 
     # Or even better.
     class Source(object):
       MAX_SIZE = 10
       @property
-      def full(self):
+      def not_full(self):
         return self.size < self.MAX_SIZE
 
     class Destination(object):
@@ -167,7 +167,7 @@ something is wrong.
           (destination.state != self.PAUSED)
           )
 
-    if not source.full and destination.ready:
+    if source.not_full and destination.ready:
       do_something()
 
 
@@ -176,17 +176,17 @@ Comments
 
 * All comments should be valid sentences and should end with a full stop (.).
 
-* Try to write code so that it speaks for itself and so that a comment is not
+* Try to write code so that it speaks for itself, and so that a comment is not
   required.
 
-* Try to name variables, methods, function so that they communicate their
-  intend. A comment is only attached to the place where the name is defined,
+* Try to name variables, methods, functions so that they communicate their
+  intent. A comment is only written in the place where the name is defined,
   and not present in all other multiple places where it is used. IDE can help,
   but we should not rely on that.
 
-  When a comment is required, it is like saying: "I have no idea for a better name
-  for this thing, so here is my poor comment. Good luck with figuring the
-  intent of this name when you see it in the rest of this file."
+* When writing a comment is like saying: "I have no idea for a better name
+  for this thing, so here is my poor comment”, good luck with figuring out the
+  intent of this name when you see it in the rest of the file."
 
 * Place comments on a new line above their subject and in the same block as the referred code.
 
@@ -210,11 +210,11 @@ Documentation
 
 * Well documented code is extremely important.
   Take time to describe components, how they work, their limitations, and the way they are constructed.
-  Don't leave others in the team guessing as to the purpose of uncommon or non-obvious code.
+  Don't leave others in the team guessing what is the purpose of uncommon or non-obvious code.
 
 * Document code as part of docstrings and not as comments.
 
-* Document packages, modules, classes, functions.
+* Document packages, modules, classes and functions.
 
 * For narrative documentation (non docstrings) use `semantic linefeeds <http://rhodesmill.org/brandon/2012/one-sentence-per-line/>`_.
 
@@ -238,35 +238,35 @@ In Chevah project we use 2 major "kinds" of exceptions:
 * `Errors` are top level exceptions that are not going to be handled
   internally by the package / library.
 
-* `Exceptions` normal exceptions, passed inside the package/library to signal
+* `Exceptions` are normal exceptions, passed inside the package/library to signal
   various conditions. The public API for the package/library should not raise
   this kind of exceptions.
 
-Exceptions can take any format, and most of the time they can contain only
-a text with some details about the error. These exceptions are low level
+Exceptions can take any format, and most of the time they can contain only a 
+piece of text with some details about the error. These exceptions are low level
 and should be raised in simple conditions.
 
-Errors should have an unique ID and a data attribute.
+Errors should have a unique ID and a data attribute.
 Each ID should be raised from a single place.
-The data attribute is a dictionary with key / values that make sense for the
+The data attribute is a dictionary with key / value pairs that makes sense of the
 error.
 
 Don't use the `assert` statement in code but rather raise an explicit error.
 `assert` statement optimization is useless as it was scientifically proven
 that some bugs only show up when a customer uses the machine and we want
-those exceptions to be raised in production and not be accidentally
+those exceptions to be raised in production, not to be accidentally
 disabled.
 
 Don't raise `AssertionError` outside of the test code.
 Use `RuntimeError` or a more specific exception.
 
-The `AssertionError` should never be handled; be in production nor in
+The `AssertionError` should never be handled; neither in production nor in
 testing code.
 Using `self.assertRaises(AssertionError)` is a form of handling an
 exception.
 
 Don't raise `RuntimeError` outside of the production code.
-Use `AssertionError` when implementing doubles, stub or mock implementation
+Use `AssertionError` when implementing doubles, stub or mock implementations
 to support the testing.
 
 All raised assertions should have a descriptive message.
@@ -283,7 +283,7 @@ the production / master branch.
 
 We don't use feature branches because:
 
-* They need to be permanently kept in sync with main branch. This will solve
+* They need to be permanently kept in sync with the main branch. This will solve
   conflicts with the main branch, but there might still be hidden conflicts
   with **other feature** branches.
 * You will need to keep in sync with other feature branches to make sure
@@ -293,61 +293,60 @@ We don't use feature branches because:
 * They create multiple versions of a product which requires more release work.
   You will want to release an alpha/beta version of the feature as soon as
   possible to get feedback from end users.
-* Along the focus feature, they might fix or refactor some code code which is
-  of great help for the main branch.
+* During the development of focus features, there might be fixes or refactors of 
+  some code which would be of great help for the main branch.
 * Once merged, a feature branch will introduce a big change in a short time.
 
 Instead of feature branches we develop experimental features directly in the
 main branch. Experimental features are triggered using dedicated
 (configuration) flags.
 
-In this way, a feature is gradually added to master, and during development
-by spending more time in master it should have a greater exposure to testing
-and checking that it integrates with other features.
+In this way, a feature is gradually added to the master branch, and during development
+by spending more time in master it should have a greater impact on testing.
+It would also help on checking that it integrates with other features.
 
 
 Project specific
 ================
 
-* Each log message should be documented, listing format, introduction version,
-  version since it was obsolete, log type, conditions in which it is raised
-  and other informations that can be useful for users.
+* Each log message should be documented listing format, introduction version,
+  version since it was obsolete, log type, conditions in which it is raised;
+  and other information which could be useful for users.
 
-* A logging messages should only be called from a single place in the code.
+* A logging message should only be called from a single place in the code.
   This will greatly help with support and debugging.
 
 * A logging message should have a unique ID. This will help the support team
-  by pointing a specific event. It will also help when localized logs are
-  used.
+  by pointing a specific event. It will also help when using localized logs.
 
 * If a logging message should be issued from multiple places, move the
   logging call into a dedicated helper method. This will help with
-  automatic detection of accidentally using same message ID for different
+  automatically detecting accidental usage of the same message ID for different
   logs.
 
 * Components should not issue logging messages that are outside of
-  theirs scope, but rather use exceptions to pass the log informations.
+  theirs scope, but rather use exceptions to pass the log information.
 
 * If there are no other options, rather than directly issuing a logging
-  message, the component should call a function located in the component
-  that 'owns' the log ID that will issue the log.
+  message, the component should call a function located inside the component
+  that 'owns' the log ID that would issue the log.
 
 * All branches will need to use the following convention:
   ``TICKETNO-SHORT_DESCRIPTION``. By having a reference to a ticket, it will
-  be much easier to track and keep a record of branch purpose and its
+  be much easier to track and keep a record of the branch purpose and its
   development.
 
 Example::
 
     447-add_sqlite_log
 
-* Each user configuration options should be documented,
+* Each user configuration options should be documented
   listing valid values, place where the configuration is located,
-  introduction version, version since it was obsolete,
+  introduction version and version since it was obsolete,
   together with a description of the purpose and effect.
 
-* Configuration options will be documented using the following format. Please
-  note the order in which fields are defined, the name of the files and the
+* Configuration options must be documented using the following format. Please
+  note the order in which fields are defined, the name of the files, and the
   format for declaring possible values. All fields should be present, and
   if no value is defined, use 'None' or leave it blank.
 
@@ -367,7 +366,7 @@ Example::
       This is the long description of the configuration option. It can
       span multiple lines.
 
-      It can also span multiple paragraph.
+      It can also span multiple paragraphs.
 
-      This should be the place to describe in details available values
+      This should be the place to describe in detail each available value
       that can be set.

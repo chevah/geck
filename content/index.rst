@@ -6,10 +6,10 @@ Overview
 :save_as: index.html
 
 These pages describe the guides used in Chevah project.
-They include programming style guides but also notes about the working on the project as a whole.
+They include programming style guides but also notes about working on the project as a whole.
 
-The content might be pedantic, but we hope that by following these guide
-you will find easier to collaborate and improve the quality of
+The content might be nitpicking, but we hope that by following these guide
+you will find easier to collaborate and improve the quality of your
 code and work.
 
 Here are the overall rules of the project:
