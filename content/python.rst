@@ -16,16 +16,16 @@ General
 
     import this
 
-* For python we have pocket-lint that checks for PEP8 and some other things.
+* For python, we have pocket-lint that checks for PEP8 and some other things.
 
 * `Python PEP 8 <http://www.python.org/dev/peps/pep-0008/>`_
-  **Python base code style guide**.
+  Style guide for Python code.
 
 * Favour single inheritance.
 
-* As the second best, use Mixins to reuse code and avoid multiple inheritance.
+* As the second best option, use Mixins to reuse code and avoid multiple inheritance.
 
-* Docstring always use multiline strings with double quotes and empty first
+* Docstring always uses multiline strings with double quotes and empty first
   and last lines. There's no blank line either before or after the docstring.
 
 .. sourcecode:: python
@@ -47,11 +47,11 @@ General
 
         def method_starts_here(self):
           """
-          Something here.
+          Some description.
           """
 
 * Class members or instance members can be documented inline using the
-  following syntax.
+  following syntax:
 
 .. sourcecode:: python
 
@@ -64,7 +64,7 @@ General
         #: Can be on multiple lines.
         class_member = True
 
-* All test functions, test methods, test suites will have docstrings.
+* All test functions, test methods and test suites will have docstrings.
 
 * Tests methods will be prefixed with ``test_``.
 
@@ -84,12 +84,12 @@ General
   why the exception was added.
 
 * Use named parameters for calling methods. This will reduce future
-  refactoring effort.
+  refactoring efforts.
 
 * If a method or class initialization / constructor method has more than 1
-  argument always use named parameters for calling that method.
+  argument, always use named parameters for calling that method.
 
-* Try to use single quotes for string. This will make it easier to generate
+* Try to use single quotes for strings. This will make it easier to generate
   quoted text for UI or HTML.
 
 YES
@@ -106,16 +106,16 @@ NO
     other_bad = "string"
     some_bad = "string 'b' yes"
 
-* As PEP8 recommend, Don't use '\' to split long lines. Wrap long lines is by
+* As PEP8 recommends, don't use '\' to split long lines. Wrap long lines by
   using Python's implied line continuation inside parentheses, brackets and
   braces. More details here:
   http://www.python.org/dev/peps/pep-0008/#maximum-line-length
 
-* Multi line split using parentheses, brackets (etc) will follow the normal
-  indentation. The code might look ugly and then exceptions are allowed.
+* Multi-line splits using parentheses, brackets, etc, will follow the normal
+  indentation rules. The code might look ugly and then exceptions are allowed.
 
 * Define all class members at the beginning of class definition.
-  Don't interleave methods and class members definition. This should make it
+  Don't interleave methods and class members definitions. This should make it
   easy to identify all class members used by the class.
 
 * Define all instance members inside the __init__() method. This should make
@@ -151,7 +151,7 @@ Abstract classes are classes that contain one or more abstract methods.
 
 An abstract method is a method that is declared,
 but contains no implementation.
-Calling an abstract method it will raise `NotImplementedError`.
+Calling an abstract method will raise `NotImplementedError`.
 
 Abstract classes may not be instantiated.
 They require subclasses to provide implementations for the abstract methods.
@@ -161,18 +161,18 @@ partial implementations.
 
 Abstract methods can be public or private.
 
-When raising the NotImplementedError make sure you add some text to uniquely
+When raising the `NotImplementedError`, make sure you add some text to uniquely
 identify this abstract methods.
-During development we might report errors without a traceback and having a
-custom message associated with the error make it easier to identify what is
+During development, we might report errors without a traceback, and having a
+custom message associated with the error makes it easier to identify what is
 wrong.
 
 When defining an abstract class, suffix it with `Abstract` name.
-This should let other know that this class should not be directly instantiated.
+This should let others know that this class should not be directly instantiated.
 
 All abstract methods should be defined at the beginning of the class, even
 before the `__init__` method or class variables.
-They should be documented with docstring describing their usage and how they
+They should be documented with docstring, describing their usage and how they
 should be implemented.
 
 
@@ -206,7 +206,7 @@ should be implemented.
 
         def __init__(self, parent, configuration):
             """
-            Abstract classed can implement the init method.
+            Abstract classes can implement the init method.
             """
             super(LocationAbstract, self).__init__(parent, configuration)
             # Low level FTP transport protocol.
@@ -230,14 +230,14 @@ with multiple inheritance.
 Mixin is a limited usage of multiple inheritance, but they should **not be
 mixed with overriding**.
 
-We use mixing to reuse code and they provide great help for writing tests.
+We use mixins to reuse code, and they provide great help for writing tests.
 
 Methods from a mixin should not be overwritten by classes using the mixin.
 
 Mixins should not overwrite methods or call **super()**.
 
-When defining a class using mixins, put first the parent class and then
-mixin classes in alphabetical order.
+When defining a class using mixins, put the parent class first, and then
+add the mixin classes in alphabetical order.
 
 .. sourcecode:: python
 
@@ -282,7 +282,7 @@ by the mixin.
 Project specific
 ================
 
-* When default arguments have mutable values they are defined as `None` and
+* When default arguments have mutable values, they are defined as `None` and
   then assigned the default value.
 
   Otherwise this can hit us very hard. `More details here
@@ -304,7 +304,7 @@ Project specific
 Multi line indentation
 ----------------------
 
-* For now, just some examples:
+* For now, just see some examples:
 
 .. sourcecode:: python
 
@@ -324,15 +324,15 @@ Same indentation applies for brackets:
         alabala,
         ]
 
-* 2 line code exception. If the parentheses expression fits on one line:
+* Two-line coding exception: If the parentheses expression does not fit on one line:
 
 .. sourcecode:: python
 
     self.logger.log(
         factory.number(), factory.getUniqueString())
 
-* Conditional exception. When indenting parentheses for conditional
-  expressions add one extra indent to separate the condition expression
+* Conditional exceptions. When indenting parentheses for conditional
+  expressions add one extra indent to separate the conditional expression
   from the conditional block.
 
 .. sourcecode:: python
@@ -378,26 +378,26 @@ Same indentation applies for brackets:
 Imports
 -------
 
-* Imports should be called at the start of each module, the only exception is
-  allowed for avoiding circular imports.
+* Imports should be called at the start of each module, the only exception
+  allowed is when used for avoiding circular imports.
 
-* There is one empty line between the import block and module comment.
+* There is one empty line between the import block and the module comment.
 
-* The imports blocks are separated by one empty line.
+* The import blocks are separated by one empty line.
 
 * They will be arranged in 3 major blocks:
 
-  * The first one is for importing from Python standard modules.
-  * The second from modules outside of the project (3rd party).
-  * The last for modules belonging to the project.
+  * 1 - Importing from Python standard modules.
+  * 2 - Importing from modules outside of the project (3rd party).
+  * 3 - Importing from modules belonging to the project.
 
-* In each block the modules are sorted in alphabetical order,
+* In each block, the modules are sorted in alphabetical order,
   case-insensitive.
 
-* When importing multiple members of a module, if they don't exceed the 78
+* When importing multiple members of a module, if they don't exceed the 79
   characters limit, they will be listed on the same line
 
-* When importing multiple members of a module, and they exceed the 78
+* When importing multiple members of a module, and they exceed the 79
   characters limit, they will be listed as a list, with each member on a
   line ending with comma.
 

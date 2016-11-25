@@ -68,7 +68,7 @@ General
   * It's harder to cherry pick code for backporting / supporting old releases.
 
 
-For person requesting a review
+For the person requesting a review
 ==============================
 
 * Once a task/ticket is done, it should be submitted for review.

@@ -17,28 +17,28 @@ In the same time, we aim to have the perfect development process, with the
 perfect QA process and the perfect release process.
 
 While this is a noble goal, achieving it might not be economically feasible.
-That is creating a zero bugs product will result a product which costs more
-than the customers are willing to pay for.
+This is because creating a zero bugs product will result in a product which costs more
+than what customers are willing to pay for.
 
 
 Defects and Release Blockers
 ============================
 
-Defects are defined as behavior of our product which does not follow our
+Defects are defined as unintended behavior of our product which does not follow our
 specification or the way we want it to work.
 
-Mis-behaviors in our build system, testing system or infrastructure are also
+Misbehaviors in our build system, testing system or infrastructure are also
 defects.
 
-We split the defect into 3 categories:
+Defect can fall into 3 categories:
 
-* `bugs with priority high or critical` - are defects which affect
-  (or we think that it might affect) the workflow of at least one customer
-* `bugs with priority low` -
-  are defects for which we are not aware of any affected customer
-  but which we would like the product to not behave in this way.
+* `bugs with high or critical priority` - are defects which affect
+  (or we think that might affect) the workflow of at least one customer
+* `bugs with low priority` -
+  are defects which do not seem to be affecting our customers, 
+	but which make the product behave in an unintended way.
   They are acknowledged in the **Known Issues** section of our documentation.
-* `tasks with priority high or critical` - are defects affecting our build
+* `tasks with high or critical priority` - are defects affecting our build
   system or testing infrastructure, but are not defects in the actual
   product.
 
@@ -49,20 +49,21 @@ In this case, we create a ticket with type `bug` and add it in the backlog.
 All defects which affect the work-flow of at least one customer are
 considered top priority and will **block the release**.
 
-All defects which are present in a release **should** be acknowledge in the
+All defects which are present in a release **should** be acknowledged in the
 documentation.
 
 If we gather a considerable number of minor bugs / defect we will schedule
-a release dedicated / focused on reducing their numbers.
+a release dedicated / focused on reducing that number.
 
-We should focus on fixing all bugs as soon as possible. Even if a defect does
-not currently affect a customer, the chances are high that a customer
+We should focus on fixing all bugs as soon as possible. is not currently
+affecting customers, there is high probability that a customer
 will be affected by it in the near future.
 
-Also small/minor bugs might release big flaws in the structure of our
+Also small/minor bugs might trigger big flaws in the structure of our
 code. We should focus on fixing them as soon as possible so that we can work
-on them at a normal pace and not wait to fix them in a hurry under the
-pressure of a release blocker or customer complaining about bad behaviour.
+on them at a normal pace and not take the chance of having to fix them in a hurry
+under the pressure of a release blocker, or when having a customer complaining 
+about bad behaviour.
 
 
 Technical Debt
@@ -82,7 +83,7 @@ As expressed by Martin Fowler::
     The other results in a cleaner design, but will take longer to put in
     place.
 
-If you go for *the former* method you will generate a *tech-debt*.
+If you go for *the former* method you will generate *tech-debt*.
 
 Further comments by Uncle Bob::
 
@@ -122,56 +123,56 @@ article by Ron Jeffries.
 
 Sometimes your experience tells you that a section of code is not right and
 that it can be implemented as re-usable section.
-When you only had one use case for that code is very hard to create a
-generalized / re-usable version and something trying to do that is wrong as
+When you only have one use case for that code, it becomes very hard to create a
+generalized / re-usable version, and sometimes trying to do that is wrong as
 you most probably ain't gonna need that.
 Then it comes the second use cases which provides a hint that the section
-should be re-factored for reusal.
+should be re-factored for reuse.
 If you know how to refactor it then just go ahead.
 If you have doubts about how to refactor it, try to do your best and mark
 the section as tech-debt.
-As more use cases are gathered you should have a better understanding of
+As more use cases are gathered, you should have a better understanding of
 the requirements and refactor it in a better way.
 The tech-debt marker will inform the person which tries to re-use that code
-for a 3rd or 4th use case not to try to hard to create it's code to work
+for a 3rd or 4th use case not to try too hard to create his code to work
 with the existing re-usable component, but to consider refactoring the
 re-usable component itself so that it provide a clean re-usable API.
 
-We are not blocking a release due to a tech-debt.
+We are not blocking a release due to tech-debt.
 
 
 Shared code and refactoring for code reusal
 ===========================================
 
-While working on a task you might identify a piece of code which you think that
-it might be reused at a later time with a future feature.
+While working on a task you might identify a piece of code which you think 
+might be reused at a later time with a future feature.
 
 Based on the principle of not coding for things that you don't need yet,
-don't try to implement interfaces, decorators just yet.
+don't try to implement interfaces or decorators just yet.
 
-Implement your current task using the most simple thing that you can get.
+Implement your current task using the simplest method you can think of.
 
 If you have an idea about how the code might be refactored for reusal, just
 create a ticket (an maybe a FIXME marker) and describe the design.
 
 You will need at least 2 other places from which a code is reused to assert
 the quality of an interface / shared code.
-Is better to wait for more real use cases before designing a shared code.
+It is better to wait for more real use cases before designing a shared code.
 
 
 FIXME Markers
 =============
 
 We use the `FIXME:1234:` marker to signal and acknowledge a section of code
-which was created as a tech-debt.
+which was created as tech-debt.
 We will leave the tech-debt unpaid and will try to pay it next time we hit
 an issue with that section of code.
 
-Only **FIXME** marker is used followed by ticket ID. No TODO, XXX or other
+Only use **FIXME** markers followed by ticket ID. Don't use TODO, *** or other
 markers.
 
 Technical debt comments will always have an attached ticket ID and will use
-the following format. Comments will come on a new lines.
+the following format. Comments will come on new lines.
 Adapt this to the style of comments used in the specific language::
 
     # FIXME:1234:
@@ -184,7 +185,7 @@ Adapt this to the style of comments used in the specific language::
 
 The comment should be descriptive enough so that when you are
 reading the code while working on your task it will help you decide whether
-to go look for the details of the ticket or just ignore it, as is not related
+to go look for the details of the ticket or just ignore it, as it is not related
 to what you are doing now.
 
 
