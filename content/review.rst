@@ -54,7 +54,7 @@ General
   This will help a lot with the review. Land your changes with the ugly
   names and then do a follow-up branch for the renaming.
 
-* Feel free to submit as many merge request as you can. The size of 
+* Feel free to submit as many merge request as you can. The size of
   merge requests can be an issue, but not their number :).
 
 * Some reasons for keeping the merge requests small:
@@ -166,7 +166,7 @@ following message as described in `pull request template
 
 
 Merge your branch
-------------------
+-----------------
 
 After the merge request and review was approved you need to merge your branch
 into master.
@@ -203,7 +203,7 @@ A merge commit should have a commit message, in the format::
 
 
 For the person reviewing the changes
-============================
+====================================
 
 * Aim for a code inspection rate of fewer than 300 – 500 LOC per hour. This
   does not apply to QA team members for which, reviewing changes is the main
@@ -251,12 +251,12 @@ For the person reviewing the changes
 
 
 Reviewer's check list - Any Role
----------------------------------
+--------------------------------
 
 
 * Is there a release notes entry for changes?
 
-* Is there documentation for changes? 
+* Is there documentation for changes?
 
 * Does the documentation make sense?
 
