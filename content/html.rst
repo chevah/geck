@@ -12,7 +12,7 @@ General
 
 * Unlike other files, indentation for XML/HTML is 2 spaces. 
 
-* Don't use inline HTML style attribute. Only CSS class.
+* Don't use inline HTML style attributes. Only CSS classes.
 
 * Use HTML5 doctype::
 
@@ -48,18 +48,24 @@ HTML tags usage
 
 * Use double quotes for tag/element attributes.
 
-* Even though quotes around attributes is optional, always put quotes around
+* Even though using quotes around attributes is optional, always put quotes around
   attributes for readability::
 
-    GOOD: <p class="line note" data-attribute="106">
+GOOD: 
+```html
+    <p class="line note" data-attribute="106">
             This is my paragraph of special text.</p>
-    BAD : <p class="line note" data-attribute=106>
+```
+BAD:
+```html
+    <p class="line note" data-attribute=106>
             This is my paragraph of special text.</p>
+```
 
 * Make use of <thead>, <tfoot>, <tbody>, and <th> tags (and Scope attribute)
   when appropriate. (note: <tfoot> goes above <tbody> for speed reasons.
   You want the browser to load the footer before a table full of data.)::
-
+```html
     <table summary="This is a chart of invoices for 2011.">
       <thead>
         <tr>
@@ -80,3 +86,4 @@ HTML tags usage
         </tr>
       </tbody>
     </table>
+```

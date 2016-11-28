@@ -10,13 +10,13 @@ General
 
 * Variable declarations must start with 'var'.
 
-* Do your best to never use a semicolon.
+* Try your best to never to use a semicolon.
   This means avoiding them at line breaks and avoiding multi-statement lines.
-  Semi-colon at the end of the line is added only when required.
+  A semi-colon at the end of the line is only added when required.
 
 * Use 4 space indentation.
 
-* Variable, function, method and constants name are after PEP8.
+* Use variables, functions, methods and constants names following PEP8.
   variable_name, function_name, methodName, ClassName, CONSTANT_NAME
 
 * Callback methods should always end with 'Callback' as the
@@ -40,14 +40,14 @@ General
 * Create new arrays using the array literals ``[]`` notation. Don't use
   ``new Array()``.
 
-* Iterate arrays using the classic ``for`` loop::
+* Iterate through arrays using the classic ``for`` loop::
 
     var list = [1, 2, 3, 4, 5, ...... 100000000];
     for (var i = 0, l = list.length; i == l; i++) {
         console.log(list[i]);
     }
 
-* Always define the variable used to iterate in a ``for`` loop.
+* Always define the variable used to iterate into the ``for`` loop first statement. 
 
 * Don't use ``eval`` and don't pass strings to ``setTimeout`` and
   ``setInterval``.
@@ -57,8 +57,7 @@ General
 * Keep braces on the same line as their corresponding statements. Never omit
   them for single-line if / else statements.
 
-.. sourcecode:: javascript
-
+```javascript
     if (something) {
         // code here
     } else {
@@ -71,13 +70,12 @@ General
             foo: function() {}
         }
     }
-
+```
 * Leave 2 empty lines between global function or class definitions.
   Leave 1 empty line between functions from the same class.
-  Global variable can be grouped and the don't require empty lines in between.
+  Global variables can be grouped and the don't require empty lines in between them.
 
-.. sourcecode:: javascript
-
+```javascript
     var GLOBAL_DAY = 1
     var GLOBAL_YEAR = 3
 
@@ -123,24 +121,24 @@ General
         }
 
     }
-
+```
 
 * Avoid using leading parenthesis.
 
-* Avoid using ``delete`` operator and only use it to delete explicitly
+* Avoid using the ``delete`` operator and only use it to delete explicitly
   set properties on normal objects::
-
+```javascript
     var obj = {x: 1};
     obj.y = 2;
     delete obj.x;  // true
     delete obj.y;  // true
-
+```
 * Use single quote for strings.
 
 Example::
 
     In HTML, we use " as quotes around attribute values, like this:
-
+```html
     <a href="foo">bar</a>
     In JavaScript, we use ' as much as possible.
 
@@ -148,7 +146,7 @@ Example::
     This way, we can use consistent quotes when writing HTML inside of JS:
 
     alert('<a href="foo">bar</a>')
-
+```
 * REST web services should always return a valid dictionary
   and not an Array or a primitive. JSON-RPC is forced to return a dictionary
   by the protocol.
@@ -163,15 +161,13 @@ Example::
 
 * For one line comments, leave one empty space after the comment marker.
 
-.. sourcecode:: javascript
-
+```javascript
     // Good comment line.
     //Bad comment line.
-
+```
 * For multi line comments use the following convention.
 
-.. sourcecode:: javascript
-
+```javascript
     /*
     Short single line comment title.
     More details about what is here and
@@ -179,21 +175,20 @@ Example::
 
     Feel free to create paragraphs separation.
     */
-
+```
 * Global constants will follow the CONSTANT_NAME naming convention.
 
 * Global services (objects with methods) are named similar to class names.
   Most of the time they will be singletons so there will be no associated
   class.
 
-.. sourcecode:: javascript
-
+```javascript
     var Shell = new ActiveXObject("WScript.Shell");
 
     function do_something() {
         var bla = Shell.method_usage()
     }
-
+```
 
 TODO
 http://javascript.crockford.com/code.html http://jibbering.com/faq/notes/code-guidelines/ http://neil.rashbrook.org/Js.htm
@@ -205,8 +200,7 @@ You can use immediately invoked function expression IIFE to avoid
 injecting more variables into global scope.
 When using IIFE don't forget to add the semicolon at the beginning.
 
-.. sourcecode:: javascript
-
+```javascript
     // Path something from global scope.
     ;(function () {
       // tagsInput is kept only inside this scope.
@@ -215,7 +209,7 @@ When using IIFE don't forget to add the semicolon at the beginning.
           return function() {}
       })
     })()
-
+```
 
 Defining classes
 ================
@@ -226,8 +220,7 @@ using a function and new operator.
 When defining a class we use an anonymous function to allow class
 private instances and create a new class scope.
 
-.. sourcecode:: javascript
-
+```javascript
     var BaseAccount = (function() {
 
         var class_private_member = 2
@@ -296,7 +289,7 @@ private instances and create a new class scope.
 
         return cls
     }())
-
+```
 
 CSS interaction
 ===============
@@ -309,17 +302,17 @@ Try to append js- to all javascript-based selectors. This is taken from
 `slightly obtrusive javascript`_. The idea is that you should be able to tell
 a presentational class from a functional class.
 
-There are good things and bad things about "Unobtrustive JavaScript."
-One bad thing: it's hard to tell what JavaScript is touching an element.
+There are good things and bad things about "Unobtrusive JavaScript."
+One bad thing: it's hard to tell when JavaScript is touching an element.
 
-Only ever use classes and ids prefix with js- when touching the DOM with
+Only use classes and ids prefix with js- when touching the DOM with
 JavaScript.
 
 For example::
-
+```html
     <a href="#prices" class="button js-open-tab">Prices</a>
-
-Now we know to look for any JavaScript touching .js-open-tab, which should
+```
+Now we know how to look for any JavaScript touching .js-open-tab, which should
 only be a simple search away.
 
 And hey, now JavaScript and CSS won't share selectors. Since we're separating
@@ -334,14 +327,25 @@ Changing CSS/HTML from JS
 
 Don't modify the associated CSS properties, but rather modify the CSS class::
 
-   GOOD: $('#element_id').addClass('highlight');
-   BAD : $('#element_id').css('font-weight': 'bold');
-
+GOOD: 
+```javascript
+   $('#element_id').addClass('highlight');
+```
+BAD:
+```javascript
+   $('#element_id').css('font-weight': 'bold');
+```
 Same story as with CSS, don't modify HTML tag attributes,
 but rather try to change the CSS class::
 
-    GOOD: $('#element_id').addClass('sprite red_dot');
-    BAD : $('#element_id').attr('src': 'some/red_dot.png');
+GOOD:
+```javascript
+    $('#element_id').addClass('sprite red_dot');
+```
+BAD: 
+```javascript
+    $('#element_id').attr('src': 'some/red_dot.png');
+```
 
 
 Test styleguide
@@ -351,12 +355,10 @@ Test styleguide
 * Leave 2 emtpy lines before each ``suite`` and one empty line before each
   ``test``
 
-.. sourcecode:: javascript
-
+```javascript
     /*
     Tests for login controller.
     */
-
 
     suite('LoginCtrl', function() {
 
@@ -399,11 +401,11 @@ Test styleguide
             })
         })
     })
-
+```
 
 Rerefences
 ----------
 
-Here are the pages I used to create this page.
+Here are the pages I used to create this page:
 
 * http://toranbillups.com/blog/archive/2013/05/15/Basic-javascript-inheritance-and-polymorphism/

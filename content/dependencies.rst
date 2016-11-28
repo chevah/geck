@@ -6,7 +6,7 @@ Dependencies
 .. contents::
 
 
-PyPi Mirror/Custom Index
+PyPI Mirror/Custom Index
 ========================
 
 As our development tools are based on Python, we rely heavily on the Python
@@ -16,16 +16,16 @@ Most of the Python packages are published on the
 `pypi.python.com <https://pypi.python.org/pypi>`_ website.
 
 For the Chevah project we are not making direct use of the PyPi official index,
-but rather we use a separate PyPi index at
+but rather we use a separate PyPI index at
 `pypi.chevah.com <https://pypi.chevah.com>`_
 
 We are doing this for the following reasons:
 
-* reduce the load to the official PyPi index
-* have our development system working even when the official PyPI site is down
-* keep a copy of a package, even if the upstream developer has removed it from
+* Reducing the load to the official PyPi index
+* Having our development system working even when the official PyPI site is down
+* Keeping a copy of a package, even if the upstream developer has removed it from
   the official PyPI site
-* be able to publish our own private / experimental / junk packages without
+* Being able to publish our own private / experimental / junk packages without
   creating unnecessarily load on the official PyPI site
 
 pypi.chevah.com is handled using the
@@ -56,7 +56,7 @@ All packages used by a branch should be pinned to exact versions
 In this way we can reinstall the dependencies at any time and we will still
 get the same versions.
 
-Pinning is very important to keep the test suite under control and make sure
+Pinning is very important to keep the test suite under control and to make sure
 the test execution is deterministic.
 
 They can be pinned via the pavement.py or the requirements.txt file. It is not
@@ -88,7 +88,7 @@ Javascript
 ==========
 
 Since we are a Python shop, and node-js is not supported on all our targeted
-platform, we are pushing the envelope and using python/setuptools/pip to
+platforms, we are pushing the envelope and using python/setuptools/pip to
 manage the JS packages.
 
 All JS packages used for the projects should be *browser ready*. We don't run
@@ -116,15 +116,14 @@ is required.
 Each package contains the following code in the top level `__init__.py` file,
 in order to help detect the path where the JS files are located:
 
-.. sourcecode:: python
-
+```python
     MODULE_PATH = os.path.dirname(__file__)
-
+```
 Then, the code needing access to a JS package can use:
 
-.. sourcecode:: python
-
+```python
     from chevah.weblibs.some_js_package import MODULE_PATH
 
     # Make the JS files accessible inside the HTTP server.
     root_location.putChild('some_js_name', MODULE_PATH)
+```
