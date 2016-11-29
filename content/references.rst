@@ -5,7 +5,7 @@ References
 
 .. contents::
 
-These page contain a list of sources used for creating this content.
+These page contains a list of sources used for creating this content.
 
 General
 =======

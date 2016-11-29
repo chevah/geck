@@ -10,9 +10,9 @@ General
 -------
 
 * Shell scripts should be kept at a minimum and **only** for internal scripts.
-  For all other things there is Python.
+  For every other script we should use Python.
 
-* If any, public scripts should use ``/bin/sh``. Bash is not available on all
+* Public shell scripts should use ``/bin/sh``. Bash is not available on all
   Unix systems and ksh or other shells are not compatible with Bash syntax.
 
 * Use ``printf`` instead of ``echo`` when using  ``/bin/sh`` as a shell,
@@ -36,7 +36,7 @@ General
 
 * Always double quote the ``$@`` variable to keep all arguments with spaces.
 
-* Pipelines should be split one per line if they don't all fit on one line.
+* Pipelines should be split one per line if they don't all fit in one line.
 
 * Use $(command) instead of backticks. Nested backticks require escaping the
   inner ones with \. The $(command) format doesn't change when nested and is
@@ -53,9 +53,7 @@ General
 * Always guard your Bash scripts from unexpected errors by using
 
 .. sourcecode:: bash
-
     set -o nounset
-
 
 Path constants
 --------------
@@ -69,7 +67,6 @@ SMB shares.
 Always double quote path constants to handle files with spaces:
 
 .. sourcecode:: bash
-
     SOME_PATH=/some/path/
     # and use it like this:
     command "${SOME_PATH}/some.file"
@@ -81,11 +78,9 @@ Always double quote path constants to handle files with spaces:
 Instead of:
 
 .. sourcecode:: bash
-
     SOME_PATH=/some/path/
     # and then:
     command "${SOME_PATH}some.file"
-
 
 Function Definition
 -------------------
@@ -106,7 +101,6 @@ as exit codes, we will pass values between functions by using ``echo``.
 
 
 .. sourcecode:: bash
-
     #
     # Description of function 1.
     #
@@ -136,12 +130,10 @@ as exit codes, we will pass values between functions by using ``echo``.
         do_something_else something
     }
 
-
 Case Syntax
 -----------
 
 .. sourcecode:: bash
-
     case "$VARIABLE_NAME" in
         "option1")
             do specific
@@ -154,12 +146,10 @@ Case Syntax
             ;;
     esac
 
-
 IF/THEN/ELSE
 ------------
 
 .. sourcecode:: bash
-
     if TEST; then
         call something
     elif [ "$string" = OTHER_TEST ]; then
@@ -168,26 +158,21 @@ IF/THEN/ELSE
         call something_else_completely
     fi
 
-
 FOR
 ---
 
 .. sourcecode:: bash
-
     for CONDITION; do
         call something
     done
-
 
 WHILE/UNTIL
 -----------
 
 .. sourcecode:: bash
-
     while TEST; do
         call something
     done
-
 
 References
 ----------
