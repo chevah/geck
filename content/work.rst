@@ -194,7 +194,7 @@ It feels flattering to be essential to the project.
 But that usually also means that project won’t make rapid progress without you.
 
 This is not a good thing. Both for you and for the project.
-What happens if want to take a (spontaneous) vacation or if you get sick?
+What happens if you want to take a (spontaneous) vacation or if you get sick?
 Or if some work gets delayed and overlaps with your great vacation, scheduled many months before.
 
 If you are critical to the project, there’s no slack left for anything new or urgent.

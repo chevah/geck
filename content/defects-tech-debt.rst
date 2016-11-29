@@ -30,7 +30,7 @@ specification or the way we want it to work.
 Misbehaviors in our build system, testing system or infrastructure are also
 defects.
 
-Defect can fall into 3 categories:
+Defects can fall into 3 categories:
 
 * `bugs with high or critical priority` - are defects which affect
   (or we think that might affect) the workflow of at least one customer
