@@ -3,8 +3,9 @@ Library
 
 :menu_order: 101
 
-These page contain a list of talking about life, programming craftsmanship,
-good/clean code and many more. The list is in random order:
+These page contains list of pages talking about life, programming craftsmanship,
+good/clean code, and much more. 
+The list is in random order:
 
 * `Extreme Programming Explained: Embrace Change
   <http://www.amazon.com/Extreme-Programming-Explained-Embrace-Change/dp/0201616416>`_
