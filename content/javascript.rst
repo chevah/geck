@@ -57,7 +57,8 @@ General
 * Keep braces on the same line as their corresponding statements. Never omit
   them for single-line if / else statements.
 
-```javascript
+.. sourcecode:: javascript
+
     if (something) {
         // code here
     } else {
@@ -70,12 +71,13 @@ General
             foo: function() {}
         }
     }
-```
+
 * Leave 2 empty lines between global function or class definitions.
   Leave 1 empty line between functions from the same class.
   Global variables can be grouped and the don't require empty lines in between them.
 
-```javascript
+.. sourcecode:: javascript
+
     var GLOBAL_DAY = 1
     var GLOBAL_YEAR = 3
 
@@ -121,24 +123,28 @@ General
         }
 
     }
-```
+
 
 * Avoid using leading parenthesis.
 
 * Avoid using the ``delete`` operator and only use it to delete explicitly
-  set properties on normal objects::
-```javascript
+  set properties on normal objects:
+
+.. sourcecode:: javascript
+
     var obj = {x: 1};
     obj.y = 2;
     delete obj.x;  // true
     delete obj.y;  // true
-```
+
 * Use single quote for strings.
 
 Example::
 
     In HTML, we use " as quotes around attribute values, like this:
-```html
+
+.. sourcecode::
+
     <a href="foo">bar</a>
     In JavaScript, we use ' as much as possible.
 
@@ -146,7 +152,7 @@ Example::
     This way, we can use consistent quotes when writing HTML inside of JS:
 
     alert('<a href="foo">bar</a>')
-```
+
 * REST web services should always return a valid dictionary
   and not an Array or a primitive. JSON-RPC is forced to return a dictionary
   by the protocol.
@@ -161,13 +167,15 @@ Example::
 
 * For one line comments, leave one empty space after the comment marker.
 
-```javascript
+.. sourcecode:: javascript
+
     // Good comment line.
     //Bad comment line.
-```
+
 * For multi line comments use the following convention.
 
-```javascript
+.. sourcecode:: javascript
+
     /*
     Short single line comment title.
     More details about what is here and
@@ -175,20 +183,21 @@ Example::
 
     Feel free to create paragraphs separation.
     */
-```
+
 * Global constants will follow the CONSTANT_NAME naming convention.
 
 * Global services (objects with methods) are named similar to class names.
   Most of the time they will be singletons so there will be no associated
   class.
 
-```javascript
+.. sourcecode:: javascript
+
     var Shell = new ActiveXObject("WScript.Shell");
 
     function do_something() {
         var bla = Shell.method_usage()
     }
-```
+
 
 TODO
 http://javascript.crockford.com/code.html http://jibbering.com/faq/notes/code-guidelines/ http://neil.rashbrook.org/Js.htm
@@ -200,7 +209,8 @@ You can use immediately invoked function expression IIFE to avoid
 injecting more variables into global scope.
 When using IIFE don't forget to add the semicolon at the beginning.
 
-```javascript
+.. sourcecode:: javascript
+
     // Path something from global scope.
     ;(function () {
       // tagsInput is kept only inside this scope.
@@ -209,7 +219,6 @@ When using IIFE don't forget to add the semicolon at the beginning.
           return function() {}
       })
     })()
-```
 
 Defining classes
 ================
@@ -220,7 +229,8 @@ using a function and new operator.
 When defining a class we use an anonymous function to allow class
 private instances and create a new class scope.
 
-```javascript
+.. sourcecode:: javascript
+
     var BaseAccount = (function() {
 
         var class_private_member = 2
@@ -289,7 +299,6 @@ private instances and create a new class scope.
 
         return cls
     }())
-```
 
 CSS interaction
 ===============
@@ -309,9 +318,11 @@ Only use classes and ids prefix with js- when touching the DOM with
 JavaScript.
 
 For example::
-```html
+
+.. sourcecode:: 
+
     <a href="#prices" class="button js-open-tab">Prices</a>
-```
+
 Now we know how to look for any JavaScript touching .js-open-tab, which should
 only be a simple search away.
 
@@ -325,28 +336,34 @@ way too.
 Changing CSS/HTML from JS
 -------------------------
 
-Don't modify the associated CSS properties, but rather modify the CSS class::
+Don't modify the associated CSS properties, but rather modify the CSS class:
 
 GOOD: 
-```javascript
+
+.. sourcecode:: javascript
+
    $('#element_id').addClass('highlight');
-```
+
 BAD:
-```javascript
+
+.. sourcecode:: javascript
+
    $('#element_id').css('font-weight': 'bold');
-```
+
 Same story as with CSS, don't modify HTML tag attributes,
-but rather try to change the CSS class::
+but rather try to change the CSS class:
 
 GOOD:
-```javascript
-    $('#element_id').addClass('sprite red_dot');
-```
-BAD: 
-```javascript
-    $('#element_id').attr('src': 'some/red_dot.png');
-```
 
+.. sourcecode:: javascript
+
+    $('#element_id').addClass('sprite red_dot');
+
+BAD: 
+
+.. sourcecode:: javascript
+
+    $('#element_id').attr('src': 'some/red_dot.png');
 
 Test styleguide
 ===============
@@ -355,7 +372,8 @@ Test styleguide
 * Leave 2 emtpy lines before each ``suite`` and one empty line before each
   ``test``
 
-```javascript
+.. sourcecode:: javascript
+
     /*
     Tests for login controller.
     */
@@ -401,7 +419,6 @@ Test styleguide
             })
         })
     })
-```
 
 Rerefences
 ----------

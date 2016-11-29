@@ -17,7 +17,7 @@ General
 
 * Use ``printf`` instead of ``echo`` when using  ``/bin/sh`` as a shell,
   because ``echo`` behaviour is incompatible in Bash and Korn shells.
-  Eg. use ``printf "\n"`` instead of ``echo -n`` and ``printf "blabla\n"`` instead
+  Eg. use ``printf`` instead of ``echo -n`` and ``printf "blabla\n"`` instead
   of ``echo "blabla"``.
 
 * For internal scripts we should use ``/bin/bash``, as the default ``/bin/sh``
@@ -52,9 +52,8 @@ General
 
 * Always guard your Bash scripts from unexpected errors by using
 
-```bash
+.. sourcecode:: bash
     set -o nounset
-```
 
 Path constants
 --------------
@@ -67,7 +66,7 @@ SMB shares.
 
 Always double quote path constants to handle files with spaces:
 
-```bash
+.. sourcecode:: bash
     SOME_PATH=/some/path/
     # and use it like this:
     command "${SOME_PATH}/some.file"
@@ -75,14 +74,13 @@ Always double quote path constants to handle files with spaces:
     # Another example
     REMOTE_URI=chevah@chevah.com:/home/chevah/styleguide.chevah.com/vm/
     scp "$LOCAL_FILE" "${REMOTE_URL}/file"
-```
+
 Instead of:
 
-```bash
+.. sourcecode:: bash
     SOME_PATH=/some/path/
     # and then:
     command "${SOME_PATH}some.file"
-```
 
 Function Definition
 -------------------
@@ -102,7 +100,7 @@ Since Bash only support returning numeric values, which are interpreted
 as exit codes, we will pass values between functions by using ``echo``.
 
 
-```bash
+.. sourcecode:: bash
     #
     # Description of function 1.
     #
@@ -131,12 +129,11 @@ as exit codes, we will pass values between functions by using ``echo``.
 
         do_something_else something
     }
-```
 
 Case Syntax
 -----------
 
-```bash
+.. sourcecode:: bash
     case "$VARIABLE_NAME" in
         "option1")
             do specific
@@ -148,12 +145,11 @@ Case Syntax
             do default
             ;;
     esac
-```
 
 IF/THEN/ELSE
 ------------
 
-```bash
+.. sourcecode:: bash
     if TEST; then
         call something
     elif [ "$string" = OTHER_TEST ]; then
@@ -161,25 +157,22 @@ IF/THEN/ELSE
     else
         call something_else_completely
     fi
-```
 
 FOR
 ---
 
-```bash
+.. sourcecode:: bash
     for CONDITION; do
         call something
     done
-```
 
 WHILE/UNTIL
 -----------
 
-```bash
+.. sourcecode:: bash
     while TEST; do
         call something
     done
-```
 
 References
 ----------

@@ -83,46 +83,57 @@ Rules definition
 * The property will be followed by colons and then a space.
 
 Good:
-```css
+
+.. code::
+
     .some-class {
         float: center;
     }
-```
+
 
 Bad:
-```css
+
+.. code::
+
     .some-class {
         float:center;
     }
-```
+
 * Put each selector on a single line and separate them using commas.
   This makes it easier to see each selector when using multiple selectors.
 
 Good:
-```css
+
+.. code::
+
     .some-class,
     p a.class {
         float: center;
     }
-```
+
 Bad:
-```css
+
+.. code::
+
     .some-class, p a.class {
         float: center;
     }
-```
 
 * The closing brackets should be on their own line.
   They should not be wrongly indented.
 
 Good:
-```css
+
+.. code::
+
     .some-class {
       float: center;
     }
-```
+
 Bad:
-```css
+
+.. code::
+
     .some-class
     {
         float: center;
@@ -132,11 +143,13 @@ Bad:
         float: center; }
 
     .some-class, .another { float: center; }
-```
+
 * The opening bracket should be on a the same line as the last selector.
 
 Good:
-```css
+
+.. code::
+
     .some-class {
         float: center;
     }
@@ -145,14 +158,16 @@ Good:
     .another-class {
         float: center;
     }
-```
+
 Bad:
-```css
+
+.. code::
+
     .some-class
     {
         float: center;
     }
-```
+
 
 Layout and Typography separation
 ================================
@@ -162,7 +177,9 @@ Layout and Typography separation
 * Use this with moderation, sometimes it is ok to set a margin or padding for **h1** or **p** tags... but don't abuse this.
 
 GOOD:
-```css
+
+.. code::
+
     .product-name {
         font-style: underline:
         color: red;
@@ -173,9 +190,11 @@ GOOD:
         width: 30px;
         background-color: blue;
     }
-```
+
 BAD:
-```css
+
+.. code::
+
     .product-name {
         font-style: underline:
         color: red;
@@ -183,4 +202,3 @@ BAD:
         width: 30px;
         background-color: blue;
     }
-```
