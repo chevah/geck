@@ -69,7 +69,7 @@ General
 
 
 For the person requesting a review
-==============================
+==================================
 
 * Once a task/ticket is done, it should be submitted for review.
 
@@ -166,7 +166,7 @@ following message as described in `pull request template
 
 
 Merge your branch
-------------------
+-----------------
 
 After the merge request and review was approved you need to merge your branch
 into master.
@@ -201,9 +201,24 @@ A merge commit should have a commit message, in the format::
   commit to a ticket / branch / review / task and check the history/story of
   that commit.
 
+A note on Trac review requests
+==============================
+
+* When submitting a Trac ticket for review, please bear in mind that this is
+  the moment to add relevant documentation you updated, affected repos, etc.
+  
+* A review in one of your Trac tickets is not just to say "please look through
+  this issue to see that I worked so I can close it", but instead a "I have
+  done this, documented it here, and pushed this PR. Please take a look and
+  let me what you think". This is clearer on Github as there is always code
+  and changes already documented on the PRs themselves. 
+
+* So before submitting for review, check you have documented what you did in
+  the wiki, or pushed a PR, etc.
+
 
 For the person reviewing the changes
-============================
+====================================
 
 * Aim for a code inspection rate of fewer than 300 – 500 LOC per hour. This
   does not apply to QA team members for which, reviewing changes is the main
