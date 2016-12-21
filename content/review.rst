@@ -5,6 +5,9 @@ Review
 
 This page will discuss the code/changes review process as both the person
 who requests a review and a person who checks the review.
+Please note that the same review concepts/procedures apply to all platforms
+(Github, Trac, email, etc) and not only to code changes, but to any task
+you are working on.
 
 ..  contents::
 
@@ -92,6 +95,10 @@ For the person requesting a review
 
 * Check the **Reviewer's check list** since those are the things that a
   reviewer will check for sure.
+
+* Before submitting a ticket for review, check that you have documented your
+  work accordingly, like in a wiki page, or if you pushed a PR, list
+  the affected repositories, etc.
 
 * For Trac: A review request is created by adding the comment and then
   setting the state to 'needs_review'.
@@ -200,21 +207,6 @@ A merge commit should have a commit message, in the format::
   details about branch work and review. It can also be used to associate a
   commit to a ticket / branch / review / task and check the history/story of
   that commit.
-
-A note on Trac review requests
-==============================
-
-* When submitting a Trac ticket for review, please bear in mind that this is
-  the moment to add relevant documentation you updated, affected repos, etc.
-  
-* A review in one of your Trac tickets is not just to say "please look through
-  this issue to see that I worked so I can close it", but instead a "I have
-  done this, documented it here, and pushed this PR. Please take a look and
-  let me what you think". This is clearer on Github as there is always code
-  and changes already documented on the PRs themselves. 
-
-* So before submitting for review, check you have documented what you did in
-  the wiki, or pushed a PR, etc.
 
 
 For the person reviewing the changes
