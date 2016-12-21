@@ -5,6 +5,9 @@ Review
 
 This page will discuss the code/changes review process as both the person
 who requests a review and a person who checks the review.
+Please note that the same review concepts/procedures apply to all platforms
+(Github, Trac, email, etc) and not only to code changes, but to any task
+you are working on.
 
 ..  contents::
 
@@ -69,7 +72,7 @@ General
 
 
 For the person requesting a review
-==============================
+==================================
 
 * Once a task/ticket is done, it should be submitted for review.
 
@@ -92,6 +95,10 @@ For the person requesting a review
 
 * Check the **Reviewer's check list** since those are the things that a
   reviewer will check for sure.
+
+* Before submitting a ticket for review, check that you have documented your
+  work accordingly, like in a wiki page, or if you pushed a PR, list
+  the affected repositories, etc.
 
 * For Trac: A review request is created by adding the comment and then
   setting the state to 'needs_review'.
@@ -166,7 +173,7 @@ following message as described in `pull request template
 
 
 Merge your branch
-------------------
+-----------------
 
 After the merge request and review was approved you need to merge your branch
 into master.
@@ -203,7 +210,7 @@ A merge commit should have a commit message, in the format::
 
 
 For the person reviewing the changes
-============================
+====================================
 
 * Aim for a code inspection rate of fewer than 300 – 500 LOC per hour. This
   does not apply to QA team members for which, reviewing changes is the main
