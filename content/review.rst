@@ -5,9 +5,9 @@ Review
 
 This page will discuss the code/changes review process as both the person
 who requests a review and a person who checks the review.
-Please note that the same review concepts/procedures apply to all platforms
-(Github, Trac, email, etc) and not only to code changes, but to any task
-you are working on.
+The guidelines will apply to all platforms (Ticketing systems, Emails, etc)
+and to all tasks, not only to code.
+
 
 ..  contents::
 
@@ -57,7 +57,7 @@ General
   This will help a lot with the review. Land your changes with the ugly
   names and then do a follow-up branch for the renaming.
 
-* Feel free to submit as many merge request as you can. The size of 
+* Feel free to submit as many merge request as you can. The size of
   merge requests can be an issue, but not their number :).
 
 * Some reasons for keeping the merge requests small:
@@ -90,15 +90,16 @@ For the person requesting a review
   It is very important to have a good review request message as it will
   help reviewers understand what you have done.
 
-* Check that all changes are covered by automated tests and if they aren't, make sure
-  that the review description contains information regarding why.
+* Check that all changes are covered by automated tests and if they aren't,
+  make sure that the review description contains information regarding why.
 
 * Check the **Reviewer's check list** since those are the things that a
   reviewer will check for sure.
 
 * Before submitting a ticket for review, check that you have documented your
-  work accordingly, like in a wiki page, or if you pushed a PR, list
-  the affected repositories, etc.
+  work accordingly, for example in the affected repository documentation, or
+  the styleguide.
+
 
 * For Trac: A review request is created by adding the comment and then
   setting the state to 'needs_review'.
@@ -263,7 +264,7 @@ Reviewer's check list - Any Role
 
 * Is there a release notes entry for changes?
 
-* Is there documentation for changes? 
+* Is there documentation for changes?
 
 * Does the documentation make sense?
 
