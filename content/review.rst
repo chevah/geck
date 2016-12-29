@@ -5,8 +5,8 @@ Review
 
 This page will discuss the code/changes review process as both the person
 who requests a review and a person who checks the review.
-The guidelines will apply to all platforms (Ticketing systems, Emails, etc)
-and to all tasks, not only to code.
+The review instructions are platform independent so they apply to tickets,
+emails, pull requests, and to all tasks, not only to code reviews.
 
 
 ..  contents::
@@ -276,7 +276,7 @@ Reviewer's check list - Any Role
 Reviewer's check list - Developer
 ---------------------------------
 
-* Do the **new** changes comply with latest styleguide ?
+* Do the **new** changes comply with latest styleguide?
 
 * Does the code have automated tests for all the new code?
 
