@@ -317,6 +317,9 @@ applying changes to Trac tickets.
 Integration is mainly between GitHub Pull Requests and Trac tickets,
 following the workflow described in `review <{filename}/review.rst>`_.
 
+Please do not use or rely on the new GitHub PR review features as they have
+no API and are not integrated in Trac.
+
 The Pull Request title should start with **[#TRAC_TICKET_ID]** and
 each message on this Pull Request triggers a hook looking for special keywords.
 
