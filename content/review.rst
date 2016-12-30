@@ -57,8 +57,8 @@ General
   This will help a lot with the review. Land your changes with the ugly
   names and then do a follow-up branch for the renaming.
 
-* Feel free to submit as many merge request as you can. The size of
-  merge requests can be an issue, but not their number :).
+* Feel free to submit as many merge requests as you can. The size of
+  the merge requests can be an issue, but not their number :).
 
 * Some reasons for keeping the merge requests small:
 
@@ -97,8 +97,8 @@ For the person requesting a review
   reviewer will check for sure.
 
 * Before submitting a ticket for review, check that you have documented your
-  work accordingly, for example in the affected repository documentation, or
-  the styleguide.
+  work accordingly, for example in the affected repository documentation,
+  Trac's Wiki, or the Styleguide.
 
 
 * For Trac: A review request is created by adding the comment and then
@@ -262,15 +262,15 @@ Reviewer's check list - Any Role
 ---------------------------------
 
 
-* Is there a release notes entry for changes?
+* Is there a release notes entry for the changes?
 
-* Is there documentation for changes?
-
-* Does the documentation make sense?
+* Are the changes documented?
 
 * Are the new events documented?
 
 * Are the removed events documented?
+
+* Does the documentation make sense?
 
 
 Reviewer's check list - Developer
