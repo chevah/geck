@@ -16,7 +16,7 @@ Releasing a product usually consists of publishing the following:
 
 * Binary or source archives.
 * Documentation, which includes Release Notes, Known Issues and Upgrade Steps.
-* Public announcement. Notification email or website news/blog article.
+* Public announcement. Website news/blog article and newsletter.
 
 Each version sent to a customer should have a unique version number
 and must be mentioned in the release notes.
@@ -477,3 +477,18 @@ The **master** branch should be kept in good shape so that we can release it at
 any time.
 Especially if a security bugfix is found, we will make a new release as soon
 as the bug is fixed.
+
+After the website is updated and News item published we send a newsletter:
+
+1. Go to Campaigns in Mailchimp.
+
+2. Select 'Replicate' in the drop down besides 'NEW: SFTPPlus Release Announcement'.
+If it is a security bugfix, use the SFTPPlus Security Advisories email list.
+
+3. Select the News Announcements email list.
+
+4. Update the email subject and email with the News text used to announce the
+new release. You can use the copy that is in the News article for the email.
+
+5. Select Send. Before sending the final email, you can preview first by going
+to 'Preview and Send' on the top menu and select 'Send a test email'.
