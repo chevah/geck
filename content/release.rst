@@ -481,12 +481,12 @@ After the website is updated and News item published we send a newsletter:
 1. Go to Campaigns in Mailchimp.
 
 2. Select 'Replicate' in the drop down besides 'NEW: SFTPPlus Release Announcement'.
+If it is a security bugfix, use the SFTPPlus Security Advisories email list.
 
 3. Select the News Announcements email list.
 
 4. Update the email subject and email with the News text used to announce the
-new release.
+new release. You can use the copy that is in the News article for the email.
 
-5. Select Send.
-
-If it is a security bugfix, use the SFTPPlus Security Advisories email list.
+5. Select Send. Before sending the final email, you can preview first by going
+to 'Preview and Send' on the top menu and select 'Send a test email'.
