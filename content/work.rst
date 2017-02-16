@@ -1,7 +1,7 @@
 Work
 ####
 
-:menu_order: 101
+:menu_order: 008
 
 .. contents::
 

@@ -1,7 +1,7 @@
 JavaScript
 ##########
 
-:menu_order: 151
+:menu_order: 012
 
 .. contents::
 

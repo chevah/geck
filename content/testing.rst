@@ -1,7 +1,7 @@
 Testing
 #######
 
-:menu_order: 089
+:menu_order: 002
 
 .. contents::
 

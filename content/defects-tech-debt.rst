@@ -1,7 +1,7 @@
 Bugs and Tech-Debt
 ##################
 
-:menu_order: 100
+:menu_order: 004
 
 .. contents::
 

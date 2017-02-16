@@ -1,7 +1,7 @@
 Review
 ######
 
-:menu_order: 090
+:menu_order: 003
 
 This page will discuss the code/changes review process as both the person
 who requests a review and a person who checks the review.
