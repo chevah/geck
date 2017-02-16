@@ -295,12 +295,9 @@ We are now aiming to extending the support / product life cycle to 5 years.
 
 While working on a product, we have the following types of branches::
 
-* master - only one master branch - this is the latest stable development
-  version
-* release-branch - ephemeral branches on which the version number is updated
-  and release notes are finalized.
-* task-branch - multiple ephemeral branches.
-  (Each new feature or fix has a task-branch)
+* master - one master branch with the latest stable development version
+* release-branch - ephemeral branches where the version number is updated and release notes finalized.
+* task-branch - multiple ephemeral branches where a new feature or fix has a task-branch
 
 Each released version has a dedicated tag. When you need to create a
 bugfix release or a maintenance release for a previous version, you will

@@ -34,8 +34,7 @@ implementation.
 
 The server is configured to reject duplicate versions.
 
-Any developer can upload to pypi.chevah.com using the standard HTTP
-credentials.
+Any developer can upload to pypi.chevah.com using standard HTTP credentials.
 
 No package should be removed from pypi.chevah.com.
 
@@ -116,14 +115,16 @@ is required.
 Each package contains the following code in the top level `__init__.py` file,
 in order to help detect the path where the JS files are located:
 
-```python
+.. sourcecode:: python
+
     MODULE_PATH = os.path.dirname(__file__)
-```
+
+
 Then, the code needing access to a JS package can use:
 
-```python
+.. sourcecode:: python
+
     from chevah.weblibs.some_js_package import MODULE_PATH
 
     # Make the JS files accessible inside the HTTP server.
     root_location.putChild('some_js_name', MODULE_PATH)
-```

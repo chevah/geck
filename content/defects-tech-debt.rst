@@ -34,13 +34,12 @@ Defects can fall into 3 categories:
 
 * `bugs with high or critical priority` - are defects which affect
   (or we think that might affect) the workflow of at least one customer
-* `bugs with low priority` -
-  are defects which do not seem to be affecting our customers, 
-	but which make the product behave in an unintended way.
-  They are acknowledged in the **Known Issues** section of our documentation.
+* `bugs with low priority` - are defects which do not seem to be affecting our
+   customers, but which make the product behave in an unintended way.
+   They are acknowledged in the **Known Issues** section of our documentation.
 * `tasks with high or critical priority` - are defects affecting our build
-  system or testing infrastructure, but are not defects in the actual
-  product.
+   system or testing infrastructure, but are not defects in the actual
+   product.
 
 For some defects, fixing them is a lot of work and their impact is minor
 as maybe our customers will never use the product in a way to trigger the bug.
@@ -168,7 +167,7 @@ which was created as tech-debt.
 We will leave the tech-debt unpaid and will try to pay it next time we hit
 an issue with that section of code.
 
-Only use **FIXME** markers followed by ticket ID. Don't use TODO, *** or other
+Only use **FIXME** markers followed by ticket ID. Don't use TODO or other
 markers.
 
 Technical debt comments will always have an attached ticket ID and will use
