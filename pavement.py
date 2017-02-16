@@ -18,7 +18,7 @@ from paver.easy import needs, pushd, task, consume_args
 default
 help
 
-SETUP['pypi']['index_url'] = 'http://pypi.chevah.com:10042/simple'
+SETUP['pypi']['index_url'] = 'http://pypi.chevah.com/simple'
 
 hyde_path = pave.fs.join([pave.path.build, 'bin', 'hyde'])
 python_27 = pave.fs.join([pave.path.build, 'bin', 'python'])
