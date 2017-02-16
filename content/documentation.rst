@@ -1,7 +1,7 @@
 Documentation
 #############
 
-:menu_order: 101
+:menu_order: 100
 
 .. contents::
 
@@ -11,32 +11,39 @@ General
 
 **What is documented?**
 
-* Packages, modules, classes and functions using docstrings.
+**For the Chevah project members:**
+
+* Packages, modules, classes and functions using docstrings. 
+
+* Documentation changes are linked to a certain version of SFTPPlus.  When 
+  changes are made, these are anchored to a specific release version.
+
+**For the customers:**
+
+* These can be pre-sales, trial customers and existing customers.
+
+* There are two main types of documentation - technical documentation and the
+  User's Guides section.
 
 * User interfaces that need further explanation and / or guidance.
 
-* Guides aimed at general audiences that require more in-depth detail than
-marketing / promotion materials.
+* User's Guides that are aimed at general audiences.
+  These require more in-depth detail than marketing / promotion materials on
+  the main website. 
 
-* Questions and issues that have risen to Support and Sales that can instead be
-linked to in public.
+* Questions and issues to Support and Sales can instead be answered and
+  linked to using documentation.
 
 * Release notes that explains the changes tied to a specific version.
 
-* Further notes that will help administrators in securing their file transfer
-process while using SFTPPlus.
+* Further in-depth notes to help secure file transfer processes using SFTPPlus.
+
+For content that is more marketing / generalized, these will go in the main
+website content.
 
 
 Narrative documentation
 =======================
-
-There are two main types of documentation - technical documentation and the
-User's Guides section.
-
-Documentation changes are linked to a certain version of SFTPPlus. 
-
-When documentation changes are made, these are anchored to a specific release
-version.
 
 For narrative documentation use 
 `semantic newlines <http://rhodesmill.org/brandon/2012/one-sentence-per-line/>`_.
@@ -58,13 +65,14 @@ semicolons, rather than after the Nth column.
 Technical Documentation
 -----------------------
 
-The primary audience are the administrators actively using the software either
-as an existing customer or on the software trial.
+The primary audience are:
 
-The secondary audience are those involved in the decision-making and
-implementation of the software.  
+- Administrators actively using the software either as an existing customer or
+  on the software trial.
 
-Both types of audiences will have some form of technical background.
+- Decision-makers and implementation of the software.  
+
+Both types of audiences will have varying form of technical backgrounds. 
 
 The documentation is constantly being developed as updates to the product are
 made, or when an issue is found which needs further guidance.
@@ -76,17 +84,22 @@ User's Guides
 Pages in the User's Guides are used to describe how a task can be performed by
 applying various configuration options.
 
-It is also used for other frequent questions sent to Support / Sales. 
+This section is also used for other frequent questions sent to Support / Sales
+that are not otherwise covered in the main documentation.
 
-User guides are targeted to the more general audience - pre- and post-sales.
+User guides can also be written to the more general audience depending on the
+content.
 
-If the page has a very specific audience in mind, it is stated in the page's intro.
+If the page has a specific audience in mind, state the audience in the
+introduction of the page.
 
 
-Markup
-======
+Documentation Markup
+====================
 
-The documentation is delivered in the .rst format.  
+The documentation is delivered in the reStructuredText (.rst) format.  
+
+Further details are available in this `Docutils documentation page <http://docutils.sourceforge.net/rst.html>`_. 
 
 
 Adnotation classes
@@ -94,58 +107,100 @@ Adnotation classes
 
 The following adnotation classes are available:
 
-- seealso - green
-- tip - green
-- note - blue
-- danger - strong red
-- warning - red
-- attention - yellow
+- Seealso - green
+- Tip - green
+- Note - blue
+- Danger - strong red
+- Warning - red
+- Attention - yellow
 
-Example:
+Examples of existing adnotation classes used in the documentation:
 
 .. sourcecode:: rst
 
-.. attention::
-This option is in the `experimental` stage.
+  ..  tip::
+      On OS X you can use the `dscacheutil -q user` and `dscacheutil -q group`
+      tools to identify the used IDs and pick a unique ID for the system.
+
+.. sourcecode:: rst
+
+  .. note::
+      The `password` is ignored for accounts of `type = os`.
+
+.. sourcecode:: rst
+
+  ..  danger::
+      This default admin account is provided for testing and debugging purpose.
+      For production usage it is highly recommended to change the account
+      name and password or to disable the account.
+
+.. sourcecode:: rst
+
+  ..  warning::
+      Account credentials and account configuration are transferred using
+      unsecured HTTP connections. Use this method only over private networks.
+
+.. sourcecode:: rst
+
+    .. attention::
+    On Linux and Unix, this authentication method can only be used when the
+    SFTPPlus service is started as `root`.
 
 
 Header formats
 --------------
 
-- heading 1 -> #
-- heading 2 -> =
-- heading 3 -> -
-- heading 4 -> ^
+- Heading 1 - #
+- Heading 2 - =
+- Heading 3 - -
+- Heading 4 - ^
 
 
-Embedding Images
-----------------
+Embedding Screenshots and Images
+--------------------------------
 
-Ensure screenshots are legible, take up the screen width and any commands are
-correct.
-
-If screenshots are outdated, update them.
+Ensure screenshots are updated, legible, take up the screen width and any
+commands or settings are correct.
 
 .. sourcecode:: rst
 
-.. image:: /_static/guides/image.png
+    .. image:: /_static/guides/image.png
+        :alt: Description of the image
+        :align: center
 
 
-Internal linking
-----------------
+Internal and external linking
+-----------------------------
 
-Use  `` :doc:`link to Local Manager</operation/local-manager>` `` when linking
-to internal documentation pages.
+When linking to internal documentation pages, use the :doc: tag:
 
-Use `` :ref:`section in this page <internal-page-link>` `` when linking to
-internal sections within a documentation page.  The internal section should
-have the link name above it in the form of `` ._internal-page-link: ``
+.. sourcecode:: rst
+
+    :doc:`link to Local Manager</operation/local-manager>` `` 
+
+When linking to internal sections within a page, use the :ref: tag:
+
+.. sourcecode:: rst
+
+    :ref:`section in this page <internal-page-link>`
+
+For the :ref: link, create an anchor to the section:
+
+.. sourcecode:: rst
+
+    ._internal-page-link:
+
+When linking to external web links:
+
+.. sourcecode:: rst
+
+    `Bug Writing Guidelines <http://developer.mozilla.org/en/docs/Bug_writing_guidelines>`_
 
 
-Breaking up long logs
----------------------
+Breaking up long lines of logs
+------------------------------
 
-Add | to break up a long log line such as below:
+Add a pipe (|) to break up a long log line such as below:
 
 .. sourcecode:: rst
 
@@ -160,14 +215,14 @@ Example:
 
 .. sourcecode:: rst
 
-:Default value: 'DEFAULT-EXAMPLE'
-:Optional: No/Yes
-:From version: VERSION_HERE
-:Values: * The values section should only list the type of values supported
-         * Examples include Path, Disabled, Inherit, Path+${USER}
-:Description:
-    The description should further describe the configuration options for the
-    user and what is expected.
+    :Default value: 'DEFAULT-EXAMPLE'
+    :Optional: No/Yes
+    :From version: VERSION_HERE
+    :Values: * The values section should only list the type of values supported
+             * Examples include Path, Disabled, Inherit, Path+${USER}
+    :Description:
+        The description further describes the configuration options for the
+        user and what is expected.
 
 
 Adding configuration and log examples
@@ -176,9 +231,7 @@ Adding configuration and log examples
 Examples of configuration or logs in the documentation should be edited to be
 more of a real world example. 
 
-For example, instead of 'user', add a real name such as 'alice' or 'bob'.
-
-Example:
+For example, instead of 'user', add a real name such as 'alice' or 'bob':
 
 .. sourcecode:: rst
 
@@ -191,28 +244,6 @@ Example:
     home_folder_path = /PATH/TO/MARK/HOME
     password = PASSWORD
 
-Tables
-------
-
-Table 1 with alignment:
-
-.. sourcecode:: rst
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
-.. sourcecode:: rst
-
-Table 2 with typography elements:
-
-Markdown | Less | Pretty
---- | --- | ---
-*Still* | `renders` | **nicely**
-1 | 2 | 3
-
 
 Updating the documentation
 --------------------------
@@ -224,7 +255,74 @@ An empty ``.ignore`` with the internal ID can be added in the release notes.
 Further details about generating and building documentation is found in the
 chevah server repository.
 
-When creating a new page, ensure to add the page name in the index.rst.
+When creating a new page, ensure to add the page name in the index.rst so that
+the page appears in the index documentation tree.
+
+
+Docstrings
+==========
+
+* Well documented code is extremely important.
+  Take time to describe components, how they work, their limitations, and the
+  way they are constructed.
+  Don't leave others in the team guessing what is the purpose of uncommon or
+  non-obvious code.
+
+* Document code as part of docstrings and not as comments.
+
+.. sourcecode:: python
+
+    def iamanExample(doc):
+        """
+        A simple docstring is placed here.
+        """
+          config = self.createSomethingHere('')
+
+There are two types of docstrings for production and test code.
+
+
+Test code docstrings
+--------------------
+
+Test code docstrings can contain information during the review process of new
+tests that can be written.
+
+.. sourcecode:: python
+
+    class TestHelpers(IAmATestCase):
+        """
+        The docstring here may add tests for helpers for a certain module
+        """
+        def test_of_a_module_1(self):
+         """
+         What is expected to happen in the first module of this test case
+         """
+        def test_of_a_module_2(self):
+         """
+         What is expected to happen in the second module of this first case
+         """
+
+
+Production code docstrings
+--------------------------
+
+Docstring are added in the production code to provide further information for
+readers and reviewers.  
+
+For example:
+
+.. sourcecode:: python
+
+    def getSomethingNewHere(self):
+
+Whereas a docstring should be added to add further information:
+
+.. sourcecode:: python
+
+    def getSomethingNewHere(self):
+        """
+        A docstring describing what SomethingNewHere is about
+        """
 
 
 Release Notes
@@ -396,96 +494,6 @@ Sample release notes
       an unknown command. [#160][ftp][ftps]
 
 
-
-Known Issues
-============
-
-This section lists known issues for the current release of SFTPPlus along with
-a reference to the internal ID.
-
-A workaround can be added in this section along with the known issue statement
-and ID.
-
-If there is further information of a fix, include info as to when.
-
-The style is similar to what is expected of the release notes.
-
-
-Docstrings
-==========
-
-* Well documented code is extremely important.
-  Take time to describe components, how they work, their limitations, and the
-  way they are constructed.
-  Don't leave others in the team guessing what is the purpose of uncommon or
-  non-obvious code.
-
-* Document code as part of docstrings and not as comments.
-
-.. sourcecode:: python
-
-    def iamanExample(doc):
-        """
-        A simple docstring is placed here.
-        """
-          config = self.createSomethingHere('')
-
-There are two types of docstrings for production and test code.
-
-
-Test code docstrings
---------------------
-
-Test code docstrings can contain information during the review process of new
-tests that can be written.
-
-Test code docstring example:
-
-.. sourcecode:: python
-
-    class TestHelpers(IAmATestCase):
-        """
-        The docstring here may add tests for helpers for a certain module
-        """
-        def test_of_a_module_1(self):
-
-         """
-         What is expected to happen in the first module of this test case
-         """
-        ... 
-        ...
-        def test_of_a_module_2(self):
-         """
-         What is expected to happen in the first module of this second case
-         """
-        ...
-        ...
-
-
-Production code docstrings
--------------------------
-
-If a docstring is not added in production code, readers and reviewers are
-unable to tell what is it.  For example:
-
-.. sourcecode:: python
-
-    def getSomethingNewHere(self):
-    ...
-    ...
-
-Whereas a docstring should be added to add further information:
-
-.. sourcecode:: python
-
-    def getSomethingNewHere(self):
-        """
-        A docstring describing what SomethingNewHere is about
-        """
-    ...
-    ...
-
-
 Marketing / Promotional Materials
 =================================
 
@@ -505,14 +513,27 @@ After the website is updated and News item published, we send a newsletter:
 
 1. Go to Campaigns in Mailchimp.
 
-2. Select 'Replicate' in the drop down besides 'NEW: SFTPPlus Release Announcement'.
-If it is a security bugfix, use the SFTPPlus Security Advisories email list.
+2. Select 'Replicate' besides 'NEW: SFTPPlus Release Announcement'.
+   If it is a security bugfix, use the Security Advisories email list.
 
 3. Select the News Announcements email list.
 
 4. Update the email subject and email with the News text used to announce the
-new release. You can use the copy that is in the News article for the email.
+   new release. You can use the text in the News article for the email.
 
-5. Select Send. Before sending the final email, you can preview first by going
-to 'Preview and Send' on the top menu and select 'Send a test email'.
+5. Select Send. Before sending the final email, preview first by going
+   to 'Preview and Send' on the top menu and select 'Send a test email'.
+   
 
+Known Issues
+============
+
+This section lists known issues for the current release of SFTPPlus along with
+a reference to the internal ID.
+
+A workaround can be added in this section along with the known issue statement
+and ID.
+
+If there is further information of a fix, include info as to when.
+
+The style in this section is similar to what is expected of the release notes.
