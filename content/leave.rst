@@ -6,7 +6,7 @@ Leave / Holiday
 General
 =======
 
-* We have 30 days of paid holidays per year. 21 + 9 bank holidays
+* We have 30 days of paid holidays per year (21 legal leave + 9 bank holidays)
 
 * All legal leave and bank holidays are put in a common pool of leave days.
   Use them as you like.
@@ -14,13 +14,13 @@ General
 * **All** leave days should be logged in the leave spreadsheets,
   including bank holidays.
 
-* Feel free to subscribe to notification for the leave document.
+* Feel free to subscribe to notifications for the leave document.
 
-* When updating the table 2 days before the leave, no need for other notices,
+* When updating the table 2 days before the leave, there is no need for other extra notice
   other than editing the document. Notifications are sent each day.
   You will be contacted if something needs clarification.
 
-* Please try to change the document as soon as possible.
+* Please try to always keep the document updated, and input new information as soon as you can.
 
 
 Vacation
@@ -32,23 +32,23 @@ Vacation
 * A vacation is time to recharge, so stay away from the project / work.
 
 * The team has to learn how to function when people are on vacation and
-  unavailable, however important their role is.
+  unavailable, no matter how important their role is.
 
 * Leave should be taken in collaboration with colleagues to ensure project
   operations are not disrupted.
 
-* When you run out of paid leave days just continue to record your leave days.
-  It is **OK** if you need more holiday. Extra holiday is not payed.
-  Not paid leave days are subtracted from the salary
-  from last month of the year.
+* When you run out of paid leave days, just continue to record them.
+  It is **OK** if you need more holiday days. Extra holiday days are not payed.
+  Not paid leave days will be subtracted from your salary
+  of the last month of the year.
 
 
 Other legal leaves
 ==================
 
-* Other types of legal leaves are added as extra paid leave days.
+Other types of legal leaves are added as extra paid leave days:
 
-* 5 days of Marriage leaves
+* 5 days for Marriage leaves
 
 * 3 days for death in the family
 

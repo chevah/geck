@@ -11,61 +11,61 @@ We write tests to:
 
 * Help improve quality
 * Help understand the product and its components
-* Reduce risk and fears when doing bold changes into product structure
+* Reduce risk and fears when making bold changes into our product structure
 * Make work easier and fun
 
 All tests should have the following characteristics:
 
-* Simple
-* Easy to write and maintain as product evolves
-* Easy to read and understand what they are doing
-* Easy to run, easy to re-run, fully automated run and reporting
+* Be simple
+* Be easy to write and maintain as product evolves
+* Be easy to read and and have a clear, easy to understand purpose
+* Be easy to run, easy to re-run, and have fully automated execution and reporting
 * Run very, very fast
-* Each test should be an independent test which can run by itself
+* Each test should be an independent test which can be run by itself
 
 Writing tests is not only done to check that code works as expected, it is
-also done to make sure that code has a simple designe, decoupled and easy
+also done to make sure that code has a simple design, decoupled and easy
 to be reused.
 
 Writing tests is also about making sure that you fully understand what the
 code should do and how it is used.
 
-Writing tests is not a silver bullet for improving code quality and is easy to
+Writing tests is not a silver bullet for improving code quality - it's easy to
 write bad tests.
 
 Once used to having tests that show how things work (and that they do work), you
 will start using the key phrase: **Do you have a test for that?**.
 
-You are going to test your code anyway, spend the time to do it right.
+You are going to test your code anyway, so spend the time to do it right from the beginning.
 
 We write tests as a tool for regression checking, ie preventing bugs.
 Tests should be easy to run and should be fast. Tests will also help us find
-bugs and avoid long debugging session, but the primary goal is to keep the
+bugs and avoid long debugging sessions, but the primary goal is to keep the
 bugs out of our product.
 
 We should write code and do clean-up / refactoring without any fear and with
-a confident and free mind. Don't take decision out of fear.
+a confident and free mind. Don't take decisions out of fear.
 
-Imperfect tests, run frequently, are much better than perfect tests that are
+Imperfect tests run frequently, and are much better than perfect tests which are
 never written at all.
 
 Writing tests does not mean writing twice as much code or coding slower.
 
 Most of the time the associated test code is three times longer, or more
 in lines of code. Test code should be trivial, easy to write and easy to
-understand. Even if there are many lines of test, they should be easy
+understand. Even if there are many lines of test code, they should be easy
 to write and should not add a big overhead to what you're doing.
 
 On the long run, it's faster and more robust than coding without tests.
 
-Another important part of writing test is to help us have a clean code base.
+Another important part of writing tests is to help us have a clean code base.
 You can not refactor and do clean-up without an easy mechanism to check for
 regression.
 Clean-up tasks are just normal business and an integrated part of
-coding process. We will do cleanup all the time, and there is no
+coding process. We will perform cleanups all the time, and there is no
 dedicated development window for cleanup.
 
-The goal is to write test first and code later.
+The goal is to write the tests first and code later.
 
 If you are starting and learning how to write tests, you will write tests
 after writing the code simply because you have so much to learn and find
@@ -73,7 +73,7 @@ that writing tests first is impossible. This is a normal start.
 It's just a stepping stone on your way to test-first development.
 
 Passing software to another developer without tests is like saying
-'Good luck dude!', but instead we should say 'I've got you covered!'.
+'Good luck dude!' - but instead we should say 'I've got you covered!'.
 
 
 Types of tests

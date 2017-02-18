@@ -5,6 +5,9 @@ Review
 
 This page will discuss the code/changes review process as both the person
 who requests a review and a person who checks the review.
+The review instructions are platform independent so they apply to tickets,
+emails, pull requests, and to all tasks, not only to code reviews.
+
 
 ..  contents::
 
@@ -54,8 +57,8 @@ General
   This will help a lot with the review. Land your changes with the ugly
   names and then do a follow-up branch for the renaming.
 
-* Feel free to submit as many merge request as you can. The size of
-  merge requests can be an issue, but not their number :).
+* Feel free to submit as many merge requests as you can. The size of
+  the merge requests can be an issue, but not their number :).
 
 * Some reasons for keeping the merge requests small:
 
@@ -68,8 +71,8 @@ General
   * It's harder to cherry pick code for backporting / supporting old releases.
 
 
-For person requesting a review
-==============================
+For the person requesting a review
+==================================
 
 * Once a task/ticket is done, it should be submitted for review.
 
@@ -87,11 +90,16 @@ For person requesting a review
   It is very important to have a good review request message as it will
   help reviewers understand what you have done.
 
-* Check that all changes are covered by automated tests and if they aren't, make sure
-  that the review description contains information regarding why.
+* Check that all changes are covered by automated tests and if they aren't,
+  make sure that the review description contains information regarding why.
 
 * Check the **Reviewer's check list** since those are the things that a
   reviewer will check for sure.
+
+* Before submitting a ticket for review, check that you have documented your
+  work accordingly, for example in the affected repository documentation,
+  Trac's Wiki, or the Styleguide.
+
 
 * For Trac: A review request is created by adding the comment and then
   setting the state to 'needs_review'.
@@ -254,21 +262,21 @@ Reviewer's check list - Any Role
 --------------------------------
 
 
-* Is there a release notes entry for changes?
+* Is there a release notes entry for the changes?
 
-* Is there documentation for changes?
-
-* Does the documentation make sense?
+* Are the changes documented?
 
 * Are the new events documented?
 
 * Are the removed events documented?
 
+* Does the documentation make sense?
+
 
 Reviewer's check list - Developer
 ---------------------------------
 
-* Do the **new** changes comply with latest styleguide ?
+* Do the **new** changes comply with latest styleguide?
 
 * Does the code have automated tests for all the new code?
 
@@ -308,6 +316,9 @@ applying changes to Trac tickets.
 
 Integration is mainly between GitHub Pull Requests and Trac tickets,
 following the workflow described in `review <{filename}/review.rst>`_.
+
+Please do not use or rely on the new GitHub PR review features as they have
+no API and are not integrated in Trac.
 
 The Pull Request title should start with **[#TRAC_TICKET_ID]** and
 each message on this Pull Request triggers a hook looking for special keywords.
