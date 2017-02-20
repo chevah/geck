@@ -76,7 +76,8 @@ Using reStructuredText (rst)
 
 Narrative documentation is delivered in the reStructuredText (.rst) format.  
 
-Further details are available in this `Docutils documentation page <http://docutils.sourceforge.net/rst.html>`_. 
+Further details are available in this
+`Docutils documentation page <http://docutils.sourceforge.net/rst.html>`_. 
 
 The following are some useful tips on the rst format.
 
@@ -254,10 +255,11 @@ chevah server repository.
 Documenting the code
 ====================
 
-Code documentation can be in the form of docstrings, comments, examples or tests.
+Code documentation can be in the form of docstrings, comments, examples or
+tests.
 
 Use docstrings to document packages, modules, classes and functions regardless
-of what language it is - shell script, C, Python, etc.
+of what language it is - Python, shell, C etc.
 
 * Well documented code is extremely important.
   Take time to describe components, how they work, their limitations, and the
@@ -265,7 +267,9 @@ of what language it is - shell script, C, Python, etc.
   Don't leave others in the team guessing what is the purpose of uncommon or
   non-obvious code.
 
-* Document code as part of docstrings and not as comments.
+**Python Examples:**
+
+Document code as part of docstrings and not as comments.
 
 .. sourcecode:: python
 
@@ -275,9 +279,50 @@ of what language it is - shell script, C, Python, etc.
         """
           config = self.createSomethingHere('')
 
-
 Other tips about Python docstrings are this
 `wiki entry <https://en.wikipedia.org/wiki/Docstring>`_.
+
+**Shell Examples:** 
+
+Use comments to document what the shell script does and notes to keep in mind
+to the developers using a script.
+
+.. sourcecode:: shell
+
+    #
+    # This script is used to check all combination for cryto algorithms between
+    # twisted.conch.ssh server and OpenSSH client.
+    #
+    KEXs='diffie-hellman-group14-sha1 diffie-hellman-group1-sha1
+    diffie-hellman-group-exchange-sha1 diffie-hellman-group-exchange-sha256'
+    MACs='hmac-sha2-512 hmac-sha2-256 hmac-sha1 hmac-md5'
+
+Document how portions of the script works, where needed:
+
+.. sourcecode:: shell
+
+    # Put default values and create them as global variables.
+    OS='not-detected-yet'
+    ARCH='x86'
+
+**C Examples:** 
+
+Use comments to document notes to the developer utilizing the c script.
+
+.. sourcecode:: c
+
+    /* file1() replacement (from file2, if you must know) */
+
+    #include "newfile.h"
+
+Use comments to provide further notes of additional changes / additions,
+where needed:
+
+.. sourcecode:: c
+
+    # This is the default-included GNU make and its counterpart: makeinfo.
+    export MAKE=/usr/sfw/bin/gmake
+    export MAKEINFO=/usr/sfw/bin/makeinfo
 
 
 Test code docstrings
@@ -368,14 +413,17 @@ Known Issues
 
 Known issues are Z-Horse Easter type of bugs with workarounds.
 
-There is a page on the documentation where Known Issues are listed publicly at
-https://www.sftpplus.com/documentation/sftpplus/latest/known-issues.html
+There is a page on the documentation where Known Issues and the ID are listed
+publicly
+`here <https://www.sftpplus.com/documentation/sftpplus/latest/known-issues.html>`_.
 
-The page is useful for handling Support queries.  For example, if a
+The page is useful for handling Support queries. For example, if a
 customer finds a problem with the software, check that the problem exists in
-the Known Issues list first.  If there is an existing issues, then the customer
-can continue using the product as long as there is also a workaround provided
-in this page.
+the Known Issues list first.
+
+If there is an existing issues, then the customer can continue using the
+product as long as there is also a workaround provided in the Known Issues
+page.
 
 Known Issues will include a reference to the internal Trac ID which provided
 further details about that issues
