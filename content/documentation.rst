@@ -6,47 +6,40 @@ Documentation
 .. contents::
 
 
-General
-=======
+Introduction
+============
 
-**What is documented?**
+We have the following types of documentation:
 
-**For the Chevah project members:**
-
-* Packages, modules, classes and functions using docstrings. 
-
-* Documentation changes are linked to a certain version of SFTPPlus.  When 
-  changes are made, these are anchored to a specific release version.
-
-**For the customers:**
-
-* These can be pre-sales, trial customers and existing customers.
-
-* There are two main types of documentation - technical documentation and the
-  User's Guides section.
-
-* User interfaces that need further explanation and / or guidance.
-
-* User's Guides that are aimed at general audiences.
-  These require more in-depth detail than marketing / promotion materials on
-  the main website. 
-
-* Questions and issues to Support and Sales can instead be answered and
-  linked to using documentation.
-
-* Release notes that explains the changes tied to a specific version.
-
-* Further in-depth notes to help secure file transfer processes using SFTPPlus.
-
-For content that is more marketing / generalized, these will go in the main
-website content.
+1. Code documentation
+2. Low level technical information
+3. Narrative documentation including User's Guides
+4. Marketing and promotional materials
 
 
 Narrative documentation
 =======================
 
+Overview
+--------
+
+Readers are mainly:
+
+* Administrators directly involved with SFTPlus. 
+  They can be in three stages - pre-sales, on trial, or existing customers.
+
+* Decision-makers involved in the implementation of the software. 
+  They can include the business and technical arm of the organization.
+
+Both types will have varying form of technical backgrounds and familiarity
+with the software.
+
+
+Semantic Linefeeds
+------------------
+
 For narrative documentation use 
-`semantic newlines <http://rhodesmill.org/brandon/2012/one-sentence-per-line/>`_.
+`semantic linefeeds <http://rhodesmill.org/brandon/2012/one-sentence-per-line/>`_.
 
 Make lines short, and break lines at natural places, such as after commas and
 semicolons, rather than after the Nth column.
@@ -62,24 +55,8 @@ semicolons, rather than after the Nth column.
     long lines.
 
 
-Technical Documentation
------------------------
-
-The primary audience are:
-
-- Administrators actively using the software either as an existing customer or
-  on the software trial.
-
-- Decision-makers and implementation of the software.  
-
-Both types of audiences will have varying form of technical backgrounds. 
-
-The documentation is constantly being developed as updates to the product are
-made, or when an issue is found which needs further guidance.
-
-
-User's Guides
--------------
+Writing User's Guides
+=====================
 
 Pages in the User's Guides are used to describe how a task can be performed by
 applying various configuration options.
@@ -94,12 +71,14 @@ If the page has a specific audience in mind, state the audience in the
 introduction of the page.
 
 
-Documentation Markup
-====================
+Using reStructuredText (rst)
+============================
 
-The documentation is delivered in the reStructuredText (.rst) format.  
+Narrative documentation is delivered in the reStructuredText (.rst) format.  
 
 Further details are available in this `Docutils documentation page <http://docutils.sourceforge.net/rst.html>`_. 
+
+The following are some useful tips on the rst format.
 
 
 Adnotation classes
@@ -246,21 +225,39 @@ For example, instead of 'user', add a real name such as 'alice' or 'bob':
 
 
 Updating the documentation
---------------------------
+==========================
 
-The release process will be similar to the rest of the software.
+Narrative documentation may be added for a number of reasons such as:
 
-An empty ``.ignore`` with the internal ID can be added in the release notes.
+- The process to set up the software needs further explanation.
+- A Support request is made since the documentation is not clear.
+- A new feature has been released or modified.
+- A customer has requested how x can be done, and this can be added to the
+  documentation as it is related to the software.  
+- A commonly asked sales request about the software and the documentation is
+  added as the publicly-available answer.
+
+**Tips when updating documentation:**
+
+When creating a new page, add the page name in a doctree (ie index.rst).
+
+See the towncrier repo for news fragments and the extensions to use.
+Documentation changes is usually ``.ignore`` with the internal ID. 
+
+Release notes are tied to a specific version so that changes are linked to a
+version of SFTPPlus. 
 
 Further details about generating and building documentation is found in the
 chevah server repository.
 
-When creating a new page, ensure to add the page name in the index.rst so that
-the page appears in the index documentation tree.
 
+Documenting the code
+====================
 
-Docstrings
-==========
+Code documentation can be in the form of docstrings, comments, examples or tests.
+
+Use docstrings to document packages, modules, classes and functions regardless
+of what language it is - shell script, C, Python, etc.
 
 * Well documented code is extremely important.
   Take time to describe components, how they work, their limitations, and the
@@ -278,7 +275,9 @@ Docstrings
         """
           config = self.createSomethingHere('')
 
-There are two types of docstrings for production and test code.
+
+Other tips about Python docstrings are this
+`wiki entry <https://en.wikipedia.org/wiki/Docstring>`_.
 
 
 Test code docstrings
@@ -302,6 +301,17 @@ tests that can be written.
          What is expected to happen in the second module of this first case
          """
 
+.. sourcecode:: python
+
+    class MyClass(object):
+        """The class's docstring"""
+
+        def my_method(self):
+            """The method's docstring"""
+
+    def my_function():
+        """The function's docstring"""
+
 
 Production code docstrings
 --------------------------
@@ -315,7 +325,7 @@ For example:
 
     def getSomethingNewHere(self):
 
-Whereas a docstring should be added to add further information:
+In this case, a docstring should be added to add further information:
 
 .. sourcecode:: python
 
@@ -328,13 +338,10 @@ Whereas a docstring should be added to add further information:
 Marketing / Promotional Materials
 =================================
 
-Promotions and marketing materials are located in the main website.
+Promotions and marketing materials are mainly located in the main website.
 
 It should be as generic and non-technical as possible with links to the
 Documentation for more in-depth / technical information.
-
-Please go to the internal wiki under General > Marketing for internal marketing
-details and links to image files.
 
 
 Announcing a new release to the email list
@@ -349,22 +356,26 @@ After the website is updated and News item published, we send a newsletter:
 
 3. Select the News Announcements email list.
 
-4. Update the email subject and email with the News text used to announce the
-   new release. You can use the text in the News article for the email.
+4. Update the subject and email with the News text used to announce the
+   new release. You can use the text in the News article.
 
 5. Select Send. Before sending the final email, preview first by going
-   to 'Preview and Send' on the top menu and select 'Send a test email'.
+   to 'Preview and Send' on the top menu. Select 'Send a test email'.
    
 
 Known Issues
 ============
 
-This section lists known issues for the current release of SFTPPlus along with
-a reference to the internal ID.
+Known issues are Z-Horse Easter type of bugs with workarounds.
 
-A workaround can be added in this section along with the known issue statement
-and ID.
+There is a page on the documentation where Known Issues are listed publicly at
+https://www.sftpplus.com/documentation/sftpplus/latest/known-issues.html
 
-If there is further information of a fix, include info as to when.
+The page is useful for handling Support queries.  For example, if a
+customer finds a problem with the software, check that the problem exists in
+the Known Issues list first.  If there is an existing issues, then the customer
+can continue using the product as long as there is also a workaround provided
+in this page.
 
-The style in this section is similar to what is expected of the release notes.
+Known Issues will include a reference to the internal Trac ID which provided
+further details about that issues
