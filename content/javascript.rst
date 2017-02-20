@@ -1,7 +1,7 @@
 JavaScript
 ##########
 
-:menu_order: 151
+:menu_order: 012
 
 .. contents::
 
@@ -143,7 +143,7 @@ Example::
 
     In HTML, we use " as quotes around attribute values, like this:
 
-.. sourcecode::
+.. sourcecode:: javascript
 
     <a href="foo">bar</a>
     In JavaScript, we use ' as much as possible.

@@ -60,19 +60,6 @@ something is wrong.
 * Maximum line length for code is 80 characters, but for Python we use 79 to be in
   sync with PEP8 Style Guide for Python Code.
 
-* For narrative documentation use `semantic newlines
-  <http://rhodesmill.org/brandon/2012/one-sentence-per-line/>`_.
-  Make lines short, and break lines at natural places, such as after commas and semicolons, rather than after the Nth column.
-
-..  code-block:: text
-    :linenos:
-
-    Sometimes when editing a narrative documentation file, I wrap the lines semantically.
-    Instead of inserting a newline at 70 columns (or whatever),
-    or making paragraphs one long line,
-    I put in newlines at a point that seems logical to me.
-    Modern code-oriented text editors are very good at wrapping and arranging long lines.
-
 * Don't mix multiple languages in a single file.
 
 * No need for the ultimate purism, when using / calling code from external
@@ -203,29 +190,6 @@ Comments
       do_something()
 
 * Avoid end of line comments.
-
-
-Documentation
-=============
-
-* Well documented code is extremely important.
-  Take time to describe components, how they work, their limitations, and the way they are constructed.
-  Don't leave others in the team guessing what is the purpose of uncommon or non-obvious code.
-
-* Document code as part of docstrings and not as comments.
-
-* Document packages, modules, classes and functions.
-
-* For narrative documentation (non docstrings) use `semantic linefeeds <http://rhodesmill.org/brandon/2012/one-sentence-per-line/>`_.
-
-..  code-block:: text
-    :linenos:
-
-    Sometimes when editing a narrative documentation file, I wrap the lines semantically.
-    Instead of inserting a newline at 70 columns (or whatever),
-    or making paragraphs one long line,
-    I put in newlines at a point that seems logical to me.
-    Modern code-oriented text editor are very good at wrapping and arranging long lines.
 
 
 Exceptions handling

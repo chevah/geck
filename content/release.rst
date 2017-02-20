@@ -1,7 +1,7 @@
 Release process
 ###############
 
-:menu_order: 101
+:menu_order: 006
 
 ..  contents::
 
@@ -132,7 +132,7 @@ These are the extra steps for checking a release in production:
 Future improvements for the automated release process:
 
 * Create a release notification list and send an email to everyone who cares
-  about new releases. The email should include a changelog for the lastest version.
+  about new releases. The email should include a changelog for the latest version.
   Trac ticket #525.
 * Add a news article to our website
 * Trigger a website crawler to check broken links for download pages and
@@ -159,13 +159,15 @@ Here are some categories::
 
 * Major changes (only for major releases)
 * New features
-* Bug fixes (this will be the only section for bugfix releases)
+* Bug fixes with internal bug ID (this is the only section for bugfix releases)
 * Deprecation and Removals
 * Documentation changes
 * Other changes
+* Security related issues (to be highlighted or tagged for easy filtering)
 
 A marker/tag is added at the end of the sentence to point to the ticket ID
-associated with this change. Having a ticket ID marker is not mandatory for new features.
+associated with this change. Having a ticket ID marker is not mandatory for
+new features.
 
 It can be followed by a list of tags to help users understand / filter the
 scope of the change. 
@@ -462,12 +464,9 @@ We are now aiming to extending the support / product life cycle to 5 years.
 
 While working on a product, we have the following types of branches::
 
-* master - only one master branch - this is the latest stable development
-  version
-* release-branch - ephemeral branches on which the version number is updated
-  and release notes are finalized.
-* task-branch - multiple ephemeral branches.
-  (Each new feature or fix has a task-branch)
+* master - one master branch with the latest stable development version
+* release-branch - ephemeral branches where the version number is updated and release notes finalized.
+* task-branch - multiple ephemeral branches where a new feature or fix has a task-branch
 
 Each released version has a dedicated tag. When you need to create a
 bugfix release or a maintenance release for a previous version, you will
@@ -478,17 +477,3 @@ any time.
 Especially if a security bugfix is found, we will make a new release as soon
 as the bug is fixed.
 
-After the website is updated and News item published we send a newsletter:
-
-1. Go to Campaigns in Mailchimp.
-
-2. Select 'Replicate' in the drop down besides 'NEW: SFTPPlus Release Announcement'.
-If it is a security bugfix, use the SFTPPlus Security Advisories email list.
-
-3. Select the News Announcements email list.
-
-4. Update the email subject and email with the News text used to announce the
-new release. You can use the copy that is in the News article for the email.
-
-5. Select Send. Before sending the final email, you can preview first by going
-to 'Preview and Send' on the top menu and select 'Send a test email'.

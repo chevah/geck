@@ -1,7 +1,7 @@
 Work
 ####
 
-:menu_order: 101
+:menu_order: 008
 
 .. contents::
 
@@ -63,7 +63,7 @@ This translates like this: the more energy you spend on the project, the less en
 
 
 Stay focused on what you do
-=========================
+===========================
 
 Try not to mix "at work" activities with "after work" activities.
 Make a clear distinction between when you are "at work" and when not.

@@ -1,7 +1,7 @@
 Tickets
 #######
 
-:menu_order: 100
+:menu_order: 005
 
 .. contents::
 

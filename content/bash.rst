@@ -1,7 +1,7 @@
 Bash
 ####
 
-:menu_order: 155
+:menu_order: 015
 
 ..  contents::
 
@@ -53,6 +53,7 @@ General
 * Always guard your Bash scripts from unexpected errors by using
 
 .. sourcecode:: bash
+
     set -o nounset
 
 Path constants
@@ -67,6 +68,7 @@ SMB shares.
 Always double quote path constants to handle files with spaces:
 
 .. sourcecode:: bash
+
     SOME_PATH=/some/path/
     # and use it like this:
     command "${SOME_PATH}/some.file"
@@ -78,6 +80,7 @@ Always double quote path constants to handle files with spaces:
 Instead of:
 
 .. sourcecode:: bash
+
     SOME_PATH=/some/path/
     # and then:
     command "${SOME_PATH}some.file"
@@ -101,6 +104,7 @@ as exit codes, we will pass values between functions by using ``echo``.
 
 
 .. sourcecode:: bash
+
     #
     # Description of function 1.
     #
@@ -134,6 +138,7 @@ Case Syntax
 -----------
 
 .. sourcecode:: bash
+
     case "$VARIABLE_NAME" in
         "option1")
             do specific
@@ -146,10 +151,12 @@ Case Syntax
             ;;
     esac
 
+
 IF/THEN/ELSE
 ------------
 
 .. sourcecode:: bash
+
     if TEST; then
         call something
     elif [ "$string" = OTHER_TEST ]; then
@@ -162,6 +169,7 @@ FOR
 ---
 
 .. sourcecode:: bash
+
     for CONDITION; do
         call something
     done
@@ -170,6 +178,7 @@ WHILE/UNTIL
 -----------
 
 .. sourcecode:: bash
+
     while TEST; do
         call something
     done

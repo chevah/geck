@@ -1,7 +1,7 @@
 Leave / Holiday
 ###############
 
-:menu_order: 101
+:menu_order: 009
 
 General
 =======

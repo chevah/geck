@@ -1,7 +1,7 @@
 Python
 ######
 
-:menu_order: 150
+:menu_order: 011
 
 .. contents::
 
