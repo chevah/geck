@@ -31,8 +31,12 @@ Readers are mainly:
 * Decision-makers involved in the implementation of the software. 
   They can include the business and technical arm of the organization.
 
-Both types will have varying form of technical backgrounds and familiarity
-with the software.
+* Chevah development team to check the specifications of a functionality.
+
+* Chevah support team to direct support queries to parts of the documentation.
+
+Readers will have varying form of technical backgrounds and familiarity with
+the software and its features and functionalities.
 
 
 Semantic Linefeeds
