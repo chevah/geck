@@ -26,14 +26,16 @@ through this and can share their experiences.
 While we don't work from the same location, we are all within
 a 2 hours difference time zone.
 
-We don't have fixed working hours, but our customers expect us to be available from **9 to 5 from Monday until Friday GMT**.
+We don't have fixed working hours, but our customers expect us to be available
+from **9 to 5 from Monday until Friday GMT**.
 We try to adapt to this requirement and we also don't work on weekends.
 
-We don't impose a fixed amount of work hours per week, so you should work up to an amount with which you are comfortable and are really willing to work for.
+We don't impose a fixed amount of work hours per week, so you should work up to
+an amount with which you are comfortable and are really willing to work for.
 
-The workload may differ greatly from one person to another,
-but we do get suspicious if someone wants to work more than 40 hours per week for an extended period of time,
-as everyone needs time for itself + sleep.
+The workload may differ greatly from one person to another, but we do get
+suspicious if someone wants to work more than 40 hours per week for an
+extended period of time, as everyone needs time for itself + sleep.
 
 
 You are in control
@@ -185,6 +187,8 @@ or creating new tickets with new tasks.
 Document everything in public places.
 Folks can look up the information they need to see how a project is going,
 how to perform a task, and also someone can quickly step in when a colleague is away.
+
+Add your emergency contact in the Team page.
 
 
 Well documented, small tasks based work
