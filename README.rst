@@ -53,4 +53,9 @@ To show what files are not yet staged for the commit: ``git status``
 
 Add the changed files: ``git add <filename>``
 
-Then commit the files to the branch: ``git commit``
+Then commit the files to the branch: ``git commit -m "Your description about
+the commit here``
+
+You may need to do more than one commit.  Once all changes are made you can
+push your changes out to your git branch (not the Master branch) and create
+the first Pull Request.
