@@ -31,13 +31,13 @@ Onboarding Notes
 If you are currently onboarding with the Chevah Project, making improvements to
 the Styleguide is a good starting point.
 
-Below are the steps associated with making changes to the Styleguide:
+Below are is a guide that you can follow to make changes to the Styleguide:
 
 Make sure that SSH is set up and clone the repository:
 ``git clone git@github.com:chevah/styleguide.git``
-The link will be from the 
+The link can be found from the Github repo.
 
-Navigate to the styleguide folder: ``cd styleguide``
+Navigate to the styleguide repo: ``cd styleguide``
 
 Create a new branch and check out to that branch so that you are working on
 your own branch and not the master branch:
