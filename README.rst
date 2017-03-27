@@ -8,6 +8,7 @@ Pelican is used for generating static pages.
 
 The markup used is reStructuredText.
 
+
 Development Notes
 ==================
 
@@ -23,6 +24,7 @@ Continuously update content with ``paver dev``.
 
 Publish changes from current branch with ``paver publish``.
 
+
 Onboarding Notes
 ================
 
@@ -33,6 +35,7 @@ Below are the steps associated with making changes to the Styleguide:
 
 Make sure that SSH is set up and clone the repository:
 ``git clone git@github.com:chevah/styleguide.git``
+The link will be from the 
 
 Navigate to the styleguide folder: ``cd styleguide``
 
@@ -54,8 +57,12 @@ To show what files are not yet staged for the commit: ``git status``
 Add the changed files: ``git add <filename>``
 
 Then commit the files to the branch: ``git commit -m "Your description about
-the commit here``
+the commit here"``
 
-You may need to do more than one commit.  Once all changes are made you can
-push your changes out to your git branch (not the Master branch) and create
-the first Pull Request.
+You may need to do more than one commit.  
+Follow the Development Notes above to run the Styleguide locally.
+
+Once all changes are made, git push your changes out to your git branch
+(not the Master branch) and create the first Pull Request. To create the pull
+request, you can go to the branch’s page on github.com and click on the green
+"Compare and Pull Request" button.
