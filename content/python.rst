@@ -106,6 +106,12 @@ NO
     other_bad = "string"
     some_bad = "string 'b' yes"
 
+* Use `from __future__ import unicode_literals` for Python3 compatibility.
+  More details:
+  https://python-future.org/compatible_idioms.html#strings-and-bytes
+
+* All byte strings should be explicitly marked as in `b'byte string`.
+
 * As PEP8 recommends, don't use '\' to split long lines. Wrap long lines by
   using Python's implied line continuation inside parentheses, brackets and
   braces. More details here:
