@@ -106,8 +106,10 @@ NO
     other_bad = "string"
     some_bad = "string 'b' yes"
 
-* Use `from __future__ import unicode_literals` for Python3 compatibility.
-  More details:
+* As we look forward to support Python 3, we should use
+  `from __future__ import unicode_literals`, as it helps with readability,
+  instead of explicitly having to mark every text string as `u'unicode'`.
+  More details here:
   https://python-future.org/compatible_idioms.html#strings-and-bytes
 
 * All byte strings should be explicitly marked as in `b'byte string`.
