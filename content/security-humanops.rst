@@ -9,7 +9,7 @@ Security
 Overview
 ========
 
-The following is more of a public-facing overview or a process rather than focusing on the step-by-step portion of security. We also have additional security requirements - sysadmin will utilize more stringent security, travelers will want to utilize more stringent travel security processes, developers will have secure coding practices etc.
+The following is more of a public-facing overview or a process rather than focusing on the step-by-step portion of security. We also have additional security requirements - system administrators will utilize more stringent security, travelers will want to utilize more stringent travel security processes, developers will have secure coding practices etc.
 
 The focus is on the human-side of security with some suggestions of tools and tactics.
 
@@ -17,9 +17,9 @@ The focus is on the human-side of security with some suggestions of tools and ta
 Onboarding
 ==========
 
-When onboarding a team member, they will have limited access to Pro:Atria until such a time arrives when further credentials can be provided.
+When onboarding a team member, they will have limited access to Pro:Atria's infrastructure until such a time arrives when further credentials can be provided.
 
-There may instances when certain items are shared to the onboarding member's non-Pro:Atria address or accounts. Once a member is part of the team all use of services / apps related to ProAtria will need to be switched into ProAtria emails.
+There may instances when certain items are shared to the onboarding member's non-Pro:Atria address or accounts. Once a member is part of the team all use of services / apps related to Pro:Atria will need to be switched into Pro:Atria emails.  For example, if your personal email was added in the Google Analytics account during onboarding, please ensure that your personal email address is replaced by the new Pro:Atria email address.
 
 
 Work Environment
@@ -65,7 +65,7 @@ Accounts
 
 **Enable multi factor authentication in Gmail.**
 
-Use a hardware key (Yubikey) or mobile, as long as there is 2FA involved
+Use a hardware key (Yubikey) or mobile, as long as there is 2FA (two-factor authentication) involved.
 
 Enforcement: Go to the list of accounts in the organization and see which one has 2FA.  If the account does not have 2FA enabled, contact the account holder.
 
@@ -73,7 +73,7 @@ Enforcement: Go to the list of accounts in the organization and see which one ha
 
 Idea: Enable this in Github settings - can use mobile device, hardware key, downloadable codes, etc.
 
-Enforcement: The Google organization owner/admin can see who has MFA.  If MFA is not enabled, contact the account owner to re-enable.
+Enforcement: The Google organization owner/administrator can see who has MFA (multi-factor authentication).  If MFA is not enabled, contact the account owner to re-enable.
 
 **Enable multi-factor authentication and valid back up** in other services used by SFTPPlus.
 
@@ -126,11 +126,11 @@ There may be some cases where we need to use the group email for related service
 Phishing and Social Engineering
 ===============================
 
-If a phishing attack is encountered or you suspect a phishing attack is encountered notify the team.  
+If a phishing attack is encountered or you suspect a phishing attack is encountered, please notify the team.  
 
-Phishing is also utilized as part of active information gathering while enumerating the target and also points to some form of information gathering/enumerating is taking place.
+Phishing is utilized as some form of information gathering (eg. enumerating) taking place.
 
-If encountering potential SE (social engineering) attacks notify the team lead.
+If encountering potential SE (social engineering) attacks, please notify the team lead.
 
 
 Passwords
@@ -144,7 +144,7 @@ Use password management tools (ie LastPass, 1Password, etc) and ensure to enable
 
 Do not reuse passwords from your personal accounts with SFTPPlus accounts.
 
-Do not send passwords via cleartext or even better - continue to use services that send passwords via cleartext.  
+Do not send passwords via cleartext. Or even better, do not continue to use services that send passwords via cleartext.
 
 When changing passwords do not use common password mutations like changing a character at the end.
 
@@ -174,17 +174,15 @@ However we work with a number of customer bases and budgets.
 Olark
 -----
 
-We use Olark web chat. If talking to a customer verify who they are and their installation.  The other alternative is to move the discussion to email.
-
-Compliance information is found in the User's Guides https://www.sftpplus.com/documentation/sftpplus/latest/guides/index.html
+We use Olark web chat. If talking to a customer, please verify who they are and their installation.  The other alternative is to move the discussion to email.
 
 
 Improving Documentation
 -----------------------
 
-If there a customer is having trouble securing their setup and they have read the documentation, ask what they are trying to do.  Then detect what portion of the documentation can be improved and create a ticket for this.
+If there is a customer having trouble securing their setup and they have read the documentation, ask what they are trying to do.  Then detect what portion of the documentation can be improved and create a ticket for this.
 
-If a customer has gone to support for this issue and it is not an 'edge case' then chances are high that others have had this issue before.
+If a customer has gone to support for this issue and it is not an 'edge case', then chances are high that others have had this issue before.
 
 
 Testing / validating third party apps / software for use
@@ -210,9 +208,11 @@ If possible, connect via wired instead of wireless connection.
 
 There is no request, customer or team, so urgent that you need to connect to a potentially hostile public network then and there to do the task.  Mention this and continue to do the task when you are in a better network.
 
-When faced with "I'm overseas and don't have access to..." or similar type of request, ask to use a secondary channel (ie phone call) to continue with the request.  In this case team member contact details must always be kept up to date in the wiki.
+When faced with "I'm overseas and don't have access to..." or similar type of request, ask to use a secondary channel (like a phone call) to continue with the request.  In this case team member contact details must always be kept up to date in the wiki.
 
 Consider using a non-main or travel-only devices while traveling, or live booting via USB.
+
+Consider using devices like SyncStop which allows you to use public USB-charing ports.
 
 
 Readings
