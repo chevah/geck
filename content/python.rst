@@ -110,9 +110,9 @@ NO
   `from __future__ import unicode_literals`, as it helps with readability,
   instead of explicitly having to mark every text string as `u'unicode'`.
   More details here:
-  https://python-future.org/compatible_idioms.html#strings-and-bytes
+  http://python-future.org/compatible_idioms.html#strings-and-bytes
 
-* All byte strings should be explicitly marked as in `b'byte string`.
+* All byte strings should be explicitly marked as in `b'byte string'`.
 
 * As PEP8 recommends, don't use '\' to split long lines. Wrap long lines by
   using Python's implied line continuation inside parentheses, brackets and
