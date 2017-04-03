@@ -9,7 +9,7 @@ Security
 Overview
 ========
 
-The following is more of a public-facing overview or a process rather than focusing on the step-by-step portion of security. We also have additional security requirements - system administrators will utilize more stringent security, travelers will want to utilize more stringent travel security processes, developers will have secure coding practices etc.
+The following is more of a public-facing overview or a process rather than focusing on the step-by-step portion of security. 
 
 The focus is on the human-side of security with some suggestions of tools and tactics.
 
@@ -49,10 +49,6 @@ Due to web applications being a large attack surface use secure extensions for b
 
 For example, are there any accounts that can be deleted or archived?
 Does the known_hosts file actually contain known hosts and not suspicious-looking hosts / impersonators?
-
-**Harden SOHO (Small Office, Home Office) networks**
-
-And/or consider connecting via a wired connection instead, or building/securing your own wireless network router.
 
 **Use Github via SSH**
 
@@ -130,7 +126,7 @@ If a phishing attack is encountered or you suspect a phishing attack is encounte
 
 Phishing is utilized as some form of information gathering (eg. enumerating) taking place.
 
-If encountering potential SE (social engineering) attacks, please notify the team lead.
+If encountering potential SE (social engineering) attacks, please notify the team lead.  For example, if you encounter a dodgy message or approach, then it's OK to double check said approach.
 
 
 Passwords
@@ -143,8 +139,6 @@ If possible, use non-password options.
 Use password management tools (ie LastPass, 1Password, etc) and ensure to enable MFA for these tools.
 
 Do not reuse passwords from your personal accounts with SFTPPlus accounts.
-
-Do not send passwords via cleartext. Or even better, do not continue to use services that send passwords via cleartext.
 
 When changing passwords do not use common password mutations like changing a character at the end.
 
@@ -163,69 +157,7 @@ When posting reviews or comments, are there certain details that need to be take
 Is this public information going to help with someone's enumeration activities? Are there sensitive files, passwords, private key info publicly facing? 
 
 
-Customers
-=========
-
-We work with admins that are already aware of security practices - like not leaving sensitive information in logs.
-
-However we work with a number of customer bases and budgets.
-
-
-Olark
------
-
-We use Olark web chat. If talking to a customer, please verify who they are and their installation.  The other alternative is to move the discussion to email.
-
-
-Improving Documentation
------------------------
-
-If there is a customer having trouble securing their setup and they have read the documentation, ask what they are trying to do.  Then detect what portion of the documentation can be improved and create a ticket for this.
-
-If a customer has gone to support for this issue and it is not an 'edge case', then chances are high that others have had this issue before.
-
-
 Testing / validating third party apps / software for use
 ========================================================
 
-There are some instances when we need to set up test accounts - for example to trial a ticketing software, an online web software and so on. When doing a test, try to test using your own individual Pro:Atria email as it helps solve 'noise'.
-
-Take note of what third party services are opened to do testing in the internal wiki.  
-
-If the third party service is no longer being used, or when testing is finished, delete all instances of any irrelevant tests/accounts and unused services.  Then update the wiki with your findings.
-
-If an app is in active use with customers / within the team during the validating period, ensure that whitelisting takes place to help validate/verify that it is an Pro:Atria-used third party product.
-
-
-Traveling, use of multiple devices etc
-=======================================
-
-If you are planning to travel while working, there are additional precautions faced being on the move.  Anything from risk of using hostile networks, to risk of device being stolen/tampered with.  
-
-When in a public space, use a VPN to secure the connection or consider tethering to your phone.
-
-If possible, connect via wired instead of wireless connection.
-
-There is no request, customer or team, so urgent that you need to connect to a potentially hostile public network then and there to do the task.  Mention this and continue to do the task when you are in a better network.
-
-When faced with "I'm overseas and don't have access to..." or similar type of request, ask to use a secondary channel (like a phone call) to continue with the request.  In this case team member contact details must always be kept up to date in the wiki.
-
-Consider using a non-main or travel-only devices while traveling, or live booting via USB.
-
-Consider using devices like SyncStop which allows you to use public USB-charing ports.
-
-
-Readings
-========
-
-IT Security and the Normalization of Deviance - Bruce Schneier
-https://www.schneier.com/blog/archives/2016/01/it_security_and.html
-
-Kevin Mitnick books on social engineering
-
-What is network enumeration https://en.wikipedia.org/wiki/Network_enumeration
-
-What is social engineering https://en.wikipedia.org/wiki/Social_engineering_(security)
-
-Security focus mailing list http://www.securityfocus.com/archive
-
+If an app is in active use with customers / within the team during the validating period, ensure that whitelabeling takes place to help validate/verify that it is an Pro:Atria-used third party product.

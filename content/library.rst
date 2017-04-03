@@ -38,3 +38,6 @@ The list is in random order:
 * `Anything You Want
   <http://www.amazon.com/dp/1936719118>`_
   (ISBN: 978-1936719112) by Derek Sivers, published June 29, 2011.
+
+* `IT Security and the Normalization of Deviance - Bruce Schneier
+  <https://www.schneier.com/blog/archives/2016/01/it_security_and.html>`_

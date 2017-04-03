@@ -38,6 +38,9 @@ Readers are mainly:
 Readers will have varying form of technical backgrounds and familiarity with
 the software and its features and functionalities.
 
+If there is a customer needing help with the setup, like securing their setup,
+ask what they are trying to do to see if the documentation can be improved.
+
 
 Semantic Linefeeds
 ------------------
