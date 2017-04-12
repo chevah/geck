@@ -33,6 +33,8 @@ It is ok to attach screenshots as a last resort but always try to describe the i
 When you start working at a task, you can optionally accept that task and the task will be considered 'in work'.
 At any given time, a team member should not have more than 3 'in work' tickets.
 
+When creating a ticket you can set yourself as the owner if you are implementing the task.
+
 
 Work priority
 =============
@@ -202,3 +204,4 @@ See https://trac.chevah.com/ticket/3391 for an example of a Story Ticket.
 
 Use this to list out smaller tasks associated with a larger task, such as the "Add WebDAV client" ticket.
 
+This may be a good ticket type to use if you are carrying out a high level task and need to keep track of notes on Trac...
