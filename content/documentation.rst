@@ -72,7 +72,7 @@ This section is also used for other frequent questions sent to Support / Sales
 that are not otherwise covered in the main documentation.
 
 User guides can also be written to the more general audience depending on the
-content.
+content. It is a good idea to specifically list out who the audience is.
 
 If the page has a specific audience in mind, state the audience in the
 introduction of the page.
@@ -81,7 +81,18 @@ introduction of the page.
 Using reStructuredText (rst)
 ============================
 
-Narrative documentation is delivered in the reStructuredText (.rst) format.  
+We use `Sphinx <http://www.sphinx-doc.org/en/stable/>`_ as a documentation
+generator that uses reStructuredText as its markup language, extending and
+using Docutils for parsing.
+
+Both Sphinx and Docutils were created in Python to document Python, but
+documenting C and C++ is also supported.
+
+Sphinx supports several output formats directly, such as HTML, LaTeX, and ePub,
+and supports PDF output via either LaTeX or the external rst2pdf tool.
+
+For us, rarrative documentation is delivered in the reStructuredText (.rst)
+format.  
 
 Further details are available in this
 `Docutils documentation page <http://docutils.sourceforge.net/rst.html>`_. 
@@ -259,6 +270,30 @@ Further details about generating and building documentation is found in the
 chevah server repository.
 
 
+Communicating command-line syntax
+----------------------------------
+
+Use the following convention:
+
+.. sourcecode:: shell
+
+    $ client-shell webdavs://user@acme.onmicrosoft.com@acme.sharepoint.com -p 'password'
+    > connect
+
+
+.. sourcecode:: bash
+
+    # useradd sftpplus
+    # groupadd sftpplus
+
+
+``$`` means a non-root user. 
+
+``#`` is a root user.
+
+``>`` means a client-shell command.
+
+
 Documenting the code
 ====================
 
@@ -434,3 +469,26 @@ page.
 
 Known Issues will include a reference to the internal Trac ID which provided
 further details about that issues
+
+Mock ups and designs for the website
+====================================
+
+If a change involves a design or content addition (such as an image carousel
+in JS), it is a good idea to write/mock up the content first before coding.
+
+In this way, you can check to see what type of code work should be done to best
+communicate the content.
+
+Please go to the 'design' repository for sample images and screenshots to use
+and add your own samples.
+
+If raw HTML needs to be used, see if custom directives can be used such as:
+
+.. sourcecode:: bash
+
+    :call_for_action: Ready to install SFTPPlus?
+    :call_for_action_link: /pricing/?utm_source=client&utm_campaign=clientbtn&utm_medium=btn#id1
+    :call_for_action_button: Ask for a trial
+
+For documentation pages, please do not add raw HTML as the format is designed
+to be converted into multiple other formats.
