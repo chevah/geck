@@ -218,6 +218,7 @@ Things that can be done in this day:
 * push or send upstream your local changes to open source projects
 * fix a bug in an upstream open source project.
 
+After each day, please send email feedback to the team to talk about what you have done.
 
 References
 ==========

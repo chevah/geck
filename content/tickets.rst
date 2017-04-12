@@ -24,9 +24,9 @@ The ticket workflow is described in a computer friendly manner here: https://gis
 Try not to upload attachments to tickets.
 When we eventually migrate away from Trac, we may find it difficult to migrate the attachments.
 
-* For text files, try to use the descriptions... or create a dedicate wiki page.
-* For logs, errors... etc use gist.github.com .
-* For pictures and other non/text data... I don't know, just attach it.
+* For text files, try to use the descriptions or create a dedicate wiki page.
+* For logs, errors, long code samples from test reviews, use gist.github.com.  
+* For pictures and other non/text data, you can attach these.
 
 It is ok to attach screenshots as a last resort but always try to describe the issue in a way where the screenshot is not really required and where you can report a text log or text error.
 
@@ -136,14 +136,41 @@ Below is a list of used tags:
   - These are tasks that don’t require knowledge of the product or operating system 'know-how' in advance.
 
 
+Ticket components
+-----------------
+
+Components and their explanations:
+
+ * client-commons
+ * client-ftp
+ * client-http
+ * client-ssh
+ * component not set
+ * gateway
+ * infrastructure
+ * libs
+ * manager
+ * pr (I think this is website/marketing related?)
+ * server-commons
+ * server-ftp
+ * server-http
+ * server-ssh
+ * support (also includes documentation, anything that involves information to the customer)
+ * webadmin
+
+
 Milestone planning
 ==================
 
-At the start of each cycle, we create a milestone or a sprint that represents our focus for the next month or week. We add new tickets to the new milestone or move tickets from 'Horse's Easter' milestone.
+At the start of each cycle, we create a milestone that represents our focus for the next month or week. We add new tickets to the new milestone or move tickets from 'Horse's Easter' milestone.
 
 Until the all tickets from the milestones/sprint are done, we should not work on any other task/ticket. If we start working on something, that something should be added to the current milestone.
 
 If new tasks/tickets are required, they are discussed with the team and if they are important they are added to the current milestone. If the milestone is already full, adding a new ticket might imply removing an already planed ticket.
+
+Usually, milestones are set to next-release, followed by Y-Near-Future, Z-Long-Term.
+
+Milestones associated with a release are also included.
 
 
 How not to be turned down by the big amount of opened bugs ?
@@ -166,3 +193,12 @@ The 'Horse easter' milestone is used for all long term tickets. Many of the tick
 You don't need to bother about these tickets and most of the time they can be ignored.
 
 Same for 'Near future' milestones.
+
+
+Story Tickets
+-------------
+
+See https://trac.chevah.com/ticket/3391 for an example of a Story Ticket.
+
+Use this to list out smaller tasks associated with a larger task, such as the "Add WebDAV client" ticket.
+
