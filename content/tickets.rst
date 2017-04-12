@@ -26,7 +26,7 @@ When we eventually migrate away from Trac, we may find it difficult to migrate t
 
 * For text files, try to use the descriptions or create a dedicate wiki page.
 * For logs, errors, long code samples from test reviews, use gist.github.com.  
-* For pictures and other non/text data, you can attach these.
+* For pictures and other non/text data, you can attach these as a last resort.
 
 It is ok to attach screenshots as a last resort but always try to describe the issue in a way where the screenshot is not really required and where you can report a text log or text error.
 
@@ -141,7 +141,9 @@ Below is a list of used tags:
 Ticket components
 -----------------
 
-Components and their explanations:
+This area is being revisited. 
+
+But the components are currently:
 
  * client-commons
  * client-ftp
@@ -152,27 +154,27 @@ Components and their explanations:
  * infrastructure
  * libs
  * manager
- * pr (I think this is website/marketing related?)
+ * pr (website/marketing related)
  * server-commons
  * server-ftp
  * server-http
  * server-ssh
- * support (also includes documentation, anything that involves information to the customer)
+ * support (also includes documentation)
  * webadmin
 
 
 Milestone planning
 ==================
 
-At the start of each cycle, we create a milestone that represents our focus for the next month or week. We add new tickets to the new milestone or move tickets from 'Horse's Easter' milestone.
+At the start of each cycle, we create a milestone that represents our focus for the next month or week. We add new tickets to the new milestone. 
+
+Milestones can be next-release, followed by Y-Near-Future, Z-Long-Term.
+
+Milestones associated with a release are also included.
 
 Until the all tickets from the milestones/sprint are done, we should not work on any other task/ticket. If we start working on something, that something should be added to the current milestone.
 
 If new tasks/tickets are required, they are discussed with the team and if they are important they are added to the current milestone. If the milestone is already full, adding a new ticket might imply removing an already planed ticket.
-
-Usually, milestones are set to next-release, followed by Y-Near-Future, Z-Long-Term.
-
-Milestones associated with a release are also included.
 
 
 How not to be turned down by the big amount of opened bugs ?
