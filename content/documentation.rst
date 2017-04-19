@@ -62,20 +62,71 @@ semicolons, rather than after the Nth column.
     long lines.
 
 
-Writing User's Guides
-=====================
+About the Documentation Sections
+================================
+
+**Introduction**
+
+High level introduction to the software.
+
+
+**Installation and Upgrade Instructions**
+
+System requirements, installation, installation validation/procedures, upgrade
+procedures, uninstallation instructions.
+
+
+**Getting Started with SFTPPlus**
+
+Prerequisite to this page is the installation section.
+
+Contains information about the initial, basic configurations that come with the
+installation package and first account configurations.
+
+
+**Configuration Instructions**
+
+Should contain information to the general configuration principle and
+references for each configuration option.
+
+This section focuses only on the **individual configuration options**.
+
+Samples and guides in this section should be aimed at the Local Manager GUI
+and the text file configuration.
+
+For example, the HTTP/HTTPS configuration page is only restricted to the
+configuration options available for this service.
+
+
+**Operation (under 'Usage Instructions')**
+
+Should only contain general principles of operation.
+
+The section can go into further detail about a particular feature or service
+beyond the configuration file and configuration file options.
+
+For example, the HTTP/HTTPS operations page goes into detail about what actions
+are available with this service, examples of usage and more.
+
+
+**User's Guides**
 
 Pages in the User's Guides are used to describe how a task can be performed by
 applying various configuration options.
 
-This section is also used for other frequent questions sent to Support / Sales
-that are not otherwise covered in the main documentation.
+This section is also used for other frequent questions sent to Support / Sales.
 
-User guides can also be written to the more general audience depending on the
-content. It is a good idea to specifically list out who the audience is.
+Can be written to the more general audience. 
+It is a good idea to list out who the audience is.
 
-If the page has a specific audience in mind, state the audience in the
-introduction of the page.
+Before adding to the Users Guide, check to make sure that the information is
+better suited elsewhere - such as the Operations or Configuration sections.
+
+
+Miscellaneous Topics
+--------------------
+
+These are pages that do not otherwise fall under the other main sections.
 
 
 Using reStructuredText (rst)
@@ -91,7 +142,11 @@ documenting C and C++ is also supported.
 Sphinx supports several output formats directly, such as HTML, LaTeX, and ePub,
 and supports PDF output via either LaTeX or the external rst2pdf tool.
 
-For us, rarrative documentation is delivered in the reStructuredText (.rst)
+Due to the ability to output to several formats, keep in mind how the output
+will look like. For example, raw HTML is discouraged as this will affect the
+look of a PDF output.
+
+For us, narrative documentation is delivered in the reStructuredText (.rst)
 format.  
 
 Further details are available in this
@@ -194,6 +249,10 @@ When linking to external web links:
 
     `Bug Writing Guidelines <http://developer.mozilla.org/en/docs/Bug_writing_guidelines>`_
 
+When linking to other resources, aim to make documentation be as cursive as
+possible - meaning that users should not have to break mid-guide and search for
+other information.
+
 
 Breaking up long lines of logs
 ------------------------------
@@ -241,6 +300,9 @@ For example, instead of 'user', add a real name such as 'alice' or 'bob':
     description = Staff SFTPPlus application account for Mark
     home_folder_path = /PATH/TO/MARK/HOME
     password = PASSWORD
+
+Since many customers are using the text file configuration, it is a good idea
+to include this along with steps in the Local Manager GUI.
 
 
 Updating the documentation

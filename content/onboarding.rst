@@ -5,7 +5,7 @@ Onboarding
 :url: /onboarding.html
 :save_as: onboarding.html
 
-This repo is used to organize tasks and track the onboarding process for new members. You can see who else is going through the onboarding process `here <https://github.com/orgs/chevah/teams/onboarding>`_.
+This repo is used to organize tasks and track the onboarding process for new members. You can see who else is going through the `onboarding process <https://github.com/orgs/chevah/teams/onboarding>`_.
 
 **Things to note and do:**
 
@@ -101,7 +101,7 @@ We have basic requirements and practices when working for the Chevah project. As
 
 * When starting a support ticket, request the OS version architecture used and version of the SFTPPlus products. Further details in Trac.
 
-* Before a Pull Request is closed, it must be reviewed by at least one other team member. Further info of the Review process `here <http://styleguide.chevah.com/review.html>`_.
+* Before a Pull Request is closed, it must be reviewed by at least one other team member. Further info of the `Review process <http://styleguide.chevah.com/review.html>`_.
 
 * Leave days can be requested at any time. Check the dedicated page in Trac.
 
