@@ -118,8 +118,7 @@ Before adding to the Users Guide, check to make sure that the information is
 better suited elsewhere - such as the Operations or Configuration sections.
 
 
-Miscellaneous Topics
---------------------
+**Miscellaneous Topics**
 
 These are pages that do not otherwise fall under the other main sections.
 
