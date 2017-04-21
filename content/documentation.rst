@@ -62,12 +62,12 @@ semicolons, rather than after the Nth column.
     long lines.
 
 
-About the Documentation Sections
-================================
+Structure of the Documentation
+==============================
 
 **Introduction**
 
-High level introduction to the software.
+High level introduction to the software and general concepts about the product.
 
 
 **Installation and Upgrade Instructions**
@@ -75,18 +75,12 @@ High level introduction to the software.
 System requirements, installation, installation validation/procedures, upgrade
 procedures, uninstallation instructions.
 
-
-**Getting Started with SFTPPlus**
-
-Prerequisite to this page is the installation section.
-
-Contains information about the initial, basic configurations that come with the
-installation package and first account configurations.
+This information is for the sysadmins.
 
 
 **Configuration Instructions**
 
-Should contain information to the general configuration principle and
+Contains information to the general configuration principle and
 references for each configuration option.
 
 This section focuses only on the **individual configuration options**.
@@ -100,7 +94,7 @@ configuration options available for this service.
 
 **Operation (under 'Usage Instructions')**
 
-Should only contain general principles of operation.
+Contains general principles of operation.
 
 The section can go into further detail about a particular feature or service
 beyond the configuration file and configuration file options.
@@ -112,7 +106,8 @@ are available with this service, examples of usage and more.
 **User's Guides**
 
 Pages in the User's Guides are used to describe how a task can be performed by
-applying various configuration options.
+applying various configuration options. Examples need to reflect real world
+cases.
 
 This section is also used for other frequent questions sent to Support / Sales.
 

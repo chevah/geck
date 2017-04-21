@@ -5,7 +5,8 @@ Onboarding
 :url: /onboarding.html
 :save_as: onboarding.html
 
-This repo is used to organize tasks and track the onboarding process for new members. You can see who else is going through the `onboarding process <https://github.com/orgs/chevah/teams/onboarding>`_.
+This repo is used to organize tasks and track the onboarding process for new members.
+You can see past/active tasks in the `onboarding repo <hhttps://github.com/chevah/onboarding/>`_.
 
 **Things to note and do:**
 
