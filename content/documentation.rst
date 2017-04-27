@@ -72,8 +72,8 @@ High level introduction to the software and general concepts about the product.
 
 Lists supported protocols.
 
-Includes a small section on product development section - not to be confused
-with roadmap or the more developed Product section.
+Includes a small section on product development section
+- not to be confused with roadmap or the more developed Product section.
 
 
 Installation and Upgrade Instructions
@@ -111,15 +111,25 @@ Configuration details are in the format of:
     
      HEADING: Name of the configuration as it appears in the text file
         configuration
+
     :Default value: Specifies default value - can be Yes, No, Disabled, etc
+
     :Optional: ie Yes / No
+
     :From version: Specifies the version from which this is available
+
     :Values: * Specify a list of values available in list format.
-        The values could include; whether or not a file path is accepted and
-        what the file path should lead to, whether or not this can be
-        Inherited, what placeholders are involved, type of value accepted 
-        (ie if the value is in seconds) etc.
+
+        The values could include; 
+        whether or not a file path is accepted,
+        what the file path should lead to,
+        whether or not this can be inherited,
+        what placeholders are involved,
+        type of value accepted (ie if the value is in seconds) etc,
+        and more.
+
     :Description:
+
         Describes the values and options only.
 
         Examples and adnotation classes can be added as long as it relates to
@@ -132,24 +142,29 @@ Configuration details are in the format of:
         additional usage tips.
 
         Everything that is relevant to this configuration should be added in
-        the description area so that the user can read without having to 
-        reference other parts of the page or documentation.
+        the description area
+        so that the user can read without having to reference other parts of the page or documentation.
 
         Generally, a customer will enquire about a specific value or
-        configuration in SFTPPlus therefore all details relevant to the values
-        are included in the description.
+        configuration in SFTPPlus
+        therefore all details relevant to the values are included in the description.
+        
 
-The sections and configuration options can be grouped into whether or not it is
-applicable to application accounts only, operating system accounts only, to
-certain platforms only, and so on. 
+The sections and configuration options can be grouped into;
+whether or not it is applicable to application accounts only,
+operating system accounts only,
+to certain platforms only,
+and so on. 
+
 In this way, an administrator only needs to use the subheading as the reference
 point before deciding to read further into a section.
 
-Content can also be grouped according to what 'action' that is involved - ie
-'Adding X', 'Activating Y', 'Extracting Z'. 
+Content can also be grouped according to what 'action' that is involved
+- ie 'Adding X', 'Activating Y', 'Extracting Z'. 
 
 When recommending that a user use a certain format, also add an example of this
-format. For example, if recommending a UPN format be used, add a UPN example.
+format.
+For example, if recommending a UPN format be used, add a UPN example.
 
 
 Operation (called 'Usage Instructions')
@@ -165,16 +180,16 @@ antivirus interfaces with SFTPPlus.
 Describes how SFTPPlus operates in relation to a specific area -
 authentication, filesystem access, client-shell command line usage etc.
 
-There is environment-specific information - for example, how specific operating
-systems interface with parts of SFTPPlus.
+There is environment-specific information
+- for example, how specific operating systems interface with parts of SFTPPlus.
 
 Further describes specific operations and how the software works due to a
-specific scenario (scenarios can be included), network (ie what happens when
-multiple servers are involved).
+specific scenario (scenarios can be included)
+and network (ie what happens when multiple servers are involved).
 
-Covers management related topics related to operating SFTPPlus - such as key
-and certificate management, debugging/testing the software, and other topics
-relevant to system and network administrators.
+Covers management related topics related to operating SFTPPlus
+- such as key and certificate management, debugging/testing the software,
+and other topics relevant to system and network administrators.
 
 
 User's Guides
@@ -190,7 +205,8 @@ Can be written to the more general audience.
 It is a good idea to list out who the audience is.
 
 Before adding to the Users Guide, check to make sure that the information is
-better suited elsewhere - such as the Operations or Configuration sections.
+better suited elsewhere
+- such as the Operations or Configuration sections.
 
 
 Miscellaneous Topics
@@ -208,14 +224,15 @@ We use `Sphinx <http://www.sphinx-doc.org/en/stable/>`_ as a documentation
 generator that uses reStructuredText as its markup language, extending and
 using Docutils for parsing.
 
-Both Sphinx and Docutils were created in Python to document Python, but
-documenting C and C++ is also supported.
+Both Sphinx and Docutils were created in Python to document Python,
+but documenting C and C++ is also supported.
 
 Sphinx supports several output formats directly, such as HTML, LaTeX, and ePub,
 and supports PDF output via either LaTeX or the external rst2pdf tool.
 
-Spinx can output to several formats. Due to this raw HTML in documentation is
-discouraged as this will affect the look of a PDF output.
+Spinx can output to several formats.
+Raw HTML in documentation is discouraged as this will affect the look of a PDF
+output.
 
 For us, narrative documentation is delivered in the reStructuredText (.rst)
 format.  
@@ -321,8 +338,8 @@ When linking to external web links:
     `Bug Writing Guidelines <http://developer.mozilla.org/en/docs/Bug_writing_guidelines>`_
 
 When linking to other resources, aim to make documentation be as cursive as
-possible - meaning that users should not have to break mid-guide and search for
-other information.
+possible.
+This means that users should not have to break mid-guide to search for other information.
 
 
 Breaking up long lines of logs
@@ -592,8 +609,8 @@ There is a page on the documentation where Known Issues and the ID are listed
 publicly
 `here <https://www.sftpplus.com/documentation/sftpplus/latest/known-issues.html>`_.
 
-The page is useful for handling Support queries. For example, if a
-customer finds a problem with the software, check that the problem exists in
+The page is useful for handling Support queries.
+For example, if a customer finds a problem with the software, check that the problem exists in
 the Known Issues list first.
 
 If there is an existing issues, then the customer can continue using the
@@ -602,6 +619,7 @@ page.
 
 Known Issues will include a reference to the internal Trac ID which provided
 further details about that issues
+
 
 Mock ups and designs for the website
 ====================================
