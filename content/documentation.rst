@@ -392,6 +392,9 @@ For example, instead of 'user', add a real name such as 'alice' or 'bob':
 Ensure to add examples for the text file configuration as first priority,
 followed by steps in the Local Manager GUI.
 
+The configuration / log examples are added *after* a narrative description of
+the example.
+
 
 Updating the documentation
 ==========================
