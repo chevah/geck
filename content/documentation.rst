@@ -62,20 +62,159 @@ semicolons, rather than after the Nth column.
     long lines.
 
 
-Writing User's Guides
-=====================
+Structure of the Documentation
+==============================
+
+Introduction
+------------
+
+High level introduction to the software and general concepts about the product.
+
+Lists supported protocols.
+
+Includes a small section on product development section
+- not to be confused with roadmap or the more developed Product section.
+
+
+Installation and Upgrade Instructions
+-------------------------------------
+
+System requirements, installation, installation validation and troubleshooting,
+upgrade procedures, and uninstallation instructions.
+
+These instructions are aimed at system administrators and written with a level
+of assumed knowledge in mind.
+
+
+Configuration Instructions
+--------------------------
+
+Contains information to the general configuration principle and
+references for each configuration option.
+
+Other general information can also be added (ie general information about a
+supported protocol) to help aid in understanding its configuration in SFTPPlus.
+Further details can be referenced for later reading.
+
+Samples and guides are aimed at configuring the Local Manager GUI and the text
+configuration file.
+
+Samples reflect real world use cases and not be abstract examples.
+
+When adding configuration details, add a heading introducing what the options
+are relevant to.
+Focuses only on the **individual configuration options** specific
+to SFTPPlus.
+Configuration details are in the format of:
+
+.. sourcecode:: rst
+    
+     HEADING: Name of the configuration as it appears in the text file
+        configuration
+
+    :Default value: Specifies default value - can be Yes, No, Disabled, etc
+
+    :Optional: ie Yes / No
+
+    :From version: Specifies the version from which this is available
+
+    :Values: * Specify a list of values available in list format.
+
+        The values could include; 
+        whether or not a file path is accepted,
+        what the file path should lead to,
+        whether or not this can be inherited,
+        what placeholders are involved,
+        type of value accepted (ie if the value is in seconds) etc,
+        and more.
+
+    :Description:
+
+        Describes the values and options only.
+
+        Examples and adnotation classes can be added as long as it relates to
+        the configuration.
+
+        Describes what happens to the configuration if a certain value is used
+        (and not used).
+
+        Add what the user needs to do to configure the values properly and
+        additional usage tips.
+
+        Everything that is relevant to this configuration should be added in
+        the description area
+        so that the user can read without having to reference other parts of the page or documentation.
+
+        Generally, a customer will enquire about a specific value or
+        configuration in SFTPPlus
+        therefore all details relevant to the values are included in the description.
+        
+
+The sections and configuration options can be grouped into;
+whether or not it is applicable to application accounts only,
+operating system accounts only,
+to certain platforms only,
+and so on. 
+
+In this way, an administrator only needs to use the subheading as the reference
+point before deciding to read further into a section.
+
+Content can also be grouped according to what 'action' that is involved
+- ie 'Adding X', 'Activating Y', 'Extracting Z'. 
+
+When recommending that a user use a certain format, also add an example of this
+format.
+For example, if recommending a UPN format be used, add a UPN example.
+
+
+Operation (called 'Usage Instructions')
+---------------------------------------
+
+Contains general principles of operating SFTPPlus correctly.
+For example, the HTTP/HTTPS operations page goes into detail about what actions
+are available with this service, examples of usage and more.
+
+Includes other features or services that interface with SFTPPlus such as how
+antivirus interfaces with SFTPPlus.
+
+Describes how SFTPPlus operates in relation to a specific area -
+authentication, filesystem access, client-shell command line usage etc.
+
+There is environment-specific information
+- for example, how specific operating systems interface with parts of SFTPPlus.
+
+Further describes specific operations and how the software works due to a
+specific scenario (scenarios can be included)
+and network (ie what happens when multiple servers are involved).
+
+Covers management related topics related to operating SFTPPlus
+- such as key and certificate management, debugging/testing the software,
+and other topics relevant to system and network administrators.
+
+
+User's Guides
+-------------
 
 Pages in the User's Guides are used to describe how a task can be performed by
 applying various configuration options.
+Examples need to reflect real world cases.
 
-This section is also used for other frequent questions sent to Support / Sales
-that are not otherwise covered in the main documentation.
+This section is also used for other frequent questions sent to Support / Sales.
 
-User guides can also be written to the more general audience depending on the
-content. It is a good idea to specifically list out who the audience is.
+Can be written to the more general audience. 
+It is a good idea to list out who the audience is.
 
-If the page has a specific audience in mind, state the audience in the
-introduction of the page.
+Before adding to the Users Guide, check to make sure that the information is
+better suited elsewhere
+- such as the Operations or Configuration sections.
+
+
+Miscellaneous Topics
+--------------------
+
+These are pages that do not otherwise fall under the other main sections
+but need to be in the documentation as it supports customer's operation, usage
+and understanding of SFTPPlus.
 
 
 Using reStructuredText (rst)
@@ -85,13 +224,17 @@ We use `Sphinx <http://www.sphinx-doc.org/en/stable/>`_ as a documentation
 generator that uses reStructuredText as its markup language, extending and
 using Docutils for parsing.
 
-Both Sphinx and Docutils were created in Python to document Python, but
-documenting C and C++ is also supported.
+Both Sphinx and Docutils were created in Python to document Python,
+but documenting C and C++ is also supported.
 
 Sphinx supports several output formats directly, such as HTML, LaTeX, and ePub,
 and supports PDF output via either LaTeX or the external rst2pdf tool.
 
-For us, rarrative documentation is delivered in the reStructuredText (.rst)
+Spinx can output to several formats.
+Raw HTML in documentation is discouraged as this will affect the look of a PDF
+output.
+
+For us, narrative documentation is delivered in the reStructuredText (.rst)
 format.  
 
 Further details are available in this
@@ -194,6 +337,10 @@ When linking to external web links:
 
     `Bug Writing Guidelines <http://developer.mozilla.org/en/docs/Bug_writing_guidelines>`_
 
+When linking to other resources, aim to make documentation be as cursive as
+possible.
+This means that users should not have to break mid-guide to search for other information.
+
 
 Breaking up long lines of logs
 ------------------------------
@@ -241,6 +388,12 @@ For example, instead of 'user', add a real name such as 'alice' or 'bob':
     description = Staff SFTPPlus application account for Mark
     home_folder_path = /PATH/TO/MARK/HOME
     password = PASSWORD
+
+Ensure to add examples for the text file configuration as first priority,
+followed by steps in the Local Manager GUI.
+
+The configuration / log examples are added *after* a narrative description of
+the example.
 
 
 Updating the documentation
@@ -459,8 +612,8 @@ There is a page on the documentation where Known Issues and the ID are listed
 publicly
 `here <https://www.sftpplus.com/documentation/sftpplus/latest/known-issues.html>`_.
 
-The page is useful for handling Support queries. For example, if a
-customer finds a problem with the software, check that the problem exists in
+The page is useful for handling Support queries.
+For example, if a customer finds a problem with the software, check that the problem exists in
 the Known Issues list first.
 
 If there is an existing issues, then the customer can continue using the
@@ -469,6 +622,7 @@ page.
 
 Known Issues will include a reference to the internal Trac ID which provided
 further details about that issues
+
 
 Mock ups and designs for the website
 ====================================
