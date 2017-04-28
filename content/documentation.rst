@@ -93,7 +93,7 @@ Contains information to the general configuration principle and
 references for each configuration option.
 
 Other general information can also be added (ie general information about a
-supported protocol) to help aid in understanding its configuration in SFTPPLus.
+supported protocol) to help aid in understanding its configuration in SFTPPlus.
 Further details can be referenced for later reading.
 
 Samples and guides are aimed at configuring the Local Manager GUI and the text
