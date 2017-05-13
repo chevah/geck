@@ -56,15 +56,37 @@ Below is the list of priority order for work items. Top of the list is top prior
 Support tickets
 ===============
 
-THIS SECTIONS NEED EXPANSION.
-
-Tickets related to support issues should contain the following information in description::
+Tickets related to support issues should contain the following information in the description::
 
  * The customer name
  * Affected products
  * Version of each affected product
  * Operating system version and architecture
 
+The following is a **template** to be used for getting a few details about customer's installations and updating the support details table::
+
+  Can you please provide us with the following details about the system used for running the SFTPPlus Server
+  or Client:
+  * SFTPPlus Server or Client?
+  * SFTPPlus product version?
+  * If Server – do you also use WebAdmin?
+  * Operating system name?
+  * Operating system version?
+  * CPU architecture?
+  * File transfer protocol(s) used?
+  * Is this installation part of a resilience/redundancy/high availability architecture?
+
+  * Other information (if known). Please advise brief details of any integration, software, security or other
+  technologies that interact with SFTPPlus products. e.g. Firewalls, Proxy, LDAP, Active Directory, Single
+  Sign On, Management software etc
+
+  Before releasing a new version of SFTPPlus products or any fix, we run an automated test suite to validate
+  new features and check for regressions. By knowing a few details about your installations we can configure
+  the test suite to run against a setup similar to your installation. This information will not be shared with
+  any other third party and will be used solely for improving further support for you and for the development
+  of the product.
+
+THIS SECTIONS NEED EXPANSION.
 
 Bug / Defect reporting
 ======================
