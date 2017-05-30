@@ -373,5 +373,5 @@ You can use Github to 'Approve' or 'Request changes' to a PR.
 
 When a reviewer submits a review with 'Approve', it marks the Pull Request as
 good to merge.
-If all reviewers listed in the Pull Request body comment,
+If all reviewers listed in the Pull Request body has set the PR to 'Approve',
 the hook will change the ticket state to `needs-merge`.
