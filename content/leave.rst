@@ -17,7 +17,8 @@ General
 * Feel free to subscribe to notifications for the leave document.
 
 * When updating the table 2 days before the leave, there is no need for other extra notice
-  other than editing the document. Notifications are sent each day.
+  other than editing the document.
+  Notifications are sent each day.
   You will be contacted if something needs clarification.
 
 * Please try to always keep the document updated, and input new information as soon as you can.
@@ -64,5 +65,6 @@ Unused leaves
   up to a total of 5 days.
 
 * You can redeem your unused leave days as normal paid days,
-  up to a total of 5 days. Try to plan your time so that you don't end up
+  up to a total of 5 days.
+  Try to plan your time so that you don't end up
   with these remaining days in the first place.

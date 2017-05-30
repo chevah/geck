@@ -58,8 +58,8 @@ get the same versions.
 Pinning is very important to keep the test suite under control and to make sure
 the test execution is deterministic.
 
-They can be pinned via the pavement.py or the requirements.txt file. It is not
-important how you pinned them, but is important to make sure that they are
+They can be pinned via the pavement.py or the requirements.txt file.
+It is not important how you pinned them, but is important to make sure that they are
 pinned.
 
 When pinning a package which has various dependencies, make sure you are also
@@ -75,9 +75,8 @@ the code or to the packaging system, then the `.chevahN` prefix is appended to
 the upstream version.
 
 If some upstream Python code is not present on PyPi, we get a copy of that
-code and package/repackage it. Even if we are not making any changes to the
-code, we will still publish it with a version suffixed by `.chevahN` to
-prevent future conflicts in the case in which the upstream package is
+code and package/repackage it.
+Even if we are not making any changes to the code, we will still publish it with a version suffixed by `.chevahN` to prevent future conflicts in the case in which the upstream package is
 published on the official PyPi site.
 
 MAYBE ADD A SECTION ABOUT .PYPIRC AND python setup.py sdist upload -r chevah

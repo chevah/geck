@@ -78,15 +78,20 @@ For any of the tasks above, feel free to check existing or previous milestones f
 2. Know the basic rules
 -----------------------
 
-We have basic requirements and practices when working for the Chevah project. Ask the tech lead for any questions.
+We have basic requirements and practices when working for the Chevah project.
+Ask the tech lead for any questions.
 
 * Take note of the `coding conventions <http://styleguide.chevah.com>`_ applied for this project. These general coding conventions are for all 'texts' (code, documentation, etc). 
 
-* There are specific rules that apply to programming languages. Begin by reading the general `coding conventions <http://styleguide.chevah.com>`_. Then review each language specific convention as you will be writing in that language.
+* There are specific rules that apply to programming languages. Begin by reading the general `coding conventions <http://styleguide.chevah.com>`_.
+Then review each language specific convention as you will be writing in that language.
 
 * While you are in IRC on #chevah "in the office", set to auto-away to let others know that you are not at the computer. Set the away status to "busy" (/away busy) if you are working at something and don't want to be disturbed.
 
-* You will use your own hardware for work tasks. To compensate for this usage of your hardware we will cover hardware expenses for your home computer. If you need a hardware component or peripheral that will help your work related tasks, ask and we can cover those expenses. Ask tech lead for details.
+* You will use your own hardware for work tasks.
+To compensate for this usage of your hardware we will cover hardware expenses for your home computer.
+If you need a hardware component or peripheral that will help your work related tasks, ask and we can cover those expenses.
+Ask tech lead for details.
 
 * Each task that you are working on should have a ticket in Trac/Github. If there is no ticket, create one and start the `Ticket Work Flow <http://styleguide.chevah.com/tickets.html>`_. 
 
@@ -100,11 +105,13 @@ We have basic requirements and practices when working for the Chevah project. As
 
 * From time to time, check the Trac timeline to stay up to date with latest changes in the project.
 
-* When starting a support ticket, request the OS version architecture used and version of the SFTPPlus products. Further details in Trac.
+* When starting a support ticket, request the OS version architecture used and version of the SFTPPlus products.
+Further details in Trac.
 
 * Before a Pull Request is closed, it must be reviewed by at least one other team member. Further info of the `Review process <http://styleguide.chevah.com/review.html>`_.
 
-* Leave days can be requested at any time. Check the dedicated page in Trac.
+* Leave days can be requested at any time.
+Check the dedicated page in Trac.
 
 * Add your preferred email address in Trac ( Preferences -> General ) to enable email notifications.
 
@@ -124,7 +131,8 @@ We are far from single-sign-on and while working on this project you will have m
 
 For GitHub you can create a new account or use your current account and ask to be part of our GitHub organisations (Chevah and ProAtria) and our core team. Ensure that in git-config, your user.email is the Pro:Atria email when working in the Chevah project repositories.
 
-We use Skype for phone calls. Use the dedicated ProAtria Skype account as the official tools to collaborate with the team and to make phone calls.
+We use Skype for phone calls.
+Use the dedicated ProAtria Skype account as the official tools to collaborate with the team and to make phone calls.
 
 **Ask our system administrators for all of the followings:**
 
@@ -136,7 +144,10 @@ We use Skype for phone calls. Use the dedicated ProAtria Skype account as the of
 
 * Request for VPN certificates to connect to internal servers/services.
 
-* You will need a Trac account setup. Trac tickets are used for managing work items since there is no support with the web-based GitHub issue/task/defect management. Trac also contains wiki pages to other documentation.  Get to know the team by checking the dedicated page in our private wiki.
+* You will need a Trac account setup.
+Trac tickets are used for managing work items since there is no support with the web-based GitHub issue/task/defect management
+Trac also contains wiki pages to other documentation.
+Get to know the team by checking the dedicated page in our private wiki.
 
 
 4. Exploring SFTPPlus for the first time
