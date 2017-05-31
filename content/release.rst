@@ -481,3 +481,11 @@ The **master** branch should be kept in good shape so that we can release it at
 any time.
 Especially if a security bugfix is found, we will make a new release as soon
 as the bug is fixed.
+
+**Other questions to ask:**
+
+* If a customer-requested feature is added or if a bug fix is made, who
+  should be contacted to notify them of the new release?
+
+* Are there further updates for non-Documentation related content, like the
+  website or newsletter?

@@ -324,26 +324,18 @@ Reviewer's check list - QA
 Reviewer's check list - Support
 -------------------------------
 
-* Does the documentation contain old information that needs to be updated?
-
-* Does the documentation makes sense to new and existing users?
+* Does the documentation make sense to new and existing users?
+  Is there additional content required - such as Users Guide, screenshots?
 
 * UX: Does the Local Manager make sense along with the text configuration?
 
 * If it's a new feature release, does the information make sense to new
-  users?
+  users that are not familiar with the rest of the product?
+  Should the information also be distributed beyond the Documentation
+  such as the website?
 
-* Should there be an accompanying Users Guide? FAQ update? API addition?
-
-* Should there be samples, screenshots available?
-
-After a release:
-
-* If a customer-requested feature is added or if a bug fix is made, who
-  should be contacted to notify them of the new release?
-
-* Are there further updates for non-Documentation related content, like the
-  website or newsletter?
+* Are there SFTPPlus-specific terms (ie jargon) being used?
+  Is there an explanation in the page about the term? 
 
 
 Overview of the GitHub and Trac integration
