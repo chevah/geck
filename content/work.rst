@@ -14,8 +14,8 @@ Working in a distributed team can be fun and challenging, but not everything is
 fun and joy... at least not all the time.
 
 A distributed team is scattered across different locations,
-and everyone works wherever they want. People can work from home
-(bedroom, living room or home office room), from co-working places, or
+and everyone works wherever they want.
+People can work from home (bedroom, living room or home office room), from co-working places, or
 from any place they feel comfortable in.
 
 If you have always worked at a "job office", the transition can be rough.
@@ -44,20 +44,21 @@ You are in control
 When you work in a distributed team, you are in control.
 You plan your schedule and decide where and when to work.
 
-The most difficult part is to find the motivation to work. Hopefully you enjoy
-what you do at work and genuinely care about getting the work done for the
-project. Otherwise you might need to find another project, or recognize that
-distributed teams are not your style.
+The most difficult part is to find the motivation to work.
+Hopefully you enjoy what you do at work and genuinely care about getting the work done for the
+project.
+Otherwise you might need to find another project, or recognize that distributed teams are not your style.
 
-There is nobody to tell you when to work, how to work, or to check that you
-are at work. It will be your own way of working and you will need to find the way to
+There is nobody to tell you when to work, how to work, or to check that you are at work.
+It will be your own way of working and you will need to find the way to
 improve it.
 
 The sustainable work hours number varies considerably for each person so take the time to observe your limits.
 
 Define and respect boundaries between your work and your personal life.
 Realize your work throughput limit and stop working as soon as
-you hit the limit. It will be best for you and for the project.
+you hit the limit.
+It will be best for you and for the project.
 
 There is no correlation between work hours and experience level.
 Working hours is a personal choice, you decide how much energy you want to spend on the project and on yourself/family/friends.
@@ -97,7 +98,8 @@ handling tasks, in comparison with the 9 to 5 methodology.
 We are a team, so we still need to collaborate in order to get tasks done.
 
 While working on a task you will have to wait for feedback from one or more
-team members. For example, a review request, help with some idea... etc
+team members.
+For example, a review request, help with some idea... etc
 Since we may not be working in the same timeframe every moment, this will inevitably
 lead to having multiple opened tasks at the same time.
 
@@ -132,18 +134,20 @@ Staying healthy, both physically and mentally, is harder when you are on your
 own.
 
 When you work from home like in bedroom, you tend to do little physical
-effort. Fitness is something you have to pay close attention to.
+effort.
+Fitness is something you have to pay close attention to.
 
 Make sure you have a comfortable desk, chair, keyboard,
-mouse and monitor. Any of these can cause short or long term injuries.
+mouse and monitor.
+Any of these can cause short or long term injuries.
 There is also the option of working from a standing desk.
 
 Being alone at work is probably the hardest part.
 When you work from home, the only people you may talk to all day would be members of
-the house. You can experience some loneliness if you compare it to a normal office.
+the house.
+You can experience some loneliness if you compare it to a normal office.
 
-So when you are done, remember to disconnect yourself from work, stay away from the screen, and feel
-more like a social human being.
+So when you are done, remember to disconnect yourself from work, stay away from the screen, and feel more like a social human being.
 Be proactive and invite friends for lunch, coffee, dinner, game nights, pasta nights, drinks, etc.
 You shouldn't be dependent on work for social interactions.
 
@@ -197,7 +201,8 @@ Well documented, small tasks based work
 It feels flattering to be essential to the project.
 But that usually also means that project won’t make rapid progress without you.
 
-This is not a good thing. Both for you and for the project.
+This is not a good thing.
+Both for you and for the project.
 What happens if you want to take a (spontaneous) vacation or if you get sick?
 Or if some work gets delayed and overlaps with your great vacation, scheduled many months before.
 

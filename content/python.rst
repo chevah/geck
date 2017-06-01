@@ -26,7 +26,8 @@ General
 * As the second best option, use Mixins to reuse code and avoid multiple inheritance.
 
 * Docstring always uses multiline strings with double quotes and empty first
-  and last lines. There's no blank line either before or after the docstring.
+  and last lines.
+  There's no blank line either before or after the docstring.
 
 .. sourcecode:: python
 
@@ -83,14 +84,14 @@ General
 * When adding linter exception, always add a comment explaining the reason
   why the exception was added.
 
-* Use named parameters for calling methods. This will reduce future
-  refactoring efforts.
+* Use named parameters for calling methods.
+  This will reduce future refactoring efforts.
 
 * If a method or class initialization / constructor method has more than 1
   argument, always use named parameters for calling that method.
 
-* Try to use single quotes for strings. This will make it easier to generate
-  quoted text for UI or HTML.
+* Try to use single quotes for strings.
+  This will make it easier to generate quoted text for UI or HTML.
 
 YES
 
@@ -114,24 +115,26 @@ NO
 
 * All byte strings should be explicitly marked as in `b'byte string'`.
 
-* As PEP8 recommends, don't use '\' to split long lines. Wrap long lines by
-  using Python's implied line continuation inside parentheses, brackets and
-  braces. More details here:
+* As PEP8 recommends, don't use '\' to split long lines.
+  Wrap long lines by using Python's implied line continuation inside parentheses, brackets and
+  braces.
+  More details here:
   http://www.python.org/dev/peps/pep-0008/#maximum-line-length
 
 * Multi-line splits using parentheses, brackets, etc, will follow the normal
-  indentation rules. The code might look ugly and then exceptions are allowed.
+  indentation rules.
+  The code might look ugly and then exceptions are allowed.
 
 * Define all class members at the beginning of class definition.
-  Don't interleave methods and class members definitions. This should make it
-  easy to identify all class members used by the class.
+  Don't interleave methods and class members definitions.
+  This should make it easy to identify all class members used by the class.
 
-* Define all instance members inside the __init__() method. This should make
-  it easy to identity all instance members used by the class and reduce the
+* Define all instance members inside the __init__() method.
+  This should make it easy to identity all instance members used by the class and reduce the
   risk of using the same member for more than one purpose.
 
-* Decode all input to Unicode and encode all output from Unicode. Do **all**
-  internal text handling in **Unicode**.
+* Decode all input to Unicode and encode all output from Unicode.
+  Do **all** internal text handling in **Unicode**.
 
 .. sourcecode:: python
 
@@ -293,7 +296,8 @@ Project specific
 * When default arguments have mutable values, they are defined as `None` and
   then assigned the default value.
 
-  Otherwise this can hit us very hard. `More details here
+  Otherwise this can hit us very hard.
+  `More details here
   <http://stackoverflow.com/q/1132941/539264>`_.
 
 .. sourcecode:: python

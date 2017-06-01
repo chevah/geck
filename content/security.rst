@@ -19,7 +19,9 @@ Onboarding
 
 When onboarding a team member, they will have limited access to Pro:Atria's infrastructure until such a time arrives when further credentials can be provided.
 
-There may instances when certain items are shared to the onboarding member's non-Pro:Atria address or accounts. Once a member is part of the team all use of services / apps related to Pro:Atria will need to be switched into Pro:Atria emails.  For example, if your personal email was added in the Google Analytics account during onboarding, please ensure that your personal email address is replaced by the new Pro:Atria email address.
+There may instances when certain items are shared to the onboarding member's non-Pro:Atria address or accounts.
+Once a member is part of the team all use of services / apps related to Pro:Atria will need to be switched into Pro:Atria emails.
+For example, if your personal email was added in the Google Analytics account during onboarding, please ensure that your personal email address is replaced by the new Pro:Atria email address.
 
 
 Accounts
@@ -35,7 +37,8 @@ Enforcement: Go to the list of accounts in the organization and see which one ha
 
 Idea: Enable this in Github settings - can use mobile device, hardware key, downloadable codes, etc.
 
-Enforcement: The Google organization owner/administrator can see who has MFA (multi-factor authentication).  If MFA is not enabled, contact the account owner to re-enable.
+Enforcement: The Google organization owner/administrator can see who has MFA (multi-factor authentication).
+If MFA is not enabled, contact the account owner to re-enable.
 
 
 Testing / validating third party apps / software for use

@@ -26,8 +26,8 @@ General
 * A function called main is required for scripts long enough to contain at
   least one other function.
 
-* Put all functions together in the file just below constants. Don't hide
-  executable code between functions.
+* Put all functions together in the file just below constants.
+  Don't hide executable code between functions.
 
 * Use uppercase for all GLOBAL variables.
 
@@ -38,9 +38,11 @@ General
 
 * Pipelines should be split one per line if they don't all fit in one line.
 
-* Use $(command) instead of backticks. Nested backticks require escaping the
+* Use $(command) instead of backticks.
+  Nested backticks require escaping the
   inner ones with \. The $(command) format doesn't change when nested and is
-  easier to read. See the example below
+  easier to read.
+  See the example below
 
 .. sourcecode:: bash
 
@@ -60,9 +62,8 @@ Path constants
 --------------
 
 When defining a directory path as a constant, you should include the trailing
-slash to make sure it is a directory and not a file. Two consecutive /'s are
-harmless in POSIX shells as long as they are not at the beginning of the path
-in some exotic environment such as Cygwin that actually uses this notation for
+slash to make sure it is a directory and not a file.
+Two consecutive /'s are harmless in POSIX shells as long as they are not at the beginning of the path in some exotic environment such as Cygwin that actually uses this notation for
 SMB shares.
 
 Always double quote path constants to handle files with spaces:
