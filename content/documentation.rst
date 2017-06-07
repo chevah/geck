@@ -20,15 +20,16 @@ We have the following types of documentation:
 Narrative documentation
 =======================
 
+
 Overview
 --------
 
 Readers are mainly:
 
-* Administrators directly involved with SFTPlus. 
+* Administrators directly involved with SFTPlus.
   They can be in three stages - pre-sales, on trial, or existing customers.
 
-* Decision-makers involved in the implementation of the software. 
+* Decision-makers involved in the implementation of the software.
   They can include the business and technical arm of the organization.
 
 * Chevah development team to check the specifications of a functionality.
@@ -41,11 +42,18 @@ the software and its features and functionalities.
 If there is a customer needing help with the setup, like securing their setup,
 ask what they are trying to do to see if the documentation can be improved.
 
+Is important to keep a copy of each documentation version ever release,
+and make it accessible via the web site, as well offline inside the product.
+
+We don't want to force users to read the documentation for they exact
+version as latest version might include typos and other upated informations
+which are valid for older versions.
+
 
 Semantic Linefeeds
 ------------------
 
-For narrative documentation use 
+For narrative documentation use
 `semantic linefeeds <http://rhodesmill.org/brandon/2012/one-sentence-per-line/>`_.
 
 Make lines short, and break lines at natural places, such as after commas and
@@ -64,6 +72,7 @@ semicolons, rather than after the Nth column.
 
 Structure of the Documentation
 ==============================
+
 
 Introduction
 ------------
@@ -93,7 +102,7 @@ Contains information to the general configuration principle and
 references for each configuration option.
 
 Other general information can also be added (ie general information about a
-supported protocol) to help aid in understanding its configuration in SFTPPlus.
+supported protocol) to help aid in understanding its configuration.
 Further details can be referenced for later reading.
 
 Samples and guides are aimed at configuring the Local Manager GUI and the text
@@ -104,11 +113,15 @@ Samples reflect real world use cases and not be abstract examples.
 When adding configuration details, add a heading introducing what the options
 are relevant to.
 Focuses only on the **individual configuration options** specific
-to SFTPPlus.
-Configuration details are in the format of:
+to the product.
+
+As most of our customers will read the latest documentation,
+version in which a configuration was introduces is very important.
+
+Configuration details are in the format of this self documented example:
 
 .. sourcecode:: rst
-    
+
      HEADING: Name of the configuration as it appears in the text file
         configuration
 
@@ -120,7 +133,7 @@ Configuration details are in the format of:
 
     :Values: * Specify a list of values available in list format.
 
-        The values could include; 
+        The values could include;
         whether or not a file path is accepted,
         what the file path should lead to,
         whether or not this can be inherited,
@@ -146,21 +159,51 @@ Configuration details are in the format of:
         so that the user can read without having to reference other parts of the page or documentation.
 
         Generally, a customer will enquire about a specific value or
-        configuration in SFTPPlus
+        configuration in the product.
         therefore all details relevant to the values are included in the description.
-        
+
+
+        For each feature which was added at a later time, add a note with the
+        version number.
+        (Since 2.3.0)
+
+        Other functionality added at a different version is documented in
+        a separate paragraph.
+        (Since 3.4.0)
+
+Example:
+
+.. sourcecode:: rst
+
+     target_path
+     ^^^^^^^^^^^
+
+    :Default value: '/tmp'
+    :Optional: Yes
+    :From version: 1.23.0
+    :Values: * Local path
+             * Disabled
+    :Description:
+        The description further describes the configuration options for the
+        user and what is expected.
+
+        Some other behaviour, which was introduced at a later time.
+        (Since 3.2.0)
+
+        Set it to `Disable` to not have this behaviour.
+
 
 The sections and configuration options can be grouped into;
 whether or not it is applicable to application accounts only,
 operating system accounts only,
 to certain platforms only,
-and so on. 
+and so on.
 
 In this way, an administrator only needs to use the subheading as the reference
 point before deciding to read further into a section.
 
 Content can also be grouped according to what 'action' that is involved
-- ie 'Adding X', 'Activating Y', 'Extracting Z'. 
+- ie 'Adding X', 'Activating Y', 'Extracting Z'.
 
 When recommending that a user use a certain format, also add an example of this
 format.
@@ -170,24 +213,25 @@ For example, if recommending a UPN format be used, add a UPN example.
 Operation (called 'Usage Instructions')
 ---------------------------------------
 
-Contains general principles of operating SFTPPlus correctly.
+Contains general principles of operating the product correctly.
 For example, the HTTP/HTTPS operations page goes into detail about what actions
 are available with this service, examples of usage and more.
 
-Includes other features or services that interface with SFTPPlus such as how
-antivirus interfaces with SFTPPlus.
+Includes other features or services that interface with the product such as how
+antivirus interfaces with the product .
 
-Describes how SFTPPlus operates in relation to a specific area -
+Describes how the product operates in relation to a specific area -
 authentication, filesystem access, client-shell command line usage etc.
 
 There is environment-specific information
-- for example, how specific operating systems interface with parts of SFTPPlus.
+- for example, how specific operating systems interface with parts of
+the product.
 
 Further describes specific operations and how the software works due to a
 specific scenario (scenarios can be included)
 and network (ie what happens when multiple servers are involved).
 
-Covers management related topics related to operating SFTPPlus
+Covers management related topics related to operating the product
 - such as key and certificate management, debugging/testing the software,
 and other topics relevant to system and network administrators.
 
@@ -201,7 +245,7 @@ Examples need to reflect real world cases.
 
 This section is also used for other frequent questions sent to Support / Sales.
 
-Can be written to the more general audience. 
+Can be written to the more general audience.
 It is a good idea to list out who the audience is.
 
 Before adding to the Users Guide, check to make sure that the information is
@@ -214,7 +258,7 @@ Miscellaneous Topics
 
 These are pages that do not otherwise fall under the other main sections
 but need to be in the documentation as it supports customer's operation, usage
-and understanding of SFTPPlus.
+and understanding of the product.
 
 
 Using reStructuredText (rst)
@@ -235,10 +279,10 @@ Raw HTML in documentation is discouraged as this will affect the look of a PDF
 output.
 
 For us, narrative documentation is delivered in the reStructuredText (.rst)
-format.  
+format.
 
 Further details are available in this
-`Docutils documentation page <http://docutils.sourceforge.net/rst.html>`_. 
+`Docutils documentation page <http://docutils.sourceforge.net/rst.html>`_.
 
 The following are some useful tips on the rst format.
 
@@ -285,7 +329,7 @@ Examples of existing adnotation classes used in the documentation:
 
     .. attention::
     On Linux and Unix, this authentication method can only be used when the
-    SFTPPlus service is started as `root`.
+    service is started as `root`.
 
 
 Header formats
@@ -317,7 +361,7 @@ When linking to internal documentation pages, use the :doc: tag:
 
 .. sourcecode:: rst
 
-    :doc:`link to Local Manager</operation/local-manager>` `` 
+    :doc:`link to Local Manager</operation/local-manager>` ``
 
 When linking to internal sections within a page, use the :ref: tag:
 
@@ -353,28 +397,11 @@ Add a pipe (|) to break up a long log line such as below:
       logged in.
 
 
-Describing a configuration option
----------------------------------
-
-Example:
-
-.. sourcecode:: rst
-
-    :Default value: 'DEFAULT-EXAMPLE'
-    :Optional: No/Yes
-    :From version: VERSION_HERE
-    :Values: * The values section should only list the type of values supported
-             * Examples include Path, Disabled, Inherit, Path+${USER}
-    :Description:
-        The description further describes the configuration options for the
-        user and what is expected.
-
-
 Adding configuration and log examples
 -------------------------------------
 
 Examples of configuration or logs in the documentation should be edited to be
-more of a real world example. 
+more of a real world example.
 
 For example, instead of 'user', add a real name such as 'alice' or 'bob':
 
@@ -385,7 +412,7 @@ For example, instead of 'user', add a real name such as 'alice' or 'bob':
     enabled = Yes
     type = application
     group = Staff
-    description = Staff SFTPPlus application account for Mark
+    description = Staff application account for Mark
     home_folder_path = /PATH/TO/MARK/HOME
     password = PASSWORD
 
@@ -405,7 +432,7 @@ Narrative documentation may be added for a number of reasons such as:
 - A Support request is made since the documentation is not clear.
 - A new feature has been released or modified.
 - A customer has requested how x can be done, and this can be added to the
-  documentation as it is related to the software.  
+  documentation as it is related to the software.
 - A commonly asked sales request about the software and the documentation is
   added as the publicly-available answer.
 
@@ -414,10 +441,10 @@ Narrative documentation may be added for a number of reasons such as:
 When creating a new page, add the page name in a doctree (ie index.rst).
 
 See the towncrier repo for news fragments and the extensions to use.
-Documentation changes is usually ``.ignore`` with the internal ID. 
+Documentation changes is usually ``.ignore`` with the internal ID.
 
 Release notes are tied to a specific version so that changes are linked to a
-version of SFTPPlus. 
+version of the product.
 
 Further details about generating and building documentation is found in the
 chevah server repository.
@@ -436,11 +463,11 @@ Use the following convention:
 
 .. sourcecode:: bash
 
-    # useradd sftpplus
-    # groupadd sftpplus
+    # useradd chevah
+    # groupadd chevah
 
 
-``$`` means a non-root user. 
+``$`` means a non-root user.
 
 ``#`` is a root user.
 
@@ -477,7 +504,7 @@ Document code as part of docstrings and not as comments.
 Other tips about Python docstrings are this
 `wiki entry <https://en.wikipedia.org/wiki/Docstring>`_.
 
-**Shell Examples:** 
+**Shell Examples:**
 
 Use comments to document what the shell script does and notes to keep in mind
 to the developers using a script.
@@ -500,7 +527,7 @@ Document how portions of the script works, where needed:
     OS='not-detected-yet'
     ARCH='x86'
 
-**C Examples:** 
+**C Examples:**
 
 Use comments to document notes to the developer utilizing the c script.
 
@@ -557,7 +584,7 @@ Production code docstrings
 --------------------------
 
 Docstring are added in the production code to provide further information for
-readers and reviewers.  
+readers and reviewers.
 
 For example:
 
@@ -591,7 +618,7 @@ After the website is updated and News item published, we send a newsletter:
 
 1. Go to Campaigns in Mailchimp.
 
-2. Select 'Replicate' besides 'NEW: SFTPPlus Release Announcement'.
+2. Select 'Replicate' besides 'NEW: ACME Release Announcement'.
    If it is a security bugfix, use the Security Advisories email list.
 
 3. Select the News Announcements email list.
@@ -601,26 +628,22 @@ After the website is updated and News item published, we send a newsletter:
 
 5. Select Send. Before sending the final email, preview first by going
    to 'Preview and Send' on the top menu. Select 'Send a test email'.
-   
+
 
 Known Issues
 ============
 
-Known issues are Z-Horse Easter type of bugs with workarounds.
-
-There is a page on the documentation where Known Issues and the ID are listed
-publicly
-`here <https://www.sftpplus.com/documentation/sftpplus/latest/known-issues.html>`_.
+Known issues are bugs/defects with are acknowledge by the development team.
 
 The page is useful for handling Support queries.
-For example, if a customer finds a problem with the software, check that the problem exists in
-the Known Issues list first.
+For example, if a customer finds a problem with the software,
+check that the problem exists in the Known Issues list first.
 
 If there is an existing issues, then the customer can continue using the
 product as long as there is also a workaround provided in the Known Issues
 page.
 
-Known Issues will include a reference to the internal Trac ID which provided
+Known Issues will include a reference to the internal bug ID which provided
 further details about that issues
 
 
@@ -640,7 +663,7 @@ If raw HTML needs to be used, see if custom directives can be used such as:
 
 .. sourcecode:: bash
 
-    :call_for_action: Ready to install SFTPPlus?
+    :call_for_action: Ready to install our product?
     :call_for_action_link: /pricing/?utm_source=client&utm_campaign=clientbtn&utm_medium=btn#id1
     :call_for_action_button: Ask for a trial
 
