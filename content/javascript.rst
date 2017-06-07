@@ -1,7 +1,7 @@
 JavaScript
 ##########
 
-:menu_order: 151
+:menu_order: 013
 
 .. contents::
 
@@ -20,8 +20,8 @@ General
   variable_name, function_name, methodName, ClassName, CONSTANT_NAME
 
 * Callback methods should always end with 'Callback' as the
-  method / function name. This is a reminder of the fact that
-  the context is lost.
+  method / function name.
+  This is a reminder of the fact that the context is lost.
 
 * Constructor functions (those that are called with **new**) should use
   class naming convention.
@@ -143,7 +143,7 @@ Example::
 
     In HTML, we use " as quotes around attribute values, like this:
 
-.. sourcecode::
+.. sourcecode:: javascript
 
     <a href="foo">bar</a>
     In JavaScript, we use ' as much as possible.
@@ -154,8 +154,8 @@ Example::
     alert('<a href="foo">bar</a>')
 
 * REST web services should always return a valid dictionary
-  and not an Array or a primitive. JSON-RPC is forced to return a dictionary
-  by the protocol.
+  and not an Array or a primitive.
+  JSON-RPC is forced to return a dictionary by the protocol.
 
 * Callbacks called from the GUI / DOM should be prefixed with `on`.
   Ex: onAuthentication (when authenticate button is pressed),
@@ -307,9 +307,9 @@ CSS interaction
 JS related CSS class
 --------------------
 
-Try to append js- to all javascript-based selectors. This is taken from
-`slightly obtrusive javascript`_. The idea is that you should be able to tell
-a presentational class from a functional class.
+Try to append js- to all javascript-based selectors.
+This is taken from `slightly obtrusive javascript`_.
+The idea is that you should be able to tell a presentational class from a functional class.
 
 There are good things and bad things about "Unobtrusive JavaScript."
 One bad thing: it's hard to tell when JavaScript is touching an element.
@@ -326,8 +326,8 @@ For example::
 Now we know how to look for any JavaScript touching .js-open-tab, which should
 only be a simple search away.
 
-And hey, now JavaScript and CSS won't share selectors. Since we're separating
-our content and presentation, we might as well separate our behaviour all the
+And hey, now JavaScript and CSS won't share selectors.
+Since we're separating our content and presentation, we might as well separate our behaviour all the
 way too.
 
 .. _slightly obtrusive javascript: http://ozmm.org/posts/slightly_obtrusive_javascript.html

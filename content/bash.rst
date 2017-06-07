@@ -1,7 +1,7 @@
 Bash
 ####
 
-:menu_order: 155
+:menu_order: 016
 
 ..  contents::
 
@@ -26,8 +26,8 @@ General
 * A function called main is required for scripts long enough to contain at
   least one other function.
 
-* Put all functions together in the file just below constants. Don't hide
-  executable code between functions.
+* Put all functions together in the file just below constants.
+  Don't hide executable code between functions.
 
 * Use uppercase for all GLOBAL variables.
 
@@ -38,9 +38,11 @@ General
 
 * Pipelines should be split one per line if they don't all fit in one line.
 
-* Use $(command) instead of backticks. Nested backticks require escaping the
+* Use $(command) instead of backticks.
+  Nested backticks require escaping the
   inner ones with \. The $(command) format doesn't change when nested and is
-  easier to read. See the example below
+  easier to read.
+  See the example below
 
 .. sourcecode:: bash
 
@@ -53,20 +55,21 @@ General
 * Always guard your Bash scripts from unexpected errors by using
 
 .. sourcecode:: bash
+
     set -o nounset
 
 Path constants
 --------------
 
 When defining a directory path as a constant, you should include the trailing
-slash to make sure it is a directory and not a file. Two consecutive /'s are
-harmless in POSIX shells as long as they are not at the beginning of the path
-in some exotic environment such as Cygwin that actually uses this notation for
+slash to make sure it is a directory and not a file.
+Two consecutive /'s are harmless in POSIX shells as long as they are not at the beginning of the path in some exotic environment such as Cygwin that actually uses this notation for
 SMB shares.
 
 Always double quote path constants to handle files with spaces:
 
 .. sourcecode:: bash
+
     SOME_PATH=/some/path/
     # and use it like this:
     command "${SOME_PATH}/some.file"
@@ -78,6 +81,7 @@ Always double quote path constants to handle files with spaces:
 Instead of:
 
 .. sourcecode:: bash
+
     SOME_PATH=/some/path/
     # and then:
     command "${SOME_PATH}some.file"
@@ -101,6 +105,7 @@ as exit codes, we will pass values between functions by using ``echo``.
 
 
 .. sourcecode:: bash
+
     #
     # Description of function 1.
     #
@@ -134,6 +139,7 @@ Case Syntax
 -----------
 
 .. sourcecode:: bash
+
     case "$VARIABLE_NAME" in
         "option1")
             do specific
@@ -146,10 +152,12 @@ Case Syntax
             ;;
     esac
 
+
 IF/THEN/ELSE
 ------------
 
 .. sourcecode:: bash
+
     if TEST; then
         call something
     elif [ "$string" = OTHER_TEST ]; then
@@ -162,6 +170,7 @@ FOR
 ---
 
 .. sourcecode:: bash
+
     for CONDITION; do
         call something
     done
@@ -170,6 +179,7 @@ WHILE/UNTIL
 -----------
 
 .. sourcecode:: bash
+
     while TEST; do
         call something
     done

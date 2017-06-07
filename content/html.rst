@@ -1,7 +1,7 @@
 HTML, XML and other markups
 ###########################
 
-:menu_order: 153
+:menu_order: 015
 :slug: html
 
 .. contents::
@@ -12,7 +12,8 @@ General
 
 * Unlike other files, indentation for XML/HTML is 2 spaces. 
 
-* Don't use inline HTML style attributes. Only CSS classes.
+* Don't use inline HTML style attributes.
+  Only CSS classes.
 
 * Use HTML5 doctype::
 

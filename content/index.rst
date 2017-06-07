@@ -23,11 +23,11 @@ to scale for more complex usage.
 Please note that these guides are continuously updated according to latest
 best practices.
 
-We consider that arguments over these guides are not pointless. In the same
-time, it is hard to agree upon a style guide for all projects, and we don't
+We consider that arguments over these guides are not pointless.
+In the same time, it is hard to agree upon a style guide for all projects, and we don't
 expect that everyone will agree with the lines from this page.
-If you have any comment or suggestions, please get in touch with us. You
-can do that over email, or adding an issue or pull request on
+If you have any comment or suggestions, please get in touch with us.
+You can do that over email, or adding an issue or pull request on
 `Github`_.
 
 We try to automatically check software development rules using `pocket-lint`_.

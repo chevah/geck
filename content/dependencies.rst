@@ -1,7 +1,7 @@
 Dependencies
 ############
 
-:menu_order: 160
+:menu_order: 017
 
 .. contents::
 
@@ -34,8 +34,7 @@ implementation.
 
 The server is configured to reject duplicate versions.
 
-Any developer can upload to pypi.chevah.com using the standard HTTP
-credentials.
+Any developer can upload to pypi.chevah.com using standard HTTP credentials.
 
 No package should be removed from pypi.chevah.com.
 
@@ -59,8 +58,8 @@ get the same versions.
 Pinning is very important to keep the test suite under control and to make sure
 the test execution is deterministic.
 
-They can be pinned via the pavement.py or the requirements.txt file. It is not
-important how you pinned them, but is important to make sure that they are
+They can be pinned via the pavement.py or the requirements.txt file.
+It is not important how you pinned them, but is important to make sure that they are
 pinned.
 
 When pinning a package which has various dependencies, make sure you are also
@@ -76,9 +75,8 @@ the code or to the packaging system, then the `.chevahN` prefix is appended to
 the upstream version.
 
 If some upstream Python code is not present on PyPi, we get a copy of that
-code and package/repackage it. Even if we are not making any changes to the
-code, we will still publish it with a version suffixed by `.chevahN` to
-prevent future conflicts in the case in which the upstream package is
+code and package/repackage it.
+Even if we are not making any changes to the code, we will still publish it with a version suffixed by `.chevahN` to prevent future conflicts in the case in which the upstream package is
 published on the official PyPi site.
 
 MAYBE ADD A SECTION ABOUT .PYPIRC AND python setup.py sdist upload -r chevah
@@ -116,14 +114,16 @@ is required.
 Each package contains the following code in the top level `__init__.py` file,
 in order to help detect the path where the JS files are located:
 
-```python
+.. sourcecode:: python
+
     MODULE_PATH = os.path.dirname(__file__)
-```
+
+
 Then, the code needing access to a JS package can use:
 
-```python
+.. sourcecode:: python
+
     from chevah.weblibs.some_js_package import MODULE_PATH
 
     # Make the JS files accessible inside the HTTP server.
     root_location.putChild('some_js_name', MODULE_PATH)
-```

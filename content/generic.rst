@@ -24,8 +24,8 @@ something is wrong.
 * All code in any code-base should look like a single person typed it, no
   matter how many people contributed.
 
-* No single person is responsible for a part of the code. We write code
-  together, we take the blame together, we take the glory together.
+* No single person is responsible for a part of the code.
+  We write code together, we take the blame together, we take the glory together.
   Once a code was approved for review, reviewers are also responsible for
   that code.
 
@@ -35,11 +35,11 @@ something is wrong.
 * When you need a trade-off between readability and code duplication, choose
   to have a code less readable but without duplication.
 
-* Write code as it will be used by humans, not by a machine. You are not
-  a compiler / interpreter.
+* Write code as it will be used by humans, not by a machine.
+  You are not a compiler / interpreter.
 
-* Optimization should come second and only if really needed. Don't use clever
-  tricks and other optimization to early.
+* Optimization should come second and only if really needed.
+  Don't use clever tricks and other optimization to early.
 
 * Do the simplest thing that could possibly work and do it well.
   Always work on the story you have, not something you think we're going to
@@ -49,29 +49,18 @@ something is wrong.
 
 * Try to keep methods as flat as possible and return as early as possible.
 
-* Don't use abbreviation. Use full, meaningful names.
+* Don't use abbreviation.
+  Use full, meaningful names.
 
 * Don't use tabs for indentation, and in general don't use tabs for anything
-  else. The only exceptions are Makefiles.
+  else.
+  The only exceptions are Makefiles.
 
-* Favour indentation using 4 spaces. For deep nested languages (HTML, JS) it
-  is OK to use 2 spaces.
+* Favour indentation using 4 spaces.
+  For deep nested languages (HTML, JS) it is OK to use 2 spaces.
 
 * Maximum line length for code is 80 characters, but for Python we use 79 to be in
   sync with PEP8 Style Guide for Python Code.
-
-* For narrative documentation use `semantic newlines
-  <http://rhodesmill.org/brandon/2012/one-sentence-per-line/>`_.
-  Make lines short, and break lines at natural places, such as after commas and semicolons, rather than after the Nth column.
-
-..  code-block:: text
-    :linenos:
-
-    Sometimes when editing a narrative documentation file, I wrap the lines semantically.
-    Instead of inserting a newline at 70 columns (or whatever),
-    or making paragraphs one long line,
-    I put in newlines at a point that seems logical to me.
-    Modern code-oriented text editors are very good at wrapping and arranging long lines.
 
 * Don't mix multiple languages in a single file.
 
@@ -79,7 +68,8 @@ something is wrong.
   libraries it is OK if those calls don't comply with coding convention.
 
 * When extending external libraries, use the coding convention used by that
-  library. It might be harder to define the border of those changes but this
+  library.
+  It might be harder to define the border of those changes but this
   should help with sending patches upstream.
 
 * When reporting a code related problem, use
@@ -116,7 +106,8 @@ something is wrong.
   do a first review just before the commit.
 
 * When you don't understand something related to security, don't just walk
-  by and ignore it. Try to understand what is happening there, or ask
+  by and ignore it.
+  Try to understand what is happening there, or ask
   someone else to take a look or to explain it to you.
 
 * Don't abuse inheritance and favour composition and delegation.
@@ -180,9 +171,10 @@ Comments
   required.
 
 * Try to name variables, methods, functions so that they communicate their
-  intent. A comment is only written in the place where the name is defined,
-  and not present in all other multiple places where it is used. IDE can help,
-  but we should not rely on that.
+  intent.
+  A comment is only written in the place where the name is defined,
+  and not present in all other multiple places where it is used.
+  IDE can help, but we should not rely on that.
 
 * When writing a comment is like saying: "I have no idea for a better name
   for this thing, so here is my poor comment”, good luck with figuring out the
@@ -205,29 +197,6 @@ Comments
 * Avoid end of line comments.
 
 
-Documentation
-=============
-
-* Well documented code is extremely important.
-  Take time to describe components, how they work, their limitations, and the way they are constructed.
-  Don't leave others in the team guessing what is the purpose of uncommon or non-obvious code.
-
-* Document code as part of docstrings and not as comments.
-
-* Document packages, modules, classes and functions.
-
-* For narrative documentation (non docstrings) use `semantic linefeeds <http://rhodesmill.org/brandon/2012/one-sentence-per-line/>`_.
-
-..  code-block:: text
-    :linenos:
-
-    Sometimes when editing a narrative documentation file, I wrap the lines semantically.
-    Instead of inserting a newline at 70 columns (or whatever),
-    or making paragraphs one long line,
-    I put in newlines at a point that seems logical to me.
-    Modern code-oriented text editor are very good at wrapping and arranging long lines.
-
-
 Exceptions handling
 ===================
 
@@ -239,12 +208,12 @@ In Chevah project we use 2 major "kinds" of exceptions:
   internally by the package / library.
 
 * `Exceptions` are normal exceptions, passed inside the package/library to signal
-  various conditions. The public API for the package/library should not raise
-  this kind of exceptions.
+  various conditions.
+  The public API for the package/library should not raise this kind of exceptions.
 
 Exceptions can take any format, and most of the time they can contain only a 
-piece of text with some details about the error. These exceptions are low level
-and should be raised in simple conditions.
+piece of text with some details about the error.
+These exceptions are low level and should be raised in simple conditions.
 
 Errors should have a unique ID and a data attribute.
 Each ID should be raised from a single place.
@@ -283,13 +252,12 @@ the production / master branch.
 
 We don't use feature branches because:
 
-* They need to be permanently kept in sync with the main branch. This will solve
-  conflicts with the main branch, but there might still be hidden conflicts
+* They need to be permanently kept in sync with the main branch.
+  This will solve conflicts with the main branch, but there might still be hidden conflicts
   with **other feature** branches.
 * You will need to keep in sync with other feature branches to make sure
-  there are no integration problems. This just creates more work and in the
-  end you will have something close to multiple **masters** as each feature
-  branch will contain latest development from all other feature branches.
+  there are no integration problems.
+  This just creates more work and in the end you will have something close to multiple **masters** as each feature branch will contain latest development from all other feature branches.
 * They create multiple versions of a product which requires more release work.
   You will want to release an alpha/beta version of the feature as soon as
   possible to get feedback from end users.
@@ -298,8 +266,8 @@ We don't use feature branches because:
 * Once merged, a feature branch will introduce a big change in a short time.
 
 Instead of feature branches we develop experimental features directly in the
-main branch. Experimental features are triggered using dedicated
-(configuration) flags.
+main branch.
+Experimental features are triggered using dedicated (configuration) flags.
 
 In this way, a feature is gradually added to the master branch, and during development
 by spending more time in master it should have a greater impact on testing.
@@ -316,8 +284,9 @@ Project specific
 * A logging message should only be called from a single place in the code.
   This will greatly help with support and debugging.
 
-* A logging message should have a unique ID. This will help the support team
-  by pointing a specific event. It will also help when using localized logs.
+* A logging message should have a unique ID.
+  This will help the support team by pointing a specific event.
+  It will also help when using localized logs.
 
 * If a logging message should be issued from multiple places, move the
   logging call into a dedicated helper method. This will help with
@@ -332,8 +301,8 @@ Project specific
   that 'owns' the log ID that would issue the log.
 
 * All branches will need to use the following convention:
-  ``TICKETNO-SHORT_DESCRIPTION``. By having a reference to a ticket, it will
-  be much easier to track and keep a record of the branch purpose and its
+  ``TICKETNO-SHORT_DESCRIPTION``.
+  By having a reference to a ticket, it will be much easier to track and keep a record of the branch purpose and its
   development.
 
 Example::
@@ -345,10 +314,10 @@ Example::
   introduction version and version since it was obsolete,
   together with a description of the purpose and effect.
 
-* Configuration options must be documented using the following format. Please
-  note the order in which fields are defined, the name of the files, and the
-  format for declaring possible values. All fields should be present, and
-  if no value is defined, use 'None' or leave it blank.
+* Configuration options must be documented using the following format.
+  Please note the order in which fields are defined, the name of the files, and the
+  format for declaring possible values.
+  All fields should be present, and if no value is defined, use 'None' or leave it blank.
 
 ::
 

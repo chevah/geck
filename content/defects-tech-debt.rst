@@ -1,7 +1,7 @@
 Bugs and Tech-Debt
 ##################
 
-:menu_order: 100
+:menu_order: 004
 
 .. contents::
 
@@ -34,13 +34,12 @@ Defects can fall into 3 categories:
 
 * `bugs with high or critical priority` - are defects which affect
   (or we think that might affect) the workflow of at least one customer
-* `bugs with low priority` -
-  are defects which do not seem to be affecting our customers, 
-	but which make the product behave in an unintended way.
-  They are acknowledged in the **Known Issues** section of our documentation.
+* `bugs with low priority` - are defects which do not seem to be affecting our
+   customers, but which make the product behave in an unintended way.
+   They are acknowledged in the **Known Issues** section of our documentation.
 * `tasks with high or critical priority` - are defects affecting our build
-  system or testing infrastructure, but are not defects in the actual
-  product.
+   system or testing infrastructure, but are not defects in the actual
+   product.
 
 For some defects, fixing them is a lot of work and their impact is minor
 as maybe our customers will never use the product in a way to trigger the bug.
@@ -55,12 +54,13 @@ documentation.
 If we gather a considerable number of minor bugs / defect we will schedule
 a release dedicated / focused on reducing that number.
 
-We should focus on fixing all bugs as soon as possible. is not currently
-affecting customers, there is high probability that a customer
+We should focus on fixing all bugs as soon as possible.
+If it is not currently affecting customers, there is high probability that a customer
 will be affected by it in the near future.
 
 Also small/minor bugs might trigger big flaws in the structure of our
-code. We should focus on fixing them as soon as possible so that we can work
+code.
+We should focus on fixing them as soon as possible so that we can work
 on them at a normal pace and not take the chance of having to fix them in a hurry
 under the pressure of a release blocker, or when having a customer complaining 
 about bad behaviour.
@@ -112,8 +112,8 @@ The analogy with the financial term is weak so please read
 articles in the reference section to find out more.
 
 While tech-debt is a bad metaphor, we should all know what we want to say
-with `tech-debt` when we talk about our code. I was not able to find a better
-metaphor so for now we are stuck with this term.
+with `tech-debt` when we talk about our code.
+I was not able to find a better metaphor so for now we are stuck with this term.
 
 We are not paying tech-debt in dedicated sprints or releases.
 
@@ -168,11 +168,12 @@ which was created as tech-debt.
 We will leave the tech-debt unpaid and will try to pay it next time we hit
 an issue with that section of code.
 
-Only use **FIXME** markers followed by ticket ID. Don't use TODO, *** or other
-markers.
+Only use **FIXME** markers followed by ticket ID.
+Don't use TODO or other markers.
 
 Technical debt comments will always have an attached ticket ID and will use
-the following format. Comments will come on new lines.
+the following format.
+Comments will come on new lines.
 Adapt this to the style of comments used in the specific language::
 
     # FIXME:1234:
@@ -218,6 +219,12 @@ Things that can be done in this day:
 * fixing small technical debts, code cleanup, renaming... etc
 * push or send upstream your local changes to open source projects
 * fix a bug in an upstream open source project.
+
+After each hacking session, please send email feedback to the team to talk
+about what you have done.
+
+If you cannot participate on the day, you can use another day to work on the
+Happy Hacking session.
 
 
 References

@@ -1,7 +1,7 @@
 Release process
 ###############
 
-:menu_order: 101
+:menu_order: 006
 
 ..  contents::
 
@@ -16,17 +16,19 @@ Releasing a product usually consists of publishing the following:
 
 * Binary or source archives.
 * Documentation, which includes Release Notes, Known Issues and Upgrade Steps.
-* Public announcement. Website news/blog article and newsletter.
+* Public announcement.
+  Website news/blog article and newsletter.
 
 Each version sent to a customer should have a unique version number
 and must be mentioned in the release notes.
 
 Sometimes, special features are required by clients with custom needs
 and the functionalities are not to be included in the main release
-series. The versions with dedicated features should be released from
-their own branches, which are not to be removed. Each release from
-these branches should have an associated tag. All the related custom
-bits in the release notes are to be imported into the release notes
+series.
+The versions with dedicated features should be released from
+their own branches, which are not to be removed.
+Each release from these branches should have an associated tag.
+All the related custom bits in the release notes are to be imported into the release notes
 from the main branch though.
 
 TODO: see what to do with customers using releases from staging... maybe
@@ -132,7 +134,8 @@ These are the extra steps for checking a release in production:
 Future improvements for the automated release process:
 
 * Create a release notification list and send an email to everyone who cares
-  about new releases. The email should include a changelog for the lastest version.
+  about new releases.
+  The email should include a changelog for the latest version.
   Trac ticket #525.
 * Add a news article to our website
 * Trigger a website crawler to check broken links for download pages and
@@ -153,19 +156,21 @@ We keep release notes for all versions in a single file so that users can
 easily read all changes starting from their version up to latest, or up to
 a specific version.
 
-Release notes are grouped in one of the following categories. The category
-may be omitted if no changes were added for it. 
+Release notes are grouped in one of the following categories.
+The category may be omitted if no changes were added for it. 
 Here are some categories::
 
 * Major changes (only for major releases)
 * New features
-* Bug fixes (this will be the only section for bugfix releases)
+* Bug fixes with internal bug ID (this is the only section for bugfix releases)
 * Deprecation and Removals
 * Documentation changes
 * Other changes
+* Security related issues (to be highlighted or tagged for easy filtering)
 
 A marker/tag is added at the end of the sentence to point to the ticket ID
-associated with this change. Having a ticket ID marker is not mandatory for new features.
+associated with this change.
+Having a ticket ID marker is not mandatory for new features.
 
 It can be followed by a list of tags to help users understand / filter the
 scope of the change. 
@@ -183,19 +188,21 @@ use a link to the documentation.
 All entries should be complete sentences or phrases, ending with a
 punctuation mark.
 
-Use present tense as opposed to past tense. The text should state what the
-change **does** and not what it **did**.
+Use present tense as opposed to past tense.
+The text should state what the change **does** and not what it **did**.
 eg. "Product no longer falls over X." as opposed to "Product fell over X.".
 
 Write text in **resolution** form and describe what impact the change will have
-on users. What will the users notice?
+on users.
+What will the users notice?
 
 If a single sentence isn't clear enough to understand, explaining the
 background of the change can be helpful, by adding in
-`Previously, X used to do Y` or `Previously, X used to do Y. Now it does Z`.
+`Previously, X used to do Y` or `Previously, X used to do Y.
+Now it does Z`.
 
-Don't add low-level internal details about product logic. Focus on how
-the change affects / is perceived by the user.
+Don't add low-level internal details about product logic.
+Focus on how the change affects / is perceived by the user.
 
 Here are some examples:
 
@@ -329,14 +336,14 @@ Security issues have top priority and a fix is released as soon as possible.
 **PATCH** version doesn't include any new functionality and changes are focused
 only on fixing the targeted bugs.
 
-**SpecialNNN** is our non-standard version marker. These versions are not targeted
-for general availability or for every customer. The special version should be a word
-or keyword followed by an integer acting as a counter.
+**SpecialNNN** is our non-standard version marker.
+These versions are not targeted for general availability or for every customer.
+The special version should be a word or keyword followed by an integer acting as a counter.
 
 In an ideal world a release should be done by preparing a release
-branch. Then, by issuing a single command, the documentation, download
-and news pages would be updated. Users would be automatically notified
-about the new release.
+branch.
+Then, by issuing a single command, the documentation, download and news pages would be updated.
+Users would be automatically notified about the new release.
 
 
 Compatibility Policy
@@ -350,8 +357,8 @@ without having to change any external system interaction, API interaction or
 configuration option.
 
 A **MINOR** version release might introduce various functionalities which are
-not available in previous versions. Downgrading to a previous **MINOR**
-version will not make the newest functionalities available, but
+not available in previous versions.
+Downgrading to a previous **MINOR** version will not make the newest functionalities available, but
 configuration options or other setup specific to newer functionalities
 should just be ignored in previous **MINOR** versions, without requiring
 any other changes.
@@ -390,8 +397,8 @@ All removal warnings should have a similar format to simplify filtering and
 reporting them.
 
 Here are some steps you can use for testing the compatibility between
-**MAJOR** releases. While some functionalities might not be available, the
-product should still start.
+**MAJOR** releases.
+While some functionalities might not be available, the product should still start.
 
 * Install the new release and use the configuration from the previous major release
   to start the product.
@@ -462,15 +469,12 @@ We are now aiming to extending the support / product life cycle to 5 years.
 
 While working on a product, we have the following types of branches::
 
-* master - only one master branch - this is the latest stable development
-  version
-* release-branch - ephemeral branches on which the version number is updated
-  and release notes are finalized.
-* task-branch - multiple ephemeral branches.
-  (Each new feature or fix has a task-branch)
+* master - one master branch with the latest stable development version
+* release-branch - ephemeral branches where the version number is updated and release notes finalized.
+* task-branch - multiple ephemeral branches where a new feature or fix has a task-branch
 
-Each released version has a dedicated tag. When you need to create a
-bugfix release or a maintenance release for a previous version, you will
+Each released version has a dedicated tag.
+When you need to create a bugfix release or a maintenance release for a previous version, you will
 create the release branch based on the desired tag.
 
 The **master** branch should be kept in good shape so that we can release it at
@@ -478,17 +482,10 @@ any time.
 Especially if a security bugfix is found, we will make a new release as soon
 as the bug is fixed.
 
-After the website is updated and News item published we send a newsletter:
+**Other questions to ask:**
 
-1. Go to Campaigns in Mailchimp.
+* If a customer-requested feature is added or if a bug fix is made, who
+  should be contacted to notify them of the new release?
 
-2. Select 'Replicate' in the drop down besides 'NEW: SFTPPlus Release Announcement'.
-If it is a security bugfix, use the SFTPPlus Security Advisories email list.
-
-3. Select the News Announcements email list.
-
-4. Update the email subject and email with the News text used to announce the
-new release. You can use the copy that is in the News article for the email.
-
-5. Select Send. Before sending the final email, you can preview first by going
-to 'Preview and Send' on the top menu and select 'Send a test email'.
+* Are there further updates for non-Documentation related content, like the
+  website or newsletter?

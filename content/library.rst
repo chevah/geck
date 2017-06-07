@@ -1,7 +1,7 @@
 Library
 #######
 
-:menu_order: 101
+:menu_order: 011
 
 These page contains list of pages talking about life, programming craftsmanship,
 good/clean code, and much more. 
@@ -38,3 +38,6 @@ The list is in random order:
 * `Anything You Want
   <http://www.amazon.com/dp/1936719118>`_
   (ISBN: 978-1936719112) by Derek Sivers, published June 29, 2011.
+
+* `IT Security and the Normalization of Deviance - Bruce Schneier
+  <https://www.schneier.com/blog/archives/2016/01/it_security_and.html>`_
