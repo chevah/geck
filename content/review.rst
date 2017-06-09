@@ -192,15 +192,15 @@ Merge your branch
 After the merge request and review was approved you need to merge your branch
 into master.
 
-After your review request was approved, you can send your branch to PQM
+After your review request was approved, you can send your branch to
 and conduct a test_review::
 
     paver test_review
 
-The PQM will check your branch and the results of the tests will be published
+Paver will check your branch and the results of the tests will be published
 in the PR.
 
-**Test failures during PQM test review:**
+**Test failures during test review:**
 
 There is ticket https://trac.chevah.com/ticket/4091 where we should report any
 test failure which we suspect that is not related to our branch.
@@ -209,7 +209,7 @@ When test_review fails, you can retry just the failed builder- no need to
 trigger all the builders.
 See the "Resubmit Build:" section in the PR.
 
-**Test success during PQM test review:**
+**Test success during test review:**
 
 When using the GitHub merge button, use the standard merge commit format.
 
@@ -218,8 +218,6 @@ We only care about the Trac ID and it should be first :)
 
 Make sure to edit the commit details.
 GitHub will auto add the list of all commit messages.
-
-If PQM is not enabled for the repo, you will need to do a manual merge.
 
 When doing manual merge using git, use squash merge and don't use the
 default commit message.
