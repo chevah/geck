@@ -26,7 +26,7 @@ Overview
 
 Readers are mainly:
 
-* Administrators directly involved with SFTPlus.
+* Administrators directly involved with the product.
   They can be in three stages - pre-sales, on trial, or existing customers.
 
 * Decision-makers involved in the implementation of the software.

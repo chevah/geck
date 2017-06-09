@@ -102,7 +102,7 @@ For the person requesting a review
 
 * Before submitting a ticket for review, check that you have documented your
   work accordingly, for example in the affected repository documentation,
-  Trac's Wiki, or the Styleguide.
+  the ticketing system, or the Styleguide.
 
 
 * For Trac: A review request is created by adding the comment and then
@@ -193,13 +193,31 @@ After the merge request and review was approved you need to merge your branch
 into master.
 
 After your review request was approved, you can send your branch to PQM
-for automatic testing and merging.
-Use the following command::
+and conduct a test_review::
 
-    paver pqm GITHUB_PULL_REQUEST_ID
+    paver test_review
 
-The PQM will check your branch and if it passes all tests, it will be merged
-and pushed to master.
+The PQM will check your branch and the results of the tests will be published
+in the PR.
+
+**Test failures during PQM test review:**
+
+There is ticket https://trac.chevah.com/ticket/4091 where we should report any
+test failure which we suspect that is not related to our branch.
+
+When test_review fails, you can retry just the failed builder- no need to
+trigger all the builders.
+See the "Resubmit Build:" section in the PR.
+
+**Test success during PQM test review:**
+
+When using the GitHub merge button, use the standard merge commit format.
+
+That is, remove the (#PR_ID) from the end of the commit message.
+We only care about the Trac ID and it should be first :)
+
+Make sure to edit the commit details.
+GitHub will auto add the list of all commit messages.
 
 If PQM is not enabled for the repo, you will need to do a manual merge.
 
@@ -216,7 +234,6 @@ It is recommended to define a git alias for `merge --no-commit --squash`.
 A merge commit should have a commit message, in the format::
 
     [#1234] What was done in this branch.
-
 
 * **#1234** is the ticket number for this branch.
   It is used to get more details about branch work and review.
