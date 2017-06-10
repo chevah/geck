@@ -195,10 +195,10 @@ into master.
 After your review request was approved, you can send your branch to
 and conduct a test_review::
 
-    paver test_review
+    paver test_review GITHUB_PULL_REQUEST_ID
 
-Paver will check your branch and the results of the tests will be published
-in the PR.
+This will trigger the buildbot tests for the branch and the results will be
+published in the PR.
 
 **Test failures during test review:**
 
