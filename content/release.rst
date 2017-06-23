@@ -395,6 +395,9 @@ production without any removal warnings, then users can upgrade to the next
 
 All removal warnings should have a similar format to simplify filtering and
 reporting them.
+The removal message should describe how the value was changed and what steps
+are required to update/upgrade the configuration to the new functionality.
+
 
 Here are some steps you can use for testing the compatibility between
 **MAJOR** releases.
