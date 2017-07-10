@@ -30,10 +30,10 @@ If you have any comment or suggestions, please get in touch with us.
 You can do that over email, or adding an issue or pull request on
 `Github`_.
 
-We try to automatically check software development rules using `pocket-lint`_.
+We try to automatically check software development rules using `scame`_.
 
 This is a collection of programming craftsmanship recommendations and ideas.
 Please let us know if we fail to properly cite the source.
 
-.. _pocket-lint: https://launchpad.net/pocket-lint/
+.. _scame: https://github.com/chevah/scame
 .. _Github: https://github.com/chevah/styleguide

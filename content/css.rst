@@ -11,7 +11,7 @@ The CSS Coding conventions are inspired by `Stoyan Stefanov's CSS Coding
 Conventions
 <http://www.phpied.com/css-coding-conventions>`_
 
-Many of them are automatically checked using pocket-lint which is now
+Many of them are automatically checked using scame which is now
 included in the CSS Coding Convention Checker.
 Please report any problems that you have with running ``paver lint`` or
 if some errors are not identified by ``paver lint``

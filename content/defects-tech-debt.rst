@@ -190,6 +190,16 @@ to go look for the details of the ticket or just ignore it, as it is not related
 to what you are doing now.
 
 
+When you find a bug 
+===================
+
+* Detail steps in ticket
+* Create a new branch with the config used already pushed in test-server.ini 
+* Add link to the branch in the ticket
+
+Make note of the commit SHA of the master branch also.
+
+
 Happy Hacking Day
 =================
 
