@@ -66,6 +66,22 @@ under the pressure of a release blocker, or when having a customer complaining
 about bad behaviour.
 
 
+Reporting a bug 
+===============
+
+Each bug should be reported in a separate ticket.
+The report should contain detailed steps for reproducing the bug, the product
+version in which this bug was observed, details of the customer and
+email/ticket communications when this bug was reported.
+For bugs which are not yet released, try to reproduce them on master and make a
+note of the master version (the commit SHA).
+
+You can create a branch for the ticket which will contain the .ini
+configuration used to reproduce the defect.
+
+Publish the branch and link to it in the ticket report.
+
+
 Technical Debt
 ==============
 
@@ -188,16 +204,6 @@ The comment should be descriptive enough so that when you are
 reading the code while working on your task it will help you decide whether
 to go look for the details of the ticket or just ignore it, as it is not related
 to what you are doing now.
-
-
-When you find a bug 
-===================
-
-* Detail steps in ticket
-* Create a new branch with the config used already pushed in test-server.ini 
-* Add link to the branch in the ticket
-
-Make note of the commit SHA of the master branch also.
 
 
 Happy Hacking Day

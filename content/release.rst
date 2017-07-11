@@ -32,9 +32,9 @@ All the related custom bits in the release notes are to be imported into the rel
 from the main branch though.
 
 TODO: see what to do with customers using releases from staging... maybe
-make a production release without a full Q&A review.
+make a production release without a full QA review.
 Such a release can have a normal version... and if changes are made
-during the Q&A review a new patch version is released.
+during the QA review a new patch version is released.
 
 
 Release Planning
@@ -43,13 +43,11 @@ Release Planning
 Tickets marked for the 'next-release' milestone are technically to be
 covered for the next release but in most situations these will fall beyond
 the next release.
-Tickets that must be in the 'next-release' is set with the high priority tag.
+Tickets that must be in the 'next-release' are set with priority 'High'.
 
 The general timeframe between each release is 30 to 45 days.
-However, bigfixes are worked on and released as soon as it is feasible by the
+However, bugfixes are worked on and released as soon as it is feasible by the
 development team.
-
-We are still currently working on making the release planning process better.
 
 
 Release Review Process
@@ -516,7 +514,8 @@ any time.
 Especially if a security bugfix is found, we will make a new release as soon
 as the bug is fixed.
 
-Releases may include bugfixes or product features from customers.
+Releases may include fixes for defects observed by customers or new product
+features requested by customers.
 In this case it is customary to let a customer know directly that the release
 is now available.
 It should be noted to customers that they will still need to take the
