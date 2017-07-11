@@ -16,7 +16,7 @@ General
 
     import this
 
-* For python, we have pocket-lint that checks for PEP8 and some other things.
+* For python, we have scame that checks for PEP8 and some other things.
 
 * `Python PEP 8 <http://www.python.org/dev/peps/pep-0008/>`_
   Style guide for Python code.

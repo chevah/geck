@@ -32,9 +32,22 @@ All the related custom bits in the release notes are to be imported into the rel
 from the main branch though.
 
 TODO: see what to do with customers using releases from staging... maybe
-make a production release without a full Q&A review.
+make a production release without a full QA review.
 Such a release can have a normal version... and if changes are made
-during the Q&A review a new patch version is released.
+during the QA review a new patch version is released.
+
+
+Release Planning
+================
+
+Tickets marked for the 'next-release' milestone are technically to be
+covered for the next release but in most situations these will fall beyond
+the next release.
+Tickets that must be in the 'next-release' are set with priority 'High'.
+
+The general timeframe between each release is 30 to 45 days.
+However, bugfixes are worked on and released as soon as it is feasible by the
+development team.
 
 
 Release Review Process
@@ -74,6 +87,22 @@ Some functions of the **release manager** are:
 * Creating high priority tickets in case the tests are failing on master.
 * Coordinating story tickets for the milestone.
 
+
+Release Manager should look into obtaining access to the following:
+
+* Write access to sftpplus.com production (from infrastructure team) to
+  the news release to the website.
+* Ability to stage a release branch to staging server then to production
+  server.
+* Access to Mailchimp to send the release newsletter.
+* Access to the Support helpdesk or emails to know which customers should be
+  contacted directly if the release is awaiting upon them.
+
+
+When the release is out, the Release Manager organizes the team release
+meeting (times and dates), initiates the call and holds the meeting including
+a distributed agenda.
+A template of the release meeting, including past notes is `located here <https://drive.google.com/drive/folders/0B91muor_IWXBaHp1eExRbGcyZ28?usp=sharing>`_
 
 The Release Branch
 ==================
@@ -485,10 +514,9 @@ any time.
 Especially if a security bugfix is found, we will make a new release as soon
 as the bug is fixed.
 
-**Other questions to ask:**
-
-* If a customer-requested feature is added or if a bug fix is made, who
-  should be contacted to notify them of the new release?
-
-* Are there further updates for non-Documentation related content, like the
-  website or newsletter?
+Releases may include fixes for defects observed by customers or new product
+features requested by customers.
+In this case it is customary to let a customer know directly that the release
+is now available.
+It should be noted to customers that they will still need to take the
+necessary steps to test the new release in their own environments.
