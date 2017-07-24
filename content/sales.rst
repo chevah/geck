@@ -1,9 +1,15 @@
 Sales
 #####
 
-:menu_order: 019
+:menu_order: 008
 
 .. contents::
+
+
+Introduction
+============
+
+This page briefly describes Sales details.
 
 
 Replying to Sales Prospects
@@ -11,7 +17,7 @@ Replying to Sales Prospects
 
 Sales message templates are used so that prospects are given consistent information.
 
-Please ask the Sales team for access to these templates.
+Please ask the Sales team for these templates.
 
 
 Product Demo
@@ -111,3 +117,18 @@ If raw HTML needs to be used, see if custom directives can be used such as:
 
 For documentation pages, please do not add raw HTML as the format is designed
 to be converted into multiple other formats.
+
+
+Google Analytics
+================
+
+Certain parts of the website have Google Analytics tracking in order to track
+the results of a website campaign.
+
+The following are current active campaigns that include Google Analytics
+tracking:
+
+* Contact Sales button
+* Gallery screenshot links
+* Main website gallery screenshot links
+* Search function for Documnetation
