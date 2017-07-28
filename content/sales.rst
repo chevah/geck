@@ -11,8 +11,6 @@ Introduction
 
 This page briefly describe operational Sales details.
 
-The main contact is Tim Adams, the main email group is at sales@proatria.com.
-
 Sales:
 
 * Provides the main software information to prospective customers, forwards
@@ -21,23 +19,13 @@ Sales:
   page.
 * Pricing information, including specific pricing for the general and
   additional/extra services.
-* Licensing information, contracts.
-
-
-Replying to Sales Prospects
-===========================
-
-Sales message templates are used so that prospects are given consistent
-information.
-
-Please ask the Sales team for these templates, or forward the query to
-sales@proatria.com.
+* Deals with licensing information and contracts.
 
 
 Product Demo
 ============
 
-Please see /Support/DemoSession for the demo session structure.
+Please see the `DemoSession` wiki page for the demo session structure.
 
 
 Demo text template to use
@@ -45,17 +33,16 @@ Demo text template to use
 
 The demo session content is similar to the documentation in that it is aimed at
 administrators familiar with file transfer software and protocols and other
-individuals involved in managing SFTPPlus.
+individuals involved.
 
 Please do not hesitate to send your criteria of requirements so that we can
-better answer your questions in advance of the demo - ​support@proatria.com.
+better answer your questions in advance of the demo.
 
-For those involved in procurement, please contact the Sales team at 
-sales@proatria.com.
+For those involved in procurement, please contact the Sales team.
 
-Pre-demo session:
+**Pre-demo session:**
 
-We recommend obtaining the trial version and installing SFTPPlus until the
+We recommend obtaining the trial version and installing until the
 `initial stage <https://www.sftpplus.com/documentation/sftpplus/latest/getting-started.html>`_
 
 In that way, you are able to continue after the demo session.
@@ -64,8 +51,7 @@ In that way, you are able to continue after the demo session.
 Items to consider agreeing to a demo:
 -------------------------------------
 
-Is the customer actively pursuing a trial (they have downloaded SFTPPlus) or
-considering a trial?
+Is the customer actively pursuing a trial or considering a trial?
 
 If they are still considering a trial, it would be best to get a list of
 requirements first, and send through response.
@@ -74,15 +60,12 @@ Example: A customer will not purchase until they know it provides a Dropbox
 like feature where they can send public links of their uploads.
 In this way it is more helpful to find out what they want in advance.
 
-If they are actively in a trial (ie they are at the stage of having already
-downloaded SFTPPlus in labs), we can proceed.
 
-
-Is it attended by administrators / individuals involved in managing SFTPPlus?
------------------------------------------------------------------------------
+Is it attended by administrators / individuals involved in managing?
+--------------------------------------------------------------------
 
 Like readership of the documentation page, the session should be attended by
-at least an administrator or individual involved in managing SFTPPlus.
+at least an administrator or individual involved in managing the rollout.
 
 This will increase the chance of knowledge transfer inside their organization
 during the trial (if more than one more is involved in the trial period) and
@@ -104,6 +87,13 @@ When demo session is agreed ask for the following:
 * Platform
 * Protocols
 * List or criteria of requirements to know what to set up in advance
+
+
+Sending out demo session details
+--------------------------------
+
+* Session is held in the first 10 minutes. After that it may be rescheduled.
+* Phone bridge is recommended, if not, use a VOIP headset.
 
 
 Marketing / Promotional Materials
@@ -166,8 +156,7 @@ Campaign/Design Outsourcing
 ---------------------------
 
 Design and campaign work can be outsourced.
-Please contact the team for more details, including contact details of past
-freelancers.
+Previous freelance contacts can be located in the `Website credit <https://www.sftpplus.com/legal/credits.html>`_ page.
 
 When planning for a campaign:
 
@@ -177,20 +166,3 @@ When planning for a campaign:
 
 * The finished materials provided should then be saved in the `chevah/design`
   repository.
-
-
-Google Analytics
-----------------
-
-Certain parts of the website have Google Analytics tracking in order to track
-the results of a website campaign.
-
-The following are current active campaigns that include Google Analytics
-tracking:
-
-* Contact Sales button
-* Gallery screenshot links
-* Main website gallery screenshot links
-* Search function for Documentation
-
-If you wish access to Google Analytics, please contact the team.

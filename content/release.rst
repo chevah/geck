@@ -90,7 +90,7 @@ Some functions of the **release manager** are:
 
 Release Manager should look into obtaining access to the following:
 
-* Write access to sftpplus.com production (from infrastructure team) to
+* Write access to production website (from infrastructure team) to
   the news release to the website.
 * Ability to stage a release branch to staging server then to production
   server.
