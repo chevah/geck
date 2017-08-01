@@ -9,17 +9,18 @@ Sales and Marketing
 Introduction
 ============
 
-This page briefly describe operational Sales details.
+This page briefly describes operational Sales details.
 
 Sales:
 
-* Provides the main software information to prospective customers, forwards
-  additional technical support queries to Support.
-* Introductory email for the documentation, installation guides and downloads
-  page.
-* Pricing information, including specific pricing for the general and
+* Provides the main software information to prospective customers
+
+* Forwards additional technical support queries to Support.
+
+* Provides picing information, including specific pricing for the general and
   additional/extra services.
-* Deals with licensing information and contracts.
+
+* Provides licensing information and contracts.
 
 
 Product Demo
@@ -32,10 +33,9 @@ Demo text template to use
 -------------------------
 
 The demo session content is similar to the documentation in that it is aimed at
-administrators familiar with file transfer software and protocols and other
-individuals involved.
+system administrators and other individuals involved.
 
-Please do not hesitate to send your criteria of requirements so that we can
+Please send your criteria of requirements so that we can
 better answer your questions in advance of the demo.
 
 For those involved in procurement, please contact the Sales team.
@@ -55,32 +55,26 @@ Is the customer actively pursuing a trial or considering a trial?
 
 If they are still considering a trial, it would be best to get a list of
 requirements first, and send through response.
-In this way, we know in advance what they are looking for.
-Example: A customer will not purchase until they know it provides a Dropbox
-like feature where they can send public links of their uploads.
-In this way it is more helpful to find out what they want in advance.
 
 
 Is it attended by administrators / individuals involved in managing?
 --------------------------------------------------------------------
 
 Like readership of the documentation page, the session should be attended by
-at least an administrator or individual involved in managing the rollout.
+at least an administrator or individual involved in managing the roll-out.
 
 This will increase the chance of knowledge transfer inside their organization
-during the trial (if more than one more is involved in the trial period) and
-decrease instances of conducting more than one demo sessions before a purchase
-(unless it is a large organization with multiple departments etc).
-Nonetheless you still want as many people attending.
-It may help decrease mistakes made (and, emails to support in the early stages)
-when the customer does the initial configuration during the trial.
+during the trial and decrease instances of conducting more than one session.
+
+It will also smooth the process when the customer does the initial
+configuration during the trial.
 
 
 When demo session is agreed ask for the following:
 --------------------------------------------------
 
 * Dates available
-* Times available (and local timezone, so that we know what GoToMeeting?
+* Times available (and local timezone, so that we know what GoToMeeting
   toll free / long distance numbers to provide)
 * Number of attendees (max 4 attendees incl 1 organiser and 1 co-organiser in
   case or max 5 attendees if 1 organiser)
@@ -93,6 +87,7 @@ Sending out demo session details
 --------------------------------
 
 * Session is held in the first 10 minutes. After that it may be rescheduled.
+
 * Phone bridge is recommended, if not, use a VOIP headset.
 
 

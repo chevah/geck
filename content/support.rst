@@ -22,18 +22,16 @@ For the full details on the Support offering, please go to the website's
 Helpdesk
 ========
 
-Each message to the Support email automatically crease a helpdesk ticket.
-
-The helpdesk software is currently under evaluation.
-Currently the main point of contact for Support and liaising with customers
+The main point of contact for Support and liaising with customers
 is via the Google Group email.
+Each message to the Support email automatically creates a helpdesk ticket.
 
 
 Template: Obtaining the installation detail
 -------------------------------------------
 
-The following is a template to obtain the installation detail from a client.
-Please modify the template below to suit the communications.
+The following is a template to obtain the installation detail.
+Please modify the template below to suit.
 
 .. sourcecode:: rst
 
@@ -59,8 +57,8 @@ Please modify the template below to suit the communications.
 	Before releasing a new version, we run an automated test suite to validate new features
 	and check for regressions.
 	
-	By knowing details about your installations we can configure the test suite to run
-	against a setup similar to your installation.
+	By knowing details about your installations, we can configure the test suite to run
+	against a similar setup.
 
 	This information will not be shared with any other third party and will be used
 	solely for improving further support for you and development of the product.
@@ -72,7 +70,7 @@ Using the installation details
 Once the installation details are provided, recreate the issue in a similar
 environment.
 
-This should be created via a dedicated VM for testing/support activities.
+This should be created via a dedicated VM for testing / support activities.
 
 
 Chat
@@ -83,12 +81,16 @@ or possible customers.
 
 Each chat transcript is automatically forwarded to the Support email list.
 
+A chat can be transferred and other actions can be taken with the chat via
+Olark `commands <https://www.olark.com/help/commands>`_.
+
 
 Licenses and support contract
 =============================
 
 See the `Support options page <https://www.sftpplus.com/support/options.html>`_
-which describes what options are available.
+which describes the options available.
+
 If a support case goes beyond the standard option (such as a new
 product feature), the Sales team will determine the quote.
 
@@ -113,11 +115,11 @@ Email and support forms are the preferred methods.
 When we have a phone call, we request the customer at the beginning to do a
 follow up over email and confirm in writing.
 
-Support cases can be logged by partners, customers or the Support team.
+Support can be requested by partners or customers.
 
-When a support case is started, obtain and collating as much information as
-possible, as this will help in potential follow-up with the rest of the Support
-team.
+When a support case is started, obtain and collate as much information as
+possible.
+This will help in potential follow-up with the rest of the Support team.
 
 
 Troubleshooting a Support Case
@@ -137,7 +139,7 @@ troubleshooting a support case:
 Initial Assessment
 ------------------
 
-When a support case is opened it should receive a response that it has
+When a support case has started, it should receive a response that it has
 been received and a case open within the same or next business day.
 
 The case will be allocated to an Owner, who should do the initial assessment:
@@ -166,10 +168,11 @@ The helpdesk allows you to keep track of which support cases still need a
 response.
 Once a response is made, close the helpdesk ticket as to not accumulate
 on the helpdesk dashboard.
-When there is a response back to the customer, the helpdesk ticket will re-open.
+The helpdesk ticket will re-open should there be any further responses made.
 
 If the support case is waiting on a developer (in the case of a defect
-example), a Trac ticket should be created.
+example), a Trac ticket should be created with the helpdesk link and the
+defect report in the description.
 
 
 Escalating a Support Case due to defects
