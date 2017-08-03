@@ -42,7 +42,7 @@ Vacation
 
 * When you run out of paid leave days, just continue to record them.
   It is **OK** if you need more holiday days. Extra holiday days are not paid.
-  Not paid leave days will be substracted from your salary
+  Unpaid leave days will be subtracted from your salary
   of the last month of the year.
 
 
