@@ -11,17 +11,6 @@ Introduction
 
 This page briefly describes operational Sales details.
 
-Sales:
-
-* Provides the main software information to prospective customers
-
-* Forwards additional technical support queries to Support.
-
-* Provides picing information, including specific pricing for the general and
-  additional/extra services.
-
-* Provides licensing information and contracts.
-
 
 Product Demo
 ============
