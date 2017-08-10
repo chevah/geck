@@ -86,7 +86,10 @@ Some functions of the **release manager** are:
   to make sure no regressions were introduced on the tests executed post-merge.
 * Creating high priority tickets in case the tests are failing on master.
 * Coordinating story tickets for the milestone.
-
+* After sending the release branch to RQM, check that the Downloads page is updated.
+* After the Downloads page is updated, ensure that the release branch is merged
+  with the master branch.
+* Sends the newsletter to the relevant list/s.
 
 Release Manager should look into obtaining access to the following:
 
@@ -98,11 +101,11 @@ Release Manager should look into obtaining access to the following:
 * Access to the Support helpdesk or emails to know which customers should be
   contacted directly if the release is awaiting upon them.
 
-
 When the release is out, the Release Manager organizes the team release
 meeting (times and dates), initiates the call and holds the meeting including
 a distributed agenda.
 A template of the release meeting, including past notes is `located here <https://drive.google.com/drive/folders/0B91muor_IWXBaHp1eExRbGcyZ28?usp=sharing>`_
+
 
 The Release Branch
 ==================
@@ -162,10 +165,6 @@ These are the extra steps for checking a release in production:
 
 Future improvements for the automated release process:
 
-* Create a release notification list and send an email to everyone who cares
-  about new releases.
-  The email should include a changelog for the latest version.
-  Trac ticket #525.
 * Add a news article to our website
 * Trigger a website crawler to check broken links for download pages and
   documentation.

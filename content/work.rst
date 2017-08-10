@@ -30,6 +30,8 @@ We don't have fixed working hours, but our customers expect us to be available
 from **9 to 5 from Monday until Friday GMT**.
 We try to adapt to this requirement and we also don't work on weekends.
 
+The timezones used for meetings is UTC.
+
 We don't impose a fixed amount of work hours per week, so you should work up to
 an amount with which you are comfortable and are really willing to work for.
 

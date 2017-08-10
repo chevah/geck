@@ -171,7 +171,7 @@ on the helpdesk dashboard.
 The helpdesk ticket will re-open should there be any further responses made.
 
 If the support case is waiting on a developer (in the case of a defect
-example), a Trac ticket should be created with the helpdesk link and the
+for example), a Trac ticket should be created with the helpdesk link and the
 defect report in the description.
 
 
