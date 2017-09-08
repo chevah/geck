@@ -101,7 +101,7 @@ After the website is updated and News item published, we send a newsletter:
 1. Go to Campaigns in Mailchimp.
 
 2. Select 'Replicate' besides 'NEW: ACME Release Announcement'.
-   If it is a security bugfix, use the Security Advisories email list.
+   If it is a security release, use the Security Advisories email list.
 
 3. Select the News Announcements email list.
 

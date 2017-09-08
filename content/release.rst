@@ -46,7 +46,7 @@ the next release.
 Tickets that must be in the 'next-release' are set with priority 'High'.
 
 The general timeframe between each release is 30 to 45 days.
-However, bugfixes are worked on and released as soon as it is feasible by the
+However, defects are worked on and released as soon as it is feasible by the
 development team.
 
 
@@ -104,7 +104,7 @@ Release Manager should look into obtaining access to the following:
 When the release is out, the Release Manager organizes the team release
 meeting (times and dates), initiates the call and holds the meeting including
 a distributed agenda.
-A template of the release meeting, including past notes is `located here <https://drive.google.com/drive/folders/0B91muor_IWXBaHp1eExRbGcyZ28?usp=sharing>`_
+Release meeting notes are `located here <https://drive.google.com/drive/u/3/folders/0BwQo7116Iy2tZ2M2bDhadFV4R0E>`_
 
 
 The Release Branch
@@ -190,7 +190,7 @@ Here are some categories::
 
 * Major changes (only for major releases)
 * New features
-* Bug fixes with internal bug ID (this is the only section for bugfix releases)
+* Bug fixes with internal bug ID (this is the only section for defect releases)
 * Deprecation and Removals
 * Documentation changes
 * Other changes
@@ -505,13 +505,13 @@ While working on a product, we have the following types of branches::
 * task-branch - multiple ephemeral branches where a new feature or fix has a task-branch
 
 Each released version has a dedicated tag.
-When you need to create a bugfix release or a maintenance release for a previous version, you will
+When you need to create a defect release or a maintenance release for a previous version, you will
 create the release branch based on the desired tag.
 
 The **master** branch should be kept in good shape so that we can release it at
 any time.
-Especially if a security bugfix is found, we will make a new release as soon
-as the bug is fixed.
+Especially if a security defect is found, we will make a new release
+as soon as the defect is fixed.
 
 Releases may include fixes for defects observed by customers or new product
 features requested by customers.
