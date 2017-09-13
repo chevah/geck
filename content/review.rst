@@ -349,7 +349,7 @@ Reviewer's check list - Support
   Should the information also be distributed beyond the Documentation
   such as the website?
 
-* Are there SFTPPlus-specific terms (ie jargon) being used?
+* Are there specific terms (ie jargon) being used?
   Is there an explanation in the page about the term? 
 
 
