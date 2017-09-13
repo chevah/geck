@@ -14,7 +14,7 @@ We have the following types of documentation:
 1. Code documentation
 2. Low level technical information
 3. Narrative documentation including User's Guides
-4. Marketing and promotional materials (see Sales styleguide page)
+4. Marketing and promotional materials
 
 
 Narrative documentation
@@ -602,6 +602,34 @@ In this case, a docstring should be added to add further information:
         """
 
 
+Marketing / Promotional Materials
+=================================
+
+Promotions and marketing materials are mainly located in the main website.
+
+It should be as generic and non-technical as possible with links to the
+Documentation for more in-depth / technical information.
+
+
+Announcing a new release to the email list
+------------------------------------------
+
+After the website is updated and News item published, we send a newsletter:
+
+1. Go to Campaigns in Mailchimp.
+
+2. Select 'Replicate' besides 'NEW: ACME Release Announcement'.
+   If it is a security bugfix, use the Security Advisories email list.
+
+3. Select the News Announcements email list.
+
+4. Update the subject and email with the News text used to announce the
+   new release. You can use the text in the News article.
+
+5. Select Send. Before sending the final email, preview first by going
+   to 'Preview and Send' on the top menu. Select 'Send a test email'.
+
+
 Known Issues
 ============
 
@@ -616,4 +644,28 @@ product as long as there is also a workaround provided in the Known Issues
 page.
 
 Known Issues will include a reference to the internal bug ID which provided
-further details about that issues
+further details about those issues.
+
+
+Mock ups and designs for the website
+====================================
+
+If a change involves a design or content addition (such as an image carousel
+in JS), it is a good idea to write/mock up the content first before coding.
+
+In this way, you can check to see what type of code work should be done to best
+communicate the content.
+
+Please go to the 'design' repository for sample images and screenshots to use
+and add your own samples.
+
+If raw HTML needs to be used, see if custom directives can be used such as:
+
+.. sourcecode:: bash
+
+    :call_for_action: Ready to install our product?
+    :call_for_action_link: /pricing/?utm_source=client&utm_campaign=clientbtn&utm_medium=btn#id1
+    :call_for_action_button: Ask for a trial
+
+For documentation pages, please do not add raw HTML as the format is designed
+to be converted into multiple other formats.
