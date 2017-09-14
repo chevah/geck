@@ -1,6 +1,9 @@
 Chevah Garden of Eden Creation Kit
 ==================================
 
+.. image:: https://readthedocs.org/projects/chevah-geck/badge/?version=latest
+  :target: http://geck.chevah.com
+
 This repository is the source for the Chevah G.E.C.K at
 http://geck.chevah.com hosted via Read The Docs.
 

@@ -49,7 +49,6 @@ Please let us know if we fail to properly cite the source.
 
 .. toctree::
     :maxdepth: 2
-    :caption: Contents:
 
     bash
     css

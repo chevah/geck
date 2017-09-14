@@ -14,7 +14,7 @@ all: generate
 
 env:
 	@if [ ! -d "build/venv" ]; then virtualenv -p python2 build/venv; fi
-	@$(BASE_PATH)/pip install sphinx sphinx-autobuild
+	@$(BASE_PATH)/pip install sphinx sphinx-autobuild sphinx_rtd_theme
 
 
 generate:
