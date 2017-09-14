@@ -13,18 +13,8 @@ This page describes the guidelines for the support activities together with
 best practices that were extracted based on our past experience with support
 related activities.
 
-For access to any of the Support platforms, please contact the Support team.
-
-For the full details on the Support offering, please go to the website's
-`Support options <https://www.sftpplus.com/support/options.html>`_ page.
-
-
-Helpdesk
-========
-
 The main point of contact for Support and liaising with customers
 is via the Google Group email.
-Each message to the Support email automatically creates a helpdesk ticket.
 
 
 Template: Obtaining the installation detail
@@ -112,10 +102,10 @@ Support cases can be received either through the online contact form,
 direct email or phone call.
 
 Email and support forms are the preferred methods.
-When we have a phone call, we request the customer at the beginning to do a
-follow up over email and confirm in writing.
-
-Support can be requested by partners or customers.
+For call, request the customer at the beginning to do a follow up over email
+and confirm in writing as the first preference.
+As second preference, follow up with a summary of the call and request the
+customer to confirm the details.
 
 When a support case is started, obtain and collate as much information as
 possible.
@@ -136,50 +126,11 @@ troubleshooting a support case:
 6. Make a record
 
 
-Initial Assessment
-------------------
-
-When a support case has started, it should receive a response that it has
-been received and a case open within the same or next business day.
-
-The case will be allocated to an Owner, who should do the initial assessment:
-
-* Verify all details logged against the call, checking what additional
-  information is required;
-
-* Make initial contact with the originator, acknowledge that we have receive
-  the initial case;
-
-* Verify understanding of initial information provided;
-
-* Ask for additional information if required and/or provided initial diagnosis;
-
-* If more time is needed before providing an answer, inform about the
-  approximate time.
-
-If a customer asks for multiple support questions in a single email, it is
-better to respond in multiple emails.
-
-
-Managing a Support Case
------------------------
-
-The helpdesk allows you to keep track of which support cases still need a
-response.
-Once a response is made, close the helpdesk ticket as to not accumulate
-on the helpdesk dashboard.
-The helpdesk ticket will re-open should there be any further responses made.
-
-If the support case is waiting on a developer (in the case of a defect
-for example), a Trac ticket should be created with the helpdesk link and the
-defect report in the description.
-
-
 Escalating a Support Case due to defects
 ----------------------------------------
 
-If the support case leads to finding a defect, a new Trac ticket should be
-created with details of the customer and link to the helpdesk conversation.
+If the support case leads to finding a defect or it needs to be escalated,
+a Trac ticket should be created with details of the customer.
 
 For the defect, create a Trac ticket with priority High and notify the
 customer of the Trac ticket ID so that they can follow up with Support on the
@@ -191,3 +142,4 @@ Holding a screenshare session
 
 GoToMeeting can be used to conduct a screenshare or meeting session with the
 customer if the issue is best resolved via screenshare.
+
