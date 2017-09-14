@@ -1,8 +1,6 @@
 Review
 ######
 
-:menu_order: 003
-
 This page will discuss the code/changes review process as both the person
 who requests a review and a person who checks the review.
 The review instructions are platform independent so they apply to tickets,

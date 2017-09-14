@@ -1,8 +1,6 @@
 Python
 ######
 
-:menu_order: 012
-
 .. contents::
 
 

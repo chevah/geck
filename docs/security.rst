@@ -1,8 +1,6 @@
 Security
 ########
 
-:menu_order: 009
-
 .. contents::
 
 

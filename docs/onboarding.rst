@@ -1,10 +1,6 @@
 Onboarding
 ##########
 
-:menu_order: 1
-:url: /onboarding.html
-:save_as: onboarding.html
-
 This page is used to organize tasks and track the onboarding process for new members.
 You can see past/active tasks in the `onboarding repo <hhttps://github.com/chevah/onboarding/>`_.
 
@@ -84,14 +80,14 @@ Ask the tech lead for any questions.
 * Take note of the `coding conventions <http://styleguide.chevah.com>`_ applied for this project. These general coding conventions are for all 'texts' (code, documentation, etc). 
 
 * There are specific rules that apply to programming languages. Begin by reading the general `coding conventions <http://styleguide.chevah.com>`_.
-Then review each language specific convention as you will be writing in that language.
+  Then review each language specific convention as you will be writing in that language.
 
 * While you are in IRC on #chevah "in the office", set to auto-away to let others know that you are not at the computer. Set the away status to "busy" (/away busy) if you are working at something and don't want to be disturbed.
 
 * You will use your own hardware for work tasks.
-To compensate for this usage of your hardware we will cover hardware expenses for your home computer.
-If you need a hardware component or peripheral that will help your work related tasks, ask and we can cover those expenses.
-Ask tech lead for details.
+  To compensate for this usage of your hardware we will cover hardware expenses for your home computer.
+  If you need a hardware component or peripheral that will help your work related tasks, ask and we can cover those expenses.
+  Ask tech lead for details.
 
 * Each task that you are working on should have a ticket in Trac/Github. If there is no ticket, create one and start the `Ticket Work Flow <http://styleguide.chevah.com/tickets.html>`_. 
 
@@ -106,12 +102,12 @@ Ask tech lead for details.
 * From time to time, check the Trac timeline to stay up to date with latest changes in the project.
 
 * When starting a support ticket, request the OS version architecture used and version of the SFTPPlus products.
-Further details in Trac.
+  Further details in Trac.
 
 * Before a Pull Request is closed, it must be reviewed by at least one other team member. Further info of the `Review process <http://styleguide.chevah.com/review.html>`_.
 
 * Leave days can be requested at any time.
-Check the dedicated page in Trac.
+  Check the dedicated page in Trac.
 
 * Add your preferred email address in Trac ( Preferences -> General ) to enable email notifications.
 
@@ -145,9 +141,9 @@ Use the dedicated ProAtria Skype account as the official tools to collaborate wi
 * Request for VPN certificates to connect to internal servers/services.
 
 * You will need a Trac account setup.
-Trac tickets are used for managing work items since there is no support with the web-based GitHub issue/task/defect management
-Trac also contains wiki pages to other documentation.
-Get to know the team by checking the dedicated page in our private wiki.
+  Trac tickets are used for managing work items since there is no support with the web-based GitHub issue/task/defect management
+  Trac also contains wiki pages to other documentation.
+  Get to know the team by checking the dedicated page in our private wiki.
 
 
 4. Exploring SFTPPlus for the first time

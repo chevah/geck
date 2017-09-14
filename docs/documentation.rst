@@ -1,8 +1,6 @@
 Documentation
 #############
 
-:menu_order: 007
-
 .. contents::
 
 

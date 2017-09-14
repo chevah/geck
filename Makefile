@@ -20,5 +20,11 @@ env:
 generate:
 	build/venv/bin/sphinx-build -b html -j 2 -n docs/ build/html
 
+test:
+	rm -f build/errors
+	build/venv/bin/sphinx-build -b html -Ean -j 2 -w build/errors \
+		docs/ build/html
+	if [ -s build/errors ]; then false ; fi
+
 clean:
 	@rm -rf build

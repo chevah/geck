@@ -1,8 +1,6 @@
 Tickets
 #######
 
-:menu_order: 005
-
 .. contents::
 
 

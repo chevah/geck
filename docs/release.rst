@@ -1,8 +1,6 @@
 Release process
 ###############
 
-:menu_order: 006
-
 ..  contents::
 
 

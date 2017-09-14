@@ -1,8 +1,6 @@
 References
 ##########
 
-:menu_order: 016
-
 .. contents::
 
 These page contains a list of sources used for creating this content.

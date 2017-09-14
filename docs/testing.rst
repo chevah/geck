@@ -1,8 +1,6 @@
 Testing
 #######
 
-:menu_order: 002
-
 .. contents::
 
 Writing automated tests is an important part of development.

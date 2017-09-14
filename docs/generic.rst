@@ -1,8 +1,6 @@
 Generic
 #######
 
-:menu_order: 001
-
 ..  contents::
 
 General

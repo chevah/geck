@@ -1,8 +1,6 @@
 Work
 ####
 
-:menu_order: 008
-
 .. contents::
 
 General
