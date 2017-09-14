@@ -87,6 +87,8 @@ Some functions of the **release manager** are:
 * Creating high priority tickets in case the tests are failing on master.
 * Coordinating story tickets for the milestone.
 * After sending the release branch to RQM, check that the Downloads page is updated.
+* Check that a tag is created for the release, and that the tag points to the release branch and   not the release merge.
+* Check that RQM has closed the release PR and associated Trac.
 * After the Downloads page is updated, ensure that the release branch is merged
   with the master branch.
 * Sends the newsletter to the relevant list/s.
