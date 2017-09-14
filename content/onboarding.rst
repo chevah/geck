@@ -83,19 +83,23 @@ Ask the tech lead for any questions.
 
 * Take note of the `coding conventions <http://styleguide.chevah.com>`_ applied for this project. These general coding conventions are for all 'texts' (code, documentation, etc). 
 
-* There are specific rules that apply to programming languages. Begin by reading the general `coding conventions <http://styleguide.chevah.com>`_.
+* There are specific rules that apply to programming languages.
+Begin by reading the general `coding conventions <http://styleguide.chevah.com>`_.
   Then review each language specific convention as you will be writing in that language.
 
-* While you are in IRC on #chevah "in the office", set to auto-away to let others know that you are not at the computer. Set the away status to "busy" (/away busy) if you are working at something and don't want to be disturbed.
+* While you are in IRC on #chevah "in the office", set to auto-away to let others know that you are not at the computer.
+Set the away status to "busy" (/away busy) if you are working at something and don't want to be disturbed.
 
 * You will use your own hardware for work tasks.
   To compensate for this usage of your hardware we will cover hardware expenses for your home computer.
   If you need a hardware component or peripheral that will help your work related tasks, ask and we can cover those expenses.
   Ask tech lead for details.
 
-* Each task that you are working on should have a ticket in Trac/Github. If there is no ticket, create one and start the `Ticket Work Flow <http://styleguide.chevah.com/tickets.html>`_. 
+* Each task that you are working on should have a ticket in Trac/Github.
+If there is no ticket, create one and start the `Ticket Work Flow <http://styleguide.chevah.com/tickets.html>`_. 
 
-* While some tasks are on Github, there is a Trac/Github integration. See `Overview of the GitHub and Trac integration <http://styleguide.chevah.com/review.html#overview-of-the-github-and-trac-integration>`_.
+* While some tasks are on Github, there is a Trac/Github integration.
+See `Overview of the GitHub and Trac integration <http://styleguide.chevah.com/review.html#overview-of-the-github-and-trac-integration>`_.
 
 * Tickets corresponding to you that you are currently working should have the 'owner' value set to your Trac username.
 
@@ -107,9 +111,11 @@ Ask the tech lead for any questions.
 
 * When starting a support ticket, request the OS version architecture used and version of the products.
 
-* Before a Pull Request is closed, it must be reviewed by at least one other team member. Further info of the `Review process <http://styleguide.chevah.com/review.html>`_.
+* Before a Pull Request is closed, it must be reviewed by at least one other team member.
+Further info of the `Review process <http://styleguide.chevah.com/review.html>`_.
 
-* Leave days can be requested at any time. Check the dedicated page in Trac.
+* Leave days can be requested at any time.
+Check the dedicated page in Trac.
 
 * Add your preferred email address in Trac ( Preferences -> General ) to enable email notifications.
 
@@ -127,7 +133,8 @@ The initial stage is over when all the Onboarding tickets from the milestone ded
 
 We are far from single-sign-on and while working on this project you will have many different accounts.
 
-For GitHub you can create a new account or use your current account and ask to be part of our GitHub organisations and our core team. Ensure that in git-config, your user.email is the Pro:Atria email when working in the Chevah project repositories.
+For GitHub you can create a new account or use your current account and ask to be part of our GitHub organisations and our core team.
+Ensure that in git-config, your user.email is the Pro:Atria email when working in the Chevah project repositories.
 
 We use Skype for phone calls.
 Use the dedicated Skype account as the official tools to collaborate with the team and to make phone calls.
@@ -157,7 +164,7 @@ When testing out the software, please take a look at the contents of these folde
 Test_Data
 ^^^^^^^^^
 
-In the server repository is a folder called test_data which contains configuration file samples, public/private key samples, various certificates in a number of formats, a test LDAP server to support manual tests ( run as $ ./build* test_data/ldap/server.py), HTTP proxy and simpel HTTP server, and sample execute scripts for post transfer execution.
+In the server repository is a folder called test_data which contains configuration file samples, public/private key samples, various certificates in a number of formats, a test LDAP server to support manual tests ( run as $ ./build* test_data/ldap/server.py), HTTP proxy and simple HTTP server, and sample execute scripts for post transfer execution.
 
 Users_Files
 ^^^^^^^^^^^
@@ -168,6 +175,9 @@ Below is an example of using users_files / the test user to access the HTTPS fea
 
 1. Navigate to the server folder
 2. ./paver.sh run and log in to https://localhost:10020
-3. Under Status in the Local Manager edit the https status configuration and add app-uuid. This is so that application accounts are enabled for this service.
+3. Under Status in the Local Manager edit the https status configuration and add app-uuid.
+This is so that application accounts are enabled for this service.
 4. Save the configuration and selected Start
-5. Go to https://localhost:10443 and log in using the test data credentials. If you go to test-server.ini in the test-data folder you can see the credentials to log in as the test user.  After authenticating, you should see the test folders and files.
+5. Go to https://localhost:10443 and log in using the test data credentials.
+If you go to test-server.ini in the test-data folder you can see the credentials to log in as the test user.
+After authenticating, you should see the test folders and files.
