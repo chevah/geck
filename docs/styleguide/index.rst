@@ -1,5 +1,5 @@
-Style Guides and Idiomatic Code
-###############################
+Style and Idiomatic Code
+########################
 
 These pages describe the style used to write code, together with the
 idiomatic way of implementing different things.

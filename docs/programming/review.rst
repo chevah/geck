@@ -13,18 +13,36 @@ emails, pull requests, and to all tasks, not only to code reviews.
 General
 =======
 
+* All code should be reviewed at least one before the merge.
+
+* Most probably the code will be reviewed multiple times, involuntary, while
+  trying to reuse it or fix a bug.
+
 * The goal of a review is to eliminate as many defects as possible,
   regardless of who "caused" the error.
   Branch driver and reviews work together to achieve this goal.
 
+* The review can be used to enforce conformity, but as much as possible, we
+  should develop tools to automatically do the conformity checks.
+  In the ideal case, the tools should automatically repair the code to be
+  compliant.
+
 * The review process is a very efficient form of pair-programming.
+  While doing the review the reviewer has the change to learn about a part of
+  the code, and the author of the changes can receive suggestions for the
+  changes which are made.
+
+* During a review, we should never forget to check for clarity.
+  This is the most simple review and can be done by anyone in the team.
 
 * Branch driver is the person (or persons) requesting the review and
   responsible for implementing changes during the review.
 
 * The reviewer is the person responsible for checking the code or changes.
 
-* The Review Process is first class citizen of the Quality Assurance process.
+* The Review Process is a first class citizen of the Quality Assurance process.
+  Same as a member of the QA team, the reviewer should be less attached to the
+  changes and able to be more critical about the changes.
 
 * Each defect found during a review is an opportunity to improve the code.
   It is also a defect that a customer

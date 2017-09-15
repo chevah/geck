@@ -14,6 +14,7 @@ General
 * `GitHub Styleguide`_
 * `11 practices for better code review
   <https://www.ibm.com/developerworks/rational/library/11-proven-practices-for-peer-review>`_
+* `The Social Dynamics of Code Reviews <https://jml.io/pages/your-code-sucks-and-i-hate-you.html>`_
 
 
 Python
