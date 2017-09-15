@@ -12,6 +12,9 @@ General
 * **All** leave days should be logged in the leave spreadsheets,
   including bank holidays.
 
+* You should also add the leave days to the "Team" shared calendar.
+  In this way is much easier for the team members to see who is away.
+
 * Feel free to subscribe to notifications for the leave document.
 
 * When updating the table 2 days before the leave, there is no need for other extra notice

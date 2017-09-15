@@ -11,6 +11,9 @@ The following is more of a public-facing overview or a process rather than focus
 
 The focus is on the human-side of security with some suggestions of tools and tactics.
 
+When you don't understand something related to security, don't just walk by and ignore it.
+Try to understand what is happening there, or ask someone else to take a look or to explain it to you.
+
 
 Onboarding
 ==========
