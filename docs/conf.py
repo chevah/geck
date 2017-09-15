@@ -5,7 +5,7 @@ templates_path = ['_templates']
 source_suffix = '.rst'
 master_doc = 'index'
 
-project = u'Chevah Garden of Eden Creation Kit'
+project = u'C.G.E.C.K.'
 copyright = u'2017, Chevah Team'
 author = u'Chevah Team'
 
@@ -26,8 +26,10 @@ todo_include_todos = False
 
 html_theme = "sphinx_rtd_theme"
 html_static_path = ['_static']
+html_logo = '_static/chevah-logo.png'
 html_theme_options = {
+    'logo_only': True,
     'collapse_navigation': True,
     'display_version': False,
-    'navigation_depth': 2,
+    'navigation_depth': 3,
 }

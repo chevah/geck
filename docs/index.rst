@@ -1,9 +1,6 @@
 Chevah Garden of Eden Creation Kit
 ##################################
 
-.. image:: _static/chevah-logo.png
-   :align: center
-
 These pages describe the common knowledge we use to run the project.
 
 It can be considered the ultimate textbook for the project.
@@ -59,6 +56,7 @@ Please let us know if we fail to properly cite the source.
 
 .. toctree::
     :maxdepth: 2
+    :numbered:
 
     styleguide/index
     programming/index

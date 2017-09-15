@@ -31,16 +31,21 @@ something is wrong.
 
 * Don't use abbreviation.
   Use full, meaningful names.
+  People with a C background might say that is always OK to use i and j for
+  the iterating, but most of our code is Python so write iterators so that
+  using an index is not needed.
 
 * Don't use tabs for indentation, and in general don't use tabs for anything
   else.
   The only exceptions are Makefiles.
 
 * Favour indentation using 4 spaces.
-  For deep nested languages (HTML, JS) it is OK to use 2 spaces.
+  For deep nested languages (HTML, XML) it is OK to use 2 spaces.
 
-* Maximum line length for code is 80 characters, but for Python we use 79 to be in
-  sync with PEP8 Style Guide for Python Code.
+* Maximum line length for code is 80 characters,
+  but for Python we use 79 to be in sync with PEP8 Style Guide for Python Code.
+  In this way, is easier to compare code, even when using a single monitor on
+  a laptop.
 
 * No need for the ultimate purism, when using / calling code from external
   libraries it is OK if those calls don't comply with coding convention.
@@ -122,9 +127,15 @@ Comments
 ========
 
 * All comments should be valid sentences and should end with a full stop (.).
+  In this way it is easier to see if the information is complete, or that
+  someone forget to complete a sentence.
 
 * Try to write code so that it speaks for itself, and so that a comment is not
   required.
+  Comments and code have a bad habit of getting out of sync and this will lead
+  to the confusion as you might not know whether the comment or the code is
+  expected behaviour.
+  To mitigate this, we have test, which have special docstrings.
 
 * Try to name variables, methods, functions so that they communicate their
   intent.

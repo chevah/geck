@@ -14,5 +14,6 @@ requirements.
     generic
     review
     testing
+    documentation
     defects-tech-debt
     dependencies
