@@ -4,7 +4,9 @@ Leave / Holiday
 General
 =======
 
-* We have 30 days of paid holidays per year (21 legal leave + 9 bank holidays)
+* We have 32 days of paid holidays per year (21 legal leave + 11 bank holidays)
+
+* After 2 years within the team, another leave day is added to the total amount.
 
 * All legal leave and bank holidays are put in a common pool of leave days.
   Use them as you like.
@@ -40,8 +42,8 @@ Vacation
   operations are not disrupted.
 
 * When you run out of paid leave days, just continue to record them.
-  It is **OK** if you need more holiday days. Extra holiday days are not payed.
-  Not paid leave days will be subtracted from your salary
+  It is **OK** if you need more holiday days. Extra holiday days are not paid.
+  Unpaid leave days will be subtracted from your salary
   of the last month of the year.
 
 
