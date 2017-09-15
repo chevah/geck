@@ -38,6 +38,22 @@ Following these guides for a different project might get various mileage.
 We expect that for project with different requirements and constraints a good
 part of the information present here will not make sense.
 
+Here are the characteristics of this project:
+
+* On premise software, deployed in environments without Internet access
+* Deployment done after the changes were validated in an testing and/or
+  integration environment.
+* Running the pre-deployment testing can take from weeks to months.
+* Different persons / teams involved in deploying(installing), configuring
+  and operating the product
+* Multi-OS product with support for: Windows, Linux, OSX, AIX, Solaris, HPUX...
+  hoping that the later OSes will have a quick and painless death.
+* Team 100% remote
+* Customers with a vivid memory of bad software which breaks backward
+  compatibility with any update.
+* Customers with management teams pushing for cost cutting and outsourcing
+  as much as possible.
+
 We consider that arguments over the information presented here are not pointless.
 
 It is hard to agree upon a style guide for all projects,
@@ -51,9 +67,6 @@ We try to automatically check software development rules using `scame`_.
 This is a collection of programming craftsmanship recommendations and ideas.
 Please let us know if we fail to properly cite the source.
 
-.. _scame: https://github.com/chevah/scame
-.. _Github: https://github.com/chevah/geck
-
 .. toctree::
     :maxdepth: 2
     :numbered:
@@ -64,3 +77,6 @@ Please let us know if we fail to properly cite the source.
     office/index
     library
     references
+
+.. _scame: https://github.com/chevah/scame
+.. _Github: https://github.com/chevah/geck
