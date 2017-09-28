@@ -1,6 +1,13 @@
 Onboarding
 ##########
 
+<<<<<<< HEAD:content/onboarding.rst
+:menu_order: 018
+:url: /onboarding.html
+:save_as: onboarding.html
+
+=======
+>>>>>>> master:docs/office/onboarding.rst
 This page is used to organize tasks and track the onboarding process for new members.
 You can see past/active tasks in the `onboarding repo <hhttps://github.com/chevah/onboarding/>`_.
 
@@ -40,7 +47,7 @@ When submitting repo changes based on your feedback:
 
 - Use the `Github PR template <https://github.com/chevah/styleguide/blob/463556d4e9219e28fd030759ba7af9c0a3ec89e6/.github/PULL_REQUEST_TEMPLATE>`_ and @ mention the oboarding supervisor for review.
 
-**Review and provide feedback for the SFTPPlus server/client products**
+**Review and provide feedback for the software**
 
 - Obtain the trial version of the server and client.
 
@@ -51,15 +58,15 @@ When submitting repo changes based on your feedback:
 - Any issues or comments can be mentioned in the Milestone tickets.
 
 
-**Review and provide feedback for the SFTPPlus.com website.**
+**Review and provide feedback for the website.**
 
-- Review the SFTPPlus.com website excluding the documentation.
+- Review the website excluding the documentation.
 
 - Comment in the Milestone your feedback.
 
 When submitting repo changes based on your feedback:
 
-- Clone the repository chevah/sftpplus.com and create PRs to the chevah/sftpplus.com repo.
+- Clone the repository and create PRs to the right repo.
 
 - Follow the README requirements and development to run the site locally.
 
@@ -79,19 +86,27 @@ Ask the tech lead for any questions.
 
 * Take note of the `coding conventions <http://styleguide.chevah.com>`_ applied for this project. These general coding conventions are for all 'texts' (code, documentation, etc). 
 
+<<<<<<< HEAD:content/onboarding.rst
+* There are specific rules that apply to programming languages.
+Begin by reading the general `coding conventions <http://styleguide.chevah.com>`_.
+=======
 * There are specific rules that apply to programming languages. Begin by reading the general `coding conventions <http://styleguide.chevah.com>`_.
+>>>>>>> master:docs/office/onboarding.rst
   Then review each language specific convention as you will be writing in that language.
 
-* While you are in IRC on #chevah "in the office", set to auto-away to let others know that you are not at the computer. Set the away status to "busy" (/away busy) if you are working at something and don't want to be disturbed.
+* While you are in IRC on #chevah "in the office", set to auto-away to let others know that you are not at the computer.
+Set the away status to "busy" (/away busy) if you are working at something and don't want to be disturbed.
 
 * You will use your own hardware for work tasks.
   To compensate for this usage of your hardware we will cover hardware expenses for your home computer.
   If you need a hardware component or peripheral that will help your work related tasks, ask and we can cover those expenses.
   Ask tech lead for details.
 
-* Each task that you are working on should have a ticket in Trac/Github. If there is no ticket, create one and start the `Ticket Work Flow <http://styleguide.chevah.com/tickets.html>`_. 
+* Each task that you are working on should have a ticket in Trac/Github.
+If there is no ticket, create one and start the `Ticket Work Flow <http://styleguide.chevah.com/tickets.html>`_. 
 
-* While some tasks are on Github, there is a Trac/Github integration. See `Overview of the GitHub and Trac integration <http://styleguide.chevah.com/review.html#overview-of-the-github-and-trac-integration>`_.
+* While some tasks are on Github, there is a Trac/Github integration.
+See `Overview of the GitHub and Trac integration <http://styleguide.chevah.com/review.html#overview-of-the-github-and-trac-integration>`_.
 
 * Tickets corresponding to you that you are currently working should have the 'owner' value set to your Trac username.
 
@@ -101,10 +116,15 @@ Ask the tech lead for any questions.
 
 * From time to time, check the Trac timeline to stay up to date with latest changes in the project.
 
+<<<<<<< HEAD:content/onboarding.rst
+* When starting a support ticket, request the OS version architecture used and version of the products.
+=======
 * When starting a support ticket, request the OS version architecture used and version of the SFTPPlus products.
   Further details in Trac.
+>>>>>>> master:docs/office/onboarding.rst
 
-* Before a Pull Request is closed, it must be reviewed by at least one other team member. Further info of the `Review process <http://styleguide.chevah.com/review.html>`_.
+* Before a Pull Request is closed, it must be reviewed by at least one other team member.
+Further info of the `Review process <http://styleguide.chevah.com/review.html>`_.
 
 * Leave days can be requested at any time.
   Check the dedicated page in Trac.
@@ -125,10 +145,8 @@ The initial stage is over when all the Onboarding tickets from the milestone ded
 
 We are far from single-sign-on and while working on this project you will have many different accounts.
 
-For GitHub you can create a new account or use your current account and ask to be part of our GitHub organisations (Chevah and ProAtria) and our core team. Ensure that in git-config, your user.email is the Pro:Atria email when working in the Chevah project repositories.
-
 We use Skype for phone calls.
-Use the dedicated ProAtria Skype account as the official tools to collaborate with the team and to make phone calls.
+Use the dedicated Skype account as the official tools to collaborate with the team and to make phone calls.
 
 **Ask our system administrators for all of the followings:**
 
@@ -143,6 +161,8 @@ Use the dedicated ProAtria Skype account as the official tools to collaborate wi
 * You will need a Trac account setup.
   Trac tickets are used for managing work items since there is no support with the web-based GitHub issue/task/defect management
   Trac also contains wiki pages to other documentation.
+<<<<<<< HEAD:content/onboarding.rst
+=======
   Get to know the team by checking the dedicated page in our private wiki.
 
 
@@ -162,9 +182,6 @@ Users_Files
 In the build folder are example folders of a test user which can be used to help test various features of SFTPPlus.
 
 Below is an example of using users_files / the test user to access the HTTPS feature:
+>>>>>>> master:docs/office/onboarding.rst
 
-1. Navigate to the server folder
-2. ./paver.sh run and log in to https://localhost:10020
-3. Under Status in the Local Manager edit the https status configuration and add app-uuid. This is so that application accounts are enabled for this service.
-4. Save the configuration and selected Start
-5. Go to https://localhost:10443 and log in using the test data credentials. If you go to test-server.ini in the test-data folder you can see the credentials to log in as the test user.  After authenticating, you should see the test folders and files.
+* Get to know the team by checking the dedicated page in our private wiki.

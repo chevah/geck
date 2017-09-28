@@ -517,7 +517,7 @@ product as long as there is also a workaround provided in the Known Issues
 page.
 
 Known Issues will include a reference to the internal bug ID which provided
-further details about that issues
+further details about those issues.
 
 
 Mock ups and designs for the website
