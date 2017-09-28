@@ -133,9 +133,6 @@ The initial stage is over when all the Onboarding tickets from the milestone ded
 
 We are far from single-sign-on and while working on this project you will have many different accounts.
 
-For GitHub you can create a new account or use your current account and ask to be part of our GitHub organisations and our core team.
-Ensure that in git-config, your user.email is the Pro:Atria email when working in the Chevah project repositories.
-
 We use Skype for phone calls.
 Use the dedicated Skype account as the official tools to collaborate with the team and to make phone calls.
 
@@ -154,30 +151,3 @@ Use the dedicated Skype account as the official tools to collaborate with the te
   Trac also contains wiki pages to other documentation.
 
 * Get to know the team by checking the dedicated page in our private wiki.
-
-
-4. Using the product for the first time
----------------------------------------
-
-When testing out the software, please take a look at the contents of these folders as it may contain useful files for exploring various features.  
-
-Test_Data
-^^^^^^^^^
-
-In the server repository is a folder called test_data which contains configuration file samples, public/private key samples, various certificates in a number of formats, a test LDAP server to support manual tests ( run as $ ./build* test_data/ldap/server.py), HTTP proxy and simple HTTP server, and sample execute scripts for post transfer execution.
-
-Users_Files
-^^^^^^^^^^^
-
-In the build folder are example folders of a test user.
-
-Below is an example of using users_files / the test user to access the HTTPS feature:
-
-1. Navigate to the server folder
-2. ./paver.sh run and log in to https://localhost:10020
-3. Under Status in the Local Manager edit the https status configuration and add app-uuid.
-This is so that application accounts are enabled for this service.
-4. Save the configuration and selected Start
-5. Go to https://localhost:10443 and log in using the test data credentials.
-If you go to test-server.ini in the test-data folder you can see the credentials to log in as the test user.
-After authenticating, you should see the test folders and files.
