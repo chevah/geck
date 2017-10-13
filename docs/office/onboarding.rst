@@ -1,13 +1,12 @@
 Onboarding
 ##########
 
-<<<<<<< HEAD:content/onboarding.rst
-:menu_order: 018
-:url: /onboarding.html
-:save_as: onboarding.html
+.. contents::
 
-=======
->>>>>>> master:docs/office/onboarding.rst
+
+Introduction
+------------
+
 This page is used to organize tasks and track the onboarding process for new members.
 You can see past/active tasks in the `onboarding repo <hhttps://github.com/chevah/onboarding/>`_.
 

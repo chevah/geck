@@ -1,11 +1,9 @@
 Leave / Holiday
 ###############
 
-<<<<<<< HEAD:content/leave.rst
-:menu_order: 020
+.. contents::
 
-=======
->>>>>>> master:docs/office/leave.rst
+
 General
 =======
 

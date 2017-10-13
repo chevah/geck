@@ -1,8 +1,6 @@
 Sales and Marketing
 ###################
 
-:menu_order: 008
-
 .. contents::
 
 
