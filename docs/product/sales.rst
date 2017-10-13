@@ -13,17 +13,13 @@ This page briefly describes operational Sales details.
 Product Demo
 ============
 
-Please see the `DemoSession` wiki page for the demo session structure.
-
 
 Demo text template to use
 -------------------------
 
-The demo session content is similar to the documentation in that it is aimed at
-system administrators and other individuals involved.
-
 Please send your criteria of requirements so that we can
-better answer your questions in advance of the demo.
+better answer your questions and prepare the session to meet all your
+requirements.
 
 For those involved in procurement, please contact the Sales team.
 
@@ -34,27 +30,9 @@ We recommend obtaining the trial version and installing until the
 
 In that way, you are able to continue after the demo session.
 
-
-Items to consider agreeing to a demo:
--------------------------------------
-
-Is the customer actively pursuing a trial or considering a trial?
-
-If they are still considering a trial, it would be best to get a list of
-requirements first, and send through response.
-
-
-Is it attended by administrators / individuals involved in managing?
---------------------------------------------------------------------
-
-Like readership of the documentation page, the session should be attended by
-at least an administrator or individual involved in managing the roll-out.
-
-This will increase the chance of knowledge transfer inside their organization
-during the trial and decrease instances of conducting more than one session.
-
-It will also smooth the process when the customer does the initial
-configuration during the trial.
+Phone bridge is recommended, if not, use a VOIP headset with dedicated headset.
+We do not recommend using the microphone included in laptops due to poor sound
+quality.
 
 
 When demo session is agreed ask for the following:
@@ -73,22 +51,14 @@ When demo session is agreed ask for the following:
 Sending out demo session details
 --------------------------------
 
-* Session is held in the first 10 minutes. After that it may be rescheduled.
-
-* Phone bridge is recommended, if not, use a VOIP headset.
+* Wait for people to join in the first 10 minutes. If there are no-shows, the
+  session can be dropped and rescheduled.
 
 
 Marketing / Promotional Materials
 =================================
 
-Promotions and marketing materials are mainly located in the main website.
-
-It should be as generic and non-technical as possible with links to the
-Documentation for more in-depth / technical information.
-
-To save materials, or to obtain past materials, the `chevah/design` repository
-is available.
-Please ask the team for access to the repository.
+To save materials, or to obtain past materials, the `design repo <https://github.com/chevah/design>`_ is available.
 
 
 Announcing a new release to the email list
