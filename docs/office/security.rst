@@ -1,11 +1,6 @@
 Security
 ########
 
-<<<<<<< HEAD:content/security.rst
-:menu_order: 010
-
-=======
->>>>>>> master:docs/office/security.rst
 .. contents::
 
 
