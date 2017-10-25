@@ -468,15 +468,14 @@ to pass before they appear and this can slow down the whole tests.
 
 Mock object
 -----------
+ 
+With great power, comes great responsibility! Don't abuse the mocks.
 
-Mock object can simplify a lot test writing and are a very powerful test
-tool.
+Before using a Mock object consider using a minimal implementation or a Bunch
+object.
 
-With great power, comes great responsibility!
-Don't abuse the mocks.
-
-As much as possible, try to use a Mock object together with the specification
-of the mocked class.
+If using Mock is the best option,
+always use a Mock object together with the specification of the mocked target.
 
 .. sourcecode:: python
 
@@ -485,20 +484,12 @@ of the mocked class.
     # Good.
     mocked_object = Mock(specs=SomeClass)
 
+Is OK to use the Mock object as part of the patch process, but before
+using patching consider redesigning the code to support dependency injection.
 
-You can use mock object in the following circumstances:
-
-* Want to trigger an error from a function that requires a precondition
-  that is hard to create in a test.
-
-.. sourcecode:: python
-
-    some_object = SomeClass()
-    some_object.openFile = Mock(side_effect=SomeHardException())
-
-
-* Want to check for delegation and you know that the delegated methods /
-  objects have good test coverage.
+You can also use Mock when you want check for delegation and you know that the
+delegated methods / objects have good test coverage for integration and
+functional.
 
 
 Structure of a test
@@ -899,6 +890,25 @@ It will almost certainly be::
 6. Happy hacking!
 
 
+Dealing with flaky tests
+========================
+
+Once the test suite grows to more than a few hundred tests and you run
+the test on more than a couple of test environment you will experience
+flaky test.
+
+The functional / integration tests are prone to result in flaky results,
+especially if they are executed on system with high load, or slow or exotic
+environment.
+
+We have about 5000 tests, executed on 20 environments so you end up with
+100.000 tests executed on each run.
+A single test failure will make the whole commit red and will block the merge.
+
+To mitigate this our automated testing infrastructure allow re-running
+all the tests on a single environment.
+
+
 Rerefences
 ==========
 
@@ -910,3 +920,4 @@ Here are the pages I used to create this page.
  * http://stackoverflow.com/q/67299/539264
  * http://blog.brianbutton.io/index.php/2005/08/14/i-really-did-mean-it-avoid-setup-and-teardown/
  * http://webcache.googleusercontent.com/search?q=cache:OsTWl-j736kJ:agilesoftwaredevelopment.com/blog/vaibhav/acceptance-testing-what-why-how+&cd=1&hl=en&ct=clnk&gl=ie (cached)
+* https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html

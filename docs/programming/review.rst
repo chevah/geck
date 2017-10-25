@@ -173,6 +173,9 @@ For the person requesting a review
 
 * For GitHub: A review request is created using **GitHub Pull requests**.
 
+* Creating a PR or pushing changes to the PR will trigger our automated tests
+  The test results will be published in the PR as commit status.
+
 
 Review request message
 ----------------------
@@ -198,11 +201,6 @@ reviewer prefixed with **@**.
 
 If required, using **depends-on** marker, add the list of reviews on which
 this review depends and block the merge of this branch.
-
-Creating a PR or pushing changes to the PR will trigger our automated tests
-The test results will be published in the PR as commit status.
-
-When a testfails, you can retry just the failed builder
 
 
 Merge your branch
