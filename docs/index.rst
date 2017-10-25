@@ -19,11 +19,13 @@ Here are the overall rules of the project:
 * Rule #0: Simple things should be simple, complex things should be possible.
   (Alan Key)
 
-* Rule #1: Keep it DRY! Don't repeat yourself!
+* Rule #1: Keep it DRY. Don't repeat yourself.
 
-* Rule #2: KISS - Keep it simple, stupid!
+* Rule #2: KISS - Keep it simple, stupid.
 
-* Rule #3: If it ain't broke, don't fix it!
+* Rule #3: If it ain't broke, don't fix it.
+
+* Rule #4: Ask for forgiveness, not permission.
 
 Based on previous rule the project should fit simple needs but also be able
 to scale for more complex usage.

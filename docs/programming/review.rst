@@ -14,6 +14,7 @@ General
 =======
 
 * All code should be reviewed at least one before the merge.
+  On the same line, any change should be reviewed before considering it done.
 
 * Most probably the code will be reviewed multiple times, involuntary, while
   trying to reuse it or fix a bug.
@@ -67,6 +68,8 @@ General
 
 * The target for a small request is no more than 400 touched lines
   (added + removed).
+  Is OK to have larger changes as long as they are caused by having a large
+  number of changes in tests.
 
 * When you do a refactoring and you need to rename something in many files,
   do it in a dedicated branch which only deals with the renaming.
@@ -96,19 +99,18 @@ For the person requesting a review
 * **All** changes should be reviewed prior to being merged or released.
 
 * Before requesting a review you should run a full quick test on your local
-  computer and on all supported platforms.
-  Just run ``paver test_quick`` and ``paver test_review`` and
-  Buildbot and GitHub will work together to display the results.
+  computer.
+  Just run ``paver test_quick``.
   For documentation changes, run ``paver test_documentation`` for build errors
-  and ``paver documentation_standalone`` to see the HTML build for potential
-  formatting errors not otherwise caught.
+  and to see the HTML build for potential formatting errors not
+  otherwise caught.
 
-* Before passing the review to others, take another careful look at your work
-  and perform a first review yourself.
+* Take another careful look at your work and perform a first review yourself.
   Check that all changes are described together with their attached test
   cases.
   It is very important to have a good review request message as it will
-  help reviewers understand what you have done.
+  help reviewers understand what you have done and what is the scope of your
+  changes.
 
 * Check that all changes are covered by automated tests and if they aren't,
   make sure that the review description contains information regarding why.
@@ -120,27 +122,19 @@ For the person requesting a review
   work accordingly, for example in the affected repository documentation,
   the ticketing system, or the Styleguide.
 
-
-* For Trac: A review request is created by adding the comment and then
-  setting the state to 'needs_review'.
-  (**don't use keywords**, we are using a strict ticket
-  work-flow so use the ticket action form).
-
-* For GitHub: A review request is created using **GitHub Pull requests**.
-
 * When submitting a review for changes not planned in the current milestone,
   update the milestone to the current one.
   Don't leave the old milestone.
 
-* You can start writing your review request as soon as you start coding on a
-  branch.
+* You can start writing your review request description as soon as you start
+  coding on a branch.
   There is no need to wait for a feature to be fully implemented and
   for tests to pass.
-  Writing a review request early, will help you organize and explain
-  the work that you plan to do on the branch.
+  Writing a review request early will help you organize and explain
+  the work that you plan / you have done on the branch.
 
-* When the review is ready to be sent to reviewers, leave a comment in the PR
-  containing the **needs-review** marker word.
+* When the changes are ready for review (for the first, second or third time),
+  leave a comment in the PR containing the **needs-review** marker word.
   It will trigger the review request process and the GitHub to Trac
   synchronization.
 
@@ -161,16 +155,23 @@ For the person requesting a review
   This will let reviewers know that you are done and that
   they can check the latest changes.
 
-* Make sure that your review request message is always up to date with the
+* Make sure that your review request description is always up to date with the
   latest changes.
   If new changes are made or new test cases are discovered during the review,
   don't forget to update the initial review request message to include a
   summary of these changes.
 
-* The "How to test the changes" section should include **ALL** test cases
+* The "How to test the changes" section should include **all** test cases
   done during the review.
   If a reviewer is following a test case not described in the initial request
   message, it should update the review message with the new test case.
+
+* For Trac: A review request is created by adding the comment and then
+  setting the state to 'needs_review'.
+  (**don't use keywords**, we are using a strict ticket
+  work-flow so use the ticket action form).
+
+* For GitHub: A review request is created using **GitHub Pull requests**.
 
 
 Review request message
@@ -180,60 +181,42 @@ When submitting a ticket for review, the review request should contain the
 following message as described in `pull request template
 <https://github.com/chevah/styleguide/blob/master/.github/PULL_REQUEST_TEMPLATE>`_:
 
-* For GitHub review requests, **add the merge commit message as the pull
-  request title**.
-  The message should include the ticket ID number.
-  Example of merge commit message::
+The PR title should be the merge commit message.
+The message should include the ticket ID number.
+Example of merge commit message::
 
       [#1234] What was done in this branch.
 
-* The commit message should be on a single line and preferable under 100
-  characters.
-  The message should be a clearly articulated phrase, summarizing
-  changes done in the branch.
-  Further details about the changes can go in the release notes or review
-  request body.
+The message should be on a single line and preferable under 100 characters.
+The message should be a clearly articulated phrase,
+summarizing changes done in the branch.
 
-* Add the list of persons who should review the branch, using a
-  line starting with **reviewers** and followed by GitHub names or each
-  reviewer prefixed with **@**.
 
-* If required, using **depends-on** marker, add the list of reviews on which
-  this review depends and block the merge of this branch.
+Add the list of persons who should review the branch,
+using a line starting with **reviewers:** and followed by GitHub names or each
+reviewer prefixed with **@**.
+
+If required, using **depends-on** marker, add the list of reviews on which
+this review depends and block the merge of this branch.
+
+Creating a PR or pushing changes to the PR will trigger our automated tests
+The test results will be published in the PR as commit status.
+
+When a testfails, you can retry just the failed builder
 
 
 Merge your branch
 -----------------
 
-After the merge request and review was approved you need to merge your branch
-into master.
+After the merge request and review was approved you should merge your branch
+using the GitHub merge button, as soon as possible.
 
-After your review request was approved, you can send your branch to
-and conduct a test_review::
+GitHub might suggest it's own format for the merge, but we are using the
+PR title as the commit message with the PR ID appended to it.
 
-    paver test_review GITHUB_PULL_REQUEST_ID
-
-This will trigger the buildbot tests for the branch and the results will be
-published in the PR.
-
-**Test failures during test review:**
-
-There is ticket https://trac.chevah.com/ticket/4091 where we should report any
-test failure which we suspect that is not related to our branch.
-
-When test_review fails, you can retry just the failed builder- no need to
-trigger all the builders.
-See the "Resubmit Build:" section in the PR.
-
-**Test success during test review:**
-
-When using the GitHub merge button, use the standard merge commit format.
-
-That is, remove the (#PR_ID) from the end of the commit message.
-We only care about the Trac ID and it should be first :)
-
-Make sure to edit the commit details.
-GitHub will auto add the list of all commit messages.
+If the PR title is `[#1234] What was done in this branch` the commit message
+will be `[#1234] What was done in this branch. (#4567)`
+Where 1234 is the Trac ticket id and 4567 is the GitHub PR id::
 
 When doing manual merge using git, use squash merge and don't use the
 default commit message.
@@ -241,18 +224,9 @@ Here is a sample command for merging branch "1234-what-was-done"::
 
     git checkout master
     git merge --no-commit --squash 1234-what-was-done
-    git commit -a -m "[#1234] What was done in this branch."
+    git commit -a -m "[#1234] What was done in this branch. (#4567)"
 
 It is recommended to define a git alias for `merge --no-commit --squash`.
-
-A merge commit should have a commit message, in the format::
-
-    [#1234] What was done in this branch.
-
-* **#1234** is the ticket number for this branch.
-  It is used to get more details about branch work and review.
-  It can also be used to associate a commit to a ticket / branch / review /
-  task and check the history/story of that commit.
 
 
 For the person reviewing the changes
