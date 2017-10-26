@@ -88,14 +88,6 @@ the scope of the issue.
 Support Case Management
 =======================
 
-
-Working on a support case
--------------------------
-
-Support cases can be received either through the online contact form,
-messenger, direct email or phone call.
-
-Email, messenger and support forms are the preferred methods.
 For call, request the customer at the beginning to do a follow up over email
 and confirm in writing as the first preference.
 As second preference, follow up with a summary of the call and request the

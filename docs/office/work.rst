@@ -1,12 +1,8 @@
 Work
 ####
 
-<<<<<<< HEAD:content/work.rst
-:menu_order: 019
-
-=======
->>>>>>> master:docs/office/work.rst
 .. contents::
+
 
 General
 =======
