@@ -66,29 +66,23 @@ This should be created via a dedicated VM for testing / support activities.
 Chat
 ====
 
-`Olark <https://www.olark.com>`_ is currently used for chat with our customers
+`Kayako <https://sftpplus.kayako.com/>`_ is used for chat with our customers
 or possible customers.
 
-Each chat transcript is automatically forwarded to the Support email list.
+A widget is added on the website.
+A new conversation is created in Inbox when a visitor initiates the conversation.
+A response is sent via the web platform.
 
-A chat can be transferred and other actions can be taken with the chat via
-Olark `commands <https://www.olark.com/help/commands>`_.
+Each conversation is assigned to an agent who handles that conversation.
 
+Team notes can be created to share informatino but for faster response time
+use IRC or to discuss with more than one person, send an email.
 
-Licenses and support contract
-=============================
+In a live conversation customers expect quicker response time than email.
+If you need to spend more time, notify the customer or follow up via email.
 
-See the `Support options page <https://www.sftpplus.com/support/options.html>`_
-which describes the options available.
-
-If a support case goes beyond the standard option (such as a new
-product feature), the Sales team will determine the quote.
-
-See the `Life cycle page <https://www.sftpplus.com/product/life-cycle.html>`_ 
-for details about the product life cycle.
-
-If a feature request is obtained, check that it is included in the
-`Product roadmap <https://www.sftpplus.com/product/roadmap.html>`_ 
+Use the chat as an opportunity to gain quick feedback from the customer about
+the scope of the issue.
 
 
 Support Case Management
@@ -99,9 +93,9 @@ Working on a support case
 -------------------------
 
 Support cases can be received either through the online contact form,
-direct email or phone call.
+messenger, direct email or phone call.
 
-Email and support forms are the preferred methods.
+Email, messenger and support forms are the preferred methods.
 For call, request the customer at the beginning to do a follow up over email
 and confirm in writing as the first preference.
 As second preference, follow up with a summary of the call and request the
