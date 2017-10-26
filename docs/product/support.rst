@@ -67,22 +67,40 @@ Chat
 ====
 
 `Kayako <https://sftpplus.kayako.com/>`_ is used for chat with our customers
-or possible customers.
+or possible customers via a widget that is added on the website.
 
-A widget is added on the website.
-A new conversation is created in Inbox when a visitor initiates the conversation.
-A response is sent via the web platform.
+A new conversation is created in Inbox when a visitor initiates the
+conversation and a response is sent via the web platform.
 
-Each conversation is assigned to an agent who handles that conversation.
+* An agent should assign a conversation to themselves - either as first
+responder. The conversation can be reassigned to a more suitable agent. Since
+Kayako is early days, notify via IRC to ensure continuity. 
 
-Team notes can be created to share informatino but for faster response time
+* Team notes can be created to share informatino but for faster response time
 use IRC or to discuss with more than one person, send an email.
 
-In a live conversation customers expect quicker response time than email.
+* In a live conversation customers expect quicker response time than email.
 If you need to spend more time, notify the customer or follow up via email.
 
-Use the chat as an opportunity to gain quick feedback from the customer about
+* Use the chat as an opportunity to gain quick feedback from the customer about
 the scope of the issue.
+
+* Add your email signature.  Go to top right, 'Edit Signature', then add::
+
+	(make sure there is a newline here to add space)
+	Thanks,
+	Hannah Suarez | Pro:Atria
+	support@proatria.com
+
+* When starting a new conversation, make sure that a Subject is written.
+
+* If a conversation was started in Messenger and a reply is sent back via
+email, the email reply is not included in Kayako-Messenger. In this case,
+include a note to state the rest of the conversation has taken place via
+email (or elsewhere if applicable).
+
+* If a conversation entirely happens in Messenger, each new reply is sent back
+via email to the agent.
 
 
 Support Case Management
