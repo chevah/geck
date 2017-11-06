@@ -252,7 +252,7 @@ Developing using tests
 
 As there is no guarantee for the order in which the tests will execute there is
 one major requirement, regardless of the test type.
-The *test should not have any side effect* as the order of execution is random.
+The *test should not have any side effect*.
 
 When writing application code, only write enough code to make a test work.
 It helps you to realise when to stop coding and move on to the next task.
@@ -581,6 +581,7 @@ part for a test: the cleanup.
 It is recommended to do it in tearDown() but
 when not practical, do it as a new paragraph, at the end of the test.
 
+
 Smells
 ======
 
@@ -634,6 +635,10 @@ Naming conventions
 
 * If testing a specific method, include the exact name of the method, in the
   test name, at the beginning, just after the `test_` marker.
+
+* Only use private members when they are used by a single test.
+  Any code which is used by multiple tests should be public and with
+  comprehensive documentation.
 
 * When there are multiple tests for the same method, suffix the test with
   a short underline ("_") delimited summary.
