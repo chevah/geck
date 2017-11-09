@@ -85,12 +85,8 @@ Ask the tech lead for any questions.
 
 * Take note of the `coding conventions <http://styleguide.chevah.com>`_ applied for this project. These general coding conventions are for all 'texts' (code, documentation, etc). 
 
-<<<<<<< HEAD:content/onboarding.rst
 * There are specific rules that apply to programming languages.
-Begin by reading the general `coding conventions <http://styleguide.chevah.com>`_.
-=======
-* There are specific rules that apply to programming languages. Begin by reading the general `coding conventions <http://styleguide.chevah.com>`_.
->>>>>>> master:docs/office/onboarding.rst
+  Begin by reading the general `coding conventions <http://styleguide.chevah.com>`_.
   Then review each language specific convention as you will be writing in that language.
 
 * While you are in IRC on #chevah "in the office", set to auto-away to let others know that you are not at the computer.
