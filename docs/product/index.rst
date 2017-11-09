@@ -13,3 +13,5 @@ They might not fit other projects with other requirements.
     tickets
     documentation
     release
+    sales
+    support
