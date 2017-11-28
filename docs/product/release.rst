@@ -70,7 +70,8 @@ driving the release, and that person will be the **release manager**.
 
 Some functions of the **release manager** are:
 
-* Defining the milestone description and due date
+* Defining the milestone title (SFTPPlus-MAJOR.MINOR.0), description and
+  due date.
 * About 1 week before the release, creating a release milestone and moving all
   closed tickets from the 'next-release' milestone to the new release milestone.
 * Creating a dedicated ticket for the release itself, and associating it
@@ -89,7 +90,8 @@ Some functions of the **release manager** are:
 * Check that RQM has closed the release PR and associated Trac.
 * After the Downloads page is updated, ensure that the release branch is merged
   with the master branch.
-* Sends the newsletter to the relevant list/s.
+* Sends the newsletter to the relevant list/s and updates associated customers
+  that are waiting for the release.
 
 Release Manager should look into obtaining access to the following:
 
@@ -114,6 +116,8 @@ A release branch starts like any other branch by creating a ticket in Trac.
 
 The release branch should be created from master (for latest release) or
 from a tag (for a maintenance release).
+Take note not to merge the latest master branch, in case there are any new
+merges that is not otherwise associated with the release.
 
 To integrate with our automated process, the release branch should be named:
 `TICKET_ID-release-MAJOR.MINOR.BUGFIX`.
