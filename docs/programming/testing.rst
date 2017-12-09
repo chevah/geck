@@ -256,9 +256,10 @@ The *test should not have any side effect*.
 
 When writing application code, only write enough code to make a test work.
 It helps you to realise when to stop coding and move on to the next task.
-If you know there should be more code to handle other cases, you should write the tests 
+If you know there should be more code to handle other cases,
+you should write the tests
 for those particular cases.
-This technique prevents writing code that is never executed 
+This technique prevents writing code that is never executed
 and ensures that you always have a test for the code you write.
 
 When you find a bug, start by writing a test reproducing the bug then
@@ -468,7 +469,7 @@ to pass before they appear and this can slow down the whole tests.
 
 Mock object
 -----------
- 
+
 With great power, comes great responsibility! Don't abuse the mocks.
 
 Before using a Mock object consider using a minimal implementation or a Bunch
@@ -526,16 +527,22 @@ might get intertwined and look like the following code. This is OK.
         with self.assertRaises(ConfigurationError):
             some.getAllProperties()
 
-The *arrange* part can get very long. Try to move as much code in setUp()
-method, or move related initialization code in a helper method.
+Especially on some integration test or system tests, you also have one last
+part for a test: the cleanup.
+This should be implemented using the `addCleanup` helper which should be
+called as soon as possible, including in the *arrange* part.
 
-When the code is used only in a few tests, put it in a dedicated, reusable, method.
+The *arrange* part can get very long.
+Try to move as much code in helper method which can create test fixtures.
+
+When the code is used by multiple tests tests,
+put it in a dedicated, reusable, method.
 
 .. sourcecode:: python
 
     def test_section_navigation_long_arrange(self):
         """
-        This does not uses setUp or other
+        A test which is self contained.
         """
         account = factory.makeTestAccount()
         browser = factory.makeTestBrowser()
@@ -548,38 +555,56 @@ When the code is used only in a few tests, put it in a dedicated, reusable, meth
 
         self.assertEqual('section_title', browser.title)
 
-    def setUp(self):
+    def getAccountAndBrowser(self):
         """
         Object used by almost all tests.
         """
-        super(X, self).setUp()
-        self.account = factory.makeTestAccount()
-        self.browser = factory.makeTestBrowser()
+        account = factory.makeTestAccount()
+        browser = factory.makeTestBrowser()
+        self.addCleanup(self.logout, account)
+        return (account, browser)
 
-    def login(self):
+    def login(self, browser, account):
         """
         Go to login page and submit username and password.
         """
-        self.browser.open(self.BASE_URL + '/login')
-        self.browser.setField('username', self.account.name)
-        self.browser.setField('password', self.account.password)
-        self.browser.clickButton('Submit')
+        browser.open(self.BASE_URL + '/login')
+        browser.setField('username', account.name)
+        browser.setField('password', account.password)
+        browser.clickButton('Submit')
 
     def test_section_navigation(self):
         """
-        After login, users can navigate to specific sections.
+        A test which used helper method to get its fixtures.
         """
-        self.login()
+        account, sut = self.getAccountAndBrowser()
+        self.login(sut, account)
 
-        self.browser.open(self.BASE_URL + '/some_section')
+        sut.open(self.BASE_URL + '/some_section')
 
-        self.assertEqual('section_title', self.browser.title)
+        self.assertEqual('section_title', sut.title)
 
 
-Especially on some integration test or system tests, you also have one last
-part for a test: the cleanup.
-It is recommended to do it in tearDown() but
-when not practical, do it as a new paragraph, at the end of the test.
+The *arrange* part might create multiple fixtures and initialize multiple
+object.
+To make the code easier to read and to make it easier to identify which object
+is targeted by the test name the system under test object as `sut`.
+
+
+.. sourcecode:: python
+
+    def test_buildProcotol_no_client_response(self):
+        """
+        The client connection is closed when client connects without sending
+        a message.
+        """
+        client_factory = self.getClient(port=1234)
+        sut = self.getServerFactory(port=1234)
+        client_protocol = client_factory.connect()
+
+        sut.buildProtocol(client_protocol)
+
+        self.assertTrue(client_protocol.closed)
 
 
 Smells
@@ -618,18 +643,11 @@ Naming conventions
         Test for super button behavior in space.
         """
 
-        def setUp():
-            super(TestSuperButtonInSpace, self).setUp()
-            DO YOUR SPACE INITIALIZATION HERE.
 
     class TestSuperButtonOnEarth(TestCase):
         """
         Test for super button behavior on earth.
         """
-
-        def setUp():
-            super(TestSuperButtonOnEarth, self).setUp()
-            DO YOUR EARTH INITIALIZATION HERE.
 
 * All methods that perform tests should be prefixed with `test_`.
 
@@ -654,27 +672,36 @@ Naming conventions
         """
 
 
-Test fixtures, setUp and tearDown
-=================================
+Test fixtures, addCleanup, setUp and tearDown
+=============================================
 
-Reusing base test cases and grouping code in setUp and tearDown are great
-ways of reducing code duplications.
+Reusing base test cases and refactoring fixtures into dedicated methods
+are great ways of reducing code duplications.
 
-Since this is a good thing, it does not need to be abused.
-Don't forget that code and tests also need to be easy to read.
+Avoid using setUp and tearDown.
+Instead call helper methods to get the test fixtures at the beginning of each
+tests.
+Use `addCleanup` to have code called at the end of a test.
+
+In this way, when tests are refactored is much easier to detect which helper
+code is no longer needed as it will be reported by the coverage tools.
+With code in setUp, the helper code will always be executed and is much harder
+to detect and we are left with objects created in setUp but not used in any
+other test.
+
+In the same time, objects created in setUp will create a stronger dependency
+between the tests using that object.
+Changing the way an object is created in setUp in order to please a test might
+have the unwanted consequence of seeing many other tests failing.
 
 We write test cases based on the class under test.
 For example, when we have an object called Account which can have two
 important states: Application and OS, we will write two test case
 *AccountOSTestCase* and *AccountApplicationTestCase*.
-This is why all tests from a specific test case will need to instantiate the
-same object, and this is why is OK to create **self.object_under_test**
-instance in the *setUp*.
 
-As a raw rule, in the setUp try to only create raw instances which are
-used in all tests, without calling any other code that change the state
-of an object.
-
+All tests from a specific test case will need to instantiate the
+same object, and to reduce duplication you should create a helper method
+which will get a new instance of the system under test.
 
 .. sourcecode:: python
 
@@ -715,26 +742,41 @@ of an object.
             self.assertNotContains(self.object_2, result)
 
 
-    class BetterStorageTestCase(TestCase):
+    class StorageMuchBetterTestCase(TestCase):
         """
         A test that is easier to read.
         """
 
-        def setUp(self):
+        def getStorage(self):
+            """
+            Return a new storage which is checked at the end of the test to
+            make sure it is left clean.
+            """
             stream = SomeStream(self)
-            self.storage = StreamStorage(stream)
-            super(BadHandlerTestCase, self).setUp()
+            storage = StreamStorage(stream)
+
+            def assert_cleanup(storage):
+                """
+                Called at the end of each test to make sure storage is in a
+                sane state.
+                """
+                self.assertIsEmpty(storage.getAll())
+
+            self.addCleanup(assert_cleanup, storage)
+
+            return storage
 
         def test_get_all_objects(self):
             """
             Without arguments, returns all objects for the storage.
             """
+            sut = self.getStorage()
             object_1 = NewStoredObject()
-            self.storage.add(object_1)
+            sut.add(object_1)
             object_2 = NewStoredObject()
-            self.storage.add(object_2)
+            sut.add(object_2)
 
-            result = self.storage.get()
+            result = sut.get()
 
             self.assertEqual(2, len(result))
             self.assertContains(object_1, result)
@@ -744,18 +786,19 @@ of an object.
             """
             A name can be specified to filter results.
             """
+            sut = self.getStorage()
             object_1 = NewStoredObject(name='one')
-            self.storage.add(object_1)
+            sut.add(object_1)
             object_2 = NewStoredObject(name='two')
-            self.storage.add(object_2)
+            sut.add(object_2)
 
-            result = self.storage.get(name='one')
+            result = sut.get(name='one')
 
             self.assertEqual(1, len(result))
             self.assertContains(object_1, result)
             self.assertNotContains(object_2, result)
 
-Try to put as much cleanup code in the tearDown method and not after the
+Try to put as much cleanup code in the addCleanup method and not after the
 **assert** block.
 If a test fails, the rest of the assert block is not
 executed, and putting everything in a try/finally increase indentation.
@@ -782,33 +825,31 @@ You can register object for cleanup by using dedicated creation method.
 
     class GoodTestCase, self(.tearDown()TestCase):
 
-        def setUp(self):
-            super(GoodTestCase, self).setUp()
-            self.opened_files = []
+        def close_file(self, file):
+            """
+            Do the best to close and remove the file.
+            """
+            try:
+                file.close()
+                os.rm(file.path)
+            except:
+                # Pass or record the files which were not closed
+                # and fail with more details.
+                pass
 
-        def tearDown(self):
-            for file in self.opened_files:
-                try:
-                    file.close()
-                    os.rm(file.path)
-                except:
-                    # Pass or record the files which were not closed
-                    # and fail with more details.
-                    pass
-            super(GoodTestCase, self).tearDown()
-
-        def openFile(self, path):
+        def getOpenedFile(self, path):
             """
             Creation method which also registers the object for cleanup.
             """
             file = open('some_file')
-            self.opened_files.append(file)
+            self.addCleanup(close_file, file)
+            return file
 
         def test_someMethod_with_test_bad_cleanup(self):
             """
-            When an assertion fails, cleanup is still called via tearDown.
+            When an assertion fails, cleanup is still called via cleanup.
             """
-            file = self.openFile('some_file')
+            file = self.getOpenedFile('some_file')
             operator = SomeFancy(file)
 
             operator.read()
@@ -816,11 +857,8 @@ You can register object for cleanup by using dedicated creation method.
             self.assertEqual('something', operator.getAllContent())
 
 
-To reduce the need of tearDown and cleanup code, try to run each test on
-new instances and avoid global or singleton objects.
-
 You can still reuse object, in case creating a new instance takes a long time,
-as we want test to be fast.
+but this should be an exception and not the rule.
 
 
 Tests description - docstrings
