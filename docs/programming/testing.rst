@@ -689,6 +689,12 @@ With code in setUp, the helper code will always be executed and is much harder
 to detect and we are left with objects created in setUp but not used in any
 other test.
 
+As a code smell, is not of to use setUp and tearDown for classed which have
+test methods.
+Is OK to use setUp/tearDown for high level test cases which don't have
+any self test method and are designed to be reused by more than 2 other
+final test cases.
+
 In the same time, objects created in setUp will create a stronger dependency
 between the tests using that object.
 Changing the way an object is created in setUp in order to please a test might
