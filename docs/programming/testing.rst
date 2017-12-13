@@ -586,9 +586,9 @@ put it in a dedicated, reusable, method.
 
 
 The *arrange* part might create multiple fixtures and initialize multiple
-object.
+objects.
 To make the code easier to read and to make it easier to identify which object
-is targeted by the test name the system under test object as `sut`.
+is targeted by the test, name the system under test object as `sut`.
 
 
 .. sourcecode:: python
