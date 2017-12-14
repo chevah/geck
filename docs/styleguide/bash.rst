@@ -73,7 +73,7 @@ Always double quote path constants to handle files with spaces:
     command "${SOME_PATH}/some.file"
 
     # Another example
-    REMOTE_URI=chevah@chevah.com:/home/chevah/styleguide.chevah.com/vm/
+    REMOTE_URI=chevah@chevah.com:/home/chevah/geck.chevah.com/vm/
     scp "$LOCAL_FILE" "${REMOTE_URL}/file"
 
 Instead of:
