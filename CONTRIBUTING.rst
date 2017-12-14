@@ -5,15 +5,19 @@ The pages are published using the Read The Docs online service.
 
 Any changed pushed to master is automatically published online.
 
-There is a Makefile to help running a few local tasks.
+There is paver file to help running a few local tasks.
 
 To initiate the dev environment::
 
-    make env
+    ./paver.sh deps
 
 To generate the page on your local system::
 
-    make generate
+    ./paver.sh generate
+
+To run a few tests::
+
+    ./paver.sh test
 
 
 Onboarding Notes

@@ -59,20 +59,18 @@ LOCAL_PYTHON_BINARY_DIST=""
 # Put default values and create them as global variables.
 OS='not-detected-yet'
 ARCH='x86'
+
+# Initialize default values from paver.conf
+PYTHON_CONFIGURATION='NOT-YET-DEFINED'
 PYTHON_VERSION='not.defined.yet'
 PYTHON_PLATFORM='unknown-os-and-arch'
 PYTHON_NAME='python2.7'
-
-# Initialize default values from paver.conf
-PYTHON_CONFIGURATION='default@2.7.14.620df8b0'
 BINARY_DIST_URI='https://binary.chevah.com/production'
 PIP_INDEX='http://pypi.chevah.com'
 BASE_REQUIREMENTS=''
 
 # Load repo specific configuration.
-if [ -f paver.conf ]; then
-    source paver.conf
-fi
+source paver.conf
 
 
 clean_build() {
@@ -164,8 +162,6 @@ execute() {
 update_path_variables() {
     resolve_python_version
 
-    BUILD_FOLDER=$1
-
     if [ "${OS}" = "windows" ] ; then
         PYTHON_BIN="/lib/python.exe"
         PYTHON_LIB="/lib/Lib/"
@@ -174,6 +170,7 @@ update_path_variables() {
         PYTHON_LIB="/lib/${PYTHON_NAME}/"
     fi
 
+    BUILD_FOLDER="build-${OS}-${ARCH}"
     PYTHON_BIN="${BUILD_FOLDER}${PYTHON_BIN}"
     PYTHON_LIB="${BUILD_FOLDER}${PYTHON_LIB}"
 
@@ -221,11 +218,6 @@ write_default_values() {
 # Install base package.
 #
 install_base_deps() {
-    if [ "x$BASE_REQUIREMENTS" = "x" ]; then
-        # Nothing to install.
-        return
-    fi
-
     echo "Installing base requirements: $BASE_REQUIREMENTS."
     pip_install "$BASE_REQUIREMENTS"
 }
@@ -707,7 +699,7 @@ detect_os() {
 }
 
 detect_os
-update_path_variables "build-${OS}-${ARCH}"
+update_path_variables
 
 if [ "$COMMAND" = "clean" ] ; then
     clean_build
@@ -734,12 +726,6 @@ fi
 
 if [ "$COMMAND" = "get_agent" ] ; then
     get_binary_dist $2 "$BINARY_DIST_URI/agent"
-    exit 0
-fi
-
-if [ "$COMMAND" = "venv" ] ; then
-    update_path_variables $2
-    copy_python
     exit 0
 fi
 
