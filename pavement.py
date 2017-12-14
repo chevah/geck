@@ -46,6 +46,9 @@ def generate():
 
 @task
 def test():
+    """
+    Run a few tests.
+    """
     build_errors = os.path.join(os.getcwd(), 'build', 'errors')
     path(build_errors).remove()
 
