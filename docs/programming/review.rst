@@ -120,7 +120,7 @@ For the person requesting a review
 
 * Before submitting a ticket for review, check that you have documented your
   work accordingly, for example in the affected repository documentation,
-  the ticketing system, or the Styleguide.
+  the ticketing system, or geck.
 
 * When submitting a review for changes not planned in the current milestone,
   update the milestone to the current one.
@@ -182,7 +182,7 @@ Review request message
 
 When submitting a ticket for review, the review request should contain the
 following message as described in `pull request template
-<https://github.com/chevah/styleguide/blob/master/.github/PULL_REQUEST_TEMPLATE>`_:
+<https://github.com/chevah/geck/blob/master/.github/PULL_REQUEST_TEMPLATE>`_:
 
 The PR title should be the merge commit message.
 The message should include the ticket ID number.
@@ -294,7 +294,7 @@ Reviewer's check list - Any Role
 Reviewer's check list - Developer
 ---------------------------------
 
-* Do the **new** changes comply with latest styleguide?
+* Do the **new** changes comply with geck?
 
 * Does the code have automated tests for all the new code?
 

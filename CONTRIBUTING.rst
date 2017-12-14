@@ -25,13 +25,13 @@ Below is a guide that you can follow to make changes to this repo:
 Create a new branch and check out to that branch so that you are working on
 your own branch and not the master branch.
 
-``git checkout -b styleguide-improvements`` with
-``styleguide-improvements`` as an example branch name.
+``git checkout -b geck-improvements`` with
+``geck-improvements`` as an example branch name.
 
 If there is a Trac ticket/ GitHub issue involved, add the ID at the
 beginning of the branch name::
 
-    1234-styleguide-improvements
+    1234-geck-improvements
 
 Once all changes are made, git push your changes out to your git branch
 (not the `master` branch) and create the first Pull Request.
