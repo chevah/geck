@@ -70,7 +70,7 @@ driving the release, and that person will be the **release manager**.
 
 Some functions of the **release manager** are:
 
-* Defining the milestone title (SFTPPlus-MAJOR.MINOR.0), description and
+* Defining the milestone title (PRODUCT_NAME-MAJOR.MINOR.0), description and
   due date.
 * About 1 week before the release, creating a release milestone and moving all
   closed tickets from the 'next-release' milestone to the new release milestone.
@@ -116,8 +116,21 @@ A release branch starts like any other branch by creating a ticket in Trac.
 
 The release branch should be created from master (for latest release) or
 from a tag (for a maintenance release).
-Take note not to merge the latest master branch, in case there are any new
-merges that is not otherwise associated with the release.
+
+Once a release is cut and the release branch is created, it should not be
+merged with master.
+
+The release branch can cherry-pick certain changes which were added to the
+release on an expectional basis.
+
+Merging with master might accidentally include changes which should not be
+released or which might need a new re-release and testing phase.
+By the time the new re-release is done there might be another new change in
+master, which if merged will trigger a new circle, and we will never do the
+release.
+
+With this approach, once the release is cut, the development can continue in
+master without having to worry about the release.
 
 To integrate with our automated process, the release branch should be named:
 `TICKET_ID-release-MAJOR.MINOR.BUGFIX`.
