@@ -214,7 +214,7 @@ PR title as the commit message with the PR ID appended to it.
 
 If the PR title is `[#1234] What was done in this branch` the commit message
 will be `[#1234] What was done in this branch. (#4567)`
-Where 1234 is the Trac ticket id and 4567 is the GitHub PR id::
+Where 1234 is the Trac ticket id and 4567 is the GitHub PR id.
 
 When doing manual merge using git, use squash merge and don't use the
 default commit message.

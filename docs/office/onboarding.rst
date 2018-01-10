@@ -86,11 +86,11 @@ Ask the tech lead for any questions.
 * Take note of the `coding conventions <http://geck.chevah.com/>`_ applied for this project. These general coding conventions are for all 'texts' (code, documentation, etc). 
 
 * There are specific rules that apply to programming languages.
-  Begin by reading the general `coding conventions <http://geck.chevah.com/en/latest/styleguide/index.html>`_.
+  Begin by reading the general `styleguide <http://geck.chevah.com/en/latest/styleguide/index.html>`_.
   Then review each language specific convention as you will be writing in that language.
 
 * While you are in IRC on #chevah "in the office", set to auto-away to let others know that you are not at the computer.
-Set the away status to "busy" (/away busy) if you are working at something and don't want to be disturbed.
+  Set the away status to "busy" (/away busy) if you are working at something and don't want to be disturbed.
 
 * You will use your own hardware for work tasks.
   To compensate for this usage of your hardware we will cover hardware expenses for your home computer.
@@ -98,10 +98,10 @@ Set the away status to "busy" (/away busy) if you are working at something and d
   Ask tech lead for details.
 
 * Each task that you are working on should have a ticket in Trac/Github.
-If there is no ticket, create one and start the `Ticket Work Flow <http://geck.chevah.com/en/latest/product/tickets.html>`_. 
+  If there is no ticket, create one and start the `Ticket Work Flow <http://geck.chevah.com/en/latest/product/tickets.html>`_. 
 
 * While some tasks are on Github, there is a Trac/Github integration.
-See `Overview of the GitHub and Trac integration <http://geck.chevah.com/en/latest/programming/review.html>`_.
+  See `Overview of the GitHub and Trac integration <http://geck.chevah.com/en/latest/programming/review.html>`_.
 
 * Tickets corresponding to you that you are currently working should have the 'owner' value set to your Trac username.
 
@@ -114,7 +114,7 @@ See `Overview of the GitHub and Trac integration <http://geck.chevah.com/en/late
 * When starting a support ticket, request the OS version architecture used and version of the products.
 
 * Before a Pull Request is closed, it must be approved by at least one other team member.
-Further info of the `Review process <http://geck.chevah.com/en/latest/programming/review.html>`_.
+  Further info of the `Review process <http://geck.chevah.com/en/latest/programming/review.html>`_.
 
 * Leave days can be requested at any time.
   Check the dedicated page in Trac.
