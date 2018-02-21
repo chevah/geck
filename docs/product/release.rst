@@ -85,6 +85,9 @@ Some functions of the **release manager** are:
   to make sure no regressions were introduced on the tests executed post-merge.
 * Creating high priority tickets in case the tests are failing on master.
 * Coordinating story tickets for the milestone.
+* When sending branch to production via RQM, edit the protected branch status so that
+  codecov is not required.  After release, edit the branch status so that codecov
+  is back to being required.
 * After sending the release branch to RQM, check that the Downloads page is updated
   and that the trial download links (only direct links) are updated.
 * When creating the release PR add the release news, staging links, direct links to
@@ -93,10 +96,12 @@ Some functions of the **release manager** are:
   release branch and not the release merge.
 * Check that RQM has closed the release PR and associated Trac.
 * After the Downloads page is updated, ensure that the release branch is merged
-  with the master branch.
-* Sends the newsletter to the relevant list/s and updates associated customers
-  that are waiting for the release.
-* Update the website with the release news.
+  with the master branch via RQM.
+* Creates and sends the newsletter to the relevant list/s.
+* Update the website with the release news and send to production.
+* Ensure that customers that are awaiting for the release. Support will know who
+  the customers are, or check the ticket ID to see which tickets references which
+  customer.
 
 Release Manager should look into obtaining access to the following:
 
@@ -104,7 +109,7 @@ Release Manager should look into obtaining access to the following:
   the news release to the website.
 * Ability to stage a release branch to staging server then to production
   server.
-* Access to Mailchimp to send the release newsletter.
+* Access to Mailchimp "Pro:Atria" account to send the release newsletter.
 * Access to the Support helpdesk or emails to know which customers should be
   contacted directly if the release is awaiting upon them.
 
@@ -112,7 +117,7 @@ When the release is out, the Release Manager organizes the team release
 meeting (times and dates), initiates the call and holds the meeting including
 a distributed agenda.
 Release meeting notes are `located here <https://drive.google.com/drive/u/3/folders/0BwQo7116Iy2tZ2M2bDhadFV4R0E>`_
-
+Use the version from the previous meeting, in case there were changes in the agenda document such as different numbers.
 
 The Release Branch
 ==================
