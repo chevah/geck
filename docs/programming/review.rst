@@ -138,6 +138,9 @@ For the person requesting a review
   It will trigger the review request process and the GitHub to Trac
   synchronization.
 
+* Once the **needs-review** marker is set for a PR, no more updates should be
+  commited until a full cycle of the review process has ended.
+
 * GitHub inline comments are great, and you can add them to help with the
   initial review request.
   Just **don't abuse them**!
