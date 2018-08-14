@@ -70,10 +70,10 @@ driving the release, and that person will be the **release manager**.
 
 Some functions of the **release manager** are:
 
-* Defining the milestone title (PRODUCT_NAME-MAJOR.MINOR.0), description and
-  due date.
 * About 1 week before the release, creating a release milestone and moving all
   closed tickets from the 'next-release' milestone to the new release milestone.
+* Defining the milestone title (PRODUCT_NAME-MAJOR.MINOR.0), description and
+  due date.
 * Creating a dedicated ticket for the release itself, and associating it
   to the new release milestone.
 * Making sure the ticket dedicated to the release has an owner, and that the
@@ -81,27 +81,27 @@ Some functions of the **release manager** are:
 * Organizing: Some tickets from the `next-release` milestone which are not yet 
   closed but are soon to be (like needs_merge) can also be moved to the new
   release milestone.
-* Checking post-commit BuildBot results for the master branch (about once per week) 
-  to make sure no regressions were introduced on the tests executed post-merge.
-* Creating high priority tickets in case the tests are failing on master.
 * Coordinating story tickets for the milestone.
-* When sending branch to production via RQM, edit the protected branch status so that
-  codecov is not required.  After release, edit the branch status so that codecov
-  is back to being required.
 * After sending the release branch to RQM, check that the Downloads page is updated
   and that the trial download links (only direct links) are updated.
+* Check the documentation pages if there are formatting issues, missing images, etc.
 * When creating the release PR add the release news, staging links, direct links to
   the trial versions, description of what the review and the reviewer names.
 * Check that a tag is created for the release, and that the tag points to the
   release branch and not the release merge.
+* Checking post-commit BuildBot results for the master branch (about once per week) 
+  to make sure no regressions were introduced on the tests executed post-merge.
+* Creating high priority tickets in case the tests are failing on master.
+* When sending branch to production via RQM, edit the protected branch status so that
+  codecov is not required.  After release, edit the branch status so that codecov
+  is back to being required.
 * Check that RQM has closed the release PR and associated Trac.
 * After the Downloads page is updated, ensure that the release branch is merged
   with the master branch via RQM.
-* Creates and sends the newsletter to the relevant list/s.
 * Update the website with the release news and send to production.
+* Creates and sends the newsletter to the relevant list/s.
 * Ensure that customers that are awaiting for the release. Support will know who
-  the customers are, or check the ticket ID to see which tickets references which
-  customer.
+  the customers are. The ticket can also reference which customer it is.
 
 Release Manager should look into obtaining access to the following:
 
