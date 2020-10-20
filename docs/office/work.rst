@@ -225,7 +225,7 @@ and archive your emails instead of deleting them.
 
 Buy a good headset and microphone.
 
-Any expences required for acquiring work related equipment (like laptop, peripherals,
+Any expenses required for acquiring work related equipment (like laptop, peripherals,
 desk, etc) will be covered by the company.
 
 
