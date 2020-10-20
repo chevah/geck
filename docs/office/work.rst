@@ -218,12 +218,15 @@ Tools
 
 Make sure all development tools are on your laptop.
 
-Buy a good headset and microphone.
-
 "Verba volant, scripta manent" (from the latin: 'spoken words fly away, written words remain')
 As the main communication is done using text, you can keep track of all past conversations. 
 Configure your instant messaging client to keep logs of all previous conversations, 
 and archive your emails instead of deleting them.
+
+Buy a good headset and microphone.
+
+Any expenses required for acquiring work related equipment (like laptop, peripherals,
+desk, etc) will be covered by the company.
 
 
 References
