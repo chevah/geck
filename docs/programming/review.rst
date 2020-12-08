@@ -120,7 +120,7 @@ For the person requesting a review
 
 * Before submitting a ticket for review, check that you have documented your
   work accordingly, for example in the affected repository documentation,
-  the ticketing system, or the Styleguide.
+  the ticketing system, or geck.
 
 * When submitting a review for changes not planned in the current milestone,
   update the milestone to the current one.
@@ -137,6 +137,9 @@ For the person requesting a review
   leave a comment in the PR containing the **needs-review** marker word.
   It will trigger the review request process and the GitHub to Trac
   synchronization.
+
+* Once the **needs-review** marker is set for a PR, no more updates should be
+  commited until a full cycle of the review process has ended.
 
 * GitHub inline comments are great, and you can add them to help with the
   initial review request.
@@ -182,7 +185,7 @@ Review request message
 
 When submitting a ticket for review, the review request should contain the
 following message as described in `pull request template
-<https://github.com/chevah/styleguide/blob/master/.github/PULL_REQUEST_TEMPLATE>`_:
+<https://github.com/chevah/geck/blob/master/.github/PULL_REQUEST_TEMPLATE>`_:
 
 The PR title should be the merge commit message.
 The message should include the ticket ID number.
@@ -214,7 +217,7 @@ PR title as the commit message with the PR ID appended to it.
 
 If the PR title is `[#1234] What was done in this branch` the commit message
 will be `[#1234] What was done in this branch. (#4567)`
-Where 1234 is the Trac ticket id and 4567 is the GitHub PR id::
+Where 1234 is the Trac ticket id and 4567 is the GitHub PR id.
 
 When doing manual merge using git, use squash merge and don't use the
 default commit message.
@@ -294,7 +297,7 @@ Reviewer's check list - Any Role
 Reviewer's check list - Developer
 ---------------------------------
 
-* Do the **new** changes comply with latest styleguide?
+* Do the **new** changes comply with geck?
 
 * Does the code have automated tests for all the new code?
 

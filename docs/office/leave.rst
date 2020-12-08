@@ -1,5 +1,5 @@
-Leave / Holiday
-###############
+Leave / Holiday/ Team building
+##############################
 
 .. contents::
 
@@ -74,3 +74,25 @@ Unused leaves
   up to a total of 5 days.
   Try to plan your time so that you don't end up
   with these remaining days in the first place.
+
+
+In-Person Team Building Meeting
+===============================
+
+In person interaction is important for any team.
+As all team members are working from different places and do not
+get the chance to have the coffee chit chat or the idle work breaks, 
+we try to get the team together at least once a year.
+Usually it's for a week, each time in a different location.
+
+During the team building meeting, work sessions are alternated with
+hangouts to get to know each other.
+
+
+Daily allowence
+===============
+
+While travel and accomodation expenses are covered by the
+company, a daily allowance is to be paid for each employee.
+
+Currently, the per diem is 10 euros.

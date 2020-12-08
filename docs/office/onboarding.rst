@@ -32,9 +32,9 @@ To practice your GitHub issue management skills, create your milestone as 'YOUR-
 
 Below is a list of initial issues/tasks to be added in the milestone:
 
-**Review and provide feedback for chevah/styleguide**
+**Review and provide feedback for chevah/geck**
 
-- The styleguide is at http://styleguide.chevah.com/
+- geck is at http://geck.chevah.com/
 
 - Comments/suggestions can be added in the ticket.
 
@@ -44,7 +44,7 @@ When submitting repo changes based on your feedback:
 
 - Create pull requests (PRs) with these changes. 
 
-- Use the `Github PR template <https://github.com/chevah/styleguide/blob/463556d4e9219e28fd030759ba7af9c0a3ec89e6/.github/PULL_REQUEST_TEMPLATE>`_ and @ mention the oboarding supervisor for review.
+- Use the `Github PR template <https://github.com/chevah/geck/blob/463556d4e9219e28fd030759ba7af9c0a3ec89e6/.github/PULL_REQUEST_TEMPLATE>`_ and @ mention the oboarding supervisor for review.
 
 **Review and provide feedback for the software**
 
@@ -83,14 +83,14 @@ For any of the tasks above, feel free to check existing or previous milestones f
 We have basic requirements and practices when working for the Chevah project.
 Ask the tech lead for any questions.
 
-* Take note of the `coding conventions <http://styleguide.chevah.com>`_ applied for this project. These general coding conventions are for all 'texts' (code, documentation, etc). 
+* Take note of the `coding conventions <http://geck.chevah.com/>`_ applied for this project. These general coding conventions are for all 'texts' (code, documentation, etc). 
 
 * There are specific rules that apply to programming languages.
-  Begin by reading the general `coding conventions <http://styleguide.chevah.com>`_.
+  Begin by reading the general `styleguide <http://geck.chevah.com/en/latest/styleguide/index.html>`_.
   Then review each language specific convention as you will be writing in that language.
 
 * While you are in IRC on #chevah "in the office", set to auto-away to let others know that you are not at the computer.
-Set the away status to "busy" (/away busy) if you are working at something and don't want to be disturbed.
+  Set the away status to "busy" (/away busy) if you are working at something and don't want to be disturbed.
 
 * You will use your own hardware for work tasks.
   To compensate for this usage of your hardware we will cover hardware expenses for your home computer.
@@ -98,10 +98,10 @@ Set the away status to "busy" (/away busy) if you are working at something and d
   Ask tech lead for details.
 
 * Each task that you are working on should have a ticket in Trac/Github.
-If there is no ticket, create one and start the `Ticket Work Flow <http://styleguide.chevah.com/tickets.html>`_. 
+  If there is no ticket, create one and start the `Ticket Work Flow <http://geck.chevah.com/en/latest/product/tickets.html>`_. 
 
 * While some tasks are on Github, there is a Trac/Github integration.
-See `Overview of the GitHub and Trac integration <http://styleguide.chevah.com/review.html#overview-of-the-github-and-trac-integration>`_.
+  See `Overview of the GitHub and Trac integration <http://geck.chevah.com/en/latest/programming/review.html>`_.
 
 * Tickets corresponding to you that you are currently working should have the 'owner' value set to your Trac username.
 
@@ -111,15 +111,10 @@ See `Overview of the GitHub and Trac integration <http://styleguide.chevah.com/r
 
 * From time to time, check the Trac timeline to stay up to date with latest changes in the project.
 
-<<<<<<< HEAD:content/onboarding.rst
 * When starting a support ticket, request the OS version architecture used and version of the products.
-=======
-* When starting a support ticket, request the OS version architecture used and version of the SFTPPlus products.
-  Further details in Trac.
->>>>>>> master:docs/office/onboarding.rst
 
-* Before a Pull Request is closed, it must be reviewed by at least one other team member.
-Further info of the `Review process <http://styleguide.chevah.com/review.html>`_.
+* Before a Pull Request is closed, it must be approved by at least one other team member.
+  Further info of the `Review process <http://geck.chevah.com/en/latest/programming/review.html>`_.
 
 * Leave days can be requested at any time.
   Check the dedicated page in Trac.
@@ -156,9 +151,8 @@ Use the dedicated Skype account as the official tools to collaborate with the te
 * You will need a Trac account setup.
   Trac tickets are used for managing work items since there is no support with the web-based GitHub issue/task/defect management
   Trac also contains wiki pages to other documentation.
-<<<<<<< HEAD:content/onboarding.rst
-=======
-  Get to know the team by checking the dedicated page in our private wiki.
+
+* Get to know the team by checking the dedicated page in our private wiki.
 
 
 4. Exploring SFTPPlus for the first time

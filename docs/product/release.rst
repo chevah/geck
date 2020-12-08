@@ -70,9 +70,10 @@ driving the release, and that person will be the **release manager**.
 
 Some functions of the **release manager** are:
 
-* Defining the milestone description and due date
 * About 1 week before the release, creating a release milestone and moving all
   closed tickets from the 'next-release' milestone to the new release milestone.
+* Defining the milestone title (PRODUCT_NAME-MAJOR.MINOR.0), description and
+  due date.
 * Creating a dedicated ticket for the release itself, and associating it
   to the new release milestone.
 * Making sure the ticket dedicated to the release has an owner, and that the
@@ -80,16 +81,27 @@ Some functions of the **release manager** are:
 * Organizing: Some tickets from the `next-release` milestone which are not yet 
   closed but are soon to be (like needs_merge) can also be moved to the new
   release milestone.
+* Coordinating story tickets for the milestone.
+* After sending the release branch to RQM, check that the Downloads page is updated
+  and that the trial download links (only direct links) are updated.
+* Check the documentation pages if there are formatting issues, missing images, etc.
+* When creating the release PR add the release news, staging links, direct links to
+  the trial versions, description of what the review and the reviewer names.
+* Check that a tag is created for the release, and that the tag points to the
+  release branch and not the release merge.
 * Checking post-commit BuildBot results for the master branch (about once per week) 
   to make sure no regressions were introduced on the tests executed post-merge.
 * Creating high priority tickets in case the tests are failing on master.
-* Coordinating story tickets for the milestone.
-* After sending the release branch to RQM, check that the Downloads page is updated.
-* Check that a tag is created for the release, and that the tag points to the release branch and   not the release merge.
+* When sending branch to production via RQM, edit the protected branch status so that
+  codecov is not required.  After release, edit the branch status so that codecov
+  is back to being required.
 * Check that RQM has closed the release PR and associated Trac.
 * After the Downloads page is updated, ensure that the release branch is merged
-  with the master branch.
-* Sends the newsletter to the relevant list/s.
+  with the master branch via RQM.
+* Update the website with the release news and send to production.
+* Creates and sends the newsletter to the relevant list/s.
+* Ensure that customers that are awaiting for the release. Support will know who
+  the customers are. The ticket can also reference which customer it is.
 
 Release Manager should look into obtaining access to the following:
 
@@ -97,7 +109,7 @@ Release Manager should look into obtaining access to the following:
   the news release to the website.
 * Ability to stage a release branch to staging server then to production
   server.
-* Access to Mailchimp to send the release newsletter.
+* Access to Mailchimp "Pro:Atria" account to send the release newsletter.
 * Access to the Support helpdesk or emails to know which customers should be
   contacted directly if the release is awaiting upon them.
 
@@ -105,7 +117,7 @@ When the release is out, the Release Manager organizes the team release
 meeting (times and dates), initiates the call and holds the meeting including
 a distributed agenda.
 Release meeting notes are `located here <https://drive.google.com/drive/u/3/folders/0BwQo7116Iy2tZ2M2bDhadFV4R0E>`_
-
+Use the version from the previous meeting, in case there were changes in the agenda document such as different numbers.
 
 The Release Branch
 ==================
@@ -114,6 +126,21 @@ A release branch starts like any other branch by creating a ticket in Trac.
 
 The release branch should be created from master (for latest release) or
 from a tag (for a maintenance release).
+
+Once a release is cut and the release branch is created, it should not be
+merged with master.
+
+The release branch can cherry-pick certain changes which were added to the
+release on an expectional basis.
+
+Merging with master might accidentally include changes which should not be
+released or which might need a new re-release and testing phase.
+By the time the new re-release is done there might be another new change in
+master, which if merged will trigger a new circle, and we will never do the
+release.
+
+With this approach, once the release is cut, the development can continue in
+master without having to worry about the release.
 
 To integrate with our automated process, the release branch should be named:
 `TICKET_ID-release-MAJOR.MINOR.BUGFIX`.
