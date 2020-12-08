@@ -7,18 +7,20 @@ Writing automated tests is an important part of development.
 
 We write tests to:
 
-* Help improve quality
+* Help improve quality by reducing number of regression defects
 * Help understand the product and its components
 * Reduce risk and fears when making bold changes into our product structure
+* Make sure the final product works when all pieces are put together and
+  integrated with external systems (functional and system tools)
 * Make work easier and fun
 
 All tests should have the following characteristics:
 
-* Be simple
+* Be simple without being just an assertion check.
 * Be easy to write and maintain as product evolves
 * Be easy to read and and have a clear, easy to understand purpose
 * Be easy to run, easy to re-run, and have fully automated execution and reporting
-* Run very, very fast
+* Run very fast
 * Each test should be an independent test which can be run by itself
 
 Writing tests is not only done to check that code works as expected, it is
@@ -467,30 +469,20 @@ to pass before they appear and this can slow down the whole tests.
         self.assertFalse(result)
 
 
-Mock object
------------
+Don't mock
+----------
 
-With great power, comes great responsibility! Don't abuse the mocks.
+With great power, comes great responsibility! Don't abuse the mock library.
 
 Before using a Mock object consider using a minimal implementation or a Bunch
 object.
 
-If using Mock is the best option,
-always use a Mock object together with the specification of the mocked target.
-
-.. sourcecode:: python
-
-    # Bad.
-    mocked_object = Mock()
-    # Good.
-    mocked_object = Mock(specs=SomeClass)
-
 Is OK to use the Mock object as part of the patch process, but before
 using patching consider redesigning the code to support dependency injection.
 
-You can also use Mock when you want check for delegation and you know that the
-delegated methods / objects have good test coverage for integration and
-functional.
+When youu use the mock library for patching, make sure you don't replace
+the patched code  with a Mock object.
+Replace it with a minimal implementation instead.
 
 
 Structure of a test
@@ -622,8 +614,12 @@ Smells
 * In case using the automatic breakpoint provided test runner is enough to
   detect the problem, that the code might be good :)
 
-* If a functional test fails, but no unit test fails, than we have at least
-  one missing unit test.
+* If an end to end test fails but no integration test fails,
+  than we have at least one missing integration test.
+
+* The **assert** part of the tests can be replaced with plain `assert` calls.
+  The assertion should check for real behaviour and state changes, and not
+  just fixed values or type checks.
 
 
 Naming conventions

@@ -2,7 +2,7 @@ Library
 #######
 
 These page contains list of pages talking about life, programming craftsmanship,
-good/clean code, and much more. 
+good/clean code, and much more.
 The list is in random order:
 
 * `Extreme Programming Explained: Embrace Change
@@ -28,14 +28,6 @@ The list is in random order:
 * `The Design of Everyday Things
   <http://www.amazon.com/exec/obidos/ASIN/0465067107/>`_
   (ISBN: 978-0465067107) by Donald A. Norman, published September 17, 2002.
-
-* `Mastering Regular Expressions
-  <http://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124/>`_
-  (ISBN: 978-0596528126) by Jeffrey E.F. Friedl, published August 15, 2006.
-
-* `Anything You Want
-  <http://www.amazon.com/dp/1936719118>`_
-  (ISBN: 978-1936719112) by Derek Sivers, published June 29, 2011.
 
 * `IT Security and the Normalization of Deviance - Bruce Schneier
   <https://www.schneier.com/blog/archives/2016/01/it_security_and.html>`_
