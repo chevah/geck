@@ -206,6 +206,36 @@ If required, using **depends-on** marker, add the list of reviews on which
 this review depends and block the merge of this branch.
 
 
+Keep the feature branch up to date
+----------------------------------
+
+While waiting for a review or after a review, make sure the feature branch is up
+to date with the main branch.
+
+We use simple `git merge` to synchronize (sync merge) a feature branch with the
+main branch.
+Don't rebase or rewrite the commit history as this will not play nice with other
+team members that already have pulled the branch.
+
+The usual commands are::
+
+    git checkout master
+    git pull
+    git checkout 1234-the-feature-branch
+    git merge master
+
+If there are no conflicts, just commit the changes with default git message.
+
+if there are conflicts, solve the conflicts and merge after all conflicts are
+solved::
+
+    git merge master
+    > git complains about CONFLICT
+    > Fix the conflicts using your preferred tool.
+    git mergetool
+    git commit -a -m "Sync main."
+
+
 Merge your branch
 -----------------
 
@@ -229,19 +259,6 @@ Here is a sample command for merging branch "1234-what-was-done"::
 
 It is recommended to define a git alias for `merge --no-commit --squash`.
 
-Conflicts
-+++++++++
-
-In case of merge conflicts, GitHub Actions or other cloud CI might not run.
-In order to integrate the changes from ``master`` and resolve the conflicts you
-should do a "sync merge"::
-
-    git checkout master
-    git pull
-    git checkout 1234-what-was-done
-    git merge master
-
-After this, pushing your branch will free it of conflicts and CI will run.
 
 For the person reviewing the changes
 ====================================

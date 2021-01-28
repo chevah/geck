@@ -162,3 +162,25 @@ Comments
       do_something()
 
 * Avoid end of line comments.
+
+Git
+===
+
+To facilitate common ownership of code, it should be easy for colleagues to get
+up to date with changes. This means we should avoid ``git rebase`` (especially
+when others are reviewing or might be working on the branch), and instead use
+``git merge``.
+
+Merging works similarly to an append-only database, where there are no changes
+or deletions, instead these operations are expressed through addition.
+
+Contrast with rebasing, which rewrites history, and anyone trying to keep up has
+to rebase also, instead of merge.
+
+See `here on how to keep a feature branch up to date
+<https://geck.chevah.com/programming/review.html#keep-the-feature-branch-up-to-date>`_.
+
+The disadvantage of merging is that the commit history is not as clean (due to
+the added merge commits), and this might become a problem if the team grows
+(such as more than 10 people). If history becomes too hard to follow, we should
+revise this convention.
