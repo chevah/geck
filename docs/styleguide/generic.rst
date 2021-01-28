@@ -166,6 +166,9 @@ Comments
 Git
 ===
 
+Merge instead of rebasing
+-------------------------
+
 To facilitate common ownership of code, it should be easy for colleagues to get
 up to date with changes. This means we should avoid ``git rebase`` (especially
 when others are reviewing or might be working on the branch), and instead use
@@ -184,3 +187,20 @@ The disadvantage of merging is that the commit history is not as clean (due to
 the added merge commits), and this might become a problem if the team grows
 (such as more than 10 people). If history becomes too hard to follow, we should
 revise this convention.
+
+Don't revert, just push the fix
+-------------------------------
+
+If you find an issue after merging into the main branch, avoid the trouble of
+reverting the commit before pushing a fix.
+
+If it is clear that the commit is broken (like showing a failing test), and the
+team will not release it, then feel free to just push the fix on top.
+
+Delete obsolete branches
+------------------------
+
+Old branches can be a nuisance, both on your machine and on GitHub, by polluting
+auto-complete and screen space.
+
+`Delete them <https://stackoverflow.com/a/6127884/235463>`_ to clean up.
