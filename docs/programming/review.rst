@@ -229,6 +229,19 @@ Here is a sample command for merging branch "1234-what-was-done"::
 
 It is recommended to define a git alias for `merge --no-commit --squash`.
 
+Conflicts
++++++++++
+
+In case of merge conflicts, GitHub Actions or other cloud CI might not run.
+In order to integrate the changes from ``master`` and resolve the conflicts you
+should do a "sync merge"::
+
+    git checkout master
+    git pull
+    git checkout 1234-what-was-done
+    git merge master
+
+After this, pushing your branch will free it of conflicts and CI will run.
 
 For the person reviewing the changes
 ====================================
