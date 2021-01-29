@@ -368,7 +368,7 @@ When linking to sections within (any) internal pages, use the :ref: tag:
 
 .. sourcecode:: rst
 
-    :ref:`section in this or other pages <unique-label>`
+    :ref:`section in this or another page <unique-label>`
 
 For the :ref: link, create a uniquely-named anchor to the section:
 
