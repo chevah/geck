@@ -176,7 +176,8 @@ the branch lifetime or the review process that branch may get contributions from
 other developers. For example typo-fixes or small GUI fixes.
 
 To reduce conflicts and confusion between colleagues, avoid using git commands
-that rewrite the history (rebase or commit with amend).
+that rewrite the history of commits you have already pushed (such as rebase or
+commit with amend).
 
 See  :ref:`here on how to keep a feature branch up to date
 <keep-feature-branch-up-to-date>`.
@@ -201,4 +202,12 @@ GitHub, by polluting auto-complete and screen space. These can be:
   even if the branch itself was not merged, or
 * Obsolete branches on which we will never work in the future.
 
-`Delete them <https://stackoverflow.com/a/2003515>`_.
+To delete a local merged branch::
+
+    git branch -d <branch_name>
+
+To delete a remote branch as of Git v1.7.0::
+
+    git push -d origin <branch_name>
+
+For more details, `see here <https://stackoverflow.com/a/2003515>`_.
