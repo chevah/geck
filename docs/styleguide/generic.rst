@@ -206,7 +206,8 @@ To delete a local merged branch::
 
     git branch -d <branch_name>
 
-To delete a remote branch as of Git v1.7.0::
+To delete a remote branch, use the `Delete branch` button in GitHub PR after the branch is merged or,
+ as of Git v1.7.0::
 
     git push -d origin <branch_name>
 
