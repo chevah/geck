@@ -166,27 +166,20 @@ Comments
 Git
 ===
 
-Merge instead of rebasing
--------------------------
+Feature branch development
+--------------------------
 
-To facilitate common ownership of code, it should be easy for colleagues to get
-up to date with changes. This means we should avoid ``git rebase`` (especially
-when others are reviewing or might be working on the branch), and instead use
-``git merge``.
+The code of our project is shared by all members of the team.
 
-Merging works similarly to an append-only database, where there are no changes
-or deletions, instead these operations are expressed through addition.
+We often have a feature branch that is driven by a single developer, but during
+the branch lifetime or the review process that branch may get contributions from
+other developers. For example typo-fixes or small GUI fixes.
 
-Contrast with rebasing, which rewrites history, and anyone trying to keep up has
-to rebase also, instead of merge.
+To reduce conflicts and confusion between colleagues, avoid using git commands
+that rewrite the history (rebase or commit with amend).
 
-See `here on how to keep a feature branch up to date
-<https://geck.chevah.com/programming/review.html#keep-the-feature-branch-up-to-date>`_.
-
-The disadvantage of merging is that the commit history is not as clean (due to
-the added merge commits), and this might become a problem if the team grows
-(such as more than 10 people). If history becomes too hard to follow, we should
-revise this convention.
+See  :ref:`here on how to keep a feature branch up to date
+<keep-feature-branch-up-to-date>`.
 
 Don't revert, just push the fix
 -------------------------------
@@ -200,7 +193,12 @@ team will not release it, then feel free to just push the fix on top.
 Delete obsolete branches
 ------------------------
 
-Old branches can be a nuisance, both on your machine and on GitHub, by polluting
-auto-complete and screen space.
+Branches you no longer need can be a nuisance, both on your machine and on
+GitHub, by polluting auto-complete and screen space. These can be:
 
-`Delete them <https://stackoverflow.com/a/6127884/235463>`_ to clean up.
+* Branches that were already merged,
+* Branches for which the code is already in the main branch or another branch,
+  even if the branch itself was not merged, or
+* Obsolete branches on which we will never work in the future.
+
+`Delete them <https://stackoverflow.com/a/2003515>`_.

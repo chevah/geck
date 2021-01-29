@@ -205,6 +205,7 @@ reviewer prefixed with **@**.
 If required, using **depends-on** marker, add the list of reviews on which
 this review depends and block the merge of this branch.
 
+.. _keep-feature-branch-up-to-date:
 
 Keep the feature branch up to date
 ----------------------------------
