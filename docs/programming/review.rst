@@ -210,13 +210,13 @@ this review depends and block the merge of this branch.
 Keep the feature branch up to date
 ----------------------------------
 
-While waiting for a review or after a review, make sure the feature branch is up
-to date with the main branch.
+While waiting for a review or after a review,
+make sure the feature branch is up to date with the main branch.
 
-We use simple `git merge` to synchronize (sync merge) a feature branch with the
-main branch.
-Don't rebase or rewrite the commit history as this will not play nice with other
-team members that already have pulled the branch.
+We use simple `git merge` to synchronize (sync merge)
+a feature branch with the main branch.
+Don't rebase or rewrite the commit history as this will not play nice
+with other team members that already have pulled the branch.
 
 The usual commands are::
 
@@ -227,8 +227,8 @@ The usual commands are::
 
 If there are no conflicts, just commit the changes with default git message.
 
-if there are conflicts, solve the conflicts and merge after all conflicts are
-solved::
+if there are conflicts, solve the conflicts and merge
+after all conflicts are solved::
 
     git merge master
     > git complains about CONFLICT

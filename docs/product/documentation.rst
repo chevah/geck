@@ -376,9 +376,10 @@ For the :ref: link, create a uniquely-named anchor to the section:
 
     .. _unique-label:
 
-Beware of automatically-generated anchors for headings. They can also be linked
-to, and may collide with the explicit anchor labels. In this case, Sphinx will
-not issue a warning.
+Beware of automatically-generated anchors for headings.
+They can also be linked to,
+and may collide with the explicit anchor labels.
+In this case, Sphinx will not issue a warning.
 
 ----
 
