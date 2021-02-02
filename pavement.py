@@ -10,9 +10,9 @@ from paver.easy import path, task
 
 
 RUN_PACKAGES = [
-    'sphinx',
-    'sphinx-autobuild',
-    'sphinx_rtd_theme',
+    'sphinx==1.8.5',
+    'sphinx-autobuild==0.7.1',
+    'sphinx_rtd_theme==0.5.1',
     ]
 
 
