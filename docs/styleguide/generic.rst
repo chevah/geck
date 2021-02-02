@@ -162,3 +162,52 @@ Comments
       do_something()
 
 * Avoid end of line comments.
+
+Feature branch development
+==========================
+
+The code of our project is shared by all members of the team.
+
+We often have a feature branch that is driven by a single developer,
+but during the branch lifetime or the review process
+that branch may get contributions from other developers.
+For example typo-fixes or small GUI fixes.
+
+To reduce conflicts and confusion between colleagues,
+avoid using git commands that rewrite the history
+of commits you have already pushed (such as rebase or commit with amend).
+
+See  :ref:`here on how to keep a feature branch up to date
+<keep-feature-branch-up-to-date>`.
+
+Don't revert, just push the fix
+-------------------------------
+
+If a merge into the main branch is breaking something,
+first consider creating a new branch that should fix the issues.
+
+If the fix will take more than 2 or 3 days to fix,
+then revert the merge to have a functional main branch.
+
+Delete obsolete branches
+------------------------
+
+Branches you no longer need can be a nuisance,
+both on your machine and on GitHub, by polluting auto-complete and screen space.
+These can be:
+
+* Branches that were already merged,
+* Branches for which the code is already in the main branch or another branch,
+  even if the branch itself was not merged, or
+* Obsolete branches on which we will never work in the future.
+
+To delete a local merged branch::
+
+    git branch -d <branch_name>
+
+To delete a remote branch, use the `Delete branch` button in GitHub PR
+after the branch is merged or, as of Git v1.7.0::
+
+    git push -d origin <branch_name>
+
+For more details, `see here <https://stackoverflow.com/a/2003515>`_.

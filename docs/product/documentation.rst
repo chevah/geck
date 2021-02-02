@@ -364,17 +364,24 @@ When linking to internal documentation pages, use the :doc: tag:
 
     :doc:`link to Local Manager</operation/local-manager>` ``
 
-When linking to internal sections within a page, use the :ref: tag:
+When linking to sections within (any) internal pages, use the :ref: tag:
 
 .. sourcecode:: rst
 
-    :ref:`section in this page <internal-page-link>`
+    :ref:`section in this or another page <unique-label>`
 
-For the :ref: link, create an anchor to the section:
+For the :ref: link, create a uniquely-named anchor to the section:
 
 .. sourcecode:: rst
 
-    ._internal-page-link:
+    .. _unique-label:
+
+Beware of automatically-generated anchors for headings.
+They can also be linked to,
+and may collide with the explicit anchor labels.
+In this case, Sphinx will not issue a warning.
+
+----
 
 When linking to external web links:
 
