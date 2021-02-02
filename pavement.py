@@ -10,8 +10,8 @@ from paver.easy import path, task
 
 
 RUN_PACKAGES = [
-    'sphinx==1.8.5',
-    'sphinx-autobuild==0.7.1',
+    'Sphinx==3.4.3',
+    'sphinx-autobuild==2020.9.1',
     'sphinx_rtd_theme==0.5.1',
     ]
 
@@ -30,8 +30,8 @@ def _run_sphinx(args):
     """
     Run sphinx build with `args`.
     """
-    from sphinx import main
-    main(argv=['build'] + args)
+    from sphinx.cmd.build import main
+    main(argv=args)
 
 
 @task
@@ -40,7 +40,9 @@ def generate():
     Generate the site as local static files.
     """
     build_html = os.path.join(os.getcwd(), 'build', 'html')
-    _run_sphinx(['-b', 'html', '-j', '2', '-n', 'docs/', build_html])
+
+    # Works: sphinx-build -b html -j 2 -n -W docs/ build/html/
+    _run_sphinx(['-b', 'html', '-j', '2', '-n', '-W', 'docs/', build_html])
     print("Open the result in a browser: file://%s/index.html" % build_html)
 
 
