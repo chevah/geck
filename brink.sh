@@ -112,6 +112,10 @@ execute_venv() {
 # Called to update the dependencies inside the newly created virtual
 # environment.
 update_venv() {
+    # After updating the python version, the existing pyc files might no
+    # longer be valid.
+    _clean_pyc
+
     set +e
     ${PYTHON_BIN} -c 'from paver.tasks import main; main()' deps
     exit_code=$?
@@ -134,11 +138,6 @@ clean_build() {
     delete_folder ${DIST_FOLDER}
     echo "Removing publish..."
     delete_folder 'publish'
-    echo "Cleaning pyc files ..."
-
-    # Faster than '-exec rm {} \;' and supported in most OS'es,
-    # details at https://www.in-ulm.de/~mascheck/various/find/#xargs
-    find ./ -name '*.pyc' -exec rm {} +
 
     # In some case pip hangs with a build folder in temp and
     # will not continue until it is manually removed.
@@ -149,6 +148,14 @@ clean_build() {
     else
         rm -rf /tmp/pip*
     fi
+}
+
+
+_clean_pyc() {
+    echo "Cleaning pyc files ..."
+    # Faster than '-exec rm {} \;' and supported in most OS'es,
+    # details at https://www.in-ulm.de/~mascheck/various/find/#xargs
+    find ./ -name '*.pyc' -exec rm {} +
 }
 
 
@@ -300,15 +307,11 @@ pip_install() {
     echo "::group::pip install $1"
 
     set +e
-    # There is a bug in pip/setuptools when using custom build folders.
-    # See https://github.com/pypa/pip/issues/3564
-    rm -rf ${BUILD_FOLDER}/pip-build
     ${PYTHON_BIN} -m \
         pip install \
-            --trusted-host pypi.chevah.com \
+            --trusted-host bin.chevah.com \
             --trusted-host deag.chevah.com \
             --index-url=$PIP_INDEX \
-            --build=${BUILD_FOLDER}/pip-build \
             $1
 
     exit_code=$?
@@ -329,8 +332,20 @@ set_download_commands() {
     set +o errexit
     command -v curl > /dev/null
     if [ $? -eq 0 ]; then
-        DOWNLOAD_CMD="curl --remote-name --location"
-        ONLINETEST_CMD="curl --fail --silent --head --output /dev/null"
+        # Options not used because of no support in CentOS 5.11's curl:
+        #     --retry-connrefused (since curl 7.52.0)
+        #     --retry-all-errors (since curl 7.71.0)
+        # Retry 2 times, allocating 10s for the connection phase,
+        # at most 300s for an attempt, sleeping for 5s between retries.
+        CURL_RETRY_OPTS="\
+            --retry 2 \
+            --connect-timeout 10 \
+            --max-time 300 \
+            --retry-delay 5 \
+            "
+        DOWNLOAD_CMD="curl --remote-name --location $CURL_RETRY_OPTS"
+        ONLINETEST_CMD="curl --fail --silent --head $CURL_RETRY_OPTS \
+            --output /dev/null"
         set -o errexit
         return
     fi
@@ -373,6 +388,7 @@ test_version_exists() {
     local remote_base_url=$1
     local target_file=python-${PYTHON_VERSION}-${OS}-${ARCH}.tar.gz
 
+    echo "Checking $remote_base_url/${PYTHON_VERSION}/$target_file"
     $ONLINETEST_CMD $remote_base_url/${PYTHON_VERSION}/$target_file
     return $?
 }
@@ -395,7 +411,7 @@ get_python_dist() {
         # We have the requested python version.
         get_binary_dist $python_distributable $remote_base_url/${PYTHON_VERSION}
     else
-        (>&2 echo "Couldn't find package on remote server. Full link below...")
+        (>&2 echo "Couldn't find package on remote server. Full link:")
         echo "$remote_base_url/$PYTHON_VERSION/$python_distributable.tar.gz"
         exit 4
     fi
@@ -435,7 +451,7 @@ copy_python() {
             cache_ver_file=${python_distributable}/lib/PYTHIA_VERSION
             cache_version='UNVERSIONED'
             if [ -f $cache_ver_file ]; then
-                cache_version=`cat $cache_ver_file`
+                cache_version=`cat $cache_ver_file | cut -d - -f 1`
             fi
             if [ "$PYTHON_VERSION" != "$cache_version" ]; then
                 # We have a different version in the cache.
@@ -463,10 +479,12 @@ copy_python() {
         # We have a Python, but we are not sure if is the right version.
         local version_file=${BUILD_FOLDER}/lib/PYTHIA_VERSION
 
-        python_installed_version=`cat $version_file`
+        # If we are upgrading the cache from Python 2,
+        # cat fails if this file is missing, so we create it blank.
+        touch $version_file
+        python_installed_version=`cat $version_file | cut -d - -f 1`
         if [ "$PYTHON_VERSION" != "$python_installed_version" ]; then
             # We have a different python installed.
-
             # Check if we have the to-be-updated version and fail if
             # it does not exists.
             set +o errexit
@@ -488,7 +506,6 @@ copy_python() {
             copy_python
         fi
     fi
-
 }
 
 
@@ -496,7 +513,6 @@ copy_python() {
 # Install dependencies after python was just installed.
 #
 install_dependencies(){
-
     if [ $WAS_PYTHON_JUST_INSTALLED -ne 1 ]; then
         return
     fi
@@ -514,8 +530,8 @@ install_dependencies(){
 # Check version of current OS to see if it is supported.
 # If it's too old, exit with a nice informative message.
 # If it's supported, return through eval the version numbers to be used for
-# naming the package, for example: '7' for RHEL 7.7, '2' for Amazon 2,
-# '2004' for Ubuntu 20.04', '312' for Alpine Linux 3.12, '11' for Solaris 11.
+# naming the package, for example: '8' for RHEL 8.2, '2004' for Ubuntu 20.04,
+# '312' for Alpine Linux 3.12, '114' for Solaris 11.4.
 #
 check_os_version() {
     # First parameter should be the human-readable name for the current OS.
@@ -558,12 +574,14 @@ check_os_version() {
     done
 
     if [ "$flag_supported" = 'false' ]; then
-        (>&2 echo "Current version of ${name_fancy} is too old: ${version_raw}")
-        (>&2 echo "Oldest supported ${name_fancy} version is: ${version_good}")
+        (>&2 echo "Detected version of ${name_fancy} is: ${version_raw}.")
+        (>&2 echo "For versions older than ${name_fancy} ${version_good},")
         if [ "$OS" = "Linux" ]; then
             # For old and/or unsupported Linux distros there's a second chance!
+            (>&2 echo "the generic Linux runtime is used, if possible.")
             check_linux_glibc
         else
+            (>&2 echo "there is currently no support.")
             exit 13
         fi
     fi
@@ -582,6 +600,8 @@ check_linux_glibc() {
     local glibc_version
     local glibc_version_array
     local supported_glibc2_version
+    # Output to a file to avoid "write error: Broken pipe" with grep/head.
+    local ldd_output_file=".chevah_glibc_version"
 
     # Supported minimum minor glibc 2.X versions for various arches.
     # For x64, we build on CentOS 5.11 (Final) with glibc 2.5.
@@ -594,10 +614,14 @@ check_linux_glibc() {
         "aarch64"|"arm64")
             supported_glibc2_version=23
             ;;
+        *)
+            (>&2 echo "$ARCH is an unsupported arch for generic Linux!")
+            exit 17
+            ;;
     esac
 
-    (>&2 echo -n "Couldn't detect a supported distribution. ")
-    (>&2 echo "Trying to treat it as generic Linux...")
+    echo "No specific runtime for the current distribution / version / arch."
+    echo "Minimum glibc version for this arch: 2.${supported_glibc2_version}."
 
     set +o errexit
 
@@ -607,14 +631,16 @@ check_linux_glibc() {
         exit 18
     fi
 
-    ldd --version | egrep "GNU\ libc|GLIBC" > /dev/null
+    ldd --version > $ldd_output_file
+    egrep "GNU\ libc|GLIBC" $ldd_output_file > /dev/null
     if [ $? -ne 0 ]; then
         (>&2 echo "No glibc reported by ldd... Unsupported Linux libc?")
         exit 19
     fi
 
     # Tested with glibc 2.5/2.11.3/2.12/2.23/2.28-31 and eglibc 2.13/2.19.
-    glibc_version=$(ldd --version | head -n 1 | rev | cut -d\  -f1 | rev)
+    glibc_version=$(head -n 1 $ldd_output_file | rev | cut -d\  -f1 | rev)
+    rm $ldd_output_file
 
     if [[ $glibc_version =~ [^[:digit:]\.] ]]; then
         (>&2 echo "Glibc version should only have numbers and periods, but:")
@@ -629,13 +655,12 @@ check_linux_glibc() {
         exit 21
     fi
 
-    # We pass here because:
-    #   1. Building Python should work with an older glibc version.
-    #   2. Our generic "lnx" runtime might work with a slightly older glibc 2.
+    # Decrement supported_glibc2_version if building against an older glibc.
     if [ ${glibc_version_array[1]} -lt ${supported_glibc2_version} ]; then
-        (>&2 echo -n "Detected glibc version: ${glibc_version}. Versions older")
-        (>&2 echo " than 2.${supported_glibc2_version} were NOT tested!")
-
+        (>&2 echo "NOT good. Detected version is older: ${glibc_version}!")
+        exit 22
+    else
+        echo "All is good. Detected glibc version: ${glibc_version}."
     fi
 
     set -o errexit
@@ -683,23 +708,11 @@ detect_os() {
                 # Some rolling-release distros (eg. Arch Linux) have
                 # no VERSION_ID here, so don't count on it unconditionally.
                 case "$linux_distro" in
-                    rhel|centos)
+                    rhel|centos|ol)
                         os_version_raw="$VERSION_ID"
-                        check_os_version "Red Hat Enterprise Linux" 7 \
+                        check_os_version "Red Hat Enterprise Linux" 8 \
                             "$os_version_raw" os_version_chevah
                         set_os_if_not_generic "rhel" $os_version_chevah
-                        if [ "$os_version_chevah" -eq 7 ]; then
-                            if openssl version | grep -F -q "1.0.1"; then
-                                # 7.0-7.3 has OpenSSL 1.0.1, use generic build.
-                                check_linux_glibc
-                            fi
-                        fi
-                        ;;
-                    amzn)
-                        os_version_raw="$VERSION_ID"
-                        check_os_version "$distro_fancy_name" 2 \
-                            "$os_version_raw" os_version_chevah
-                        set_os_if_not_generic "amzn" $os_version_chevah
                         ;;
                     ubuntu|ubuntu-core)
                         os_version_raw="$VERSION_ID"
@@ -721,7 +734,8 @@ detect_os() {
                         set_os_if_not_generic "alpine" $os_version_chevah
                         ;;
                     *)
-                        # Unsupported modern distros such as SLES, Debian, etc.
+                        # Supported distros with unsupported OpenSSL versions or
+                        # distros not specifically supported: SLES, Debian, etc.
                         check_linux_glibc
                         ;;
                 esac
@@ -748,7 +762,22 @@ detect_os() {
             ;;
         SunOS)
             ARCH=$(isainfo -n)
-            os_version_raw=$(uname -v)
+            ver_major=$(uname -r | cut -d'.' -f2)
+            case $ver_major in
+                10)
+                    ver_minor=$(\
+                        head -1 /etc/release | cut -d_ -f2 | sed s/[^0-9]*//g)
+                    ;;
+                11)
+                    ver_minor=$(uname -v | cut -d'.' -f2)
+                    ;;
+                *)
+                    # Not sure if $ver_minor detection works on other versions.
+                    (>&2 echo "Unsupported Solaris version: ${ver_major}.")
+                    exit 15
+                    ;;
+            esac
+            os_version_raw="${ver_major}.${ver_minor}"
             check_os_version "Solaris" 11.4 "$os_version_raw" os_version_chevah
             OS="sol${os_version_chevah}"
             ;;
