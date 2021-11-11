@@ -10,10 +10,14 @@ There is paver file to help running a few local tasks.
 To initiate the dev environment::
 
     ./paver.sh deps
+    or
+    pip install -r docs/requirements.txt
 
 To generate the page on your local system::
 
     ./paver.sh generate
+    or
+    sphinx-build -b html -j 2 -n -W docs/ build/html/
 
 To run a few tests::
 
