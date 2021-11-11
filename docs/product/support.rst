@@ -130,16 +130,15 @@ Escalating a Support Case due to defects
 ----------------------------------------
 
 If the support case leads to finding a defect or it needs to be escalated,
-a Trac ticket should be created with details of the customer.
+a GitHub issue should be created with details of the customer.
 
-For the defect, create a Trac ticket with priority High and notify the
-customer of the Trac ticket ID so that they can follow up with Support on the
+For the defect, create a ticket with priority High and notify the
+customer of the ticket ID so that they can follow up with Support on the
 issue.
 
 
 Holding a screenshare session
 -----------------------------
 
-GoToMeeting can be used to conduct a screenshare or meeting session with the
+MS Teams can be used to conduct a screenshare or meeting session with the
 customer if the issue is best resolved via screenshare.
-

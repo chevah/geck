@@ -89,13 +89,12 @@ Some functions of the **release manager** are:
   the trial versions, description of what the review and the reviewer names.
 * Check that a tag is created for the release, and that the tag points to the
   release branch and not the release merge.
-* Checking post-commit BuildBot results for the master branch (about once per week) 
+* Checking post-commit BuildBot results for the master branch (about once per week)
   to make sure no regressions were introduced on the tests executed post-merge.
 * Creating high priority tickets in case the tests are failing on master.
 * When sending branch to production via RQM, edit the protected branch status so that
   codecov is not required.  After release, edit the branch status so that codecov
   is back to being required.
-* Check that RQM has closed the release PR and associated Trac.
 * After the Downloads page is updated, ensure that the release branch is merged
   with the master branch via RQM.
 * Update the website with the release news and send to production.
@@ -122,7 +121,7 @@ Use the version from the previous meeting, in case there were changes in the age
 The Release Branch
 ==================
 
-A release branch starts like any other branch by creating a ticket in Trac.
+A release branch starts like any other branch by creating a GitHub issue.
 
 The release branch should be created from master (for latest release) or
 from a tag (for a maintenance release).

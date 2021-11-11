@@ -135,8 +135,7 @@ For the person requesting a review
 
 * When the changes are ready for review (for the first, second or third time),
   leave a comment in the PR containing the **needs-review** marker word.
-  It will trigger the review request process and the GitHub to Trac
-  synchronization.
+  It will trigger the required automation to set labels, reviewers...etc.
 
 * Once the **needs-review** marker is set for a PR, no more updates should be
   commited until a full cycle of the review process has ended.
@@ -169,12 +168,7 @@ For the person requesting a review
   If a reviewer is following a test case not described in the initial request
   message, it should update the review message with the new test case.
 
-* For Trac: A review request is created by adding the comment and then
-  setting the state to 'needs_review'.
-  (**don't use keywords**, we are using a strict ticket
-  work-flow so use the ticket action form).
-
-* For GitHub: A review request is created using **GitHub Pull requests**.
+* A review request is created using **GitHub Pull requests**.
 
 * Creating a PR or pushing changes to the PR will trigger our automated tests
   The test results will be published in the PR as commit status.
@@ -191,12 +185,12 @@ The PR title should be the merge commit message.
 The message should include the ticket ID number.
 Example of merge commit message::
 
-      [#1234] What was done in this branch.
+      [Fix #1234] What was done in this branch (#3345).
 
 The message should be on a single line and preferable under 100 characters.
 The message should be a clearly articulated phrase,
 summarizing changes done in the branch.
-
+The first ID is the ticket ID, and the last ID is the GitHub PR ID.
 
 Add the list of persons who should review the branch,
 using a line starting with **reviewers:** and followed by GitHub names or each
@@ -246,9 +240,9 @@ using the GitHub merge button, as soon as possible.
 GitHub might suggest it's own format for the merge, but we are using the
 PR title as the commit message with the PR ID appended to it.
 
-If the PR title is `[#1234] What was done in this branch` the commit message
-will be `[#1234] What was done in this branch. (#4567)`
-Where 1234 is the Trac ticket id and 4567 is the GitHub PR id.
+If the PR title is `[Fix #1234] What was done in this branch` the commit message
+will be `[Fix #1234] What was done in this branch. (#4567)`
+Where 1234 is the GitHub issue id and 4567 is the GitHub PR id.
 
 When doing manual merge using git, use squash merge and don't use the
 default commit message.
@@ -256,7 +250,7 @@ Here is a sample command for merging branch "1234-what-was-done"::
 
     git checkout master
     git merge --no-commit --squash 1234-what-was-done
-    git commit -a -m "[#1234] What was done in this branch. (#4567)"
+    git commit -a -m "[Fix #1234] What was done in this branch. (#4567)"
 
 It is recommended to define a git alias for `merge --no-commit --squash`.
 
@@ -289,7 +283,7 @@ For the person reviewing the changes
   exact steps you took and the actual results.
 
 * If the work is good, you can request the code to be merged by the author
-  by setting the state to needs_merge in Trac.
+  by approving the pull request.
 
 * If the work is good and the GitHub pull request feature was used, submit
   your review as 'Approve'.
@@ -334,7 +328,7 @@ Reviewer's check list - Developer
 
 * Does the merge commit message describe what is done by this branch?
 
-* Does the branch name starts with the Trac ticket ID.
+* Does the branch name starts with the GitHub ticket ID.
 
 * Do **all** tests pass? Does GitHub say that the branch is
   **Good to merge**?
@@ -372,35 +366,4 @@ Reviewer's check list - Support
   such as the website?
 
 * Are there specific terms (ie jargon) being used?
-  Is there an explanation in the page about the term? 
-
-
-Overview of the GitHub and Trac integration
-===========================================
-
-The repository
-`github-hooks-server <https://github.com/chevah/github-hooks-server>`_
-contains the code responsible for handling GitHub hooks and
-applying changes to Trac tickets.
-
-Integration is mainly between GitHub Pull Requests and Trac tickets,
-following the workflow described in `review <{filename}/review.rst>`_.
-
-The Pull Request title should start with **[#TRAC_TICKET_ID]** and
-each message on this Pull Request triggers a hook looking for special keywords.
-
-When creating the Pull Request the special syntax **reviewers: @user1 @user2**
-sets which users should review and approve it.
-There is also **depends-on: review1 review2** which blocks this merge until
-the reviews it depends on are done.
-
-A comment mentioning **needs-review** issues a review request modifying the
-state of the Trac Ticket to `needs_review`.
-
-We have integrated Trac with the new GitHub PR review features.
-You can use Github to 'Approve' or 'Request changes' to a PR.
-
-When a reviewer submits a review with 'Approve', it marks the Pull Request as
-good to merge.
-If all reviewers listed in the Pull Request body has set the PR to 'Approve',
-the hook will change the ticket state to `needs-merge`.
+  Is there an explanation in the page about the term?
