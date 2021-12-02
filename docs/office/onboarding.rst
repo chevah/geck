@@ -98,11 +98,11 @@ Ask the tech lead for any questions.
   Ask tech lead for details.
 
 * Each task that you are working on should have an associated Issue in a Github repo from Chevah org.
-  If there is no ticket, create one and start the `Ticket Work Flow <http://geck.chevah.com/en/latest/product/tickets.html>`_.
+  If there is no ticket (issue), create one and start the `Ticket Work Flow <http://geck.chevah.com/en/latest/product/tickets.html>`_.
 
 * Tickets corresponding to you that you are currently working should have the 'Assignees ' value set to your Github username.
 
-* If a task requires more than two days of work, split the task in multiple ticket each requiring no more than 2 days to complete.
+* If a task requires more than two days of work, split the task in multiple tickets each requiring no more than 2 days to complete.
 
 * When starting a support ticket, request the OS version architecture used and version of the products.
 

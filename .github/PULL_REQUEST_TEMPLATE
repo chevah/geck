@@ -13,7 +13,7 @@ depends-on #123 #124
 Why we got into this (5 whys)
 =============================
 
-Mainly used for bugs. Can be removed/ignored for tasks or new features.
+Mainly used for bugs. Can be removed for tasks or new features.
 
 * Describe why we got this problem in the first place.
 * What went wrong.
@@ -47,8 +47,8 @@ How the changes can be tested and verified by team members.
 How to run manual tests.
 
 
-1.Title for first test case
----------------------------
+1. Title for first test case
+----------------------------
 
 For end-user changes, how the changes can be tested and verified by
 our users.

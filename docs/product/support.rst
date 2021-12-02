@@ -130,7 +130,8 @@ Escalating a Support Case due to defects
 ----------------------------------------
 
 If the support case leads to finding a defect or it needs to be escalated,
-a GitHub issue should be created with details of the customer.
+a GitHub issue should be created in ``chevah/server``
+with details from the customer.
 
 For the defect, create a ticket with priority High and notify the
 customer of the ticket ID so that they can follow up with Support on the

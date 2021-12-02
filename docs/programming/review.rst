@@ -328,7 +328,7 @@ Reviewer's check list - Developer
 
 * Does the merge commit message describe what is done by this branch?
 
-* Does the branch name starts with the GitHub ticket ID.
+* Does the branch name start with the GitHub ticket ID?
 
 * Do **all** tests pass? Does GitHub say that the branch is
   **Good to merge**?
