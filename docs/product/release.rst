@@ -78,25 +78,23 @@ Some functions of the **release manager** are:
   to the new release milestone.
 * Making sure the ticket dedicated to the release has an owner, and that the
   owner will do the required steps.
-* Organizing: Some tickets from the `next-release` milestone which are not yet 
+* Organizing: Some tickets from the `next-release` milestone which are not yet
   closed but are soon to be (like needs_merge) can also be moved to the new
   release milestone.
 * Coordinating story tickets for the milestone.
-* After sending the release branch to RQM, check that the Downloads page is updated
+* After creating a PR for the release branch,
+  check that the Downloads page is updated
   and that the trial download links (only direct links) are updated.
 * Check the documentation pages if there are formatting issues, missing images, etc.
 * When creating the release PR add the release news, staging links, direct links to
   the trial versions, description of what the review and the reviewer names.
 * Check that a tag is created for the release, and that the tag points to the
   release branch and not the release merge.
-* Checking post-commit BuildBot results for the master branch (about once per week)
+* Checking post-push GitHub actions results for the master branch (about once per week)
   to make sure no regressions were introduced on the tests executed post-merge.
 * Creating high priority tickets in case the tests are failing on master.
-* When sending branch to production via RQM, edit the protected branch status so that
-  codecov is not required.  After release, edit the branch status so that codecov
-  is back to being required.
-* After the Downloads page is updated, ensure that the release branch is merged
-  with the master branch via RQM.
+* After the automated release is done and docs and download pages are updated,
+  ensure that the release tag is created.
 * Update the website with the release news and send to production.
 * Creates and sends the newsletter to the relevant list/s.
 * Ensure that customers that are awaiting for the release. Support will know who
@@ -130,7 +128,7 @@ Once a release is cut and the release branch is created, it should not be
 merged with master.
 
 The release branch can cherry-pick certain changes which were added to the
-release on an expectional basis.
+release on an exceptional basis.
 
 Merging with master might accidentally include changes which should not be
 released or which might need a new re-release and testing phase.
@@ -154,8 +152,10 @@ fixes.
 The review request for a release branch should include the text used by news
 articles for our website.
 
-Before requesting the review for this branch, the release should be done on
-the staging server using the normal RQM command.
+Before requesting the review for the release branch,
+the release should be found on the stating server.
+This should be a fully automated process as long as the release branch has
+the right name.
 
 These are the extra review steps for a release branch:
 
@@ -173,8 +173,8 @@ These are the extra review steps for a release branch:
 * [Windows] From the distributable archives, check that the service can be installed
   and started.
 
-The release itself is done using the automated RQM (Release Queue Manager)
-process which for now is implemented on top of BuildBot.
+The release itself is done using a manually triggered automated
+process implemented using GitHub Actions.
 
 Check the repo's README file for info on how to do the actual release
 in staging and in production.

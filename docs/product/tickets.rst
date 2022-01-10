@@ -175,13 +175,3 @@ Many of the tickets will be added to this milestone at the time of creation.
 You don't need to bother about these tickets and most of the time they can be ignored.
 
 Same for 'Near future' milestones.
-
-
-Story / Umbrella Tickets
-------------------------
-
-See https://github.com/chevah/server/issues/3391 for an example of a Story Ticket.
-
-Use this to list out smaller tasks associated with a larger task, such as the "Add WebDAV client" ticket.
-
-This may be a good ticket type to use if you are carrying out a high level task and need to keep track of notes.

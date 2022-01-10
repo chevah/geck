@@ -85,9 +85,9 @@ ARCH='not-detected-yet'
 PYTHON_CONFIGURATION='NOT-YET-DEFINED'
 PYTHON_VERSION='not.defined.yet'
 PYTHON_PLATFORM='unknown-os-and-arch'
-PYTHON_NAME='python3.8'
-BINARY_DIST_URI='https://github.com/chevah/pythia/releases/download'
-PIP_INDEX='https://pypi.chevah.com'
+PYTHON_NAME='python2.7'
+BINARY_DIST_URI='https://github.com/chevah/python-package/releases/download'
+PIP_INDEX='https://pypi.org/simple'
 BASE_REQUIREMENTS=''
 
 #
@@ -138,6 +138,8 @@ clean_build() {
     delete_folder ${DIST_FOLDER}
     echo "Removing publish..."
     delete_folder 'publish'
+    echo "Removing node_modules..."
+    delete_folder node_modules
 
     # In some case pip hangs with a build folder in temp and
     # will not continue until it is manually removed.
@@ -153,6 +155,8 @@ clean_build() {
 
 _clean_pyc() {
     echo "Cleaning pyc files ..."
+    # AIX's find complains if there are no matching files when using +.
+    [ $(uname) == AIX ] && touch ./dummy_file_for_AIX.pyc
     # Faster than '-exec rm {} \;' and supported in most OS'es,
     # details at https://www.in-ulm.de/~mascheck/various/find/#xargs
     find ./ -name '*.pyc' -exec rm {} +
@@ -307,11 +311,15 @@ pip_install() {
     echo "::group::pip install $1"
 
     set +e
+    # There is a bug in pip/setuptools when using custom build folders.
+    # See https://github.com/pypa/pip/issues/3564
+    rm -rf ${BUILD_FOLDER}/pip-build
     ${PYTHON_BIN} -m \
         pip install \
             --trusted-host bin.chevah.com \
             --trusted-host deag.chevah.com \
             --index-url=$PIP_INDEX \
+            --build=${BUILD_FOLDER}/pip-build \
             $1
 
     exit_code=$?
@@ -448,7 +456,7 @@ copy_python() {
             # We have a cached distributable.
             # Check if is at the right version.
             local cache_ver_file
-            cache_ver_file=${python_distributable}/lib/PYTHIA_VERSION
+            cache_ver_file=${python_distributable}/lib/PYTHON_PACKAGE_VERSION
             cache_version='UNVERSIONED'
             if [ -f $cache_ver_file ]; then
                 cache_version=`cat $cache_ver_file | cut -d - -f 1`
@@ -477,9 +485,9 @@ copy_python() {
         WAS_PYTHON_JUST_INSTALLED=1
     else
         # We have a Python, but we are not sure if is the right version.
-        local version_file=${BUILD_FOLDER}/lib/PYTHIA_VERSION
+        local version_file=${BUILD_FOLDER}/lib/PYTHON_PACKAGE_VERSION
 
-        # If we are upgrading the cache from Python 2,
+        # If we are upgrading the cache from an unversioned Python,
         # cat fails if this file is missing, so we create it blank.
         touch $version_file
         python_installed_version=`cat $version_file | cut -d - -f 1`
@@ -531,7 +539,7 @@ install_dependencies(){
 # If it's too old, exit with a nice informative message.
 # If it's supported, return through eval the version numbers to be used for
 # naming the package, for example: '8' for RHEL 8.2, '2004' for Ubuntu 20.04,
-# '312' for Alpine Linux 3.12, '114' for Solaris 11.4.
+# '314' for Alpine Linux 3.14, '71' for AIX 7.1, '114' for Solaris 11.4.
 #
 check_os_version() {
     # First parameter should be the human-readable name for the current OS.
@@ -744,7 +752,10 @@ detect_os() {
         Darwin)
             ARCH=$(uname -m)
             os_version_raw=$(sw_vers -productVersion)
-            check_os_version "macOS" 10.13 "$os_version_raw" os_version_chevah
+            # Tested on 10.13, but this works on 10.12 too. Older versions need
+            # "-Wl,-no_weak_imports" in LDFLAGS to avoid runtime issues. More
+            # details at https://github.com/Homebrew/homebrew-core/issues/3727.
+            check_os_version "macOS" 10.12 "$os_version_raw" os_version_chevah
             # Build a generic package to cover all supported versions.
             OS="macos"
             ;;
@@ -781,6 +792,12 @@ detect_os() {
             check_os_version "Solaris" 11.4 "$os_version_raw" os_version_chevah
             OS="sol${os_version_chevah}"
             ;;
+        AIX)
+            ARCH="ppc$(getconf HARDWARE_BITMODE)"
+            os_version_raw=$(oslevel)
+            check_os_version AIX 7.1 "$os_version_raw" os_version_chevah
+            OS="aix${os_version_chevah}"
+            ;;
         *)
             (>&2 echo "Unsupported operating system: ${OS}.")
             exit 14
@@ -794,20 +811,18 @@ detect_os() {
             ;;
         "amd64"|"x86_64")
             ARCH="x64"
-            case "$OS" in
-                win)
-                    # 32bit build on Windows 2016, 64bit otherwise.
-                    # Should work with a l10n pack too (tested with French).
-                    win_ver=$(systeminfo.exe | head -n 3 | tail -n 1 \
-                        | cut -d ":" -f 2)
-                    if [[ "$win_ver" =~ "Microsoft Windows Server 2016" ]]; then
-                        ARCH="x86"
-                    fi
-                    ;;
-            esac
             ;;
         "aarch64")
             ARCH="arm64"
+            ;;
+        "ppc64")
+            # Python has not been fully tested on AIX when compiled as a 64bit
+            # binary, and has math rounding error problems (at least with XL C).
+            ARCH="ppc"
+            ;;
+        "sparcv9")
+            # We build 32bit binaries on SPARC too. Use "sparc64" for 64bit.
+            ARCH="sparc"
             ;;
     esac
 }

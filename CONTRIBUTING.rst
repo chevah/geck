@@ -17,7 +17,7 @@ To generate the page on your local system::
 
     ./paver.sh generate
     or
-    sphinx-build -b html -j 2 -n -W docs/ build/html/
+    sphinx-build -b html -j 2 -n -W docs/ build-geck/html/
 
 To run a few tests::
 
