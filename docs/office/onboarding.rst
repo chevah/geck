@@ -83,7 +83,7 @@ For any of the tasks above, feel free to check existing or previous milestones f
 We have basic requirements and practices when working for the Chevah project.
 Ask the tech lead for any questions.
 
-* Take note of the `coding conventions <http://geck.chevah.com/>`_ applied for this project. These general coding conventions are for all 'texts' (code, documentation, etc). 
+* Take note of the `coding conventions <http://geck.chevah.com/>`_ applied for this project. These general coding conventions are for all 'texts' (code, documentation, etc).
 
 * There are specific rules that apply to programming languages.
   Begin by reading the general `styleguide <http://geck.chevah.com/en/latest/styleguide/index.html>`_.
@@ -97,19 +97,12 @@ Ask the tech lead for any questions.
   If you need a hardware component or peripheral that will help your work related tasks, ask and we can cover those expenses.
   Ask tech lead for details.
 
-* Each task that you are working on should have a ticket in Trac/Github.
-  If there is no ticket, create one and start the `Ticket Work Flow <http://geck.chevah.com/en/latest/product/tickets.html>`_. 
+* Each task that you are working on should have an associated Issue in a Github repo from Chevah org.
+  If there is no ticket (issue), create one and start the `Ticket Work Flow <http://geck.chevah.com/en/latest/product/tickets.html>`_.
 
-* While some tasks are on Github, there is a Trac/Github integration.
-  See `Overview of the GitHub and Trac integration <http://geck.chevah.com/en/latest/programming/review.html>`_.
+* Tickets corresponding to you that you are currently working should have the 'Assignees ' value set to your Github username.
 
-* Tickets corresponding to you that you are currently working should have the 'owner' value set to your Trac username.
-
-* If a task requires more than two days of work, split the task in multiple ticket each requiring no more than 2 days to complete.
-
-* Please go to the Trac WikiStart page which will contain further links to more details and specific documentation for certain parts of the Chevah project.
-
-* From time to time, check the Trac timeline to stay up to date with latest changes in the project.
+* If a task requires more than two days of work, split the task in multiple tickets each requiring no more than 2 days to complete.
 
 * When starting a support ticket, request the OS version architecture used and version of the products.
 
@@ -117,13 +110,9 @@ Ask the tech lead for any questions.
   Further info of the `Review process <http://geck.chevah.com/en/latest/programming/review.html>`_.
 
 * Leave days can be requested at any time.
-  Check the dedicated page in Trac.
-
-* Add your preferred email address in Trac ( Preferences -> General ) to enable email notifications.
+  :doc:`Check the dedicated page.</office/leave>`
 
 * Update your GitHub account to display your full name, and an avatar/picture that is not the default image to help differentiate activity.
-
-* Leave temporary team messages by setting the topic of #chevah IRC channel.
 
 
 3. Get all your accounts after the initial stage
@@ -148,9 +137,8 @@ Use the dedicated Skype account as the official tools to collaborate with the te
 
 * Request for VPN certificates to connect to internal servers/services.
 
-* You will need a Trac account setup.
-  Trac tickets are used for managing work items since there is no support with the web-based GitHub issue/task/defect management
-  Trac also contains wiki pages to other documentation.
+* You will need a GitHub account associated with Chevah org.
+  Create a personal GitHub account and ask a team member to add you to the Chevah org.
 
 * Get to know the team by checking the dedicated page in our private wiki.
 
@@ -158,7 +146,7 @@ Use the dedicated Skype account as the official tools to collaborate with the te
 4. Exploring SFTPPlus for the first time
 ----------------------------------------
 
-When testing out the software, please take a look at the contents of these folders as it may contain useful files for exploring various features of SFTPPlus.  
+When testing out the software, please take a look at the contents of these folders as it may contain useful files for exploring various features of SFTPPlus.
 
 Test_Data
 ^^^^^^^^^

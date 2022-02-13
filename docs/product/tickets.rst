@@ -9,18 +9,15 @@ General
 
 This page talks about how we manage the tickets/issues/tasks/defects.
 
-For now we are using Trac for managing tickets.
+For now we are using GitHub Issues for managing tickets.
 
-We would like to use GitHub issues, but for now it is too simple for our needs.
+**When working on something, that something should have an associated issue in GitHub.**
 
-**When working on something, that something should have an associated ticket in Trac.**
-
-A Trac ticket is opened when some work needs to be done, a problem is found or someone has an idea about a new feature or how to improve something.
+A GitHub issue is opened when some work needs to be done, a problem is found or someone has an idea about a new feature or how to improve something.
 
 The ticket workflow is described in a computer friendly manner here: https://gist.github.com/adiroiban/c1991d524cc5e14d27b4
 
 Try not to upload attachments to tickets.
-When we eventually migrate away from Trac, we may find it difficult to migrate the attachments.
 
 * For text files, try to use the descriptions or create a dedicate wiki page.
 * For logs, errors, long code samples from test reviews, use gist.github.com.
@@ -103,7 +100,7 @@ Ticket triage
 
 Read Launchpad Bug Triage page for some general information: https://dev.launchpad.net/BugTriage
 
-In Trac, we do not allow external parties to add tickets, so we do an initial triage process at the same time when we add a bug (we choose component, priority... and sometimes milestone)
+In GitHub, we do not allow external parties to add tickets, so we do an initial triage process at the same time when we add a bug (we choose component, priority... and sometimes milestone)
 
 
 Ticket types
@@ -124,8 +121,8 @@ Critical are for very special cases when someone is dying and we can help with a
 When we ran out of '''High''' priorities we can re-evaluate tickets with '''Low''' and change some of them to '''High'''.
 
 
-Ticket keywords
----------------
+Ticket Labels
+-------------
 
 We don't use free form keywords or tags for tickets. Only set keywords are really required.
 Below is a list of used tags:
@@ -142,36 +139,13 @@ Below is a list of used tags:
   - These are tasks that don’t require knowledge of the product or operating system 'know-how' in advance.
 
 
-Ticket components
------------------
-
-This area is being revisited. 
-
-But the components are currently:
-
- * client-commons
- * client-ftp
- * client-http
- * client-ssh
- * component not set
- * gateway
- * infrastructure
- * libs
- * manager
- * pr (website/marketing related)
- * server-commons
- * server-ftp
- * server-http
- * server-ssh
- * support (also includes documentation)
- * webadmin
 
 
 Milestone planning
 ==================
 
 At the start of each cycle, we create a milestone that represents our focus for the next month or week.
-We add new tickets to the new milestone. 
+We add new tickets to the new milestone.
 
 Milestones can be next-release, followed by Y-Near-Future, Z-Long-Term.
 
@@ -191,11 +165,6 @@ In the Chevah project, we add a bug for each action we consider should be done t
 
 Adding a ticket is easy and quick, while closing a ticket is hard and slow :) This will cause the accumulation over time of a big number of opened tickets.
 
-To help focus and get things done, Adi Libotean created a nice "My Tickets" report: https://trac.chevah.com:10443/report/7
-
-That report is your friend.
-Please suggest any improvements.
-
 
 Horse's Easter and Near Future
 ------------------------------
@@ -206,13 +175,3 @@ Many of the tickets will be added to this milestone at the time of creation.
 You don't need to bother about these tickets and most of the time they can be ignored.
 
 Same for 'Near future' milestones.
-
-
-Story Tickets
--------------
-
-See https://trac.chevah.com/ticket/3391 for an example of a Story Ticket.
-
-Use this to list out smaller tasks associated with a larger task, such as the "Add WebDAV client" ticket.
-
-This may be a good ticket type to use if you are carrying out a high level task and need to keep track of notes on Trac...

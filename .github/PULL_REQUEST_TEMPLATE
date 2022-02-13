@@ -13,7 +13,7 @@ depends-on #123 #124
 Why we got into this (5 whys)
 =============================
 
-Mainly used for bugs. Can be ignored for tasks or new features.
+Mainly used for bugs. Can be removed for tasks or new features.
 
 * Describe why we got this problem in the first place.
 * What went wrong.
@@ -28,7 +28,7 @@ Describe how the problem was fixed.
 
 Briefly describe **all** changes made in a developer friendly way.
 
-Briefly describe the end user changes in a  tester friendly way.
+Briefly describe the end user changes in a tester friendly way.
 
 List all changes for which an *ideal* solution was not found.
 Describe the current solution.
@@ -47,8 +47,8 @@ How the changes can be tested and verified by team members.
 How to run manual tests.
 
 
-Title for first test case
--------------------------
+1. Title for first test case
+----------------------------
 
 For end-user changes, how the changes can be tested and verified by
 our users.

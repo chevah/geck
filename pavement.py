@@ -9,13 +9,6 @@ import sys
 from paver.easy import path, task
 
 
-RUN_PACKAGES = [
-    'Sphinx==3.4.3',
-    'sphinx-autobuild==2020.9.1',
-    'sphinx_rtd_theme==0.5.1',
-    ]
-
-
 @task
 def deps():
     """
@@ -23,7 +16,7 @@ def deps():
     """
     print('Installing dependencies to ...')
     from pip import main
-    main(args=['install'] + RUN_PACKAGES)
+    main(args=['install', '-r', 'docs/requirements.txt'])
 
 
 def _run_sphinx(args):

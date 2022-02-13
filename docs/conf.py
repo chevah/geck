@@ -6,7 +6,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 project = u'C.G.E.C.K.'
-copyright = u'2017, Chevah Team'
+copyright = u'2022, Chevah Team'
 author = u'Chevah Team'
 
 # The short X.Y version.
