@@ -1,7 +1,7 @@
 Chevah Garden of Eden Creation Kit
 ==================================
 
-.. image:: https://api.netlify.com/api/v1/badges/9268c7b5-3645-41cb-aa8a-0f946470f04e/deploy-status
+.. image:: https://readthedocs.org/projects/chevah-geck/badge/?version=latest
   :target: http://geck.chevah.com
 
 This repository is the source for the Chevah G.E.C.K at
