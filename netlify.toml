@@ -1,0 +1,40 @@
+## More info about the config file at
+# https://docs.netlify.com/configure-builds/file-based-configuration
+#
+[build]
+  base = ""
+  publish = "build/html/"
+  command = "./brink.sh generate"
+
+
+#
+# Headers set for all environmets / context
+#
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+
+    #
+    # We allow scripts from external services:
+    # * Swiftype for search JS script and search image thumbnails.
+    # * Netlify for preview tools
+    #
+    # This is defined as multiple headers as we have some differences in CSP
+    # headers in production or testing environments.
+    Content-Security-Policy = '''
+      default-src 'none';
+      base-uri 'self';
+      form-action 'self';
+      img-src 'self';
+      script-src 'self' https://geck.chevah.com https://netlify-cdp-loader.netlify.app;
+      connect-src 'self' https://geck.chevah.com;
+      style-src 'self';
+      font-src 'self';
+      frame-src https://app.netlify.com;
+      frame-ancestors 'self';
+      upgrade-insecure-requests;
+      '''
