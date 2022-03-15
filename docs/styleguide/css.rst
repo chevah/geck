@@ -7,7 +7,7 @@ CSS and Styles
 The CSS Coding conventions are inspired by `Stoyan Stefanov's CSS Coding
 Conventions <http://www.phpied.com/css-coding-conventions>`_.
 
-See `Idiomatic CSS <https://github.com/necolas/idiomatic-css>`_.
+See `Idiomatic CSS <https://github.com/necolas/idiomatic-css>`_ for more details.
 
 Many of them are automatically checked using scame which is now
 included in the CSS Coding Convention Checker.
@@ -85,9 +85,9 @@ Block, Element and Modifier.
 
 When naming CSS classes, try to use this convention.
 
-**Elements** are delimited with two (2) underscores `__`.
+**Elements** are delimited with two (2) underscores **_ _**.
 
-**Modifiers** are delimited by two (2) hyphens `--`.
+**Modifiers** are delimited by two (2) hyphens **- -**.
 
 .. image:: http://getbem.com/assets/github_captions.jpg
     :alt: BEM
@@ -203,13 +203,13 @@ GOOD:
           rounded
       }
 
-      .btn-primary {
+      .btn--primary {
         @apply
           bg-blue-500
           text-white
       }
 
-      .btn-primary:hover {
+      .btn--primary:hover {
         @apply bg-blue-700;
       }
     }
