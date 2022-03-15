@@ -14,8 +14,6 @@ included in the CSS Coding Convention Checker.
 Please report any problems that you have with running ``paver lint`` or
 if some errors are not identified by ``paver lint``.
 
-We are using `Tailwind V1 CSS <https://v1.tailwindcss.com/docs/>`_ for
-Web File Manager project.
 
 CSS Syntax Elements
 ===================
@@ -78,6 +76,45 @@ CSS Class naming
 * Use ``js-class-name`` notation for classes which are used in **JS** and have no style attached to them.
 
 * Use ``test-class-name`` notation for classes which are used for **testing purposes** and have no style attached to them.
+
+BEM Notation
+------------
+
+BEM is an abbreviation of the key elements of the methodology —
+Block, Element and Modifier.
+
+When naming CSS classes, try to use this convention.
+
+**Elements** are delimited with two (2) underscores `__`.
+
+**Modifiers** are delimited by two (2) hyphens `--`.
+
+.. image:: http://getbem.com/assets/github_captions.jpg
+    :alt: BEM
+
+* Block
+
+    Standalone entity that is meaningful on its own.
+    The sole root of the component.
+
+    Examples: header, container, menu, btn, input.
+
+* Element
+
+    A part of a block that has no standalone meaning and is semantically tied to its block.
+
+    Examples: ``menu__item``, ``list__item``, ``header__title``.
+
+* Modifier
+
+    A flag on a block or element. Use them to change appearance or behavior.
+
+    Examples: disabled, highlighted, checked, fixed, size big, primary.
+
+    **Block modifier**: ``input--big``, ``btn--primary``
+
+    **Element modifier**: ``header__title--highlighted``
+
 
 Rules definition
 ================
@@ -146,6 +183,9 @@ Tailwind CSS rules
 Tailwind CSS is a utility-first, highly customizable, low-level CSS framework
 that contains the building blocks for building custom designs.
 
+We are using `Tailwind V1 CSS <https://v1.tailwindcss.com/docs/>`_ for
+Web File Manager project.
+
 GOOD:
 
 .. code::
@@ -173,36 +213,3 @@ GOOD:
         @apply bg-blue-700;
       }
     }
-
-Blocks, Elements and Modifiers
-==============================
-You will not be surprised to hear that BEM is an abbreviation of the key
-elements of the methodology — Block, Element and Modifier.
-
-.. image:: http://getbem.com/assets/github_captions.jpg
-    :alt: BEM
-
-Block
------
-
-Standalone entity that is meaningful on its own.
-
-Examples
-header, container, menu, checkbox, input
-
-Element
--------
-
-A part of a block that has no standalone meaning and is semantically tied to its block.
-
-Examples
-menu item, list item, checkbox caption, header title
-
-Modifier
---------
-
-A flag on a block or element. Use them to change appearance or behavior.
-
-Examples
-disabled, highlighted, checked, fixed, size big, color yellow
-
