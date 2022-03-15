@@ -1,18 +1,21 @@
-CSS, LESS and Styles
+CSS and Styles
 ####################
 
 .. contents::
 
 
 The CSS Coding conventions are inspired by `Stoyan Stefanov's CSS Coding
-Conventions
-<http://www.phpied.com/css-coding-conventions>`_
+Conventions <http://www.phpied.com/css-coding-conventions>`_.
+
+See `Idiomatic CSS <https://github.com/necolas/idiomatic-css>`_.
 
 Many of them are automatically checked using scame which is now
 included in the CSS Coding Convention Checker.
 Please report any problems that you have with running ``paver lint`` or
-if some errors are not identified by ``paver lint``
+if some errors are not identified by ``paver lint``.
 
+We are using `Tailwind V1 CSS <https://v1.tailwindcss.com/docs/>`_ for
+Web File Manager project.
 
 CSS Syntax Elements
 ===================
@@ -22,10 +25,11 @@ When describing the CSS rules, we will use the following terminology.
 .. image:: http://www.w3schools.com/css/selector.gif
     :alt: CSS Selector Graphic
 
+
 General
 =======
 
-* Use C++ comments style (/* comment here \*/) and not C style (//) as they
+* Use C++ comments style (/* *comment here* \*/) and not C style (//) as they
   are not supported by CSS2 and there are problems in some browsers.
   Also, on LESS C style comments (//) are ignored in the final result.
 
@@ -40,11 +44,11 @@ General
 
 * Page specific styles can be included using a different file.
 
-* Use uppercase characters for HEX RGB color codes. (eg. Good #F9A0C5 - BAD #f9a0c5)
+* Use lowercase characters for HEX RGB color codes. (eg. Good #f9a0c5 - Bad #F9A0C5)
 
 * Don't use color names or RGBA, just HEX code.
 
-* Use 4 space indentation.
+* Use 2 space indentation.
 
 * End every property-value with a semi-colon.
 
@@ -52,16 +56,13 @@ General
 
 * Put unrelated rules in different files.
 
-* LESS constants (variables) should be dahs-separated and only low cases:
-  ``@good-constant``
-
 
 CSS Class naming
 ================
 
 * The most important thing to have in mind is the content nature of the
   HTML document, not its presentation.
-  Selector names should describe the content semantic and ``not how it looks``.
+  Selector names should describe the content semantic and **not how it looks**.
 
 * Don't use abbreviation. Use 'header' instead of 'hdr' or 'head'.
 
@@ -74,103 +75,41 @@ CSS Class naming
 
 * Names are lowercase.
 
+* Use ``js-class-name`` notation for classes which are used in **JS** and have no style attached to them.
+
+* Use ``test-class-name`` notation for classes which are used for **testing purposes** and have no style attached to them.
 
 Rules definition
 ================
 
-* The property will be followed by colons and then a space.
-
-Good:
-
-.. code::
-
-    .some-class {
-        float: center;
-    }
-
-
-Bad:
-
-.. code::
-
-    .some-class {
-        float:center;
-    }
+* The property will be followed by colon and then a space.
 
 * Put each selector on a single line and separate them using commas.
   This makes it easier to see each selector when using multiple selectors.
 
-Good:
-
-.. code::
-
-    .some-class,
-    p a.class {
-        float: center;
-    }
-
-Bad:
-
-.. code::
-
-    .some-class, p a.class {
-        float: center;
-    }
+* The opening bracket should be on a the same line as the last selector.
 
 * The closing brackets should be on their own line.
   They should not be wrongly indented.
 
-Good:
+EXAMPLE
 
 .. code::
 
-    .some-class {
-      float: center;
-    }
-
-Bad:
-
-.. code::
-
-    .some-class
-    {
-        float: center;
-        }
-
-    .some-class {
-        float: center; }
-
-    .some-class, .another { float: center; }
-
-* The opening bracket should be on a the same line as the last selector.
-
-Good:
-
-.. code::
-
-    .some-class {
-        float: center;
+    .header {
+      font-size: 2rem;
+      font-weight: 600;
     }
 
     .some-class,
-    .another-class {
-        float: center;
+    p a.other-class {
+      float: center;
     }
-
-Bad:
-
-.. code::
-
-    .some-class
-    {
-        float: center;
-    }
-
 
 Layout and Typography separation
 ================================
 
-* Don't put typography properties in the same class as layout properties 
+* Don't put typography properties in the same class as layout properties
 * The idea it that when you change or remove a typographic rule, the layout will not be affected.
 * Use this with moderation, sometimes it is ok to set a margin or padding for **h1** or **p** tags... but don't abuse this.
 
@@ -179,14 +118,14 @@ GOOD:
 .. code::
 
     .product-name {
-        font-style: underline:
-        color: red;
+      font-style: underline:
+      color: red;
     }
 
     .highlighted-box {
-        float: center;
-        width: 30px;
-        background-color: blue;
+      float: center;
+      width: 30px;
+      background-color: blue;
     }
 
 BAD:
@@ -194,9 +133,76 @@ BAD:
 .. code::
 
     .product-name {
-        font-style: underline:
-        color: red;
-        float: center;
-        width: 30px;
-        background-color: blue;
+      font-style: underline:
+      color: red;
+      float: center;
+      width: 30px;
+      background-color: blue;
     }
+
+Tailwind CSS rules
+==================
+
+Tailwind CSS is a utility-first, highly customizable, low-level CSS framework
+that contains the building blocks for building custom designs.
+
+GOOD:
+
+.. code::
+
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    @layer components {
+      .btn {
+        @apply
+          font-bold
+          py-2
+          px-4
+          rounded
+      }
+
+      .btn-primary {
+        @apply
+          bg-blue-500
+          text-white
+      }
+
+      .btn-primary:hover {
+        @apply bg-blue-700;
+      }
+    }
+
+Blocks, Elements and Modifiers
+==============================
+You will not be surprised to hear that BEM is an abbreviation of the key
+elements of the methodology — Block, Element and Modifier.
+
+.. image:: http://getbem.com/assets/github_captions.jpg
+    :alt: BEM
+
+Block
+-----
+
+Standalone entity that is meaningful on its own.
+
+Examples
+header, container, menu, checkbox, input
+
+Element
+-------
+
+A part of a block that has no standalone meaning and is semantically tied to its block.
+
+Examples
+menu item, list item, checkbox caption, header title
+
+Modifier
+--------
+
+A flag on a block or element. Use them to change appearance or behavior.
+
+Examples
+disabled, highlighted, checked, fixed, size big, color yellow
+
