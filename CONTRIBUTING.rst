@@ -9,26 +9,30 @@ There is paver file to help running a few local tasks.
 
 To initiate the dev environment::
 
-    ./paver.sh deps
+    ./brink.sh deps
     or
     pip install -r docs/requirements.txt
 
 To generate the page on your local system::
 
-    ./paver.sh generate
+    ./brink.sh generate
     or
     sphinx-build -b html -j 2 -n -W docs/ build-geck/html/
 
+To view the local result::
+
+    firefox build/html/index.html
+
 To run a few tests::
 
-    ./paver.sh test
+    ./brink.sh test
 
 
 Onboarding Notes
 ================
 
-If you are currently onboarding with the Chevah Project, making improvements to
-the GECK is a good starting point.
+If you are currently onboarding with the Chevah Project,
+making improvements to the GECK is a good starting point.
 
 Below is a guide that you can follow to make changes to this repo:
 

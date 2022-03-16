@@ -1,5 +1,5 @@
 CSS and Styles
-####################
+##############
 
 .. contents::
 
@@ -47,6 +47,8 @@ General
 * Don't use color names or RGBA, just HEX code.
 
 * Use 2 space indentation.
+  We use 2 and not 4 as with Tailwind you end up with a lot of nesting.
+  With all the level of nestings in Tailwind, the end result looks similar to 4 space indentation.
 
 * End every property-value with a semi-colon.
 
@@ -73,9 +75,14 @@ CSS Class naming
 
 * Names are lowercase.
 
-* Use ``js-class-name`` notation for classes which are used in **JS** and have no style attached to them.
+* Use ``js-CLASS-NAME`` notation for classes which are used to support the **JS** application.\
+  These clases must no have any CSS style attached to them.
+  When changing them in the markup, review the JS application code.
 
-* Use ``test-class-name`` notation for classes which are used for **testing purposes** and have no style attached to them.
+* Use ``test-CLASS-NAME`` notation for classes which are used only to help the **testing** process.
+  No CSS style should be defiend from then.
+  No JS application functionality should be associated with them, other than the testing code.
+
 
 BEM Notation
 ------------
@@ -177,14 +184,21 @@ BAD:
       background-color: blue;
     }
 
-Tailwind CSS rules
-==================
+
+Tailwind and PostCSS
+====================
 
 Tailwind CSS is a utility-first, highly customizable, low-level CSS framework
 that contains the building blocks for building custom designs.
 
-We are using `Tailwind V1 CSS <https://v1.tailwindcss.com/docs/>`_ for
-Web File Manager project.
+Follow the Tailwind documentation as the primary rule for writing CSS.
+When defining our own classed follow BEM notation witout using abreviations.
+It's ok to use the Tailwind abberviated class, just make sure our custom classes are not abbreviated.
+
+We also use PostCSS to improve the way we manage the CSS:
+
+* Use imports to break CSS into multiple files for development.
+* Used as general minifier and having a single production CSS file. 
 
 GOOD:
 
@@ -195,7 +209,7 @@ GOOD:
     @tailwind utilities;
 
     @layer components {
-      .btn {
+      .button {
         @apply
           font-bold
           py-2
@@ -203,13 +217,13 @@ GOOD:
           rounded
       }
 
-      .btn--primary {
+      .button--primary {
         @apply
           bg-blue-500
           text-white
       }
 
-      .btn--primary:hover {
+      .button--primary:hover {
         @apply bg-blue-700;
       }
     }
