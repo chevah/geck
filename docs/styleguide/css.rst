@@ -7,7 +7,8 @@ CSS and Styles
 The CSS Coding conventions are inspired by `Stoyan Stefanov's CSS Coding
 Conventions <http://www.phpied.com/css-coding-conventions>`_.
 
-See `Idiomatic CSS <https://github.com/necolas/idiomatic-css>`_ for more details.
+See `Idiomatic CSS <https://github.com/necolas/idiomatic-css>`_
+for more details.
 
 Many of them are automatically checked using scame which is now
 included in the CSS Coding Convention Checker.
@@ -42,13 +43,15 @@ General
 
 * Page specific styles can be included using a different file.
 
-* Use lowercase characters for HEX RGB color codes. (eg. Good #f9a0c5 - Bad #F9A0C5)
+* Use lowercase characters for HEX RGB color codes.
+  (eg. Good #f9a0c5 - Bad #F9A0C5)
 
 * Don't use color names or RGBA, just HEX code.
 
 * Use 2 space indentation.
   We use 2 and not 4 as with Tailwind you end up with a lot of nesting.
-  With all the levels of nesting in Tailwind, the end result looks similar to 4 space indentation.
+  With all the levels of nesting in Tailwind, the end result looks similar
+  to 4 space indentation.
 
 * End every property-value with a semi-colon.
 
@@ -75,17 +78,20 @@ CSS Class naming
 
 * Names are lowercase.
 
-* Use ``js-CLASS-NAME`` notation for classes which are used to support the **JS** application.
+* Use ``js-CLASS-NAME`` notation for classes which are used to support the
+  **JS** application.
 
   These classes must not have any CSS style attached to them.
 
   When changing them in the markup, review the JS application code.
 
-* Use ``test-CLASS-NAME`` notation for classes which are used only to help the **testing** process.
+* Use ``test-CLASS-NAME`` notation for classes which are used only to help
+  the **testing** process.
 
   No CSS style should be defined on them.
 
-  No JS application functionality should be associated with them, other than the testing code.
+  No JS application functionality should be associated with them, other than the
+  testing code.
 
 
 BEM Notation
@@ -112,7 +118,8 @@ When naming CSS classes, try to use this convention.
 
 * Element
 
-    A part of a block that has no standalone meaning and is semantically tied to its block.
+    A part of a block that has no standalone meaning and is semantically tied
+    to its block.
 
     Examples: ``menu__item``, ``list__item``, ``header__title``.
 
@@ -133,12 +140,15 @@ Rules definition
 * The property will be followed by colon and then a space.
 
 * Put each selector on a single line and separate them using commas.
-  This makes it easier to see each selector when using multiple selectors.
+  This makes it easier to see each selector when using multiple selectors
+  and also to manage the diff.
 
-* The opening bracket should be on a the same line as the last selector.
+* The opening bracket should be on the same line as the last selector.
 
-* The closing brackets should be on their own line.
-  They should not be wrongly indented.
+* The closing brackets should be on their own line and indented like the
+  selector.
+
+* Don't have empty lines between CSS classes as it will fail on Windows.
 
 EXAMPLE OF GOOD CSS FORMATTING
 
@@ -163,8 +173,10 @@ Layout and Typography separation
 ================================
 
 * Don't put typography properties in the same class as layout properties
-* The idea it that when you change or remove a typographic rule, the layout will not be affected.
-* Use this with moderation, sometimes it is ok to set a margin or padding for **h1** or **p** tags... but don't abuse this.
+* The idea it that when you change or remove a typographic rule, the layout
+  will not be affected.
+* Use this with moderation, sometimes it is ok to set a margin or padding for
+  **h1** or **p** tags... but don't abuse this.
 
 GOOD:
 
@@ -202,7 +214,9 @@ that contains the building blocks for building custom designs.
 
 Follow the Tailwind documentation as the primary rule for writing CSS.
 When defining our own classes follow BEM notation without using abbreviations.
-It's ok to use the Tailwind abberviated class, just make sure our custom classes are not abbreviated.
+
+It's ok to use the Tailwind abberviated class, just make sure
+our custom classes are not abbreviated.
 
 We also use PostCSS to improve the way we manage the CSS:
 
