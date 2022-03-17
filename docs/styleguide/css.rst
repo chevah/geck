@@ -48,7 +48,7 @@ General
 
 * Use 2 space indentation.
   We use 2 and not 4 as with Tailwind you end up with a lot of nesting.
-  With all the level of nestings in Tailwind, the end result looks similar to 4 space indentation.
+  With all the levels of nesting in Tailwind, the end result looks similar to 4 space indentation.
 
 * End every property-value with a semi-colon.
 
@@ -75,12 +75,16 @@ CSS Class naming
 
 * Names are lowercase.
 
-* Use ``js-CLASS-NAME`` notation for classes which are used to support the **JS** application.\
-  These clases must no have any CSS style attached to them.
+* Use ``js-CLASS-NAME`` notation for classes which are used to support the **JS** application.
+
+  These classes must not have any CSS style attached to them.
+
   When changing them in the markup, review the JS application code.
 
 * Use ``test-CLASS-NAME`` notation for classes which are used only to help the **testing** process.
-  No CSS style should be defiend from then.
+
+  No CSS style should be defined on them.
+
   No JS application functionality should be associated with them, other than the testing code.
 
 
@@ -136,17 +140,22 @@ Rules definition
 * The closing brackets should be on their own line.
   They should not be wrongly indented.
 
-EXAMPLE
+EXAMPLE OF GOOD CSS FORMATTING
 
 .. code::
 
     .header {
+      height: 100px;
+      padding: 10px;
+      font-family: helvetica, sans-serif;
       font-size: 2rem;
       font-weight: 600;
+      color: #333;
     }
 
-    .some-class,
-    p a.other-class {
+    /* Multiple selectors */
+    .header__logo,
+    .menu__item {
       float: center;
     }
 
@@ -162,14 +171,14 @@ GOOD:
 .. code::
 
     .product-name {
-      font-style: underline:
-      color: red;
+      font-style: underline;
+      color: #f00;
     }
 
     .highlighted-box {
       float: center;
       width: 30px;
-      background-color: blue;
+      background-color: #07f;
     }
 
 BAD:
@@ -177,7 +186,7 @@ BAD:
 .. code::
 
     .product-name {
-      font-style: underline:
+      font-style:underline;
       color: red;
       float: center;
       width: 30px;
@@ -192,7 +201,7 @@ Tailwind CSS is a utility-first, highly customizable, low-level CSS framework
 that contains the building blocks for building custom designs.
 
 Follow the Tailwind documentation as the primary rule for writing CSS.
-When defining our own classed follow BEM notation witout using abreviations.
+When defining our own classes follow BEM notation without using abbreviations.
 It's ok to use the Tailwind abberviated class, just make sure our custom classes are not abbreviated.
 
 We also use PostCSS to improve the way we manage the CSS:
