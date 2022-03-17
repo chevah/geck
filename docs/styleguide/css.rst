@@ -145,29 +145,10 @@ Rules definition
 
 * The opening bracket should be on the same line as the last selector.
 
-* The closing brackets should be on their own line and indented like the
+* The closing bracket should be on its own line and indented like the
   selector.
 
-* Don't have empty lines between CSS classes as it will fail on Windows.
 
-EXAMPLE OF GOOD CSS FORMATTING
-
-.. code::
-
-    .header {
-      height: 100px;
-      padding: 10px;
-      font-family: helvetica, sans-serif;
-      font-size: 2rem;
-      font-weight: 600;
-      color: #333;
-    }
-
-    /* Multiple selectors */
-    .header__logo,
-    .menu__item {
-      float: center;
-    }
 
 Layout and Typography separation
 ================================
@@ -220,6 +201,8 @@ our custom classes are not abbreviated.
 
 We also use PostCSS to improve the way we manage the CSS:
 
+* Don't have empty lines between Tailwind CSS classes
+  as it will fail on Windows.
 * Use imports to break CSS into multiple files for development.
 * Used as general minifier and having a single production CSS file. 
 
@@ -247,6 +230,7 @@ GOOD:
       }
 
       .button--primary:hover {
-        @apply bg-blue-700;
+        @apply
+          bg-blue-700
       }
     }
