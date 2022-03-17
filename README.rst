@@ -11,4 +11,4 @@ It started as the Python styleguide for the project,
 then evolved styleguides were added for more languages, then we added info
 about documenting the project, doing a release... and we ended up with G.E.C.K.
 
-The pages are manages using `Sphinx Docs <https://www.sphinx-doc.org>`_.
+The pages are managed using `Sphinx Docs <https://www.sphinx-doc.org>`_.
