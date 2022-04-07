@@ -90,9 +90,12 @@ CSS Class naming
 
   No CSS style should be defined on them.
 
-  No JS application functionality should be associated with them, other than the testing code.
+  No JS application functionality should be associated with them, other than
+  the testing code.
 
-  The testing code should use only CSS selectors defined based on these test CSS classed.
+  The testing code should use only CSS selectors defined based on these test
+  CSS classes.
+
   No other class or tag name should be used.
 
 

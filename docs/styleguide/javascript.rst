@@ -199,7 +199,11 @@ Example::
 
 
 TODO
-http://javascript.crockford.com/code.html http://jibbering.com/faq/notes/code-guidelines/ http://neil.rashbrook.org/Js.htm
+
+* http://javascript.crockford.com/code.html
+
+* http://jibbering.com/faq/notes/code-guidelines/
+
 
 Prevent polluting the global scope
 ==================================
@@ -304,9 +308,10 @@ private instances and create a new class scope.
 CSS interaction
 ===============
 
-Use `js-CSS-CLASS-NAME` for any CSS classes that are used from JS.
+Use ``js-CSS-CLASS-NAME`` for any CSS classes that are used from JS.
 
-Use `test-CSS-CLASS-NAME` for any CSS classes that is used in the testing code.
+Use ``test-CSS-CLASS-NAME`` for any CSS classes that are used in the testing
+code.
 
 Make sure these classes have no CSS properties.
 
