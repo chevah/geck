@@ -12,3 +12,8 @@ then evolved styleguides were added for more languages, then we added info
 about documenting the project, doing a release... and we ended up with G.E.C.K.
 
 The pages are managed using `Sphinx Docs <https://www.sphinx-doc.org>`_.
+
+To generate a local copy::
+
+  ./brink.sh deps
+  ./brink.sh generate

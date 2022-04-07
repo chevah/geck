@@ -3,6 +3,7 @@ JavaScript
 
 .. contents::
 
+
 General
 =======
 
@@ -45,7 +46,7 @@ General
         console.log(list[i]);
     }
 
-* Always define the variable used to iterate into the ``for`` loop first statement. 
+* Always define the variable used to iterate into the ``for`` loop first statement.
 
 * Don't use ``eval`` and don't pass strings to ``setTimeout`` and
   ``setInterval``.
@@ -198,7 +199,11 @@ Example::
 
 
 TODO
-http://javascript.crockford.com/code.html http://jibbering.com/faq/notes/code-guidelines/ http://neil.rashbrook.org/Js.htm
+
+* http://javascript.crockford.com/code.html
+
+* http://jibbering.com/faq/notes/code-guidelines/
+
 
 Prevent polluting the global scope
 ==================================
@@ -217,6 +222,7 @@ When using IIFE don't forget to add the semicolon at the beginning.
           return function() {}
       })
     })()
+
 
 Defining classes
 ================
@@ -298,70 +304,31 @@ private instances and create a new class scope.
         return cls
     }())
 
+
 CSS interaction
 ===============
 
+Use ``js-CSS-CLASS-NAME`` for any CSS classes that are used from JS.
 
-JS related CSS class
---------------------
+Use ``test-CSS-CLASS-NAME`` for any CSS classes that are used in the testing
+code.
 
-Try to append js- to all javascript-based selectors.
-This is taken from `slightly obtrusive javascript`_.
-The idea is that you should be able to tell a presentational class from a functional class.
+Make sure these classes have no CSS properties.
 
-There are good things and bad things about "Unobtrusive JavaScript."
-One bad thing: it's hard to tell when JavaScript is touching an element.
+More info on our :doc:`CSS <css>` page.
 
-Only use classes and ids prefix with js- when touching the DOM with
-JavaScript.
-
-For example::
-
-.. sourcecode:: 
-
-    <a href="#prices" class="button js-open-tab">Prices</a>
-
-Now we know how to look for any JavaScript touching .js-open-tab, which should
-only be a simple search away.
-
-And hey, now JavaScript and CSS won't share selectors.
-Since we're separating our content and presentation, we might as well separate our behaviour all the
-way too.
-
-.. _slightly obtrusive javascript: http://ozmm.org/posts/slightly_obtrusive_javascript.html
-
-
-Changing CSS/HTML from JS
--------------------------
-
-Don't modify the associated CSS properties, but rather modify the CSS class:
-
-GOOD: 
+Don't modify the associated CSS properties or HTML attribute.
+Rather modify the CSS class:
 
 .. sourcecode:: javascript
 
-   $('#element_id').addClass('highlight');
+   // Good
+   $('#element_id').addClass('highlight')
+   $('#element_id').addClass('sprite red_dot')
+   // Bad
+   $('#element_id').css('font-weight': 'bold')
+   $('#element_id').attr('src': 'some/red_dot.png')
 
-BAD:
-
-.. sourcecode:: javascript
-
-   $('#element_id').css('font-weight': 'bold');
-
-Same story as with CSS, don't modify HTML tag attributes,
-but rather try to change the CSS class:
-
-GOOD:
-
-.. sourcecode:: javascript
-
-    $('#element_id').addClass('sprite red_dot');
-
-BAD: 
-
-.. sourcecode:: javascript
-
-    $('#element_id').attr('src': 'some/red_dot.png');
 
 Test styleguide
 ===============
@@ -417,6 +384,7 @@ Test styleguide
             })
         })
     })
+
 
 Rerefences
 ----------
