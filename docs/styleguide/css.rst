@@ -78,26 +78,6 @@ CSS Class naming
 
 * Names are lowercase.
 
-* Use ``js-CLASS-NAME`` notation for classes which are used to support the
-  **JS** application.
-
-  These classes must not have any CSS style attached to them.
-
-  When changing them in the markup, review the JS application code.
-
-* Use ``test-CLASS-NAME`` notation for classes which are used only to help
-  the **testing** process.
-
-  No CSS style should be defined on them.
-
-  No JS application functionality should be associated with them, other than
-  the testing code.
-
-  The testing code should use only CSS selectors defined based on these test
-  CSS classes.
-
-  No other class or tag name should be used.
-
 
 BEM Notation
 ------------
@@ -209,7 +189,7 @@ We also use PostCSS to improve the way we manage the CSS:
 * Don't have empty lines between Tailwind CSS classes
   as it will fail on Windows.
 * Use imports to break CSS into multiple files for development.
-* Used as general minifier and having a single production CSS file. 
+* Used as general minifier and having a single production CSS file.
 
 GOOD:
 

@@ -7,7 +7,7 @@ HTML, XML and other markups
 General
 =======
 
-* Unlike other files, indentation for XML/HTML is 2 spaces. 
+* Unlike other files, indentation for XML/HTML is 2 spaces.
 
 * Don't use inline HTML style attributes.
   Only CSS classes.
@@ -15,6 +15,10 @@ General
 * Use HTML5 doctype::
 
     <!doctype html>
+
+* For testing add `data-test` attributes.
+
+* For JS purposes use `data-js` attributes.
 
 
 CSS interaction
@@ -49,7 +53,7 @@ HTML tags usage
 * Even though using quotes around attributes is optional, always put quotes around
   attributes for readability:
 
-GOOD: 
+GOOD:
 
 .. code::
 
