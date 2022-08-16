@@ -337,54 +337,75 @@ Test styleguide
 * Leave 2 emtpy lines before each ``suite`` and one empty line before each
   ``test``
 
+* We use `JEST tests <https://jestjs.io/docs/getting-started>`_.
+
+* To run a test:
+
+.. sourcecode:: bash
+
+    ./brink.sh test_js -t 'AdministratorCtrl onDeleteAdministrator_existing'
+
+*  The structure of a test is: Arrange, Act and Assert.
+
+*  Each tests has a comment and a short test-code.
+
 .. sourcecode:: javascript
 
     /*
-    Tests for login controller.
+    Tests for administrator edit page controller.
     */
+    describe('AdministratorCtrl', function() {
 
-    suite('LoginCtrl', function() {
 
-        // Shared variables.
-        var scope
-        var ctrl
+        /*
+        When on the page for a new admin that is not yet saved in the config,
+        it will remove it from the pending changes.
+        */
+        test('onDeleteAdministrator_new', function() {
+            var sut = mk.getController('administratorCtrl')
 
-        setup(function() {
-            // Initialize first.
+            sut.scope.$parent.configuration.administrators = {
+                'some-old-uuid': {'name': 'admin in config'}}
+            sut.scope.$parent.new_entities.administrators = [{
+                'name': 'some-new-admin'
+            }]
+            sut.route.uuid = 'some-new-admin'
+            sut.scope.__init__()
+
+            sut.scope.onDeleteAdministrator()
+
+            // The new admin is removed.
+            expect(sut.scope.$parent.new_entities.administrators).toHaveLength(0)
+            // Existing admin is left.
+            expect(sut.scope.$parent.configuration.administrators).toContainKey(
+                'some-old-uuid')
         })
 
-        teardown(function() {
-            // Clean second.
+        /*
+        For an admin that is found in the config, it will removed it from the
+        configuration object.
+        */
+        test('onDeleteAdministrator_existing', function() {
+            var sut = mk.getController('administratorCtrl')
+
+            sut.scope.$parent.configuration.administrators = {
+                'some-old-uuid': {'name': 'old admin', 'uuid': 'some-old-uuid'}}
+            sut.scope.$parent.new_entities.administrators = [{
+                'name': 'some-new-admin'
+            }]
+            sut.route.uuid = 'some-old-uuid'
+            sut.scope.__init__()
+
+            sut.scope.onDeleteAdministrator()
+
+            // The new admin is removed.
+            expect(sut.scope.$parent.new_entities.administrators).toHaveLength(1)
+            // Existing admin is left.
+            expect(sut.scope.$parent.configuration.administrators).not.toContainKey(
+                'some-old-uuid')
         })
 
-        test(
-        'Initializes with no errors and blank values' +
-        'long line are wrapped',
-        function() {
-            var something = Something()
-
-            something.doSomething()
-
-            assert.equal('', something.username)
-        })
-
-
-        suite('critical_error attribute', function(){
-
-            test(
-            'When set, hides the form and sets the error message.',
-            function(){
-                var message = manu.makeUniqueString()
-
-                scope.critical_error = message
-                scope.$digest()
-
-                assert.isFalse(scope.show_form)
-                assert.equal(message, scope.alert.error)
-            })
-        })
     })
-
 
 Rerefences
 ----------
