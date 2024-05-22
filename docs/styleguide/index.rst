@@ -17,3 +17,4 @@ contribution to the project.
     css
     html
     javascript
+    documentation
