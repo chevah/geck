@@ -1,8 +1,6 @@
 Release process
 ###############
 
-..  contents::
-
 
 General
 =======

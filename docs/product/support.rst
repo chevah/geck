@@ -1,10 +1,6 @@
 Support
 #######
 
-:menu_order: 009
-
-.. contents::
-
 
 Introduction
 ============

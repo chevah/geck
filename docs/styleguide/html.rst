@@ -1,13 +1,11 @@
 HTML, XML and other markups
 ###########################
 
-.. contents::
-
 
 General
 =======
 
-* Unlike other files, indentation for XML/HTML is 2 spaces. 
+* Unlike other files, indentation for XML/HTML is 2 spaces.
 
 * Don't use inline HTML style attributes.
   Only CSS classes.

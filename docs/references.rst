@@ -1,8 +1,6 @@
 References
 ##########
 
-.. contents::
-
 These page contains a list of sources used for creating this content.
 
 General

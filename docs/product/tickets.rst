@@ -1,8 +1,6 @@
 Tickets
 #######
 
-.. contents::
-
 
 General
 =======

@@ -1,8 +1,6 @@
 Bash
 ####
 
-..  contents::
-
 
 General
 -------

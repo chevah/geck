@@ -7,9 +7,6 @@ The review instructions are platform independent so they apply to tickets,
 emails, pull requests, and to all tasks, not only to code reviews.
 
 
-..  contents::
-
-
 General
 =======
 

@@ -1,13 +1,11 @@
 Security
 ########
 
-.. contents::
-
 
 Overview
 ========
 
-The following is more of a public-facing overview or a process rather than focusing on the step-by-step portion of security. 
+The following is more of a public-facing overview or a process rather than focusing on the step-by-step portion of security.
 
 The focus is on the human-side of security with some suggestions of tools and tactics.
 

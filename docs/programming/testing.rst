@@ -1,8 +1,6 @@
 Testing
 #######
 
-.. contents::
-
 Writing automated tests is an important part of development.
 
 We write tests to:

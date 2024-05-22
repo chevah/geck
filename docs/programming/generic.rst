@@ -1,8 +1,6 @@
 Generic Programing Advice
 #########################
 
-..  contents::
-
 General
 =======
 
