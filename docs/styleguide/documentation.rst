@@ -15,8 +15,8 @@ Use `semantic line breaks <https://sembr.org/>`_ as they will make it easier to 
 
 The written language is `British English <https://en.wikipedia.org/wiki/British_English>`_.
 
-Units are written using the `SI style (English version) <https://en.wikipedia.org/wiki/Decimal_separator#Examples_of_use
->`_ and International System of Units.
+Units are written using the `SI style (English version) <https://en.wikipedia.org/wiki/Decimal_separator#Examples_of_use>`_
+and International System of Units.
 
 
 Annotations
