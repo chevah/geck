@@ -17,5 +17,5 @@ The pages are managed using `Sphinx Docs <https://www.sphinx-doc.org>`_.
 
 To generate a local copy::
 
-  ./brink.sh deps
-  ./brink.sh build
+  ./pythia.sh deps
+  ./pythia.sh build
