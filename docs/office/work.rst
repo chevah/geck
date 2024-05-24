@@ -1,8 +1,6 @@
 Work
 ####
 
-.. contents::
-
 
 General
 =======

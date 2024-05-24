@@ -1,8 +1,6 @@
 Onboarding
 ##########
 
-.. contents::
-
 
 Introduction
 ------------
@@ -18,7 +16,7 @@ You can see past/active tasks in the `onboarding repo <hhttps://github.com/cheva
 
 - Ask one of the system administrators to add your email to our groups / mailing lists.
 
-- During onboarding, please arrange and send a calendar invite to weekly meetings with your onboarding supervisor. 
+- During onboarding, please ask for weekly meetings with your onboarding supervisor and send corresponding calendar invites.
 
 - Be connected to IRC on #chevah while you are "in the office".
 

@@ -1,8 +1,6 @@
 Leave / Holiday/ Team building
 ##############################
 
-.. contents::
-
 
 General
 =======

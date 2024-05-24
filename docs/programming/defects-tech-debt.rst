@@ -1,8 +1,6 @@
 Bugs and Tech-Debt
 ##################
 
-.. contents::
-
 
 General
 =======

@@ -1,8 +1,6 @@
 CSS and Styles
 ##############
 
-.. contents::
-
 
 The CSS Coding conventions are inspired by `Stoyan Stefanov's CSS Coding
 Conventions <http://www.phpied.com/css-coding-conventions>`_.

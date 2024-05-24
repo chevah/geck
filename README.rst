@@ -7,6 +7,8 @@ Chevah Garden of Eden Creation Kit
 This repository is the source for the Chevah G.E.C.K at
 https://geck.chevah.com hosted via Read The Docs.
 
+The website is hosted by `Read The Docs <https://about.readthedocs.com/>`_.
+
 It started as the Python styleguide for the project,
 then evolved styleguides were added for more languages, then we added info
 about documenting the project, doing a release... and we ended up with G.E.C.K.
@@ -15,5 +17,5 @@ The pages are managed using `Sphinx Docs <https://www.sphinx-doc.org>`_.
 
 To generate a local copy::
 
-  ./brink.sh deps
-  ./brink.sh generate
+  ./pythia.sh deps
+  ./pythia.sh build

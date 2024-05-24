@@ -1,8 +1,6 @@
 Sales and Marketing
 ###################
 
-.. contents::
-
 
 Introduction
 ============

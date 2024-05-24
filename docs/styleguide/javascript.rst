@@ -1,8 +1,6 @@
 JavaScript
 ##########
 
-.. contents::
-
 
 General
 =======

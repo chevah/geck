@@ -1,8 +1,6 @@
 Dependencies
 ############
 
-.. contents::
-
 
 PyPI Mirror/Custom Index
 ========================

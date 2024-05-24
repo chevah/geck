@@ -3,7 +3,6 @@
 """
 Build script for Python binary distribution.
 """
-from __future__ import unicode_literals, print_function
 import os
 import sys
 from paver.easy import path, task
@@ -24,11 +23,11 @@ def _run_sphinx(args):
     Run sphinx build with `args`.
     """
     from sphinx.cmd.build import main
-    main(argv=args)
+    main(args)
 
 
 @task
-def generate():
+def build():
     """
     Generate the site as local static files.
     """
