@@ -5,13 +5,13 @@ Documentation
 General
 -------
 
-We try not to reinvent the wheel and use the `Google documentation style guide <https://developers.google.com/style/>`_.
-The Google documentation includes link to Red Hat and Microsoft documentation.
+We avoid reinventing the wheel by using the `Google documentation style guide <https://developers.google.com/style/>`_.
+Google's documentation includes links to Red Hat and Microsoft documentations.
 
 This page includes some project specific requirements.
 
 For documentation source code, we don't enforce a maximum line break.
-Use `semantic line breaks <https://sembr.org/>`_ as they will make it easier to read a diff output.
+Use `semantic line breaks <https://sembr.org/>`_ to make it easier to read a diff output.
 
 The written language is `British English <https://en.wikipedia.org/wiki/British_English>`_.
 
