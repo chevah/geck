@@ -5,7 +5,7 @@ Leave / Holiday/ Team building
 General
 =======
 
-* We have 32 days of paid holidays per year (21 legal leave + 11 bank holidays)
+* We have 36 days of paid holidays per year (21 legal leave + 15 bank holidays)
 
 * After 2 years within the team, another leave day is added to the total amount.
 
