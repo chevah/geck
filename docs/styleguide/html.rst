@@ -14,6 +14,10 @@ General
 
     <!doctype html>
 
+* For testing add `data-test` attributes.
+
+* For JS purposes use `data-js` attributes.
+
 
 CSS interaction
 ===============
@@ -47,7 +51,7 @@ HTML tags usage
 * Even though using quotes around attributes is optional, always put quotes around
   attributes for readability:
 
-GOOD: 
+GOOD:
 
 .. code::
 
